@@ -1,9 +1,9 @@
 import express, { Express, Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
-dotenv.config(); // Load environment variables from .env file
+dotenv.config();
 
 const app: Express = express();
-const port: number = parseInt(process.env.PORT || "3000", 10); // Use the PORT variable from .env or default to 3000
+const port: number = parseInt(process.env.PORT || "3000", 10);
 
 // Add CORS middleware
 app.use((req: Request, res: Response, next: NextFunction) => {
