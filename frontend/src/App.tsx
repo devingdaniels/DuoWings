@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const App: React.FC = () => {
-  const [data, setData] = useState<any[]>([]); // Adjust the type according to your API response
+  const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8585/api"); // Adjust the URL as needed
+      const response = await axios.get("http://localhost:8585/api");
       setData(response.data);
       setLoading(false);
     } catch (error) {
