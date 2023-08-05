@@ -1,3 +1,3 @@
 # DuoWings
 
-Basic frontend and backend are set
+Basic frontend and backend are set up
