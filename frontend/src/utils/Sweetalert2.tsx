@@ -24,9 +24,6 @@ const SweetAlert: React.FC = () => {
         didClose={() => {
           setSwalProps({
             show: false,
-            title: "Welcome to WordWings",
-            text: "Login successful!",
-            icon: "success",
           });
         }}
       />
