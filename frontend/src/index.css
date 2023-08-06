@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Default styles for light mode */
+:root {
+    --background-color: #ffffff;
+    --text-color: #333333;
+  }
+  
+  /* Dark mode styles */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #1a1a1a;
+      --text-color: #ffffff;
+    }
+  }
+  
+  /* Common styles for both modes */
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  

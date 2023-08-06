@@ -1,29 +1,17 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 
 const App: React.FC = () => {
-  const [data, setData] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get("http://localhost:8585/api");
-      setData(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
 
   return (
-    <div>
-      <h1>API Data</h1>
-      {loading ? <p>Loading...</p> : <h1>{data}</h1>}
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={isLoggedIn ? <HomePage /> : <LoginPage />} />
+      </Routes>
+    </>
   );
 };
 
