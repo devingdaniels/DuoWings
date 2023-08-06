@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     identifier: "",
     password: "",
@@ -17,7 +19,7 @@ const LoginPage: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Logged in with: " + JSON.stringify(formData));
+    navigate("/home");
   };
 
   return (

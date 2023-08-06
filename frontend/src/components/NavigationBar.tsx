@@ -5,10 +5,7 @@ const NavigationBar: React.FC = () => {
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/customers">Customers</Link>
+          <Link to="/">Logout</Link>
         </li>
       </ul>
     </nav>
