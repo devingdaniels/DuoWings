@@ -10,12 +10,10 @@ const LandingPage: React.FC = () => {
       </h1>
       <div>
         <Link to="/login">
-          <button>log in</button>
+          <button>Login</button>
         </Link>
         <Link to="/register">
-          <button>
-            <span>register</span>
-          </button>
+          <button>Register</button>
         </Link>
       </div>
     </header>
