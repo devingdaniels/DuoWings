@@ -1,23 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const LoginPage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    identifier: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert("Logged in with: " + JSON.stringify(formData));
+  };
+
   return (
     <div>
       <h2>Welcome to DuoWings!</h2>
-      <form action="/home">
+      <form onSubmit={handleLogin}>
         <p>
-          <label>Username or email address or phone</label>
-          <br />
-          <input type="text" name="first_name" required />
+          <label>
+            Username or email address or phone
+            <br />
+            <input
+              type="text"
+              name="identifier"
+              value={formData.identifier}
+              onChange={handleChange}
+              required
+            />
+          </label>
         </p>
         <p>
-          <label>Password</label>
-          <Link to="/forget-password">
-            <label>Forget password?</label>
-          </Link>
-          <br />
-          <input type="password" name="password" required />
+          <label>
+            Password
+            <br />
+            <Link to="/forget-password">Forget password?</Link>
+            <br />
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </label>
         </p>
         <p>
           <button type="submit">Login</button>
