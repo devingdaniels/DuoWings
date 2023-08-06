@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import ForgetPasswordPage from "./pages/ForgetPasswordPage";
+import HomePage from "./pages/HomePage";
 
 const App: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
-
   return (
     <>
       <Routes>
-        <Route path="/" element={isLoggedIn ? <HomePage /> : <LoginPage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/forget-password" element={<ForgetPasswordPage />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </>
   );

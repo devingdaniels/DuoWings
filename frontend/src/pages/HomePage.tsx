@@ -5,6 +5,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <NavigationBar />
+      and this is the homePage
     </>
   );
 };
