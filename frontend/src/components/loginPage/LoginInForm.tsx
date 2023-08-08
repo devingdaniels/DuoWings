@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+interface UserData {
+  email: string;
+  password: string;
+}
+
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
 
-  const [userData, setUserData] = useState({
+  const [userData, setUserData] = useState<UserData>({
     email: "",
     password: "",
   });
@@ -25,11 +30,11 @@ const LoginInForm: React.FC = () => {
 
   return (
     <>
-      <h1 className="sign-in-page-header" onClick={() => navigate("/")}>
+      <h1 className="auth-page-header" onClick={() => navigate("/")}>
         DuoWings
       </h1>
-      <div className="login-form-container">
-        <div className="login-form-wrapper">
+      <div className="auth-form-container">
+        <div className="auth-form-wrapper">
           <form onSubmit={handleSignIn}>
             <h2>Sign In</h2>
             <div className="user-info-wrapper">
@@ -51,8 +56,8 @@ const LoginInForm: React.FC = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="login-form-button-wrapper">
-              <button className="login-button-primary" type="submit">
+            <div className="auth-form-button-wrapper">
+              <button className="auth-button-primary" type="submit">
                 Sign In
               </button>
             </div>

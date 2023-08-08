@@ -10,7 +10,7 @@ interface UserData {
   agreed: boolean;
 }
 
-const RegisterForm: React.FC = () => {
+const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
 
   const [userData, setUserData] = useState<UserData>({
@@ -23,7 +23,6 @@ const RegisterForm: React.FC = () => {
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     alert("Sign Up");
-    // Perform sign-up logic using userData
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,11 +37,11 @@ const RegisterForm: React.FC = () => {
 
   return (
     <>
-      <h1 className="sign-in-page-header" onClick={() => navigate("/")}>
+      <h1 className="auth-page-header" onClick={() => navigate("/")}>
         DuoWings
       </h1>
-      <div className="login-form-container">
-        <div className="login-form-wrapper">
+      <div className="auth-form-container">
+        <div className="auth-form-wrapper">
           <form onSubmit={handleSignUp}>
             <h2>Sign Up</h2>
             <div className="user-info-wrapper">
@@ -73,19 +72,9 @@ const RegisterForm: React.FC = () => {
                 onChange={handleInputChange}
               />
               <br />
-              <label>
-                <input
-                  className="agreed"
-                  type="checkbox"
-                  name="agreed"
-                  checked={userData.agreed}
-                  onChange={handleInputChange}
-                />
-                I agree to the terms and conditions
-              </label>
             </div>
-            <div className="login-form-button-wrapper">
-              <button className="signup-button-primary" type="submit">
+            <div className="auth-form-button-wrapper">
+              <button className="auth-button-primary" type="submit">
                 Sign Up
               </button>
             </div>
@@ -100,4 +89,4 @@ const RegisterForm: React.FC = () => {
   );
 };
 
-export default RegisterForm;
+export default SignUpForm;
