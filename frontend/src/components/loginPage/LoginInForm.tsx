@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
+
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSignIn = async (e: React.FormEvent) => {
+    e.preventDefault();
+    alert("Sign In");
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      [name]: value,
+    }));
+  };
+
   return (
     <>
       <h1 className="sign-in-page-header" onClick={() => navigate("/")}>
@@ -11,19 +30,25 @@ const LoginInForm: React.FC = () => {
       </h1>
       <div className="login-form-container">
         <div className="login-form-wrapper">
-          <form>
+          <form onSubmit={handleSignIn}>
             <h2>Sign In</h2>
             <div className="user-info-wrapper">
               <input
                 className="email"
                 type="email"
                 placeholder="Email or phone number"
+                name="email"
+                value={userData.email}
+                onChange={handleInputChange}
               />
               <br />
               <input
                 className="password"
                 type="password"
                 placeholder="Password"
+                name="password"
+                value={userData.password}
+                onChange={handleInputChange}
               />
             </div>
             <div className="login-form-button-wrapper">
