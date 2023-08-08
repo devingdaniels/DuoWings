@@ -1,29 +1,33 @@
 import express, { Express, Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
+// Databse
 import { connectDB } from "./config/db";
+// Routes
+import userRoutes from "./routes/userRoutes";
 
 const app: Express = express();
 const PORT: number = parseInt(process.env.PORT || "3000", 10);
 
-// Add CORS middleware
-app.use((req: Request, res: Response, next: NextFunction) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// CORS middleware
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Allow requests from this origin
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allow specified HTTP methods
+    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"], // Allow specified request headers
+  })
+);
 
 // Your routes and other middleware here
-import userRoutes from "./routes/userRoutes";
+
 app.use("/api/users", userRoutes);
 
 async function startServer() {
   try {
-    await connectDB(); // Wait for database connection
+    // Connect to the database
+    await connectDB();
+    // Log that we successfully connected to the database
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}...`);
     });
