@@ -17,7 +17,7 @@ const LoginInForm: React.FC = () => {
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Sign In");
+    alert("Implement Sign In");
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

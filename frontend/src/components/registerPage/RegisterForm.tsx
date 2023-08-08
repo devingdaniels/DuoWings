@@ -22,7 +22,7 @@ const SignUpForm: React.FC = () => {
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Sign Up");
+    alert("Implement Sign Up");
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
