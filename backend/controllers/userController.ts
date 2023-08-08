@@ -5,5 +5,5 @@ export const registerUser = (req: Request, res: Response) => {
 };
 
 export const loginUser = (req: Request, res: Response) => {
-  res.send("Login route");
+  res.send("Login route successfully reached");
 };

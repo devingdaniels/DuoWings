@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 interface UserData {
   email: string;
@@ -15,17 +16,23 @@ const LoginInForm: React.FC = () => {
     password: "",
   });
 
-  const handleSignIn = async (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("Implement Sign In");
-  };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUserData((prevUserData) => ({
       ...prevUserData,
       [name]: value,
     }));
+  };
+
+  const handleSignIn = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const URL = "http://localhost:8585/api/auth/login";
+      const response = await axios.post(URL, userData);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

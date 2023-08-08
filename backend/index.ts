@@ -19,9 +19,8 @@ app.use(
   })
 );
 
-// Your routes and other middleware here
-
-app.use("/api/users", userRoutes);
+// Routing middleware
+app.use("/api/auth", userRoutes);
 
 async function startServer() {
   try {
