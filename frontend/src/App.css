@@ -1,46 +1,83 @@
 :root {
-    --font-size-small: 14px;
-    --font-size-medium: 16px;
-    --font-size-large: 18px;
-  }
-  
+  --font-size-small: 14px;
+  --font-size-medium: 16px;
+  --font-size-large: 18px;
+}
 
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
-    font-size: var(--font-size-medium);
-    background-color: rgb(18, 19, 19);
-    color: white;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
+  font-size: var(--font-size-medium);
+  background-color: rgb(18, 19, 19);
+  color: white;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
 
 /* ------ LANDING PAGE --- */
-.landing-page-header {
-    background-image: url('./assets/landingPage.jpg'); 
-    background-size: cover; /* Adjust the background sizing */
-    background-position: center center; /* Adjust the background position */
-    height: 80vh;
+
+.landing-page-container {
+  background-image: url("./assets/landingPage.jpg");
+  background-size: cover; /* Adjust the background sizing */
+  background-position: center center; /* Adjust the background position */
+  height: 100vh; /* DELETE THIS */
 }
 
-.landing-page-header h1{
-    font-size: 4em;
+.landing-page-section-1 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
+  padding: 2%;
 }
 
-@media (max-width: 768px) {
-    :root {
-      --font-size-small: 12px;
-      --font-size-medium: 14px;
-      --font-size-large: 16px;
-    }
-  }
-  
+.landing-page-section-1 h1 {
+  font-size: 2.5rem;
+}
+
+/* CSS */
+.landing-page-register-button,
+.landing-page-login-button {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 1.25rem;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 13px 19px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.landing-page-register-button:hover,
+.landing-page-login-button:hover,
+.landing-page-register-button:active,
+.landing-page-login-button:active,
+.button-63:hover {
+  background-color: black;
+}
+
+.call-to-action-container {
+  display: flex;
+  justify-content: center;
+}
