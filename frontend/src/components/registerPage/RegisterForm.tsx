@@ -2,10 +2,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+// Define the interface for user data
+interface UserData {
+  username: string;
+  email: string;
+  password: string;
+  agreed: boolean;
+}
+
 const RegisterForm: React.FC = () => {
   const navigate = useNavigate();
 
-  const [userData, setUserData] = useState({
+  const [userData, setUserData] = useState<UserData>({
     username: "",
     email: "",
     password: "",
