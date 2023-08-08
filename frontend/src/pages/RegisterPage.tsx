@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage: React.FC = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -20,10 +22,11 @@ const RegisterPage: React.FC = () => {
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.agreed) {
-      alert("User registered: " + JSON.stringify(formData));
+      alert(`Welcome ${formData.username}`);
     } else {
       alert("Please agree to the terms.");
     }
+    navigate("/home");
   };
 
   return (
@@ -87,7 +90,7 @@ const RegisterPage: React.FC = () => {
       </form>
       <footer>
         <p>
-          <Link to="/">Back to Homepage</Link>.
+          <Link to="/">Return Home</Link>
         </p>
       </footer>
     </div>

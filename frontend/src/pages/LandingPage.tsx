@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 
 const LandingPage: React.FC = () => {
   return (
-    <header>
-      <h1>DuoWings</h1>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
-      <Link to="/register">
-        <button>Register</button>
-      </Link>
-    </header>
+    <div className="landing-page-header">
+      <header>
+        <h1>DuoWings</h1>
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
+        <Link to="/register">
+          <button>Register</button>
+        </Link>
+      </header>
+      <div>content</div>
+    </div>
   );
 };
 

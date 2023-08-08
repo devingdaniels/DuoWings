@@ -60,10 +60,10 @@ const LoginPage: React.FC = () => {
       </form>
       <footer>
         <p>
-          First time? <Link to="/register">Create an account</Link>.
+          First time? <Link to="/register">Create an account</Link>
         </p>
         <p>
-          <Link to="/">Back to Homepage</Link>.
+          <Link to="/">Back to Homepage</Link>
         </p>
       </footer>
     </div>

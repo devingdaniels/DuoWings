@@ -1,10 +1,46 @@
+:root {
+    --font-size-small: 14px;
+    --font-size-medium: 16px;
+    --font-size-large: 18px;
+  }
+  
+
 *{
     margin: 0;
     padding: 0;
 }
 
-body{
-    background-color: rgb(25, 27, 28);
+body {
+    font-size: var(--font-size-medium);
+    background-color: rgb(18, 19, 19);
     color: white;
     text-align: center;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+
+/* ------ LANDING PAGE --- */
+.landing-page-header {
+    background-image: url('./assets/landingPage.jpg'); 
+    background-size: cover; /* Adjust the background sizing */
+    background-position: center center; /* Adjust the background position */
+    height: 80vh;
 }
+
+.landing-page-header h1{
+    font-size: 4em;
+}
+
+@media (max-width: 768px) {
+    :root {
+      --font-size-small: 12px;
+      --font-size-medium: 14px;
+      --font-size-large: 16px;
+    }
+  }
+  
