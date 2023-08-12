@@ -27,18 +27,6 @@ const connectDB = async (): Promise<void> => {
 
     connection.once("open", async () => {
       console.log("Connected to MongoDB");
-
-      const MyModel: Model<ITest> = mongoose.model<ITest>(
-        "Test",
-        new Schema({ name: String })
-      );
-
-      try {
-        const result = await MyModel.findOne();
-        console.log("findOne result:", result);
-      } catch (error) {
-        console.error("Error executing findOne:", error);
-      }
     });
   } catch (error) {
     console.error("Error connecting to the database:", error);
