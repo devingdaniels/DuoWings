@@ -3,22 +3,33 @@ import { Link } from "react-router-dom";
 
 // Define the interface for user data
 interface UserData {
+  fname: string;
+  lname: string;
   username: string;
   email: string;
   password: string;
+  confirmPassword: string;
   agreed: boolean;
 }
 
 const SignUpForm: React.FC = () => {
   const [userData, setUserData] = useState<UserData>({
+    fname: "",
+    lname: "",
     username: "",
     email: "",
     password: "",
+    confirmPassword: "",
     agreed: false,
   });
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (userData.password !== userData.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    // Perform actual sign-up logic here
     alert("Implement Sign Up");
   };
 
@@ -40,6 +51,24 @@ const SignUpForm: React.FC = () => {
             <h2>Sign Up</h2>
             <div className="user-info-wrapper">
               <input
+                className="fname"
+                type="text"
+                placeholder="First Name"
+                name="fname"
+                value={userData.fname}
+                onChange={handleInputChange}
+              />
+              <br />
+              <input
+                className="lname"
+                type="text"
+                placeholder="Last Name"
+                name="lname"
+                value={userData.lname}
+                onChange={handleInputChange}
+              />
+              <br />
+              <input
                 className="username"
                 type="text"
                 placeholder="Username"
@@ -51,7 +80,7 @@ const SignUpForm: React.FC = () => {
               <input
                 className="email"
                 type="email"
-                placeholder="Email or phone number"
+                placeholder="Email"
                 name="email"
                 value={userData.email}
                 onChange={handleInputChange}
@@ -66,6 +95,26 @@ const SignUpForm: React.FC = () => {
                 onChange={handleInputChange}
               />
               <br />
+              <input
+                className="password"
+                type="password"
+                placeholder="Confirm Password"
+                name="confirmPassword"
+                value={userData.confirmPassword}
+                onChange={handleInputChange}
+              />
+              <br />
+              <div>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="agreed"
+                    checked={userData.agreed}
+                    onChange={handleInputChange}
+                  />
+                  I agree to the terms and conditions
+                </label>
+              </div>
             </div>
             <div className="auth-form-button-wrapper">
               <button className="auth-button-primary" type="submit">

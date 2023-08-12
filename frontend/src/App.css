@@ -113,7 +113,9 @@ body {
 
 .auth-form-wrapper .user-info-wrapper .email,
 .password,
-.username {
+.username,
+.lname,
+.fname {
   margin-bottom: 30px;
   width: 100%;
   height: 50px;

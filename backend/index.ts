@@ -1,8 +1,9 @@
-import express, { Express, Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
-import cors from "cors";
-import { faker } from "@faker-js/faker";
 dotenv.config();
+import express, { Express, Request, Response, NextFunction } from "express";
+import { faker } from "@faker-js/faker";
+import cors from "cors";
+
 // Databse
 import { connectDB } from "./config/db";
 connectDB();
@@ -10,7 +11,6 @@ connectDB();
 import { User } from "./models/User";
 // Routes
 import userRoutes from "./routes/userRoutes";
-import { error } from "console";
 
 const app: Express = express();
 const PORT: number = parseInt(process.env.PORT || "3000", 10);

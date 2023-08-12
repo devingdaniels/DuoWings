@@ -103,6 +103,11 @@ const UserSchema = new mongoose.Schema({
     index: true,
     lowercase: true,
   },
+  phonenumber: {
+    type: String,
+    required: true,
+    max: 20,
+  },
   hashedPassword: {
     type: String,
     required: true,
