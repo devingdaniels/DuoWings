@@ -86,15 +86,6 @@ const UserSchema = new mongoose.Schema({
     min: 3,
     max: 20,
   },
-  username: {
-    type: String,
-    required: true,
-    min: 3,
-    max: 20,
-    unique: true,
-    index: true,
-    lowercase: true,
-  },
   email: {
     type: String,
     required: true,
@@ -108,10 +99,6 @@ const UserSchema = new mongoose.Schema({
     required: true,
     max: 20,
   },
-  hashedPassword: {
-    type: String,
-    required: true,
-  },
   role: {
     type: String,
     enum: ["user", "admin"],
@@ -123,18 +110,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  tokens: [
-    {
-      token: {
-        type: String, // Store JWT tokens
-        required: true,
-      },
-      expiresAt: {
-        type: Date,
-        required: true,
-      },
-    },
-  ],
+  authentication: {
+    password: { type: String, required: true, select: false },
+    salt: { type: String, select: false },
+    sessionToken: { type: String, select: false },
+  },
 });
 const User = mongoose.model("User", UserSchema);
 

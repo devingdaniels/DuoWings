@@ -1,65 +1,40 @@
 import dotenv from "dotenv";
 dotenv.config();
-import express, { Express, Request, Response, NextFunction } from "express";
-import { faker } from "@faker-js/faker";
+import express from "express";
+import http from "http";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import compression from "compression";
 import cors from "cors";
 
-// Databse
-import { connectDB } from "./config/db";
-connectDB();
-// Models
-import { User } from "./models/User";
-// Routes
-import userRoutes from "./routes/userRoutes";
+// import router from "./router";
+import mongoose from "mongoose";
 
-const app: Express = express();
-const PORT: number = parseInt(process.env.PORT || "3000", 10);
+const app = express();
 
-// CORS middleware
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow requests from this origin
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allow specified HTTP methods
-    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"], // Allow specified request headers
+    credentials: true,
   })
 );
 
-// Routing middleware
-app.use("/api/auth", userRoutes);
+app.use(compression());
+app.use(cookieParser());
+app.use(bodyParser.json());
 
-app.get("/create-user", async (req, res) => {
-  try {
-    const fakeUser = await createFakeUser();
-    console.log(fakeUser);
-    const user = await User.create(fakeUser);
-    console.log(user);
-    res.status(201).json(user);
-  } catch (error) {
-    res.status(500).json({ error: error });
-  }
+const server = http.createServer(app);
+
+const PORT = process.env.PORT || 8585;
+server.listen(PORT, () => {
+  console.log(`Server listening on http://localhost:${PORT}/...`);
 });
 
-const createFakeUser = async () => {
-  const fakeUser = {
-    fname: faker.person.firstName(),
-    lname: faker.person.lastName(),
-    username: faker.internet.userName(),
-    email: faker.internet.email(),
-    hashedPassword: faker.internet.password(),
-    role: "admin",
-  };
-  return fakeUser;
-};
+const MONGO_URL = process.env.MONGODB_CONNECT_STRING || "connection string";
 
-async function startServer() {
-  try {
-    // Connect to the database
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}...`);
-    });
-  } catch (error) {
-    console.error("Error starting the server:", error);
-  }
-}
+// Initialize MongoDB
+mongoose.Promise = Promise;
+mongoose.connect(MONGO_URL);
+// Error handler
+mongoose.connection.on("error", (error: Error) => console.log(error));
 
-startServer();
+// app.use("/", router());
