@@ -8,10 +8,6 @@ import mongoose, {
 import dotenv from "dotenv";
 dotenv.config();
 
-interface ITest extends Document {
-  name: string;
-}
-
 const connectDB = async (): Promise<void> => {
   try {
     const dbUri = process.env.MONGODB_CONNECT_STRING || "";
