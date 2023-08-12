@@ -5,8 +5,8 @@ const LandingPage: React.FC = () => {
   return (
     <div className="landing-page-container">
       <div className="landing-page-section-1">
-        <header>
-          <h1>DuoWings</h1>
+        <header className="auth-page-header">
+          <h1 className="duowings-site-title">DuoWings</h1>
           <nav>
             <Link to="/login">
               <button className="landing-page-login-button">Sign In</button>

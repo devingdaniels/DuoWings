@@ -38,7 +38,10 @@ const LoginInForm: React.FC = () => {
 
   return (
     <>
-      <h1 className="auth-page-header" onClick={() => navigate("/")}>
+      <h1
+        className="auth-page-header duowings-site-title"
+        onClick={() => navigate("/")}
+      >
         DuoWings
       </h1>
       <div className="auth-form-container">

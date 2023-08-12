@@ -29,13 +29,15 @@ body {
   height: 100vh; /* DELETE THIS */
 }
 
-.landing-page-section-1 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  width: 80%;
-  padding: 2%;
+/* Customize the <h1> element */
+.duowings-site-title {
+  font-size: 36px; /* Adjust the font size as needed */
+  font-weight: bold; /* Set the font weight to bold */
+  color: #336699; /* Change the text color */
+  text-align: center; /* Align the text to the center */
+  margin: 20px 0; /* Add some margin to provide spacing */
+  text-transform: uppercase; /* Convert the text to uppercase */
+  font-family: Arial, sans-serif; /* Choose the desired font family */
 }
 
 .landing-page-section-1 h1 {
