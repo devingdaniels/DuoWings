@@ -7,6 +7,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -27,17 +28,6 @@ body {
   background-size: cover; /* Adjust the background sizing */
   background-position: center center; /* Adjust the background position */
   height: 100vh; /* DELETE THIS */
-}
-
-/* Customize the <h1> element */
-.duowings-site-title {
-  font-size: 36px; /* Adjust the font size as needed */
-  font-weight: bold; /* Set the font weight to bold */
-  color: #336699; /* Change the text color */
-  text-align: center; /* Align the text to the center */
-  margin: 20px 0; /* Add some margin to provide spacing */
-  text-transform: uppercase; /* Convert the text to uppercase */
-  font-family: Arial, sans-serif; /* Choose the desired font family */
 }
 
 .landing-page-section-1 h1 {
@@ -85,7 +75,9 @@ body {
 /* --------- AUTH FORMS COMPONENT (SINGIN AND SIGNUP) ------ */
 
 .auth-page-header {
-  width: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1% 2%;
   cursor: pointer;
   font-size: 2.5rem;
@@ -141,15 +133,10 @@ body {
   border: none;
   border-radius: 8px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-  box-sizing: border-box;
   text-decoration: none;
   color: #ffffff;
-  display: flex;
   font-family: Phantomsans, sans-serif;
   font-size: 1.25rem;
-  justify-content: center;
-  width: 100%;
-  line-height: 1em;
   padding: 13px 19px;
   cursor: pointer;
 }
@@ -164,4 +151,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+/* -------------------------------------------- GLOBAL CLASSES --------------------------------------------*/
+
+/* Customize the <h1> element */
+.duowings-site-title {
+  font-size: 36px; /* Adjust the font size as needed */
+  font-weight: bold; /* Set the font weight to bold */
+  color: #336699; /* Change the text color */
+  text-align: center; /* Align the text to the center */
+  margin: 20px 0; /* Add some margin to provide spacing */
+  text-transform: uppercase; /* Convert the text to uppercase */
+  font-family: Arial, sans-serif; /* Choose the desired font family */
 }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 // Define the interface for user data
 interface UserData {
@@ -11,8 +10,6 @@ interface UserData {
 }
 
 const SignUpForm: React.FC = () => {
-  const navigate = useNavigate();
-
   const [userData, setUserData] = useState<UserData>({
     username: "",
     email: "",
@@ -37,12 +34,6 @@ const SignUpForm: React.FC = () => {
 
   return (
     <>
-      <h1
-        className="auth-page-header duowings-site-title"
-        onClick={() => navigate("/")}
-      >
-        DuoWings
-      </h1>
       <div className="auth-form-container">
         <div className="auth-form-wrapper">
           <form onSubmit={handleSignUp}>
