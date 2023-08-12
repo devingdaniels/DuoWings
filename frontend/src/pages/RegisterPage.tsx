@@ -1,17 +1,11 @@
 import React from "react";
-import RegisterForm from "../components/registerPage/RegisterForm";
-import { useNavigate } from "react-router-dom";
+import RegisterForm from "../components/auth/register/RegisterForm";
+import AuthLandingHeader from "../components/auth/AuthLandingHeader";
 
 const RegisterPage: React.FC = () => {
-  const navigate = useNavigate();
   return (
     <>
-      <h1
-        className="auth-page-header duowings-site-title"
-        onClick={() => navigate("/")}
-      >
-        DuoWings
-      </h1>
+      <AuthLandingHeader destination="/" />
       <RegisterForm />
     </>
   );
