@@ -1,8 +1,20 @@
 import React from "react";
 import LoginInForm from "../components/loginPage/LoginInForm";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage: React.FC = () => {
-  return <LoginInForm />;
+  const navigate = useNavigate();
+  return (
+    <>
+      <h1
+        className="auth-page-header duowings-site-title"
+        onClick={() => navigate("/")}
+      >
+        DuoWings
+      </h1>
+      <LoginInForm />
+    </>
+  );
 };
 
 export default LoginPage;

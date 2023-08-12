@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import.meta.env.VITE_BACKEND_API;
 
@@ -10,8 +9,6 @@ interface UserData {
 }
 
 const LoginInForm: React.FC = () => {
-  const navigate = useNavigate();
-
   const [userData, setUserData] = useState<UserData>({
     email: "",
     password: "",
@@ -38,12 +35,6 @@ const LoginInForm: React.FC = () => {
 
   return (
     <>
-      <h1
-        className="auth-page-header duowings-site-title"
-        onClick={() => navigate("/")}
-      >
-        DuoWings
-      </h1>
       <div className="auth-form-container">
         <div className="auth-form-wrapper">
           <form onSubmit={handleSignIn}>
