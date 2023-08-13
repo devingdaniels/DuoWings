@@ -1,11 +1,11 @@
 import express from "express";
-import { merge, get } from "lodash";
+import { merge } from "lodash";
 
 import { getUserBySessionToken } from "../db/users";
 
 export const isAuthenticated = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
   try {
-    const sessionToken = req.cookies["ANTONIO-AUTH"];
+    const sessionToken = req.cookies["DUOWINGS-AUTH"];
 
     if (!sessionToken) {
       return res.sendStatus(403);
@@ -14,7 +14,7 @@ export const isAuthenticated = async (req: express.Request, res: express.Respons
     const existingUser = await getUserBySessionToken(sessionToken);
 
     if (!existingUser) {
-      return res.sendStatus(403);
+      return res.status(403).json({ message: "Invalid session token" });
     }
 
     merge(req, { identity: existingUser });
