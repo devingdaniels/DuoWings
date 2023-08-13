@@ -1,6 +1,4 @@
 import dotenv from "dotenv";
-import mongoose from "mongoose";
-import logging from "./logging";
 
 dotenv.config();
 
@@ -35,6 +33,7 @@ const SERVER_TOKEN_SECRET = process.env.SERVER_TOKEN_SECRET || "superencryptedse
 const SERVER = {
   hostname: SERVER_HOSTNAME,
   port: SERVER_PORT,
+  namespace: NAMESPACE,
   token: {
     expireTime: SERVER_TOKEN_EXPIRETIME,
     issuer: SERVER_TOKEN_ISSUER,
@@ -47,13 +46,4 @@ const config = {
   server: SERVER,
 };
 
-const connectToMongoDB = async () => {
-  try {
-    await mongoose.connect(config.mongo.url, config.mongo.options);
-    logging.info(NAMESPACE, "DuoWings Database is Connected!");
-  } catch (error: any) {
-    logging.error(NAMESPACE, error.message, error);
-  }
-};
-
-export default connectToMongoDB;
+export default config;

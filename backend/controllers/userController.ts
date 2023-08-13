@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getUsers } from "../db/users";
+import { getUsers } from "../mongodb/models/user";
 
 export const getAllUsers = async (req: express.Request, res: express.Response) => {
   try {
