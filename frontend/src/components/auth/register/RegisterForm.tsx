@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 interface UserData {
   fname: string;
   lname: string;
-  username: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -16,7 +15,6 @@ const SignUpForm: React.FC = () => {
   const [userData, setUserData] = useState<UserData>({
     fname: "",
     lname: "",
-    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -68,14 +66,6 @@ const SignUpForm: React.FC = () => {
                 onChange={handleInputChange}
               />
               <br />
-              <input
-                className="username"
-                type="text"
-                placeholder="Username"
-                name="username"
-                value={userData.username}
-                onChange={handleInputChange}
-              />
               <br />
               <input
                 className="email"
