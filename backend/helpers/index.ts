@@ -1,9 +1,17 @@
-import crypto from "crypto";
+import bcrypt from "bcryptjs";
 
-const SECRET = "DUOWINGS-REST-API";
-
-export const authentication = (salt: string, password: string): string => {
-  return crypto.createHmac("sha256", [salt, password].join("/")).update(SECRET).digest("hex");
+const hashPassword = async (password: string): Promise<string> => {
+  try {
+    // Hash the password using bcrypt with a salt rounds value of 10
+    const hash = await bcrypt.hash(password, 10);
+    return hash;
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
 };
 
-export const random = () => crypto.randomBytes(128).toString("base64");
+const helpers = {
+  hashPassword,
+};
+
+export default helpers;

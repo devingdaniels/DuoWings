@@ -1,21 +1,15 @@
 import { NextFunction, Request, Response } from "express";
-import mongoose from "mongoose";
-import bcryptjs from "bcryptjs";
 import { UserModel as User } from "../mongodb/models/user";
-// import signJWT from "../functions/signJTW";
+import mongoose from "mongoose";
+import helpers from "../helpers";
 
 const NAMESPACE = "User";
 
-const registerUser = (req: Request, res: Response, next: NextFunction) => {
+const registerUser = async (req: Request, res: Response, next: NextFunction) => {
   let { fname, lname, phonenumber, email, password } = req.body;
 
-  bcryptjs.hash(password, 10, (hashError, hash) => {
-    if (hashError) {
-      return res.status(401).json({
-        message: hashError.message,
-        error: hashError,
-      });
-    }
+  try {
+    const hashedPassword = await helpers.hashPassword(password);
 
     const _user = new User({
       _id: new mongoose.Types.ObjectId(),
@@ -23,23 +17,20 @@ const registerUser = (req: Request, res: Response, next: NextFunction) => {
       lname,
       email,
       phonenumber,
-      password: hash,
+      password: hashedPassword,
     });
 
-    return _user
-      .save()
-      .then((user) => {
-        return res.status(201).json({
-          user,
-        });
-      })
-      .catch((error) => {
-        return res.status(500).json({
-          message: error.message,
-          error,
-        });
-      });
-  });
+    const savedUser = await _user.save();
+
+    return res.status(201).json({
+      user: savedUser,
+    });
+  } catch (error: any) {
+    return res.status(500).json({
+      message: error.message,
+      error,
+    });
+  }
 };
 
 export { registerUser };
