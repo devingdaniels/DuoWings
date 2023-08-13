@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 // Define the interface for user data
 interface UserData {
@@ -23,12 +24,16 @@ const SignUpForm: React.FC = () => {
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (userData.password !== userData.confirmPassword) {
-      alert("Passwords do not match");
-      return;
+    try {
+      const URL: string =
+        import.meta.env.VITE_BACKEND_API_AUTH + "/register" || "undefined";
+      const response = await axios.post(URL, userData);
+      console.log("Response:", response.data);
+
+      // Additional processing or redirection based on response
+    } catch (error: any) {
+      console.error("An error occurred:", error.message);
     }
-    // Perform actual sign-up logic here
-    alert("Implement Sign Up");
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
