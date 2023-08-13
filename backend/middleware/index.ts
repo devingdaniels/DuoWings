@@ -3,11 +3,7 @@ import { merge, get } from "lodash";
 
 import { getUserBySessionToken } from "../db/users";
 
-export const isAuthenticated = async (
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) => {
+export const isAuthenticated = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
   try {
     const sessionToken = req.cookies["ANTONIO-AUTH"];
 

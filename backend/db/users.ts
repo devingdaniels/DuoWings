@@ -49,11 +49,8 @@ export const UserModel = mongoose.model("User", UserSchema, "Users");
 // User Actions
 export const getUsers = () => UserModel.find();
 export const getUserByEmail = (email: string) =>
-  UserModel.findOne({ email }).select(
-    "+authentication.salt +authentication.password +authentication.sessionToken"
-  );
+  UserModel.findOne({ email }).select("+authentication.salt +authentication.password +authentication.sessionToken");
 export const getUserBySessionToken = (sessionToken: string) =>
   UserModel.findOne({ "authentication.sessionToken": sessionToken });
 export const getUserById = (id: string) => UserModel.findById(id);
-export const createUser = (values: Record<string, any>) =>
-  new UserModel(values).save().then((user) => user.toObject());
+export const createUser = (values: Record<string, any>) => new UserModel(values).save().then((user) => user.toObject());
