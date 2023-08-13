@@ -6,8 +6,14 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import compression from "compression";
 import cors from "cors";
-import mongoose from "mongoose";
 import router from "./router";
+import ConnectDB from "./config/mongoDB";
+import logging from "./config/logging";
+
+const NAMESPACE = "Server";
+
+// Connect to MongoDB
+ConnectDB();
 
 const app = express();
 
@@ -25,15 +31,7 @@ const server = http.createServer(app);
 
 const PORT = process.env.PORT || 8585;
 server.listen(PORT, () => {
-  console.log(`Server listening on http://localhost:${PORT}/...`);
+  logging.info(NAMESPACE, `Server is running on http://localhost:${PORT}/...`);
 });
-
-const MONGO_URL = process.env.MONGODB_CONNECT_STRING || "connection string";
-
-// Initialize MongoDB
-mongoose.Promise = Promise;
-mongoose.connect(MONGO_URL);
-// Error handler
-mongoose.connection.on("error", (error: Error) => console.log(error));
 
 app.use("/", router());
