@@ -1,14 +1,45 @@
-import express from "express";
+import { NextFunction, Request, Response } from "express";
+import mongoose from "mongoose";
+import bcryptjs from "bcryptjs";
+import { UserModel as User } from "../mongodb/models/user";
+// import signJWT from "../functions/signJTW";
 
-import { getUsers } from "../mongodb/models/user";
+const NAMESPACE = "User";
 
-export const getAllUsers = async (req: express.Request, res: express.Response) => {
-  try {
-    const users = await getUsers();
+const registerUser = (req: Request, res: Response, next: NextFunction) => {
+  let { fname, lname, phonenumber, email, password } = req.body;
 
-    return res.status(200).json(users);
-  } catch (error) {
-    console.log(error);
-    return res.sendStatus(400);
-  }
+  bcryptjs.hash(password, 10, (hashError, hash) => {
+    if (hashError) {
+      return res.status(401).json({
+        message: hashError.message,
+        error: hashError,
+      });
+    }
+
+    const _user = new User({
+      _id: new mongoose.Types.ObjectId(),
+      fname,
+      lname,
+      email,
+      phonenumber,
+      password: hash,
+    });
+
+    return _user
+      .save()
+      .then((user) => {
+        return res.status(201).json({
+          user,
+        });
+      })
+      .catch((error) => {
+        return res.status(500).json({
+          message: error.message,
+          error,
+        });
+      });
+  });
 };
+
+export { registerUser };

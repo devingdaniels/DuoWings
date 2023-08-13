@@ -31,11 +31,7 @@ const UserSchema = new mongoose.Schema({
     enum: ["user", "admin"],
     default: "user",
   },
-  authentication: {
-    password: { type: String, required: true, select: false },
-    salt: { type: String, select: false },
-    sessionToken: { type: String, select: false },
-  },
+  password: { type: String, required: true, select: false },
   dialogues: [{ type: mongoose.Schema.Types.ObjectId, ref: "Dialogue" }],
   vocabulary: [{ type: mongoose.Schema.Types.ObjectId, ref: "Vocabulary" }],
   profilePicture: {
