@@ -7,6 +7,9 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ForgetPasswordPage from "./pages/ForgetPasswordPage";
 import HomePage from "./pages/HomePage";
+// App Notifications
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App: React.FC = () => {
   return (
@@ -18,6 +21,7 @@ const App: React.FC = () => {
         <Route path="/forget-password" element={<ForgetPasswordPage />} />
         <Route path="/home" element={<HomePage />} />
       </Routes>
+      <ToastContainer />
     </>
   );
 };
