@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import.meta.env.VITE_BACKEND_API;
+import SweetAlert from "../../utils/Sweetalert2";
 
 interface UserData {
   email: string;
@@ -10,6 +11,7 @@ interface UserData {
 
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
+  const [login, setLogin] = useState(false);
   const [userData, setUserData] = useState<UserData>({
     email: "",
     password: "",
@@ -29,8 +31,7 @@ const LoginInForm: React.FC = () => {
       const URL = `${import.meta.env.VITE_BACKEND_API_AUTH}/login`;
       const response = await axios.post(URL, userData);
       if (response.status === 200) {
-        console.log(response.data);
-        navigate("/home");
+        setLogin(true);
       }
     } catch (error) {
       console.log(error);
@@ -74,6 +75,21 @@ const LoginInForm: React.FC = () => {
           <Link to="/register">Sign Up Now</Link>
         </div>
       </div>
+      {login && (
+        <SweetAlert
+          attributes={{
+            name: "Welcome to DuoWings!",
+            redirectPath: "/home",
+            title: "Success!",
+            icon: "success",
+            timer: 5000,
+            confirmButtonText: "Enter App",
+            didClose: () => {
+              navigate("/home");
+            },
+          }}
+        />
+      )}
     </>
   );
 };

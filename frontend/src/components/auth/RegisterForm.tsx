@@ -3,22 +3,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SweetAlert from "../../utils/Sweetalert2";
-
-// Define the interface for user data
-interface UserData {
-  fname: string;
-  lname: string;
-  email: string;
-  phonenumber: string;
-  password: string;
-  confirmPassword: string;
-  agreed: boolean;
-}
+import UserRegister from "../../interfaces/UserRegister";
 
 const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
   const [signupSuccess, setSignupSuccess] = useState(false);
-  const [userData, setUserData] = useState<UserData>({
+  const [userData, setUserData] = useState<UserRegister>({
     fname: "",
     lname: "",
     email: "",
