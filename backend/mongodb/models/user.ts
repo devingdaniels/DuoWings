@@ -21,6 +21,7 @@ const UserSchema = new mongoose.Schema({
     index: true,
     lowercase: true,
   },
+  password: { type: String, required: true, select: false },
   phonenumber: {
     type: String,
     required: true,
@@ -31,13 +32,12 @@ const UserSchema = new mongoose.Schema({
     enum: ["user", "admin"],
     default: "user",
   },
-  password: { type: String, required: true, select: false },
-  dialogues: [{ type: mongoose.Schema.Types.ObjectId, ref: "Dialogue" }],
-  vocabulary: [{ type: mongoose.Schema.Types.ObjectId, ref: "Vocabulary" }],
   profilePicture: {
     type: String,
     default: "",
   },
+  dialogues: [{ type: mongoose.Schema.Types.ObjectId, ref: "Dialogue" }],
+  vocabulary: [{ type: mongoose.Schema.Types.ObjectId, ref: "Vocabulary" }],
 });
 
 export const UserModel = mongoose.model("User", UserSchema, "Users");

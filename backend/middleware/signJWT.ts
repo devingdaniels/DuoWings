@@ -9,6 +9,8 @@ const signJWT = (user: IUser, callback: (error: Error | null, token: string | nu
   const timeSinceEpoch = new Date().getTime();
   const expirationTime = timeSinceEpoch + Number(config.server.token.expireTime) * 100000;
   const expirationTimeInSeconds = Math.floor(expirationTime / 1000);
+  console.log("expirationTimeInSeconds: ", expirationTimeInSeconds);
+  console.log("expirationTime: ", expirationTime);
 
   logging.info(NAMESPACE, `Attempting to sign token for ${user._id}`);
 
