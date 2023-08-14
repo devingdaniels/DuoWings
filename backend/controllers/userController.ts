@@ -50,9 +50,10 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     const user = await User.findOne({ email }).exec();
 
     if (!user) {
-      console.log("User does not exist");
+      const message = `User with email ${email} does not exist`;
+      console.log(message);
       return res.status(401).json({
-        message: `User does not exist`,
+        message: message,
       });
     }
     console.log("User", user);

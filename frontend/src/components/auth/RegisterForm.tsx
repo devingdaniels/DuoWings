@@ -33,7 +33,6 @@ const SignUpForm: React.FC = () => {
         import.meta.env.VITE_BACKEND_API_AUTH + "/register" || "undefined";
       const response = await axios.post(URL, userData);
       if (response.status === 201) {
-        console.log(response.data);
         navigate("/login");
       }
 
