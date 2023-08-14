@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import.meta.env.VITE_BACKEND_API;
 
@@ -9,6 +9,7 @@ interface UserData {
 }
 
 const LoginInForm: React.FC = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState<UserData>({
     email: "",
     password: "",
@@ -25,9 +26,12 @@ const LoginInForm: React.FC = () => {
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const URL = `${import.meta.env.VITE_BACKEND_API}/auth/login`;
+      const URL = `${import.meta.env.VITE_BACKEND_API_AUTH}/login`;
       const response = await axios.post(URL, userData);
-      console.log(response);
+      if (response.status === 200) {
+        console.log(response.data);
+        navigate("/home");
+      }
     } catch (error) {
       console.log(error);
     }

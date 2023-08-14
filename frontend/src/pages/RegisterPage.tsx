@@ -1,5 +1,5 @@
 import React from "react";
-import RegisterForm from "../components/auth/register/RegisterForm";
+import RegisterForm from "../components/auth/RegisterForm";
 import AuthLandingHeader from "../components/auth/AuthLandingHeader";
 
 const RegisterPage: React.FC = () => {

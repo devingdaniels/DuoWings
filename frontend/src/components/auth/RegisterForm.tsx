@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // Define the interface for user data
 interface UserData {
   fname: string;
   lname: string;
   email: string;
+  phonenumber: string;
   password: string;
   confirmPassword: string;
   agreed: boolean;
 }
 
 const SignUpForm: React.FC = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState<UserData>({
     fname: "",
     lname: "",
     email: "",
+    phonenumber: "",
     password: "",
     confirmPassword: "",
     agreed: false,
@@ -28,7 +32,10 @@ const SignUpForm: React.FC = () => {
       const URL: string =
         import.meta.env.VITE_BACKEND_API_AUTH + "/register" || "undefined";
       const response = await axios.post(URL, userData);
-      console.log("Response:", response.data);
+      if (response.status === 201) {
+        console.log(response.data);
+        navigate("/login");
+      }
 
       // Additional processing or redirection based on response
     } catch (error: any) {
@@ -71,13 +78,20 @@ const SignUpForm: React.FC = () => {
                 onChange={handleInputChange}
               />
               <br />
-              <br />
               <input
                 className="email"
                 type="email"
                 placeholder="Email"
                 name="email"
                 value={userData.email}
+                onChange={handleInputChange}
+              />
+              <input
+                className="phonenumber"
+                type="text"
+                placeholder="541-222-2222"
+                name="phonenumber"
+                value={userData.phonenumber}
                 onChange={handleInputChange}
               />
               <br />
