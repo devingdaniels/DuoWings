@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import SweetAlert from "../../utils/Sweetalert2";
 
 // Define the interface for user data
 interface UserData {
@@ -16,6 +17,7 @@ interface UserData {
 
 const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
+  const [signupSuccess, setSignupSuccess] = useState(false);
   const [userData, setUserData] = useState<UserData>({
     fname: "",
     lname: "",
@@ -33,7 +35,7 @@ const SignUpForm: React.FC = () => {
         import.meta.env.VITE_BACKEND_API_AUTH + "/register" || "undefined";
       const response = await axios.post(URL, userData);
       if (response.status === 201) {
-        navigate("/login");
+        setSignupSuccess(true); // Set signup success state to true
       }
 
       // Additional processing or redirection based on response
@@ -136,6 +138,21 @@ const SignUpForm: React.FC = () => {
           <Link to="/login">Sign In</Link>
         </div>
       </div>
+      {signupSuccess && (
+        <SweetAlert
+          attributes={{
+            name: "Welcome to DuoWings",
+            redirectPath: "/login",
+            title: "Success!",
+            icon: "success",
+            timer: 3000,
+            confirmButtonText: "Continue to Login",
+            didClose: () => {
+              navigate("/login");
+            },
+          }}
+        />
+      )}
     </>
   );
 };
