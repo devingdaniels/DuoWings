@@ -36,30 +36,30 @@ const signJWT = async (user: IUser): Promise<string> => {
 };
 
 const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
+  logging.info(NAMESPACE, `Attempting to verify token in verifyJWT middleware `);
   try {
     // Get token from cookie
     const token = req.cookies.user_token;
 
     if (!token) {
-      throw new Error("Not authorized, no token");
+      return res.status(401).json({ error: "No token provided" });
     }
 
     // Verify token
     const decoded: JwtPayload = jwt.verify(token, config.server.token.secret) as JwtPayload;
-    console.log(decoded);
 
     // Get user from the token
     const user = await UserModel.findById(decoded.id).select("-password");
 
-    if (user) {
-      console.log("User", user);
-    } else {
-      console.log("No user");
+    if (!user) {
+      return res.status(401).json({ error: "Invalid user" });
     }
+
+    // Everything checks out, proceed to the next middleware
     next();
   } catch (error) {
-    console.log(error);
-    res.status(401).json({ error: "Not authorized" });
+    console.error(error);
+    res.status(401).json({ error: "Token validation error" });
   }
 };
 
