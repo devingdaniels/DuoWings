@@ -5,5 +5,4 @@ export default interface UserData {
   phonenumber: string;
   password: string;
   confirmPassword: string;
-  agreed: boolean;
 }

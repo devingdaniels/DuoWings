@@ -1,112 +1,50 @@
+import { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
 import helpers from "../helpers";
-import bcryptjs from "bcryptjs";
 import signJWT from "../middleware/signJWT";
-import { NextFunction, Request, Response } from "express";
 import { UserModel as User } from "../mongodb/models/user";
+import asyncHandler from "express-async-handler";
 
 const NAMESPACE = "User";
-const registerUser = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const { fname, lname, phonenumber, email, password } = req.body;
 
-    const hashedPassword = await helpers.hashPassword(password);
+const registerUser = asyncHandler(async (req: Request, res: Response): Promise<void> => {
+  const { fname, lname, phonenumber, email, password, confirmPassword } = req.body;
 
-    const newUser = new User({
-      _id: new mongoose.Types.ObjectId(),
-      fname,
-      lname,
-      email,
-      phonenumber,
-      password: hashedPassword,
-    });
-
-    const savedUser = await newUser.save();
-
-    // Generate a JWT token
-    const token = await signJWT(savedUser);
-
-    // Set the JWT as an HTTP-only cookie
-    res.cookie("token", token, { httpOnly: true });
-
-    return res.status(201).json({
-      user: savedUser,
-      token: token,
-    });
-  } catch (error: any) {
-    console.error("Error", error);
-    return res.status(500).json({
-      message: error.message,
-      error,
-    });
+  // First check if the user already exists
+  const existingUser = await User.findOne({ email }).exec();
+  if (existingUser) {
+    res.status(400).json({ errorType: "emailConflict", message: `User with email ${email} already exists` });
+    return;
   }
-};
 
-export default registerUser;
-
-const loginUser = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const { email, password } = req.body;
-
-    if (!email || !password) {
-      return res.status(400).json({
-        message: "Invalid request, missing email or password",
-      });
-    }
-
-    const user = await User.findOne({ email }).exec();
-
-    if (!user) {
-      return res.status(401).json({
-        message: `User with email ${email} does not exist`,
-      });
-    }
-
-    const passwordMatch = await bcryptjs.compare(password, user.password);
-
-    if (!passwordMatch) {
-      return res.status(401).json({
-        message: "Invalid credentials",
-      });
-    }
-
-    // Generate a JWT token
-    const token = await signJWT(user);
-
-    // Set the JWT as an HTTP-only cookie
-    res.cookie("token", token, { httpOnly: true });
-
-    return res.status(200).json({
-      message: "Auth successful",
-      token: token,
-      user: user,
-    });
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({
-      error: err,
-    });
+  // Check if the password and confirm password fields match
+  if (password !== confirmPassword) {
+    res.status(400).json({ message: "Passwords do not match" });
+    return;
   }
-};
 
-const logoutUser = (req: Request, res: Response, next: NextFunction) => {
-  try {
-    // Clear the 'token' cookie to log the user out
-    res.clearCookie("token", {
-      httpOnly: true,
-      // Other cookie options (e.g., secure: true for HTTPS)
-    });
+  // Hash the user's password
+  const hashedPassword = await helpers.hashPassword(password);
 
-    return res.status(200).json({
-      message: "Logout successful",
-    });
-  } catch (error: any) {
-    console.log("Error", error);
-    return res.status(500).json({
-      message: "Internal server error",
-      error: error.message,
-    });
-  }
-};
+  // Create a new instance of the User model
+  const newUser = new User({
+    _id: new mongoose.Types.ObjectId(),
+    fname,
+    lname,
+    email,
+    phonenumber,
+    password: hashedPassword,
+  });
 
-export { registerUser, loginUser, logoutUser };
+  // Save the user to the database
+  const savedUser = await newUser.save();
+
+  // Generate a JWT token
+  const token = await signJWT(savedUser);
+
+  res.status(201).json({
+    user: savedUser,
+    token: token,
+  });
+});
+export { registerUser };

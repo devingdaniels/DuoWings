@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SweetAlert from "../../utils/Sweetalert2";
 import UserRegister from "../../interfaces/UserRegister";
+import { notify } from "../../utils/Toastify";
 
 const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
@@ -15,7 +16,6 @@ const SignUpForm: React.FC = () => {
     phonenumber: "",
     password: "",
     confirmPassword: "",
-    agreed: false,
   });
 
   const handleSignUp = async (e: React.FormEvent) => {
@@ -26,15 +26,21 @@ const SignUpForm: React.FC = () => {
       const response = await axios.post(URL, userData);
       if (response.status === 201) {
         console.log(response.data);
-        // setSignupSuccess(true);
+        setSignupSuccess(true);
+      } else if (
+        response.status === 400 &&
+        response.data.errorType === "emailConflict"
+      ) {
+        console.log(response.data.message);
+        notify("User with this email already exists.");
+      } else {
+        console.log(response.data);
+        notify("An error occurred.");
       }
-
-      // Additional processing or redirection based on response
     } catch (error: any) {
       console.error("An error occurred:", error.message);
     }
   };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     const inputValue = type === "checkbox" ? checked : value;
@@ -59,6 +65,7 @@ const SignUpForm: React.FC = () => {
                 name="fname"
                 value={userData.fname}
                 onChange={handleInputChange}
+                required
               />
               <br />
               <input
@@ -68,6 +75,7 @@ const SignUpForm: React.FC = () => {
                 name="lname"
                 value={userData.lname}
                 onChange={handleInputChange}
+                required
               />
               <br />
               <input
@@ -77,6 +85,7 @@ const SignUpForm: React.FC = () => {
                 name="email"
                 value={userData.email}
                 onChange={handleInputChange}
+                required
               />
               <input
                 className="phonenumber"
@@ -85,6 +94,7 @@ const SignUpForm: React.FC = () => {
                 name="phonenumber"
                 value={userData.phonenumber}
                 onChange={handleInputChange}
+                required
               />
               <br />
               <input
@@ -94,6 +104,7 @@ const SignUpForm: React.FC = () => {
                 name="password"
                 value={userData.password}
                 onChange={handleInputChange}
+                required
               />
               <br />
               <input
@@ -103,19 +114,9 @@ const SignUpForm: React.FC = () => {
                 name="confirmPassword"
                 value={userData.confirmPassword}
                 onChange={handleInputChange}
+                required
               />
               <br />
-              <div>
-                <label>
-                  <input
-                    type="checkbox"
-                    name="agreed"
-                    checked={userData.agreed}
-                    onChange={handleInputChange}
-                  />
-                  I agree to the terms and conditions
-                </label>
-              </div>
             </div>
             <div className="auth-form-button-wrapper">
               <button className="auth-button-primary" type="submit">
@@ -139,7 +140,7 @@ const SignUpForm: React.FC = () => {
             timer: 3000,
             confirmButtonText: "Continue to Login",
             didClose: () => {
-              navigate("/login");
+              navigate("/home");
             },
           }}
         />

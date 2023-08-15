@@ -15,7 +15,7 @@ const signJWT = async (user: IUser): Promise<string> => {
   try {
     const token = jwt.sign(
       {
-        username: user.fname + user.lname,
+        username: user.fname + user.lname + user.email,
       },
       config.server.token.secret,
       {
