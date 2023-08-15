@@ -9,10 +9,8 @@ const NavigationBar: React.FC = () => {
         withCredentials: true,
       };
 
-      const response = await axios.get(
-        "http://localhost:8585/api/users/auth/logout",
-        options
-      );
+      const URL = import.meta.env.VITE_BACKEND_API_AUTH + "/logout";
+      const response = await axios.get(URL, options);
       console.log(response.data);
     } catch (error) {
       console.log(error);

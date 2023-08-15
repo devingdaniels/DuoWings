@@ -1,10 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
 import helpers from "../helpers";
-import jwt from "jsonwebtoken";
-import signJWT from "../middleware/signJWT";
 import { UserModel as User } from "../mongodb/models/user";
 import asyncHandler from "express-async-handler";
+import { signJWT, verifyJWT } from "../middleware/authMiddleware";
 
 const NAMESPACE = "User";
 
@@ -66,9 +65,8 @@ const logoutUser = asyncHandler(async (req: Request, res: Response): Promise<voi
 
   try {
     console.log(`Token is ${token}`);
-    const decoded = jwt.verify(token, ".Sj@vRAHvctzeUxnDJ*RkAT_?IOK}P");
     res.clearCookie("user_token");
-    res.json({ message: "Protected route", user: decoded });
+    res.json({ message: "Protected route" });
   } catch (error) {
     res.status(401).json({ message: "Unauthorized" });
   }
