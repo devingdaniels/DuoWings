@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
 import helpers from "../helpers";
+import jwt from "jsonwebtoken";
 import signJWT from "../middleware/signJWT";
 import { UserModel as User } from "../mongodb/models/user";
 import asyncHandler from "express-async-handler";
@@ -42,9 +43,30 @@ const registerUser = asyncHandler(async (req: Request, res: Response): Promise<v
   // Generate a JWT token
   const token = await signJWT(savedUser);
 
+  res.cookie("user_token", token, { httpOnly: true, maxAge: 3600000 });
+
   res.status(201).json({
     user: savedUser,
     token: token,
   });
 });
-export { registerUser };
+
+const logoutUser = asyncHandler(async (req: Request, res: Response): Promise<void> => {
+  // Verify the token from the cookie
+  const token = req.cookies.user_token;
+  if (!token) {
+    console.log(`Token is ${token}`);
+    res.status(401).json({ message: "Unauthorized" });
+  }
+
+  try {
+    console.log(`Token is ${token}`);
+    const decoded = jwt.verify(token, ".Sj@vRAHvctzeUxnDJ*RkAT_?IOK}P");
+    res.clearCookie("user_token");
+    res.json({ message: "Protected route", user: decoded });
+  } catch (error) {
+    res.status(401).json({ message: "Unauthorized" });
+  }
+});
+
+export { registerUser, logoutUser };

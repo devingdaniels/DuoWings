@@ -20,10 +20,17 @@ const SignUpForm: React.FC = () => {
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    };
     try {
       const URL: string =
         import.meta.env.VITE_BACKEND_API_AUTH + "/register" || "undefined";
-      const response = await axios.post(URL, userData);
+      const response = await axios.post(URL, userData, options);
       if (response.status === 201) {
         console.log(response.data);
         setSignupSuccess(true);
