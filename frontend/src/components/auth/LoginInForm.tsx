@@ -31,6 +31,7 @@ const LoginInForm: React.FC = () => {
       const URL = `${import.meta.env.VITE_BACKEND_API_AUTH}/login`;
       const response = await axios.post(URL, userData);
       if (response.status === 200) {
+        console.log(response.data);
         setLogin(true);
       }
     } catch (error) {

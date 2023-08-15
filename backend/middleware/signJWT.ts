@@ -5,17 +5,15 @@ import IUser from "../interfaces/userInterface";
 
 const NAMESPACE = "Auth";
 
-const signJWT = (user: IUser, callback: (error: Error | null, token: string | null) => void): void => {
+const signJWT = async (user: IUser): Promise<string> => {
   const timeSinceEpoch = new Date().getTime();
   const expirationTime = timeSinceEpoch + Number(config.server.token.expireTime) * 100000;
   const expirationTimeInSeconds = Math.floor(expirationTime / 1000);
-  console.log("expirationTimeInSeconds: ", expirationTimeInSeconds);
-  console.log("expirationTime: ", expirationTime);
 
   logging.info(NAMESPACE, `Attempting to sign token for ${user._id}`);
 
   try {
-    jwt.sign(
+    const token = jwt.sign(
       {
         username: user.fname + user.lname,
       },
@@ -24,18 +22,13 @@ const signJWT = (user: IUser, callback: (error: Error | null, token: string | nu
         issuer: config.server.token.issuer,
         algorithm: "HS256",
         expiresIn: expirationTimeInSeconds,
-      },
-      (error, token) => {
-        if (error) {
-          callback(error, null);
-        } else if (token) {
-          callback(null, token);
-        }
       }
     );
+
+    return token;
   } catch (error: any) {
     logging.error(NAMESPACE, error.message, error);
-    callback(error, null);
+    throw error;
   }
 };
 

@@ -25,7 +25,8 @@ const SignUpForm: React.FC = () => {
         import.meta.env.VITE_BACKEND_API_AUTH + "/register" || "undefined";
       const response = await axios.post(URL, userData);
       if (response.status === 201) {
-        setSignupSuccess(true); // Set signup success state to true
+        console.log(response.data);
+        // setSignupSuccess(true);
       }
 
       // Additional processing or redirection based on response

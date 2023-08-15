@@ -5,16 +5,16 @@ import { Request, Response, NextFunction } from "express";
 
 const NAMESPACE = "Auth";
 
-const extractJWT = (req: Request, res: Response, next: NextFunction) => {
+const verifyToken = (req: Request, res: Response, next: NextFunction) => {
   logging.info(NAMESPACE, "Validating token");
 
-  let token = req.headers.authorization?.split(" ")[1];
+  let token = req.cookies.token;
 
   if (token) {
-    jwt.verify(token, config.server.token.secret, (error, decoded) => {
+    jwt.verify(token, config.server.token.secret, (error: jwt.VerifyErrors | null, decoded: any) => {
       if (error) {
         return res.status(404).json({
-          message: error,
+          message: "Failed to verify token; unauthorized",
           error,
         });
       } else {
@@ -29,4 +29,4 @@ const extractJWT = (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export default extractJWT;
+export default verifyToken;
