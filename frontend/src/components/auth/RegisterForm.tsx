@@ -27,27 +27,38 @@ const SignUpForm: React.FC = () => {
       },
       withCredentials: true,
     };
+
     try {
       const URL: string =
         import.meta.env.VITE_BACKEND_API_AUTH + "/register" || "undefined";
       const response = await axios.post(URL, userData, options);
+
       if (response.status === 201) {
         console.log(response.data);
         setSignupSuccess(true);
-      } else if (
-        response.status === 400 &&
-        response.data.errorType === "emailConflict"
-      ) {
-        console.log(response.data.message);
-        notify("User with this email already exists.");
       } else {
         console.log(response.data);
         notify("An error occurred.");
       }
     } catch (error: any) {
-      console.error("An error occurred:", error.message);
+      if (error.response) {
+        if (error.response.status === 400) {
+          if (error.response.data.errorType === "emailConflict") {
+            console.log(error.response.data.message);
+            notify("User with this email already exists.");
+          } else if (error.response.data.errorType === "passwordMismatch") {
+            console.log(error.response.data.message);
+            notify("Passwords do not match.");
+          }
+        } else {
+          console.error("An error occurred:", error.message);
+        }
+      } else {
+        console.error("An error occurred:", error.message);
+      }
     }
   };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     const inputValue = type === "checkbox" ? checked : value;
