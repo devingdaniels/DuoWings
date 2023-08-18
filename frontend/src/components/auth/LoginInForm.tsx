@@ -3,16 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import.meta.env.VITE_BACKEND_API;
 import SweetAlert from "../../utils/Sweetalert2";
-
-interface UserData {
-  email: string;
-  password: string;
-}
+import { IUserLogin } from "../../interfaces/UserInterfaces";
 
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
   const [login, setLogin] = useState(false);
-  const [userData, setUserData] = useState<UserData>({
+  const [userData, setUserData] = useState<IUserLogin>({
     email: "",
     password: "",
   });

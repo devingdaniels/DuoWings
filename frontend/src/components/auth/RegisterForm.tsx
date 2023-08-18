@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SweetAlert from "../../utils/Sweetalert2";
-import UserRegister from "../../interfaces/UserRegister";
+import { IUserRegister } from "../../interfaces/UserInterfaces";
 import { notify } from "../../utils/Toastify";
 
 const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
   const [signupSuccess, setSignupSuccess] = useState(false);
-  const [userData, setUserData] = useState<UserRegister>({
+  const [userData, setUserData] = useState<IUserRegister>({
     fname: "",
     lname: "",
     email: "",
