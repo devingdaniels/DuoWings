@@ -1,11 +1,10 @@
-import jwt from "jsonwebtoken";
-import config from "../config/config";
-
-import logging from "../config/logging";
-import IUser from "../interfaces/userInterface";
 import { NextFunction, Request, Response } from "express";
 import { UserModel } from "../mongodb/models/user";
 import { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
+import config from "../config/config";
+import logging from "../config/logging";
+import IUser from "../interfaces/userInterface";
 
 const NAMESPACE = "Auth";
 const USER_COOKIE_NAME = config.server.userauthcookie;

@@ -1,12 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
-import helpers from "../helpers";
+import { comparePassword, hashPassword } from "../helpers";
 import { UserModel as User } from "../mongodb/models/user";
-import asyncHandler from "express-async-handler";
 import { signJWT, verifyJWT } from "../middleware/authMiddleware";
 import config from "../config/config";
 
-const NAMESPACE = "User";
+const NAMESPACE = "User Controller";
 const USER_COOKIE_NAME = config.server.userauthcookie;
 
 // Login route handler
@@ -30,7 +29,7 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
     }
 
     // Hash the user's password
-    const hashedPassword = await helpers.hashPassword(password);
+    const hashedPassword = await hashPassword(password);
     if (!hashedPassword) {
       throw new Error("Error hashing password");
     }
@@ -60,7 +59,46 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
   }
 };
 
-const logoutUser = async (req: Request, res: Response): Promise<void> => {
+const loginUser = async (req: Request, res: Response, next: NextFunction) => {
+  // Deconstruct the request body
+  const { email, password } = req.body;
+
+  try {
+    if (!email || !password) {
+      throw new Error("All fields are required");
+    }
+
+    console.log(email, password);
+    // Check if the user exists
+    const existingUser = await User.findOne({ email }).exec();
+    if (!existingUser) {
+      res.status(404); // Set the status to 404 not found
+      throw new Error(`User with email ${email} does not exist`);
+    }
+
+    // Check if the password is correct
+    const isPasswordValid = await comparePassword(password, existingUser.password);
+    if (!isPasswordValid) {
+      res.status(404);
+      throw new Error("Invalid password");
+    }
+
+    // Generate a JWT token
+    const token = await signJWT(existingUser);
+
+    res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: 3600000 });
+
+    res.status(200).json({
+      user: existingUser,
+      token: token,
+    });
+  } catch (error) {
+    // Call the error handler middleware with the error
+    next(error);
+  }
+};
+
+const logoutUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   // This is a protected route, so the cookie token has already been verified
   try {
     // Access the cookie from the req.cookies object
@@ -74,11 +112,9 @@ const logoutUser = async (req: Request, res: Response): Promise<void> => {
     // Clear the cookie
     res.clearCookie(USER_COOKIE_NAME, { httpOnly: true });
     res.status(200).json({ message: "Logged out" });
-  } catch (error) {
-    res.status(401).json({ message: "Unauthorized" });
+  } catch (error: any) {
+    next(error);
   }
 };
 
-export default logoutUser;
-
-export { registerUser, logoutUser };
+export { registerUser, logoutUser, loginUser };
