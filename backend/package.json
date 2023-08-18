@@ -8,7 +8,8 @@
     "prestart": "npm run build",
     "start": "node dist/index.js",
     "predev": "npm run build",
-    "dev": "concurrently \"npx tsc -w\"  \"nodemon dist/index.js\""
+    "dev": "concurrently \"npx tsc -w\"  \"nodemon dist/index.js\"",
+    "test": "mocha --require ts-node/register tests/**/*.test.ts"
   },
   "keywords": [],
   "author": "",
@@ -25,14 +26,14 @@
     "@types/mongoose": "^5.11.97",
     "@types/node": "^20.4.8",
     "lodash": "^4.17.21",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1"
   },
   "dependencies": {
     "@types/compression": "^1.7.2",
     "@types/cookie-parser": "^1.4.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
-    "chalk": "^5.3.0",
     "compression": "^1.7.4",
     "concurrently": "^8.2.0",
     "cookie-parser": "^1.4.6",

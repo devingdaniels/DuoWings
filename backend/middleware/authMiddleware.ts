@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import config from "../config/config";
+
 import logging from "../config/logging";
 import IUser from "../interfaces/userInterface";
 import { NextFunction, Request, Response } from "express";
@@ -7,6 +8,7 @@ import { UserModel } from "../mongodb/models/user";
 import { JwtPayload } from "jsonwebtoken";
 
 const NAMESPACE = "Auth";
+const USER_COOKIE_NAME = config.server.userauthcookie;
 
 const signJWT = async (user: IUser): Promise<string> => {
   const timeSinceEpoch = new Date().getTime();
@@ -39,7 +41,7 @@ const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
   logging.info(NAMESPACE, `Attempting to verify token in verifyJWT middleware `);
   try {
     // Get token from cookie
-    const token = req.cookies.user_token;
+    const token = req.cookies[USER_COOKIE_NAME];
 
     if (!token) {
       return res.status(401).json({ error: "No token provided" });

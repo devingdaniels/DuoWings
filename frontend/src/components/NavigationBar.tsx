@@ -5,12 +5,8 @@ import axios from "axios";
 const NavigationBar: React.FC = () => {
   const handleLogout = async () => {
     try {
-      const options = {
-        withCredentials: true,
-      };
-
       const URL = import.meta.env.VITE_BACKEND_API_AUTH + "/logout";
-      const response = await axios.get(URL, options);
+      const response = await axios.get(URL, { withCredentials: true });
       console.log(response.data);
     } catch (error) {
       console.log(error);
