@@ -14,20 +14,6 @@ const NavigationBar: React.FC = () => {
     }
   };
 
-  const authenticateUser = async () => {
-    try {
-      const URL = import.meta.env.VITE_BACKEND_API_AUTH + "/authenticate";
-      const response = await axios.get(URL, { withCredentials: true }); // send browser cookies to backend
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    authenticateUser();
-  });
-
   return (
     <>
       <FaDragon size={60} style={{ color: "green" }} />

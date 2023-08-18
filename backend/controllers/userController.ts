@@ -68,7 +68,6 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
       throw new Error("All fields are required");
     }
 
-    console.log(email, password);
     // Check if the user exists
     const existingUser = await User.findOne({ email }).exec();
     if (!existingUser) {

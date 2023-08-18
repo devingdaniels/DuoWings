@@ -27,8 +27,17 @@ const LoginInForm: React.FC = () => {
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Implement Sign In");
-    // Set login to true to trigger SweetAlert and redirect to home page
+    try {
+      const url = import.meta.env.VITE_BACKEND_API_AUTH + "/login";
+      const response = await axios.post(url, userData, {
+        withCredentials: true,
+      });
+      if (response.data) {
+        setLogin(true);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
