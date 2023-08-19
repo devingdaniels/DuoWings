@@ -62,9 +62,11 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
 const loginUser = async (req: Request, res: Response, next: NextFunction) => {
   // Deconstruct the request body
   const { email, password } = req.body;
+  console.log(email, password);
 
   try {
     if (!email || !password) {
+      res.status(400);
       throw new Error("All fields are required");
     }
 
@@ -87,9 +89,9 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
 
     res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: 3600000 });
 
-    res.status(200).json({
-      user: existingUser,
-      token: token,
+    res.status(201).json({
+      id: existingUser._id,
+      useremail: existingUser.email,
     });
   } catch (error) {
     // Call the error handler middleware with the error

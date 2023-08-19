@@ -14,9 +14,12 @@ a {
   text-decoration: none;
 }
 
+html {
+  background-color: rgb(17, 17, 17);
+}
+
 body {
   font-size: var(--font-size-medium);
-  background-color: rgb(17, 17, 17);
   color: white;
   font-family: Arial, sans-serif;
   line-height: 1.5;

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import.meta.env.VITE_BACKEND_API;
-import SweetAlert from "../../utils/Sweetalert2";
+import { toast } from "react-toastify";
+import { alertSuccess } from "../../utils/Sweetalert2";
 import { IUserLogin } from "../../interfaces/UserInterfaces";
+import { login as loginUser } from "../../api/userAuth";
+
+import.meta.env.VITE_BACKEND_API;
 
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
-  const [login, setLogin] = useState(false);
   const [userData, setUserData] = useState<IUserLogin>({
     email: "",
     password: "",
@@ -23,17 +24,24 @@ const LoginInForm: React.FC = () => {
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const url = import.meta.env.VITE_BACKEND_API_AUTH + "/login";
-      const response = await axios.post(url, userData, {
-        withCredentials: true,
-      });
-      if (response.data) {
-        setLogin(true);
-      }
-    } catch (err) {
-      console.error(err);
+    const isLoginSucessful = await loginUser(userData);
+    if (isLoginSucessful.status) {
+      alertSuccess("Success", isLoginSucessful.data.message);
+      // Show SweetAlert which will redirect to /home
+      clearFormData();
+      setTimeout(() => {
+        navigate("/home");
+      }, 2000);
+    } else {
+      toast.error(isLoginSucessful.data.message);
     }
+  };
+
+  const clearFormData = () => {
+    setUserData({
+      email: "",
+      password: "",
+    });
   };
 
   return (
@@ -73,21 +81,6 @@ const LoginInForm: React.FC = () => {
           <Link to="/register">Sign Up Now</Link>
         </div>
       </div>
-      {login && (
-        <SweetAlert
-          attributes={{
-            name: "Welcome to DuoWings!",
-            redirectPath: "/home",
-            title: "Success!",
-            icon: "success",
-            timer: 5000,
-            confirmButtonText: "Enter App",
-            didClose: () => {
-              navigate("/home");
-            },
-          }}
-        />
-      )}
     </>
   );
 };
