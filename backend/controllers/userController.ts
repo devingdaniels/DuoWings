@@ -50,8 +50,8 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
     res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: 3600000 });
 
     res.status(201).json({
-      user: newUser,
-      token: token,
+      id: newUser._id,
+      useremail: newUser.email,
     });
   } catch (error) {
     // Call the error handler middleware with the error
