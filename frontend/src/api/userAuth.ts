@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+import { alertSuccess, alertError } from "../utils/Sweetalert2";
 import { IUserLogin } from "../interfaces/UserInterfaces";
 import axios from "axios";
 
@@ -8,16 +8,14 @@ export const login = async (userData: IUserLogin) => {
     const response = await axios.post(url, userData, {
       withCredentials: true,
     });
+    alertSuccess("Success", `Logging in ${userData.email}`);
     return { status: true, data: response.data };
   } catch (err: any) {
-    console.log(err);
-    console.error(err);
-
     // Check if the error has a response with data
     if (err.response && err.response.data) {
-      toast.error(err.response.data.message || "An error occurred");
+      alertError(err.response.data.message, "An error occurred");
     } else {
-      toast.error("An error occurred");
+      alertSuccess("Error", "An error occurred");
     }
 
     return { status: false };

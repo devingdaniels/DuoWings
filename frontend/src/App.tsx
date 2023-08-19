@@ -21,7 +21,18 @@ const App: React.FC = () => {
         <Route path="/forget-password" element={<ForgetPasswordPage />} />
         <Route path="/home" element={<HomePage />} />
       </Routes>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={50000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 };
