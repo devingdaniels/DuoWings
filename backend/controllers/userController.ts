@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express";
-import mongoose from "mongoose";
 import { comparePassword, hashPassword } from "../helpers";
 import { UserModel as User } from "../mongodb/models/user";
-import { signJWT, verifyJWT } from "../middleware/authMiddleware";
+import { signJWT } from "../middleware/authMiddleware";
+import mongoose from "mongoose";
 import config from "../config/config";
 
 const NAMESPACE = "User Controller";
@@ -87,6 +87,7 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     // Generate a JWT token
     const token = await signJWT(existingUser);
 
+    // Set the cookie in the response using the JWT token
     res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: 3600000 });
 
     res.status(201).json({

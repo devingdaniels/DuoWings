@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 
-const alertSuccess = (title: string, text: string) => {
+const SwalSuccess = (title: string, text: string) => {
   Swal.fire({
     title,
     text,
@@ -9,7 +9,7 @@ const alertSuccess = (title: string, text: string) => {
   });
 };
 
-const alertError = (title: string, text?: string) => {
+const SwalError = (title: string, text?: string) => {
   Swal.fire({
     title,
     text,
@@ -18,7 +18,7 @@ const alertError = (title: string, text?: string) => {
   });
 };
 
-const alertWarning = (title: string, text: string) => {
+const SwalWarning = (title: string, text: string) => {
   Swal.fire({
     title,
     text,
@@ -27,7 +27,7 @@ const alertWarning = (title: string, text: string) => {
   });
 };
 
-const alertInfo = (title: string, text: string) => {
+const SwalInfo = (title: string, text: string) => {
   Swal.fire({
     title,
     text,
@@ -36,4 +36,4 @@ const alertInfo = (title: string, text: string) => {
   });
 };
 
-export { alertSuccess, alertError, alertWarning, alertInfo };
+export { SwalSuccess, SwalError, SwalWarning, SwalInfo };

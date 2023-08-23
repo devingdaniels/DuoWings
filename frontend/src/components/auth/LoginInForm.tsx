@@ -22,14 +22,16 @@ const LoginInForm: React.FC = () => {
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    const isLoginSucessful = await loginUser(userData);
-    if (isLoginSucessful.status) {
-      clearFormData();
-      setTimeout(() => {
-        navigate("/home");
-      }, 2000);
-    } else {
-      console.log(isLoginSucessful);
+    try {
+      const isSuccess = await loginUser(userData);
+      if (isSuccess.status) {
+        clearFormData();
+        setTimeout(() => {
+          navigate("/home");
+        }, 2000);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 

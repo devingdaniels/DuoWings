@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { IUserRegister } from "../../interfaces/UserInterfaces";
+import { register as registerUser } from "../../api/userAuth";
 
 const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
@@ -16,18 +16,14 @@ const SignUpForm: React.FC = () => {
   });
 
   const handleSignUp = async (e: React.FormEvent) => {
+    // Prevents page from reloading on submit
     e.preventDefault();
-
-    const options = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      withCredentials: true,
-    };
-
-    const URL: string =
-      import.meta.env.VITE_BACKEND_API_AUTH + "/register" || "undefined";
-    const response = await axios.post(URL, userData, options);
+    try {
+      const data = await registerUser(userData);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

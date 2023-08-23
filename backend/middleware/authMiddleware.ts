@@ -6,7 +6,7 @@ import config from "../config/config";
 import logging from "../config/logging";
 import IUser from "../interfaces/userInterface";
 
-const NAMESPACE = "Auth";
+const NAMESPACE = "Auth Middleware";
 const USER_COOKIE_NAME = config.server.userauthcookie;
 
 const signJWT = async (user: IUser): Promise<string> => {
@@ -37,7 +37,7 @@ const signJWT = async (user: IUser): Promise<string> => {
 };
 
 const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
-  logging.info(NAMESPACE, `Attempting to verify token in verifyJWT middleware `);
+  logging.info(NAMESPACE, `Verifying JWT`);
   try {
     // Get token from cookie
     const token = req.cookies[USER_COOKIE_NAME];
