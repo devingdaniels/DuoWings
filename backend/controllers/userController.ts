@@ -62,25 +62,25 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
 const loginUser = async (req: Request, res: Response, next: NextFunction) => {
   // Deconstruct the request body
   const { email, password } = req.body;
-  console.log(email, password);
 
   try {
     if (!email || !password) {
       res.status(400);
-      throw new Error("All fields are required");
+      throw new Error("Missing email or password");
     }
 
-    // Check if the user exists
     const existingUser = await User.findOne({ email }).exec();
     if (!existingUser) {
       res.status(404); // Set the status to 404 not found
-      throw new Error(`User with email ${email} does not exist`);
+      const error = new Error("User not found");
+      throw new Error(`${email} does not exist`);
     }
 
-    // Check if the password is correct
+    console.log(existingUser);
+
     const isPasswordValid = await comparePassword(password, existingUser.password);
     if (!isPasswordValid) {
-      res.status(404);
+      res.status(401);
       throw new Error("Invalid password");
     }
 
@@ -92,10 +92,11 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
 
     res.status(201).json({
       id: existingUser._id,
-      useremail: existingUser.email,
+      name: existingUser.fname + " " + existingUser.lname,
+      email: existingUser.email,
     });
   } catch (error) {
-    // Call the error handler middleware with the error
+    // Pass error to error handler middleware
     next(error);
   }
 };

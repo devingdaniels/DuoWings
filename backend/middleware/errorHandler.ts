@@ -1,22 +1,20 @@
 import { Request, Response, NextFunction } from "express";
+import { CustomError } from "../interfaces/index";
 
-const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
+const errorHandler = (err: CustomError, req: Request, res: Response, next: NextFunction) => {
   console.error("Error handler has been triggered");
 
-  // Determine the status code for the response
   const statusCode = res.statusCode || 500;
 
-  // Log the error object for debugging
   console.error(err);
 
-  // Create a custom error object with additional information
   const customError = {
     message: err.message || "Internal Server Error",
-    // location: err.location || null,
     stack: process.env.NODE_ENV === "production" ? null : err.stack,
+    errorCode: err.code || "UNEXPECTED_ERROR",
   };
-  console.log(customError);
-  // Send the error response to the client
+
+  console.error(customError);
   res.status(statusCode).json(customError);
 };
 

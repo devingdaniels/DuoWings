@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { IUserRegister } from "../../interfaces/UserInterfaces";
 import { register as registerUser } from "../../api/userAuth";
 
 const SignUpForm: React.FC = () => {
-  const navigate = useNavigate();
   const [userData, setUserData] = useState<IUserRegister>({
     fname: "",
     lname: "",

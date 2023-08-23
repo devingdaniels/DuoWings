@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IUserLogin } from "../../interfaces/UserInterfaces";
 import { login as loginUser } from "../../api/userAuth";
-
-import.meta.env.VITE_BACKEND_API;
+import { SwalSuccess } from "../../utils/Sweetalert2";
+import { ToastError } from "../../utils/Toastify";
 
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
@@ -22,16 +22,19 @@ const LoginInForm: React.FC = () => {
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const isSuccess = await loginUser(userData);
-      if (isSuccess.status) {
-        clearFormData();
-        setTimeout(() => {
-          navigate("/home");
-        }, 2000);
-      }
-    } catch (error) {
-      console.log(error);
+    // Should probably use redux to store user id and email
+    // the login user controller returns:{ id: existingUser._id, useremail: existingUser.email }
+    // userAuth loginUser function then returns boolean for success or failure
+    const loginSuccess = await loginUser(userData);
+    if (loginSuccess?.status) {
+      // Alert user of successful login
+      SwalSuccess("Success", `Welcome ${loginSuccess.data.name}!`);
+      // Clear user login data
+      clearFormData();
+      // Redirect user to home page
+      navigate("/home");
+    } else {
+      ToastError(loginSuccess?.data.message);
     }
   };
 
@@ -65,6 +68,7 @@ const LoginInForm: React.FC = () => {
                 name="password"
                 value={userData.password}
                 onChange={handleInputChange}
+                autoComplete="off"
               />
             </div>
             <div className="auth-form-button-wrapper">
