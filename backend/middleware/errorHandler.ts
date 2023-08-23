@@ -15,7 +15,7 @@ const errorHandler = (err: Error, req: Request, res: Response, next: NextFunctio
     // location: err.location || null,
     stack: process.env.NODE_ENV === "production" ? null : err.stack,
   };
-
+  console.log(customError);
   // Send the error response to the client
   res.status(statusCode).json(customError);
 };

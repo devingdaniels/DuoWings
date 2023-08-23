@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { alertSuccess } from "../../utils/Sweetalert2";
 import { IUserLogin } from "../../interfaces/UserInterfaces";
 import { login as loginUser } from "../../api/userAuth";
 
@@ -26,14 +24,12 @@ const LoginInForm: React.FC = () => {
     e.preventDefault();
     const isLoginSucessful = await loginUser(userData);
     if (isLoginSucessful.status) {
-      alertSuccess("Success", isLoginSucessful.data.message);
-      // Show SweetAlert which will redirect to /home
       clearFormData();
       setTimeout(() => {
         navigate("/home");
       }, 2000);
     } else {
-      toast.error(isLoginSucessful.data.message);
+      console.log(isLoginSucessful);
     }
   };
 

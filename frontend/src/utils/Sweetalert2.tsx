@@ -9,7 +9,7 @@ const alertSuccess = (title: string, text: string) => {
   });
 };
 
-const alertError = (title: string, text: string) => {
+const alertError = (title: string, text?: string) => {
   Swal.fire({
     title,
     text,
