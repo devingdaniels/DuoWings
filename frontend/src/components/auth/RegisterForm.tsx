@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { IUserRegister } from "../../interfaces/UserInterfaces";
-import { register as registerUser } from "../../api/userAuth";
+import { IUserRegister } from "../../interfaces";
+import { register as registerUser } from "../../API/userAuth";
 
 const SignUpForm: React.FC = () => {
   const [userData, setUserData] = useState<IUserRegister>({

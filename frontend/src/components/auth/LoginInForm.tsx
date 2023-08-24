@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { IUserLogin } from "../../interfaces/UserInterfaces";
-import { login as loginUser } from "../../api/userAuth";
+import { IUserLogin, ILoginResponse } from "../../interfaces";
+import { login as loginUser } from "../../API/userAuth";
 import { SwalSuccess } from "../../utils/Sweetalert2";
 import { ToastError } from "../../utils/Toastify";
+import BarLoader from "react-spinners/BarLoader";
 
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState<boolean>(false);
   const [userData, setUserData] = useState<IUserLogin>({
     email: "",
     password: "",
@@ -22,12 +24,12 @@ const LoginInForm: React.FC = () => {
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Should probably use redux to store user id and email
-    // the login user controller returns:{ id: existingUser._id, useremail: existingUser.email }
-    // userAuth loginUser function then returns boolean for success or failure
-    const loginSuccess = await loginUser(userData);
-
-    if (loginSuccess?.status) {
+    // Display spinner
+    setLoading(true);
+    // Send user data to backend
+    const loginSuccess: ILoginResponse = await loginUser(userData);
+    // Check if login was successful
+    if (loginSuccess.status) {
       // Alert user of successful login
       SwalSuccess("Success", `Welcome ${loginSuccess.data.name}!`);
       // Clear form data
@@ -35,9 +37,11 @@ const LoginInForm: React.FC = () => {
       // Redirect user to home page
       navigate("/home");
     } else {
-      console.log(loginSuccess?.data);
-      ToastError(loginSuccess?.data.message);
+      console.log(loginSuccess.data);
+      ToastError(loginSuccess.data.message);
     }
+    // Done loading
+    setLoading(false);
   };
 
   const clearFormData = () => {
@@ -45,6 +49,12 @@ const LoginInForm: React.FC = () => {
       email: "",
       password: "",
     });
+  };
+
+  const spinnerStyle = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
   };
 
   return (
@@ -73,11 +83,20 @@ const LoginInForm: React.FC = () => {
                 autoComplete="off"
               />
             </div>
-            <div className="auth-form-button-wrapper">
-              <button className="auth-button-primary" type="submit">
-                Sign In
-              </button>
-            </div>
+            {loading ? (
+              <BarLoader
+                color="#fa0000"
+                cssOverride={spinnerStyle}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            ) : (
+              <div className="auth-form-button-wrapper">
+                <button className="auth-button-primary" type="submit">
+                  Sign In
+                </button>
+              </div>
+            )}
           </form>
         </div>
         <div className="signup-wrapper">

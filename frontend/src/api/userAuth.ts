@@ -1,4 +1,4 @@
-import { IUserLogin, IUserRegister } from "../interfaces/UserInterfaces";
+import { IUserLogin, IUserRegister } from "../interfaces";
 import axios from "axios";
 // Set this so that cookies are included with every API request
 axios.defaults.withCredentials = true;
@@ -13,6 +13,7 @@ export const login = async (userData: IUserLogin) => {
     const res = await axios.post(BASE_URL + "/login", userData);
     // If server returns anything but 201, catch block will execute
     // Else return data = {id, name, email}
+    // Rather than passing around a user object, this is where Redux would useful
     return { status: true, data: res.data };
   } catch (err: any) {
     // Check if the error has a response with data

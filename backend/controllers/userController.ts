@@ -111,7 +111,7 @@ const logoutUser = async (req: Request, res: Response, next: NextFunction): Prom
 
     // Clear the cookie
     res.clearCookie(USER_COOKIE_NAME, { httpOnly: true });
-    res.status(200).json({ message: "Cookie revojed and log out successful" });
+    res.status(200).json({ message: "Cookie removed: logout successful" });
   } catch (error: any) {
     next(error);
   }

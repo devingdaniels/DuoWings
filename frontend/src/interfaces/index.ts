@@ -14,5 +14,5 @@ export interface IUserLogin {
 
 export interface ILoginResponse {
   status: boolean;
-  message: string;
+  data: { name: string; message: string };
 }
