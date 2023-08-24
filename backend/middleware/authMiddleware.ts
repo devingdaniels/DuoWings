@@ -49,7 +49,7 @@ const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
     // Verify token
     const decoded: JwtPayload = jwt.verify(token, config.server.token.secret) as JwtPayload;
 
-    // Get user from the token
+    // Decode the token to get unique user id
     const user = await UserModel.findById(decoded.id).select("-password");
 
     if (!user) {

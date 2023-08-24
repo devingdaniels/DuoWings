@@ -71,16 +71,13 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
 
     const existingUser = await User.findOne({ email }).exec();
     if (!existingUser) {
-      res.status(404); // Set the status to 404 not found
-      const error = new Error("User not found");
+      res.status(404);
       throw new Error(`${email} does not exist`);
     }
 
-    console.log(existingUser);
-
     const isPasswordValid = await comparePassword(password, existingUser.password);
     if (!isPasswordValid) {
-      res.status(401);
+      res.status(422);
       throw new Error("Invalid password");
     }
 
@@ -114,7 +111,7 @@ const logoutUser = async (req: Request, res: Response, next: NextFunction): Prom
 
     // Clear the cookie
     res.clearCookie(USER_COOKIE_NAME, { httpOnly: true });
-    res.status(200).json({ message: "Logged out" });
+    res.status(200).json({ message: "Cookie revojed and log out successful" });
   } catch (error: any) {
     next(error);
   }

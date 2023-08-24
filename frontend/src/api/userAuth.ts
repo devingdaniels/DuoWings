@@ -17,10 +17,14 @@ export const login = async (userData: IUserLogin) => {
   } catch (err: any) {
     // Check if the error has a response with data
     if (err.response && err.response.data) {
-      console.log(err.response.data);
       return { status: false, data: err.response.data };
     }
   }
+  // If the error does not have a response with data, return generic error message
+  return {
+    status: false,
+    data: "Unknown error occured, login failed.",
+  };
 };
 
 export const register = async (userData: IUserRegister) => {

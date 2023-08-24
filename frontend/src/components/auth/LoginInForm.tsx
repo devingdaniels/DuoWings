@@ -26,14 +26,16 @@ const LoginInForm: React.FC = () => {
     // the login user controller returns:{ id: existingUser._id, useremail: existingUser.email }
     // userAuth loginUser function then returns boolean for success or failure
     const loginSuccess = await loginUser(userData);
+
     if (loginSuccess?.status) {
       // Alert user of successful login
       SwalSuccess("Success", `Welcome ${loginSuccess.data.name}!`);
-      // Clear user login data
+      // Clear form data
       clearFormData();
       // Redirect user to home page
       navigate("/home");
     } else {
+      console.log(loginSuccess?.data);
       ToastError(loginSuccess?.data.message);
     }
   };

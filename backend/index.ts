@@ -12,6 +12,7 @@ import errorHandler from "./middleware/errorHandler";
 dotenv.config();
 
 const NAMESPACE = "index.ts";
+const PORT = process.env.SERVER_PORT || 8000;
 
 const app = express();
 const server = http.createServer(app);
@@ -34,7 +35,6 @@ app.use("/api/users/auth", userAuthRoutes);
 
 app.use(errorHandler);
 
-const PORT = process.env.SERVER_PORT || 8000;
 server.listen(PORT, () => {
   logging.info(NAMESPACE, `Express server in ${NAMESPACE} running on http://localhost:${PORT}/...`);
 });
