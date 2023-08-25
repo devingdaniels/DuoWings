@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaDragon } from "react-icons/fa";
 import axios from "axios";
-import { useEffect } from "react";
 
 const NavigationBar: React.FC = () => {
   const handleLogout = async () => {

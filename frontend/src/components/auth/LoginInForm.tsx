@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IUserLogin, ILoginResponse } from "../../interfaces";
-import { login as loginUser } from "../../API/userAuth";
+import { login } from "../../API/userAuth";
 import { SwalSuccess } from "../../utils/Sweetalert2";
 import { ToastError } from "../../utils/Toastify";
 import BarLoader from "react-spinners/BarLoader";
@@ -27,7 +27,7 @@ const LoginInForm: React.FC = () => {
     // Display spinner
     setLoading(true);
     // Send user data to backend
-    const loginSuccess: ILoginResponse = await loginUser(userData);
+    const loginSuccess: ILoginResponse = await login(userData);
     // Check if login was successful
     if (loginSuccess.status) {
       // Alert user of successful login

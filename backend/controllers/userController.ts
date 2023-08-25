@@ -5,7 +5,6 @@ import { signJWT } from "../middleware/authMiddleware";
 import mongoose from "mongoose";
 import config from "../config/config";
 
-const NAMESPACE = "User Controller";
 const USER_COOKIE_NAME = config.server.userauthcookie;
 
 // Login route handler
@@ -31,7 +30,8 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
     // Hash the user's password
     const hashedPassword = await hashPassword(password);
     if (!hashedPassword) {
-      throw new Error("Error hashing password");
+      console.log("Error hashing password");
+      throw new Error("Unknown error. Please try again");
     }
 
     // Create a new instance of the User model
@@ -45,13 +45,13 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
     }).save();
 
     // Generate a JWT token
-    const token = await signJWT(newUser);
+    const token = await signJWT(newUser._id.toString());
 
     res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: 3600000 });
 
     res.status(201).json({
       id: newUser._id,
-      useremail: newUser.email,
+      email: newUser.email,
     });
   } catch (error) {
     // Call the error handler middleware with the error
@@ -75,23 +75,24 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
       throw new Error(`${email} does not exist`);
     }
 
-    const isPasswordValid = await comparePassword(password, existingUser.password);
-    if (!isPasswordValid) {
+    if (!(await comparePassword(password, existingUser.password))) {
       res.status(422);
       throw new Error("Invalid password");
     }
 
     // Generate a JWT token
-    const token = await signJWT(existingUser);
+    const token = await signJWT(existingUser._id.toString());
 
     // Set the cookie in the response using the JWT token
     res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: 3600000 });
 
-    res.status(201).json({
+    const payload = {
       id: existingUser._id,
       name: existingUser.fname + " " + existingUser.lname,
       email: existingUser.email,
-    });
+    };
+
+    res.status(201).json(payload);
   } catch (error) {
     // Pass error to error handler middleware
     next(error);

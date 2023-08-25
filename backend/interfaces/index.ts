@@ -1,3 +1,4 @@
+import exp from "constants";
 import { Document } from "mongoose";
 
 export interface IUser extends Document {
@@ -5,9 +6,4 @@ export interface IUser extends Document {
   lname: string;
   email: string;
   phonenumber: string;
-}
-
-/* ERRORS*/
-export interface CustomError extends Error {
-  code?: string;
 }

@@ -12,7 +12,7 @@ export const login = async (userData: IUserLogin) => {
   try {
     const res = await axios.post(BASE_URL + "/login", userData);
     // If server returns anything but 201, catch block will execute
-    // Else return data = {id, name, email}
+    // Else return:  data = {id, name, email}
     // Rather than passing around a user object, this is where Redux would useful
     return { status: true, data: res.data };
   } catch (err: any) {

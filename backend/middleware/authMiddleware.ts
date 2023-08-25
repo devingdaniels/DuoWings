@@ -9,17 +9,17 @@ import { IUser } from "../interfaces";
 const NAMESPACE = "Auth Middleware";
 const USER_COOKIE_NAME = config.server.userauthcookie;
 
-const signJWT = async (user: IUser): Promise<string> => {
+const signJWT = async (_id: string): Promise<string> => {
   const timeSinceEpoch = new Date().getTime();
   const expirationTime = timeSinceEpoch + Number(config.server.token.expireTime) * 100000;
   const expirationTimeInSeconds = Math.floor(expirationTime / 1000);
 
-  logging.info(NAMESPACE, `Attempting to sign token for ${user._id}`);
+  logging.info(NAMESPACE, `Attempting to sign token for ${_id}`);
 
   try {
     const token = jwt.sign(
       {
-        id: user._id,
+        id: _id,
       },
       config.server.token.secret,
       {

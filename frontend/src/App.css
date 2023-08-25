@@ -27,10 +27,11 @@ body {
 
 /* ------ LANDING PAGE --- */
 .landing-page-container {
-  background-image: url("./assets/landingPage.jpg");
-  background-size: cover; /* Adjust the background sizing */
-  background-position: center center; /* Adjust the background position */
-  height: 100vh; /* DELETE THIS */
+  /* background-image: url("./assets/landingPage.jpg");
+  background-size: cover; /* Adjust the background sizing 
+  background-position: center center; /* Adjust the background position 
+  height: 100vh 
+  */
 }
 
 .landing-page-section-1 h1 {
@@ -150,6 +151,7 @@ body {
 .user-info-wrapper input {
   padding: 2%;
   background: #343434;
+  color: white;
 }
 
 .signup {
