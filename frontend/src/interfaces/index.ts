@@ -12,7 +12,7 @@ export interface IUserLogin {
   password: string;
 }
 
-export interface ILoginResponse {
+export interface IUserAuthResponse {
   status: boolean;
   data: { name: string; message: string };
 }

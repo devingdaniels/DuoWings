@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 export const hashPassword = async (password: string): Promise<string> => {
   try {
     // Hash the password using bcrypt with a salt rounds value of 10
-    const saltRounds = 31;
+    const saltRounds = 10;
     return await bcrypt.hash(password, saltRounds);
   } catch (error: any) {
     throw new Error(error.message);

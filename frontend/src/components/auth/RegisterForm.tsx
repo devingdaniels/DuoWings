@@ -1,9 +1,15 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { IUserRegister } from "../../interfaces";
-import { register as registerUser } from "../../API/userAuth";
+import { register } from "../../API/userAuth";
+import { SwalSuccess } from "../../utils/Sweetalert2";
+import BarLoader from "react-spinners/BarLoader";
+import { ToastError } from "../../utils/Toastify";
+import { IUserAuthResponse } from "../../interfaces";
 
 const SignUpForm: React.FC = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState<boolean>(false);
   const [userData, setUserData] = useState<IUserRegister>({
     fname: "",
     lname: "",
@@ -14,14 +20,23 @@ const SignUpForm: React.FC = () => {
   });
 
   const handleSignUp = async (e: React.FormEvent) => {
-    // Prevents page from reloading on submit
     e.preventDefault();
-    try {
-      const data = await registerUser(userData);
-      console.log(data);
-    } catch (error) {
-      console.log(error);
+    // Display spinner
+    setLoading(true);
+    // Send user data to backend
+    const registerRes: IUserAuthResponse = await register(userData);
+    // Check if login was successful
+    if (registerRes.status) {
+      // Alert user of successful login
+      SwalSuccess("Success", `Welcome ${registerRes.data.name}!`);
+      // Redirect user to home page
+      navigate("/home");
+    } else {
+      console.log(registerRes.data);
+      ToastError(registerRes.data.message);
     }
+    // Done loading
+    setLoading(false);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,6 +47,32 @@ const SignUpForm: React.FC = () => {
       ...prevUserData,
       [name]: inputValue,
     }));
+  };
+
+  const clearFormData = () => {
+    setUserData({
+      fname: "",
+      lname: "",
+      email: "",
+      phonenumber: "",
+      password: "",
+      confirmPassword: "",
+    });
+  };
+
+  // How to clear form data when component unmounts?
+  // https://stackoverflow.com/questions/53949393/how-to-clear-form-data-when-component-unmounts
+  useEffect(() => {
+    return () => {
+      console.log("LoginInForm unmounted");
+      clearFormData();
+    };
+  }, []);
+
+  const spinnerStyle = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
   };
 
   return (
@@ -101,11 +142,20 @@ const SignUpForm: React.FC = () => {
               />
               <br />
             </div>
-            <div className="auth-form-button-wrapper">
-              <button className="auth-button-primary" type="submit">
-                Sign Up
-              </button>
-            </div>
+            {loading ? (
+              <BarLoader
+                color="#fa0000"
+                cssOverride={spinnerStyle}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            ) : (
+              <div className="auth-form-button-wrapper">
+                <button className="auth-button-primary" type="submit">
+                  Sign In
+                </button>
+              </div>
+            )}
           </form>
         </div>
         <div className="signup-wrapper">

@@ -30,8 +30,17 @@ export const login = async (userData: IUserLogin) => {
 
 export const register = async (userData: IUserRegister) => {
   try {
-    const url = BASE_URL + "/register";
-    const response = await axios.post(url, userData);
-    return response.data;
-  } catch (error) {}
+    const res = await axios.post(BASE_URL + "/register", userData);
+    return { status: true, data: res.data };
+  } catch (err: any) {
+    // Check if the error has a response with data
+    if (err.response && err.response.data) {
+      return { status: false, data: err.response.data };
+    }
+  }
+  // If the error does not have a response with data, return generic error message
+  return {
+    status: false,
+    data: "Unknown error occured, register failed.",
+  };
 };

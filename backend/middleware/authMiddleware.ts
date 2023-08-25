@@ -14,7 +14,7 @@ const signJWT = async (_id: string): Promise<string> => {
   const expirationTime = timeSinceEpoch + Number(config.server.token.expireTime) * 100000;
   const expirationTimeInSeconds = Math.floor(expirationTime / 1000);
 
-  logging.info(NAMESPACE, `Attempting to sign token for ${_id}`);
+  logging.info(NAMESPACE, `Attempting to sign token for user with ID: ${_id}`);
 
   try {
     const token = jwt.sign(
@@ -58,8 +58,8 @@ const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
 
     // Everything checks out, proceed to the next middleware
     next();
-  } catch (error) {
-    console.error(error);
+  } catch (error: any) {
+    logging.error(NAMESPACE, error.message, error);
     res.status(401).json({ error: "Token validation error" });
   }
 };
