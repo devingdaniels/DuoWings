@@ -51,6 +51,7 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
 
     res.status(201).json({
       id: newUser._id,
+      name: newUser.fname + " " + newUser.lname,
       email: newUser.email,
     });
   } catch (error) {
@@ -86,13 +87,11 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     // Set the cookie in the response using the JWT token
     res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: 3600000 });
 
-    const payload = {
+    res.status(201).json({
       id: existingUser._id,
       name: existingUser.fname + " " + existingUser.lname,
       email: existingUser.email,
-    };
-
-    res.status(201).json(payload);
+    });
   } catch (error) {
     // Pass error to error handler middleware
     next(error);

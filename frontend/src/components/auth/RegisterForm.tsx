@@ -23,29 +23,29 @@ const SignUpForm: React.FC = () => {
     e.preventDefault();
     // Display spinner
     setLoading(true);
-    // Send user data to backend
-    const registerRes: IUserAuthResponse = await register(userData);
-    // Check if login was successful
-    if (registerRes.status) {
-      // Alert user of successful login
-      SwalSuccess("Success", `Welcome ${registerRes.data.name}!`);
-      // Redirect user to home page
-      navigate("/home");
-    } else {
-      console.log(registerRes.data);
-      ToastError(registerRes.data.message);
+
+    try {
+      const registerRes: IUserAuthResponse = await register(userData);
+      if (registerRes.status) {
+        // Alert user of successful registration
+        SwalSuccess("Success", `Welcome ${registerRes.data.name}!`);
+        // Redirect user to home page
+        navigate("/home");
+      } else {
+        ToastError(registerRes.data.message);
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      ToastError("An error occurred during registration.");
     }
-    // Done loading
     setLoading(false);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    const inputValue = type === "checkbox" ? checked : value;
-
+    const { name, value } = e.target;
     setUserData((prevUserData) => ({
       ...prevUserData,
-      [name]: inputValue,
+      [name]: value,
     }));
   };
 
@@ -84,10 +84,10 @@ const SignUpForm: React.FC = () => {
             <div className="user-info-wrapper">
               <input
                 className="fname"
-                type="text"
-                placeholder="First Name"
                 name="fname"
                 value={userData.fname}
+                type="text"
+                placeholder="First Name"
                 onChange={handleInputChange}
                 required
               />
@@ -143,16 +143,11 @@ const SignUpForm: React.FC = () => {
               <br />
             </div>
             {loading ? (
-              <BarLoader
-                color="#fa0000"
-                cssOverride={spinnerStyle}
-                aria-label="Loading Spinner"
-                data-testid="loader"
-              />
+              <BarLoader color="#fa0000" cssOverride={spinnerStyle} />
             ) : (
               <div className="auth-form-button-wrapper">
                 <button className="auth-button-primary" type="submit">
-                  Sign In
+                  Register
                 </button>
               </div>
             )}
