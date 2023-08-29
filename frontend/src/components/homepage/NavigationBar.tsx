@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaDragon } from "react-icons/fa";
+import { GiWingedArrow } from "react-icons/gi";
 import axios from "axios";
 
 const NavigationBar: React.FC = () => {
@@ -15,7 +15,7 @@ const NavigationBar: React.FC = () => {
 
   return (
     <>
-      <FaDragon size={60} style={{ color: "green" }} />
+      <GiWingedArrow size={60} />
       <nav>
         <ul>
           <li>

@@ -3,17 +3,7 @@ import { toast } from "react-toastify";
 const ToastSuccess = (message: string) => {
   toast.success(message, {
     position: "top-right",
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    draggable: true,
-  });
-};
-
-const ToastError = (message: string) => {
-  toast.error(message, {
-    position: "top-right",
-    autoClose: 3000,
+    autoClose: 2500,
     hideProgressBar: false,
     closeOnClick: true,
     draggable: true,
@@ -23,7 +13,7 @@ const ToastError = (message: string) => {
 const ToastWarning = (message: string) => {
   toast.warning(message, {
     position: "top-right",
-    autoClose: 3000,
+    autoClose: 2500,
     hideProgressBar: false,
     closeOnClick: true,
     draggable: true,
@@ -32,11 +22,18 @@ const ToastWarning = (message: string) => {
 
 const ToastInfo = (message: string) => {
   toast.info(message, {
+    autoClose: 2500,
+  });
+};
+
+const ToastError = (message: string) => {
+  toast.error(message, {
     position: "top-right",
-    autoClose: 3000,
+    autoClose: 2500,
     hideProgressBar: false,
     closeOnClick: true,
     draggable: true,
+    pauseOnHover: true,
   });
 };
 

@@ -1,9 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
-interface AuthLandingHeaderProps {
-  destination: string;
-}
+import { AuthLandingHeaderProps } from "../../interfaces";
 
 const AuthLandingHeader: React.FC<AuthLandingHeaderProps> = ({
   destination,

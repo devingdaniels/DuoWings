@@ -16,3 +16,7 @@ export interface IUserAuthResponse {
   status: boolean;
   data: { name: string; message: string };
 }
+
+export interface AuthLandingHeaderProps {
+  destination: string;
+}
