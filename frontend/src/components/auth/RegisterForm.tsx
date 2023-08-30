@@ -62,6 +62,7 @@ const SignUpForm: React.FC = () => {
 
   // How to clear form data when component unmounts?
   // https://stackoverflow.com/questions/53949393/how-to-clear-form-data-when-component-unmounts
+  // Not sure if this is the best way to do it
   useEffect(() => {
     return () => {
       console.log("LoginInForm unmounted");
@@ -114,7 +115,7 @@ const SignUpForm: React.FC = () => {
               <input
                 className="phonenumber"
                 type="text"
-                placeholder="541-222-2222"
+                placeholder="Phone number"
                 name="phonenumber"
                 value={userData.phonenumber}
                 onChange={handleInputChange}
