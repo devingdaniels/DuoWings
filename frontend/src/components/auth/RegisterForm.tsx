@@ -65,7 +65,7 @@ const SignUpForm: React.FC = () => {
   // Not sure if this is the best way to do it
   useEffect(() => {
     return () => {
-      console.log("LoginInForm unmounted");
+      console.log("LoginInForm unmounted, form data cleared");
       clearFormData();
     };
   }, []);
