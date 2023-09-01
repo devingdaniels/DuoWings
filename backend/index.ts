@@ -9,6 +9,7 @@ import logging from "./config/logging";
 import dotenv from "dotenv";
 import userAuthRoutes from "./routes/user";
 import errorHandler from "./middleware/errorHandler";
+import wordRoutes from "./routes/words";
 dotenv.config();
 
 const NAMESPACE = "index.ts";
@@ -32,6 +33,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 app.use("/api/users/auth", userAuthRoutes);
+app.use("/api/words", wordRoutes);
 
 app.use(errorHandler);
 

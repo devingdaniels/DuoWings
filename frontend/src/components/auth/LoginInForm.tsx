@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IUserLogin, IUserAuthResponse } from "../../interfaces";
 import { login } from "../../API/userAuth";
@@ -32,8 +32,6 @@ const LoginInForm: React.FC = () => {
     if (loginSuccess.status) {
       // Alert user of successful login
       SwalSuccess("Success", `Welcome ${loginSuccess.data.name}!`);
-      // Clear form data
-      clearFormData();
       // Redirect user to home page
       navigate("/home");
     } else {
@@ -50,6 +48,15 @@ const LoginInForm: React.FC = () => {
       password: "",
     });
   };
+
+  // How to clear form data when component unmounts?
+  // https://stackoverflow.com/questions/53949393/how-to-clear-form-data-when-component-unmounts
+  // Not sure if this is the best way to do it
+  useEffect(() => {
+    return () => {
+      clearFormData();
+    };
+  }, []);
 
   const spinnerStyle = {
     display: "block",
