@@ -14,23 +14,26 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
 
   try {
     if (!fname || !lname || !phonenumber || !email || !password || !confirmPassword) {
+      res.status(400);
       throw new Error("All fields are required");
     }
 
     // Check if the password and confirm password fields match
     if (password !== confirmPassword) {
+      res.status(400);
       throw new Error("Passwords do not match");
     }
     // First check if the user already exists
     const existingUser = await User.findOne({ email }).exec();
     if (existingUser) {
+      res.status(400);
       throw new Error(`User with email ${email} already exists`);
     }
 
     // Hash the user's password
     const hashedPassword = await hashPassword(password);
     if (!hashedPassword) {
-      console.log("Error hashing password");
+      res.status(500);
       throw new Error("Unknown error. Please try again");
     }
 

@@ -24,19 +24,14 @@ const SignUpForm: React.FC = () => {
     // Display spinner
     setLoading(true);
 
-    try {
-      const registerRes: IUserAuthResponse = await register(userData);
-      if (registerRes.status) {
-        // Alert user of successful registration
-        SwalSuccess("Success", `Welcome ${registerRes.data.name}!`);
-        // Redirect user to home page
-        navigate("/home");
-      } else {
-        ToastError(registerRes.data.message);
-      }
-    } catch (error) {
-      console.error("Registration error:", error);
-      ToastError("An error occurred during registration.");
+    const registerRes: IUserAuthResponse = await register(userData);
+    if (registerRes.status) {
+      // Alert user of successful registration
+      SwalSuccess("Success", `Welcome ${registerRes.data.name}!`);
+      // Redirect user to home page
+      navigate("/home");
+    } else {
+      ToastError(registerRes.data.message);
     }
     setLoading(false);
   };

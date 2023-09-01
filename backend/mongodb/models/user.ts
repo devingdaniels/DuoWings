@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
     index: true,
     lowercase: true,
   },
-  password: { type: String, required: true, min: 6 }, // select: false
+  password: { type: String, required: true, min: 6 }, // select: false, maybe dont need this since it is hashed
   phonenumber: {
     type: String,
     required: true,
@@ -37,7 +37,7 @@ const UserSchema = new mongoose.Schema({
     default: "",
   },
   dialogues: [{ type: mongoose.Schema.Types.ObjectId, ref: "Dialogue" }],
-  vocabulary: [{ type: mongoose.Schema.Types.ObjectId, ref: "Vocabulary" }],
+  vocabulary: [{ type: mongoose.Schema.Types.ObjectId, ref: "WordSet" }],
 });
 
 export const UserModel = mongoose.model("User", UserSchema, "Users");
