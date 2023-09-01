@@ -25,6 +25,18 @@ const WordSchema = new mongoose.Schema({
   },
 });
 
+WordSchema.methods.incrementCorrectCount = async function () {
+  this.correctCount += 1;
+  this.lastCorrectDate = new Date();
+  await this.save();
+};
+
+WordSchema.methods.incrementIncorrectCount = async function () {
+  this.incorrectCount += 1;
+  this.lastIncorrectDate = new Date();
+  await this.save();
+};
+
 const WordModel = mongoose.model("Word", WordSchema);
 
 const WordSetSchema = new mongoose.Schema({

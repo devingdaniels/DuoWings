@@ -21,14 +21,10 @@ const SignUpForm: React.FC = () => {
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Display spinner
     setLoading(true);
-
     const registerRes: IUserAuthResponse = await register(userData);
     if (registerRes.status) {
-      // Alert user of successful registration
       SwalSuccess("Success", `Welcome ${registerRes.data.name}!`);
-      // Redirect user to home page
       navigate("/home");
     } else {
       ToastError(registerRes.data.message);
@@ -57,7 +53,6 @@ const SignUpForm: React.FC = () => {
 
   // How to clear form data when component unmounts?
   // https://stackoverflow.com/questions/53949393/how-to-clear-form-data-when-component-unmounts
-  // Not sure if this is the best way to do it
   useEffect(() => {
     return () => {
       clearFormData();

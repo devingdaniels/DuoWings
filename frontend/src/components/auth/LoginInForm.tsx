@@ -30,15 +30,11 @@ const LoginInForm: React.FC = () => {
     const loginSuccess: IUserAuthResponse = await login(userData);
     // Check if login was successful
     if (loginSuccess.status) {
-      // Alert user of successful login
       SwalSuccess("Success", `Welcome ${loginSuccess.data.name}!`);
-      // Redirect user to home page
       navigate("/home");
     } else {
-      console.log(loginSuccess.data);
       ToastError(loginSuccess.data.message);
     }
-    // Done loading
     setLoading(false);
   };
 
