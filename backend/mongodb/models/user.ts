@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
     index: true,
     lowercase: true,
   },
-  password: { type: String, required: true, min: 6 }, // select: false, maybe dont need this since it is hashed
+  password: { type: String, required: true, min: 6 },
   phonenumber: {
     type: String,
     required: true,
