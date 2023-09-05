@@ -90,11 +90,7 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     // Set the cookie in the response using the JWT token
     res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: 3600000 });
 
-    res.status(201).json({
-      id: existingUser._id,
-      name: existingUser.fname + " " + existingUser.lname,
-      email: existingUser.email,
-    });
+    res.status(201).json(existingUser);
   } catch (error) {
     // Pass error to error handler middleware
     next(error);

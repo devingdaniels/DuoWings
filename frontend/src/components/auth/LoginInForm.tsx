@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { IUserLogin, IUserAuthResponse } from "../../interfaces";
-import { login } from "../../API/userAuth";
+import { IUserLogin } from "../../interfaces";
 import { SwalSuccess } from "../../utils/Sweetalert2";
 import { ToastError } from "../../utils/Toastify";
 import BarLoader from "react-spinners/BarLoader";
+// Redux
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { login, reset } from "../../features/userAuthSlice";
 
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
   const [userData, setUserData] = useState<IUserLogin>({
     email: "",
     password: "",
   });
+
+  const { user, isLoading, isError, isSuccess, message } = useAppSelector(
+    (state) => state.auth
+  );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,37 +28,25 @@ const LoginInForm: React.FC = () => {
     }));
   };
 
-  const handleSignIn = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Display spinner
-    setLoading(true);
-    // Send user data to backend
-    const loginSuccess: IUserAuthResponse = await login(userData);
-    // Check if login was successful
-    if (loginSuccess.status) {
-      SwalSuccess("Success", `Welcome ${loginSuccess.data.name}!`);
-      navigate("/home");
-    } else {
-      ToastError(loginSuccess.data.message);
-    }
-    setLoading(false);
+    dispatch(login(userData));
   };
 
-  const clearFormData = () => {
-    setUserData({
-      email: "",
-      password: "",
-    });
-  };
-
-  // How to clear form data when component unmounts?
-  // https://stackoverflow.com/questions/53949393/how-to-clear-form-data-when-component-unmounts
-  // Not sure if this is the best way to do it
   useEffect(() => {
+    if (isSuccess && user) {
+      console.log(user);
+      SwalSuccess("Sucess", `Welcome ${user.fname}!`);
+      navigate("/home");
+    }
+    if (isError) {
+      ToastError(message);
+    }
+
     return () => {
-      clearFormData();
+      dispatch(reset());
     };
-  }, []);
+  }, [user, isSuccess, isError, message, navigate]);
 
   const spinnerStyle = {
     display: "block",
@@ -64,7 +58,7 @@ const LoginInForm: React.FC = () => {
     <>
       <div className="auth-form-container">
         <div className="auth-form-wrapper">
-          <form onSubmit={handleSignIn}>
+          <form onSubmit={handleLogin}>
             <h2>Sign In</h2>
             <div className="user-info-wrapper">
               <input
@@ -86,7 +80,7 @@ const LoginInForm: React.FC = () => {
                 autoComplete="off"
               />
             </div>
-            {loading ? (
+            {isLoading ? (
               <BarLoader
                 color="#fa0000"
                 cssOverride={spinnerStyle}
