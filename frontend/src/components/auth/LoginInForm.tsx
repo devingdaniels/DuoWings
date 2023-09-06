@@ -8,8 +8,6 @@ import BarLoader from "react-spinners/BarLoader";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { login, reset } from "../../features/userAuthSlice";
 
-// Spinner style
-
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();

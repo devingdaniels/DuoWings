@@ -8,7 +8,7 @@ import { ToastError } from "../../utils/Toastify";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { register, reset } from "../../features/userAuthSlice";
 
-const SignUpForm: React.FC = () => {
+const SignUpForm = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [userData, setUserData] = useState<IUserRegister>({
