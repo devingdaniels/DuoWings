@@ -44,6 +44,28 @@ export const login = createAsyncThunk<
   }
 });
 
+export const register = createAsyncThunk<
+  User,
+  {
+    fname: string;
+    lname: string;
+    email: string;
+    phonenumber: string;
+    password: string;
+    confirmPassword: string;
+  }
+>("auth/register", async (userData, { rejectWithValue }) => {
+  try {
+    return await authService.register(userData);
+  } catch (error: any) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString();
+    return rejectWithValue(message);
+  }
+});
+
 // Create the user slice with reducers
 const userAuthSlice = createSlice({
   name: "auth",
@@ -65,10 +87,28 @@ const userAuthSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.isSuccess = true;
         state.isLoading = false;
+        state.isError = false;
         state.user = action.payload;
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
+        state.isSuccess = false;
+        state.isError = true;
+        state.message = action.payload as string;
+      })
+      .addCase(register.pending, (state) => {
+        state.isLoading = true;
+        state.message = "Loading User";
+      })
+      .addCase(register.fulfilled, (state, action) => {
+        state.isSuccess = true;
+        state.isLoading = false;
+        state.isError = false;
+        state.user = action.payload;
+      })
+      .addCase(register.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = false;
         state.isError = true;
         state.message = action.payload as string;
       });

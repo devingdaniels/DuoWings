@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IUserRegister } from "../../interfaces";
-import { register } from "../../API/userAuth";
 import { SwalSuccess } from "../../utils/Sweetalert2";
 import BarLoader from "react-spinners/BarLoader";
 import { ToastError } from "../../utils/Toastify";
-import { IUserAuthResponse } from "../../interfaces";
+// Redux
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { register, reset } from "../../features/userAuthSlice";
 
 const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
   const [userData, setUserData] = useState<IUserRegister>({
     fname: "",
     lname: "",
@@ -19,17 +20,15 @@ const SignUpForm: React.FC = () => {
     confirmPassword: "",
   });
 
+  const { user, isLoading, isError, isSuccess, message } = useAppSelector(
+    (state) => state.auth
+  );
+
   const handleSignUp = async (e: React.FormEvent) => {
+    // Stop page reload
     e.preventDefault();
-    setLoading(true);
-    const registerRes: IUserAuthResponse = await register(userData);
-    if (registerRes.status) {
-      SwalSuccess("Success", `Welcome ${registerRes.data.name}!`);
-      navigate("/home");
-    } else {
-      ToastError(registerRes.data.message);
-    }
-    setLoading(false);
+    // Redux layer will
+    dispatch(register(userData));
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,14 +49,23 @@ const SignUpForm: React.FC = () => {
       confirmPassword: "",
     });
   };
-
-  // How to clear form data when component unmounts?
-  // https://stackoverflow.com/questions/53949393/how-to-clear-form-data-when-component-unmounts
   useEffect(() => {
-    return () => {
+    if (isSuccess && user) {
+      SwalSuccess("Success", `Welcome ${user.fname}!`);
       clearFormData();
+      navigate("/home");
+    }
+    if (isError) {
+      ToastError(message);
+    }
+
+    return () => {
+      // Without the timeout, isLoading is set to false too fast to be seen by user
+      setTimeout(() => {
+        dispatch(reset());
+      }, 1000);
     };
-  }, []);
+  }, [user, isError, isSuccess, message, navigate]);
 
   const spinnerStyle = {
     display: "block",
@@ -132,7 +140,7 @@ const SignUpForm: React.FC = () => {
               />
               <br />
             </div>
-            {loading ? (
+            {isLoading ? (
               <BarLoader color="#fa0000" cssOverride={spinnerStyle} />
             ) : (
               <div className="auth-form-button-wrapper">

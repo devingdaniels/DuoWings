@@ -8,6 +8,8 @@ import BarLoader from "react-spinners/BarLoader";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { login, reset } from "../../features/userAuthSlice";
 
+// Spinner style
+
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -29,14 +31,15 @@ const LoginInForm: React.FC = () => {
   };
 
   const handleLogin = (e: React.FormEvent) => {
+    // Stop page reload
     e.preventDefault();
+    // Redux layer will
     dispatch(login(userData));
   };
 
   useEffect(() => {
     if (isSuccess && user) {
-      console.log(user);
-      SwalSuccess("Sucess", `Welcome ${user.fname}!`);
+      SwalSuccess("Success", `Welcome ${user.fname}!`);
       navigate("/home");
     }
     if (isError) {
@@ -44,9 +47,12 @@ const LoginInForm: React.FC = () => {
     }
 
     return () => {
-      dispatch(reset());
+      // Without the timeout, isLoading is set to false too fast to be seen by user
+      setTimeout(() => {
+        dispatch(reset());
+      }, 1000);
     };
-  }, [user, isSuccess, isError, message, navigate]);
+  }, [user, isError, isSuccess, message, navigate]);
 
   const spinnerStyle = {
     display: "block",
@@ -59,7 +65,7 @@ const LoginInForm: React.FC = () => {
       <div className="auth-form-container">
         <div className="auth-form-wrapper">
           <form onSubmit={handleLogin}>
-            <h2>Sign In</h2>
+            <h2>Login</h2>
             <div className="user-info-wrapper">
               <input
                 className="email"
@@ -90,7 +96,7 @@ const LoginInForm: React.FC = () => {
             ) : (
               <div className="auth-form-button-wrapper">
                 <button className="auth-button-primary" type="submit">
-                  Sign In
+                  Login
                 </button>
               </div>
             )}

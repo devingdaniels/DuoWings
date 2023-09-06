@@ -8,7 +8,7 @@ import HomePage from "./pages/HomePage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <>
       <Routes>
@@ -28,7 +28,7 @@ const App: React.FC = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme="light"
       />
     </>
   );
