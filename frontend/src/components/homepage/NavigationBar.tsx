@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import { GiWingedArrow } from "react-icons/gi";
 import axios from "axios";
 
-const NavigationBar: React.FC = () => {
+const NavigationBar = () => {
   const handleLogout = async () => {
     try {
       const URL = import.meta.env.VITE_BACKEND_API_AUTH + "/logout";
-      const response = await axios.get(URL, { withCredentials: true });
-      console.log(response.data);
+      await axios.get(URL, { withCredentials: true });
     } catch (error) {
       console.log(error);
     }

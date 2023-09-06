@@ -1,6 +1,6 @@
 import NavigationBar from "../components/homepage/NavigationBar";
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   return (
     <>
       <NavigationBar />
