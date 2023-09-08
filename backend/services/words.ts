@@ -28,7 +28,6 @@ async function readFileAndCreateArray(filePath: string): Promise<string[]> {
   }
 }
 
-// Example usage:
 export async function getAllWords(req: Request, res: Response): Promise<void> {
   const filePath = "./services/words.txt";
   const wordsArray = await readFileAndCreateArray(filePath);

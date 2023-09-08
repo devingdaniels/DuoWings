@@ -66,6 +66,23 @@ export const register = createAsyncThunk<
   }
 });
 
+export const logout = createAsyncThunk(
+  "auth/logout",
+  async (_, { rejectWithValue }) => {
+    try {
+      return await authService.logout();
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return rejectWithValue(message);
+    }
+  }
+);
+
 // Create the user slice with reducers
 const userAuthSlice = createSlice({
   name: "auth",
@@ -107,6 +124,22 @@ const userAuthSlice = createSlice({
         state.user = action.payload;
       })
       .addCase(register.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.isError = true;
+        state.message = action.payload as string;
+      })
+      .addCase(logout.pending, (state) => {
+        state.isLoading = true;
+        state.message = "Logging out user...";
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.isSuccess = true;
+        state.isLoading = false;
+        state.isError = false;
+        state.user = null;
+      })
+      .addCase(logout.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
         state.isError = true;

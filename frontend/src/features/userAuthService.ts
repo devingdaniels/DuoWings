@@ -32,9 +32,23 @@ const register = async (userData: IUserRegister) => {
   }
 };
 
+const logout = async () => {
+  try {
+    const response = await axios.get(BASE_URL + "/logout");
+    return response.data;
+  } catch (err: any) {
+    if (err.response && err.response.data) {
+      throw new Error(err.response.data.message);
+    } else {
+      throw new Error("Unknown error occured, logout failed.");
+    }
+  }
+};
+
 const authService = {
   login,
   register,
+  logout,
 };
 
 export default authService;

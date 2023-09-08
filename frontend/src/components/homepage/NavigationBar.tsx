@@ -1,30 +1,28 @@
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { GiWingedArrow } from "react-icons/gi";
-import axios from "axios";
+import { VscAccount } from "react-icons/vsc";
+import "./NavigationBar.css"; // Import your CSS file
 
 const NavigationBar = () => {
-  const handleLogout = async () => {
-    try {
-      const URL = import.meta.env.VITE_BACKEND_API_AUTH + "/logout";
-      await axios.get(URL, { withCredentials: true });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const navigate = useNavigate();
 
   return (
-    <>
-      <GiWingedArrow size={60} />
+    <div className="navbar">
+      <div className="logo">DuoWings</div>
       <nav>
         <ul>
           <li>
-            <Link to="/" onClick={handleLogout}>
-              Logout
-            </Link>
+            <Link to="/vocab">Vocab</Link>
+          </li>
+          <li>
+            <Link to="/tutor">Tutor</Link>
           </li>
         </ul>
       </nav>
-    </>
+      <div className="profile">
+        <VscAccount size={60} onClick={() => navigate("/user-settings")} />
+      </div>
+    </div>
   );
 };
 
