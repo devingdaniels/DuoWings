@@ -8,7 +8,9 @@ const NavigationBar = () => {
 
   return (
     <div className="navbar">
-      <div className="logo">DuoWings</div>
+      <div className="logo" onClick={() => navigate("/home")}>
+        DuoWings
+      </div>
       <nav>
         <ul>
           <li>

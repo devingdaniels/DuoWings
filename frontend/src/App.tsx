@@ -6,7 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ForgetPasswordPage from "./pages/ForgetPasswordPage";
 import HomePage from "./pages/HomePage";
-import VocabularyPage from "./pages/VocabularyPage";
+import VocabularyPage from "./pages/Vocabulary/VocabularyPage";
 import UserSettings from "./pages/UserSettings";
 // App notifications
 import { ToastContainer } from "react-toastify";
