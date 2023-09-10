@@ -1,4 +1,4 @@
-import Logout from "../components/auth/Logout";
+import Logout from "./Logout";
 
 function UserSettings() {
   return (

@@ -1,4 +1,4 @@
-import NavigationBar from "../components/homepage/NavigationBar";
+import NavigationBar from "./NavigationBar";
 
 const HomePage = () => {
   return (

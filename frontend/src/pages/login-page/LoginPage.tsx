@@ -1,21 +1,20 @@
 import React from "react";
+import LoginInForm from "./LoginInForm";
 import { useNavigate } from "react-router-dom";
-import { AuthLandingHeaderProps } from "../../interfaces";
 
-const AuthLandingHeader: React.FC<AuthLandingHeaderProps> = ({
-  destination,
-}) => {
+const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   return (
     <>
       <h1
         className="auth-page-header duowings-site-title"
-        onClick={() => navigate(destination)}
+        onClick={() => navigate("/")}
       >
         DuoWings
       </h1>
+      <LoginInForm />
     </>
   );
 };
 
-export default AuthLandingHeader;
+export default LoginPage;
