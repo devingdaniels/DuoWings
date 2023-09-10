@@ -10,10 +10,10 @@ const VocabularyPage = () => {
         <aside className="menu">
           <ul>
             <li>
-              <Link to="/vocab">Vocab</Link>
+              <Link to="/vocab/decks">Decks</Link>
             </li>
             <li>
-              <Link to="/stats">Stats</Link>
+              <Link to="/vocab/stats">Stats</Link>
             </li>
           </ul>
         </aside>
