@@ -6,12 +6,7 @@ const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
   return (
     <>
-      <h1
-        className="auth-page-header duowings-site-title"
-        onClick={() => navigate("/")}
-      >
-        DuoWings
-      </h1>
+      <h1 onClick={() => navigate("/")}>DuoWings</h1>
       <RegisterForm />
     </>
   );

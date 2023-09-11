@@ -29,7 +29,11 @@ function Logout() {
   if (isLoading) {
     return <div>Loading...</div>;
   } else {
-    return <button onClick={handleLogout}>Logout</button>;
+    return (
+      <>
+        <button onClick={handleLogout}>Logout</button>
+      </>
+    );
   }
 }
 

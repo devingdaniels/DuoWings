@@ -22,7 +22,7 @@ const NavigationBar = () => {
         </ul>
       </nav>
       <div className="profile">
-        <VscAccount size={60} onClick={() => navigate("/user-settings")} />
+        <VscAccount size={40} onClick={() => navigate("/user-settings")} />
       </div>
     </div>
   );

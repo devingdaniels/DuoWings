@@ -4,6 +4,7 @@ const HomePage = () => {
   return (
     <>
       <NavigationBar />
+      some other content here ...
     </>
   );
 };

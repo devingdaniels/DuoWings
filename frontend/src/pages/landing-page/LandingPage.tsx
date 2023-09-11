@@ -1,22 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
+import { BsCardChecklist } from "react-icons/bs";
+import "./LandingPage.css";
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="landing-page-container">
-      <div className="landing-page-section-1">
-        <header className="auth-page-header">
-          <h1 className="duowings-site-title">DuoWings</h1>
-          <nav>
-            <Link to="/login">
-              <button className="landing-page-login-button">Sign In</button>
-            </Link>
-          </nav>
-        </header>
-        <div className="call-to-action-container">
+    <div className="landing-page">
+      <header>
+        <div>
+          <h1>DuoWings</h1>
+          <h3>Some catchphrase here</h3>
+        </div>
+        <Link to="/login">
+          <Button variant="contained" size="large">
+            Sign In
+          </Button>
+        </Link>
+      </header>
+      <div className="section-1">
+        <div className="call-to-action">
+          <h3>
+            Here is some reason why you should use this product over our
+            competitors and now you pay me
+          </h3>
           <Link to="/register">
-            <button className="landing-page-register-button">Sign Up</button>
+            <Button variant="contained" size="large">
+              Sign Up
+            </Button>
           </Link>
+        </div>
+        <div className="call-to-action">
+          <h3>
+            Here will be an example vocab card has flip animation and stuff
+          </h3>
+          <BsCardChecklist size={80} />
         </div>
       </div>
     </div>

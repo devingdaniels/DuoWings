@@ -45,7 +45,7 @@ const LoginInForm: React.FC = () => {
     }
 
     return () => {
-      // Without the timeout, isLoading is set to false too fast to be seen by user
+      // Without the timeout, isLoading is set to false too fast (with good connections) to be seen by client
       setTimeout(() => {
         dispatch(reset());
       }, 1000);
