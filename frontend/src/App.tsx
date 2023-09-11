@@ -2,8 +2,8 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 // Pages
 import LandingPage from "./pages/landing-page/LandingPage";
-import LoginPage from "./pages/login-page/LoginPage";
-import RegisterPage from "./pages/register-page/RegisterPage";
+import LoginPage from "./pages/auth/login-page/LoginPage";
+import RegisterPage from "./pages/auth/register-page/RegisterPage";
 import HomePage from "./pages/home-page/HomePage";
 import UserSettingsPage from "./pages/user-settings/UserSettingsPage";
 // App notifications

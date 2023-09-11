@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { IUserLogin } from "../../interfaces";
-import { SwalSuccess } from "../../utils/Sweetalert2";
-import { ToastError } from "../../utils/Toastify";
+import { IUserLogin } from "../../../interfaces";
+import { SwalSuccess } from "../../../utils/Sweetalert2";
+import { ToastError } from "../../../utils/Toastify";
 import BarLoader from "react-spinners/BarLoader";
+import Button from "@mui/material/Button";
 // Redux
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { login, reset } from "../../features/userAuthSlice";
+import { useAppSelector, useAppDispatch } from "../../../app/hooks";
+import { login, reset } from "../../../features/userAuthSlice";
 
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
@@ -72,6 +73,7 @@ const LoginInForm: React.FC = () => {
                 name="email"
                 value={userData.email}
                 onChange={handleInputChange}
+                required
               />
               <br />
               <input
@@ -82,6 +84,7 @@ const LoginInForm: React.FC = () => {
                 value={userData.password}
                 onChange={handleInputChange}
                 autoComplete="off"
+                required
               />
             </div>
             {isLoading ? (
@@ -93,9 +96,9 @@ const LoginInForm: React.FC = () => {
               />
             ) : (
               <div className="auth-form-button-wrapper">
-                <button className="auth-button-primary" type="submit">
-                  Login
-                </button>
+                <Button type="submit" variant="contained">
+                  Sign In
+                </Button>
               </div>
             )}
           </form>

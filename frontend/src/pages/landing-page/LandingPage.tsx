@@ -14,7 +14,7 @@ const LandingPage: React.FC = () => {
         </div>
         <Link to="/login">
           <Button variant="contained" size="large">
-            Sign In
+            Login
           </Button>
         </Link>
       </header>
@@ -26,7 +26,7 @@ const LandingPage: React.FC = () => {
           </h3>
           <Link to="/register">
             <Button variant="contained" size="large">
-              Sign Up
+              Register
             </Button>
           </Link>
         </div>

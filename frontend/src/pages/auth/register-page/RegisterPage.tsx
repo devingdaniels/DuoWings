@@ -1,6 +1,7 @@
 import React from "react";
 import RegisterForm from "./RegisterForm";
 import { useNavigate } from "react-router-dom";
+import "../authPageForms.css";
 
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate();

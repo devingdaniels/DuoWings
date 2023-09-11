@@ -1,19 +1,17 @@
 .landing-page {
-  background-color: rgb(6, 22, 41);
-  color: whitesmoke;
   padding: 1% 3%;
   height: 100vh;
 }
 
-h1 {
+.landing-page h1 {
   font-size: 3.25rem;
 }
 
-h1:hover {
+.landing-page h1:hover {
   cursor: pointer;
 }
 
-header {
+.landing-page header {
   display: flex;
   justify-content: space-between;
   align-items: center;

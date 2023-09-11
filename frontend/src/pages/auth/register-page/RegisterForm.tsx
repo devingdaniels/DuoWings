@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { IUserRegister } from "../../interfaces";
-import { SwalSuccess } from "../../utils/Sweetalert2";
+import { IUserRegister } from "../../../interfaces";
+import { SwalSuccess } from "../../../utils/Sweetalert2";
 import BarLoader from "react-spinners/BarLoader";
-import { ToastError } from "../../utils/Toastify";
+import { ToastError } from "../../../utils/Toastify";
 // Redux
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { register, reset } from "../../features/userAuthSlice";
+import { useAppSelector, useAppDispatch } from "../../../app/hooks";
+import { register, reset } from "../../../features/userAuthSlice";
+// Styles
+import Button from "@mui/material/Button";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -143,17 +145,15 @@ const SignUpForm = () => {
             {isLoading ? (
               <BarLoader color="#fa0000" cssOverride={spinnerStyle} />
             ) : (
-              <div className="auth-form-button-wrapper">
-                <button className="auth-button-primary" type="submit">
-                  Register
-                </button>
-              </div>
+              <Button type="submit" variant="contained">
+                Register
+              </Button>
             )}
           </form>
         </div>
         <div className="signup-wrapper">
           <p>Already have an account?</p>
-          <Link to="/login">Sign In</Link>
+          <Link to="/login">Login</Link>
         </div>
       </div>
     </>
