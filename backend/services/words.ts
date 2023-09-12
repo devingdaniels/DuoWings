@@ -8,11 +8,10 @@ function capitalizeFirstLetter(word: string) {
 async function readFileAndCreateArray(filePath: string): Promise<string[]> {
   try {
     const content = await fs.readFile(filePath, "utf8");
-    // Split the content into lines, remove leading/trailing whitespace and filter out empty lines
     const lines = content
-      .split(/\r?\n/)
-      .map((line) => line.trim())
-      .filter((line) => line !== "");
+      .split(/\r?\n/) // Split on newlines
+      .map((line) => line.trim()) // Remove leading/trailing whitespace
+      .filter((line) => line !== ""); // Remove empty lines
     const wordsArray: string[] = [];
     // Loop through the lines and split into words
     for (const line of lines) {
@@ -29,7 +28,7 @@ async function readFileAndCreateArray(filePath: string): Promise<string[]> {
 }
 
 export async function getAllWords(req: Request, res: Response): Promise<void> {
-  const filePath = "./services/words.txt";
+  const filePath = "./services/words.txt"; // Relative to the root of the project
   const wordsArray = await readFileAndCreateArray(filePath);
   wordsArray.sort();
   res.status(200).json(wordsArray);
