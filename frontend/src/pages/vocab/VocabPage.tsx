@@ -1,12 +1,12 @@
 import NavigationBar from "../../components/home-nav-bar/NavigationBar";
 
-const HomePage = () => {
+const VocabPage = () => {
   return (
     <>
       <NavigationBar />
-      Home Page
+      <div>VocabPage</div>
     </>
   );
 };
 
-export default HomePage;
+export default VocabPage;

@@ -1,18 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { VscAccount } from "react-icons/vsc";
-import "./NavigationBar.css"; // Import your CSS file
+import "./NavigationBar.css";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
 
   return (
     <div className="navbar">
-      <div className="logo" onClick={() => navigate("/home")}>
+      <div className="duowings-nav-title" onClick={() => navigate("/home")}>
         DuoWings
       </div>
       <nav>
         <ul>
+          <li>
+            <Link to="/home">Home</Link>
+          </li>
           <li>
             <Link to="/vocab">Vocab</Link>
           </li>
