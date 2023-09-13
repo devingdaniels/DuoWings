@@ -2,9 +2,12 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { VscAccount } from "react-icons/vsc";
 import "./NavigationBar.css";
+// Redux
+import { useAppSelector } from "../../app/hooks";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
+  const user = useAppSelector((state) => state.auth.user);
 
   return (
     <div className="navbar">
@@ -24,8 +27,9 @@ const NavigationBar = () => {
           </li>
         </ul>
       </nav>
-      <div className="profile">
-        <VscAccount size={40} onClick={() => navigate("/user-settings")} />
+      <div className="profile" onClick={() => navigate("/user-settings")}>
+        <VscAccount size={40} />
+        <span>Hi, {user?.fname}!</span>
       </div>
     </div>
   );
