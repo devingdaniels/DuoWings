@@ -4,6 +4,7 @@ body {
   font-family: "Lato", sans-serif;
   background-color: rgb(6, 22, 41);
   color: whitesmoke;
+  font-size: 1.3rem;
 }
 
 * {
@@ -183,10 +184,10 @@ a {
 
 .vocab-page-container {
   display: flex;
-  margin: 1%;
+  margin: 1% 1% 0 1%;
 }
 
-/* ------------------------ MENU PANEL (right side of grid)  ------------------------  */
+/* ------------------------ MENU PANEL (left menu component of grid)  ------------------------  */
 .menu-panel-container {
   width: 10%;
   display: flex;
@@ -220,7 +221,9 @@ a {
   margin-left: 1rem;
 }
 
-/* ------------------------ DECK PAGE (left main section of grid) ------------------------  */
+/* ------------------------ DECK PAGE (Right section of grid) ------------------------  */
 
 .deck-page-container {
+  text-align: center;
+  width: 100%;
 }
