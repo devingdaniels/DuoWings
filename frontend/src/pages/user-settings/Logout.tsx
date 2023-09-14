@@ -19,12 +19,11 @@ function Logout() {
 
   useEffect(() => {
     if (isSuccess && !user) {
-      console.log("Logged out");
+      console.log("Logout successful");
       navigate("/");
     }
     if (isError) {
-      console.log("Error logging out");
-      console.log(message);
+      console.log("Error logging out", message);
     }
   }, [user, isError, isSuccess, message]);
 

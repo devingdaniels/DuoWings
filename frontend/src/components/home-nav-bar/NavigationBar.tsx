@@ -49,8 +49,8 @@ const NavigationBar = () => {
         </ul>
       </nav>
       <div className="profile" onClick={() => navigate("/user-settings")}>
-        <VscAccount size={40} />
-        <span>Hi, {user?.fname}!</span>
+        <VscAccount size={30} />
+        <span style={{ paddingLeft: "10px" }}>Hi, {user?.fname}!</span>
       </div>
     </div>
   );
