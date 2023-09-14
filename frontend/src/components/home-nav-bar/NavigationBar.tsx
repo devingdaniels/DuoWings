@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { VscAccount } from "react-icons/vsc";
 import "./NavigationBar.css";
 // Redux
@@ -17,13 +17,34 @@ const NavigationBar = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/home">Home</Link>
+            <NavLink
+              to="/home"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/vocab">Vocab</Link>
+            <NavLink
+              to="/vocab"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
+              Vocab
+            </NavLink>
           </li>
           <li>
-            <Link to="/tutor">Tutor</Link>
+            <NavLink
+              to="/tutor"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
+              Tutor
+            </NavLink>
           </li>
         </ul>
       </nav>

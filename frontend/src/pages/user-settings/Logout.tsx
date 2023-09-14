@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { logout } from "../../features/userAuthSlice";
+// Material UI
+import Button from "@mui/material/Button";
 
 function Logout() {
   const dispatch = useAppDispatch();
@@ -31,7 +33,9 @@ function Logout() {
   } else {
     return (
       <>
-        <button onClick={handleLogout}>Logout</button>
+        <Button variant="contained" onClick={handleLogout}>
+          Logout
+        </Button>
       </>
     );
   }

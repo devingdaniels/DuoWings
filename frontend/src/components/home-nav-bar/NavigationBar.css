@@ -38,6 +38,13 @@ nav ul li {
   cursor: pointer;
 }
 
+/* Add this CSS for active links */
 a {
   color: rgb(73, 127, 215);
+  text-decoration: none; /* Remove default underline */
+}
+
+/* Add this CSS to underline active links */
+.active {
+  text-decoration: underline;
 }
