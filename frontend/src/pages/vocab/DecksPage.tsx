@@ -1,7 +1,7 @@
 // import SearchAppBar from "./SearchBar";
 
 const decksData = [
-  { id: 1, name: "Deck 1", description: "Description 1" },
+  // { id: 1, name: "Deck 1", description: "Description 1" },
   // { id: 2, name: "Deck 2", description: "Description 2" },
   // { id: 3, name: "Deck 3", description: "Description 3" },
   // { id: 4, name: "Deck 4", description: "Description 4" },
@@ -25,12 +25,12 @@ const decksData = [
 
 const DecksPage = () => {
   return (
-    <div className="decks-page">
-      <h1 className="deck-page-title">My Decks</h1>
+    <div className="deck-page-container">
+      <h2>My Decks</h2>
       {/* <SearchAppBar /> */}
-      <div className="deck-grid">
+      <div className="deck-grid-container">
         {decksData.map((deck) => (
-          <div key={deck.id} className="deck-card">
+          <div key={deck.id}>
             <h2>{deck.name}</h2>
             <p>{deck.description}</p>
           </div>
