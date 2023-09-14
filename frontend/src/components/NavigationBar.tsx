@@ -2,18 +2,18 @@ import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { VscAccount } from "react-icons/vsc";
 // Redux
-import { useAppSelector } from "../../app/hooks";
+import { useAppSelector } from "../app/hooks";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
   const user = useAppSelector((state) => state.auth.user);
 
   return (
-    <div className="navbar">
-      <div className="duowings-nav-title" onClick={() => navigate("/home")}>
+    <div className="home-nav-container">
+      <div className="home-nav-title" onClick={() => navigate("/home")}>
         DuoWings
       </div>
-      <nav>
+      <nav className="">
         <ul>
           <li>
             <NavLink

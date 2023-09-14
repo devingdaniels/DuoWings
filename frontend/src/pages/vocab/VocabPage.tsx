@@ -1,5 +1,5 @@
 import { Routes, Route, NavLink } from "react-router-dom";
-import NavigationBar from "../../components/home-nav-bar/NavigationBar";
+import NavigationBar from "../../components/NavigationBar";
 import DecksPage from "./DecksPage";
 import StatsPage from "./StatsPage";
 import styled from "styled-components";
