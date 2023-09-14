@@ -49,7 +49,7 @@ const NavigationBar = () => {
       </nav>
       <div className="profile" onClick={() => navigate("/user-settings")}>
         <VscAccount size={30} />
-        <span style={{ paddingLeft: "10px" }}>Hi, {user?.fname}!</span>
+        <span className="profile-user-greeting">Hi, {user?.fname}!</span>
       </div>
     </div>
   );
