@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { VscAccount } from "react-icons/vsc";
-import "./NavigationBar.css";
 // Redux
 import { useAppSelector } from "../../app/hooks";
 

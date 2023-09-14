@@ -12,6 +12,154 @@ body {
   padding: 0;
 }
 
-a {
+/* LANDING PAGE  */
+.landing-page {
+  padding: 1% 3%;
+  height: 100vh;
+}
+
+.landing-page h1 {
+  font-size: 3.25rem;
+}
+
+.landing-page h1:hover {
+  cursor: pointer;
+}
+
+.landing-page header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.call-to-action {
+  margin: 2%;
+  max-width: 50%;
+}
+
+.section-1 {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+/* LOGIN AND REGISTER AUTH FORMS */
+.auth-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% 2%;
+  cursor: pointer;
+  font-size: 2.5rem;
+}
+
+.auth-form-container {
+  width: 450px;
+  background: rgba(0, 0, 0, 0.2);
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 60px 65px;
+}
+
+.auth-form-wrapper {
+  padding: 4%;
+}
+
+.auth-form-wrapper h1 {
+  margin-bottom: 1%;
+}
+
+.auth-form-wrapper {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.auth-form-wrapper .user-info-wrapper {
+  padding: 5px 0;
+}
+
+.auth-form-wrapper .user-info-wrapper .email,
+.password,
+.username,
+.lname,
+.fname,
+.phonenumber {
+  margin-bottom: 30px;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  font-size: inherit;
+}
+
+.auth-form-wrapper .auth-form-button-wrapper {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.user-info-wrapper input {
+  padding: 2%;
+  background: #343434;
+  color: white;
+}
+
+.signup {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* HOME PAGE* NAVIGATION BAR */
+.duowings-nav-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
   text-decoration: none;
+}
+
+.duowings-nav-title:hover {
+  cursor: pointer;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Adjust padding as needed */
+  background-color: #1b1b1b; /* Set background color */
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px; /* Adjust spacing between links */
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Add this CSS for active links */
+a {
+  color: rgb(73, 127, 215);
+  text-decoration: none; /* Remove default underline */
+}
+
+/* Add this CSS to underline active links */
+.active {
+  color: white;
 }

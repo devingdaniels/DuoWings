@@ -61,7 +61,6 @@ const VocabPage = () => {
         </NavPanelContainer>
         <div className="vocab-page-main-section">
           <Routes>
-            <Route path="/" element={<DecksPage />} />
             <Route path="/decks" element={<DecksPage />} />
             <Route path="/stats" element={<StatsPage />} />
           </Routes>
