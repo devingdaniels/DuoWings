@@ -232,3 +232,21 @@ a {
   text-align: center;
   width: 100%;
 }
+
+.deck-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minMax(300px, 1fr));
+  gap: 2%;
+  padding: 2%;
+}
+
+.deck-container {
+  border: 2px solid #ccc;
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 2px 1px 13px 5px rgba(255, 230, 1, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2%;
+}

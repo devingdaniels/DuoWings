@@ -18,9 +18,7 @@ const NavigationBar = () => {
           <li>
             <NavLink
               to="/home"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
-              }
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               Home
             </NavLink>
@@ -28,9 +26,7 @@ const NavigationBar = () => {
           <li>
             <NavLink
               to="/vocab"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
-              }
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               Vocab
             </NavLink>
@@ -38,9 +34,7 @@ const NavigationBar = () => {
           <li>
             <NavLink
               to="/tutor"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
-              }
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               Tutor
             </NavLink>

@@ -102,6 +102,8 @@ const userAuthSlice = createSlice({
     builder
       .addCase(login.pending, (state) => {
         state.isLoading = true;
+        state.isSuccess = false;
+        state.user = null;
         state.message = "Loading User";
       })
       .addCase(login.fulfilled, (state, action) => {
@@ -114,6 +116,7 @@ const userAuthSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = false;
         state.isError = true;
+        state.user = null;
         state.message = action.payload as string;
       })
       .addCase(register.pending, (state) => {

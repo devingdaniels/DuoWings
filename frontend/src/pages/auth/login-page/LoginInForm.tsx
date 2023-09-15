@@ -37,12 +37,13 @@ const LoginInForm: React.FC = () => {
   };
 
   useEffect(() => {
-    if (isSuccess && user) {
+    if (isSuccess && user && !isError) {
       SwalSuccess("Success", `Welcome ${user.fname}!`);
       navigate("/home");
     }
     if (isError) {
       ToastError(message);
+      console.log(message);
     }
 
     return () => {

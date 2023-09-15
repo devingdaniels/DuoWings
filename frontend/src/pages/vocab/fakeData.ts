@@ -1,4 +1,4 @@
-export const decksData = [
+export const fakeDecks = [
   {
     name: "Deck 1",
     description: "Description 1",
