@@ -13,8 +13,8 @@ const NavigationBar = () => {
       <div className="home-nav-title" onClick={() => navigate("/home")}>
         DuoWings
       </div>
-      <nav className="">
-        <ul>
+      <nav>
+        <ul className="home-nav-link-container">
           <li>
             <NavLink
               to="/home"

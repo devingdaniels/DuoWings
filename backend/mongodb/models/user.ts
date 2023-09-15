@@ -37,7 +37,7 @@ const UserSchema = new mongoose.Schema({
     default: "",
   },
   dialogues: [{ type: mongoose.Schema.Types.ObjectId, ref: "Dialogue" }],
-  vocabulary: [{ type: mongoose.Schema.Types.ObjectId, ref: "WordSet" }],
+  vocabulary: [{ type: mongoose.Schema.Types.ObjectId, ref: "WordDeck" }],
 });
 
 export const UserModel = mongoose.model("User", UserSchema, "Users");

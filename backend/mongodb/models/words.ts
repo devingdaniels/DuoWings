@@ -18,11 +18,12 @@ const WordSchema = new mongoose.Schema({
     default: 0,
   },
   lastCorrectDate: {
-    type: Date,
+    type: [Date],
   },
   lastIncorrectDate: {
-    type: Date,
+    type: [Date],
   },
+  tags: [String],
 });
 
 WordSchema.methods.incrementCorrectCount = async function () {
@@ -39,15 +40,22 @@ WordSchema.methods.incrementIncorrectCount = async function () {
 
 const WordModel = mongoose.model("Word", WordSchema);
 
-const WordSetSchema = new mongoose.Schema({
+const WordDeckSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
   description: String,
+  tags: [String],
   words: [WordSchema],
 });
 
-const WordSetModel = mongoose.model("WordSet", WordSetSchema);
+WordDeckSchema.methods.addWord = async function (word: String) {
+  // Get user's word deck
+  const wordDeck = await WordSetModel.findById(this._id);
+  // Add word to word deck
+};
+
+const WordSetModel = mongoose.model("WordDeck", WordDeckSchema);
 
 export { WordModel, WordSetModel };

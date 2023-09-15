@@ -147,18 +147,17 @@ a {
   cursor: pointer;
 }
 
+.home-nav-link-container {
+  list-style: none;
+  display: flex;
+}
+
 .duowings-nav-title:hover {
   cursor: pointer;
 }
 
-.home-nav-container nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-}
-
-.home-nav-container nav ul li {
-  margin-right: 20px;
+.home-nav-link-container li {
+  margin: 0 10px;
 }
 
 .profile {
@@ -189,6 +188,7 @@ a {
 
 /* ------------------------ MENU PANEL (left menu component of grid)  ------------------------  */
 .menu-panel-container {
+  height: max-content;
   width: 10%;
   display: flex;
   flex-direction: column;
@@ -224,6 +224,11 @@ a {
 /* ------------------------ DECK PAGE (Right section of grid) ------------------------  */
 
 .deck-page-container {
+  text-align: center;
+  width: 100%;
+}
+
+.stats-page-container {
   text-align: center;
   width: 100%;
 }
