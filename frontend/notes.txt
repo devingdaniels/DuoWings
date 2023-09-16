@@ -1,36 +1,16 @@
-const mongoose = require('mongoose');
-
-// User Schema
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    unique: true,
-    required: true,
-  },
-  email: {
-    type: String,
-    unique: true,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  wordSets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'WordSet' }],
-  preferences: { type: mongoose.Schema.Types.ObjectId, ref: 'UserPreferences' },
-  // User's word progress tracking
-  wordProgress: [{ type: mongoose.Schema.Types.ObjectId, ref: 'UserWord' }],
-});
-
-// Word Schema
-const wordSchema = new mongoose.Schema({
+const WordSchema = new mongoose.Schema({
   word: {
     type: String,
     required: true,
   },
-  englishDefinition: String,
-  exampleSentence: String,
-  wordType: String,
+  englishDefinition: {
+    type: String,
+    required: true,
+  },
+  wordType: {
+    type: String,
+    required: true,
+  },
   conjugation: String,
   correctCount: {
     type: Number,
@@ -41,36 +21,58 @@ const wordSchema = new mongoose.Schema({
     default: 0,
   },
   lastCorrectDate: {
-    type: Date,
+    type: [Date],
   },
   lastIncorrectDate: {
-    type: Date,
+    type: [Date],
   },
+  creationDate: {
+    type: Date,
+    required: true,
+  },
+  difficulty: {
+    type: Number,
+    default: 0,
+  },
+  tags: [String], //
+  exampleSentence: String,
+  userNotes: String,
 });
 
-// WordSet Schema
-const wordSetSchema = new mongoose.Schema({
+const WordDeckSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
   description: String,
-  words: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Word' }],
-  // WordSet-specific user word progress tracking
-  userWordProgress: [{ type: mongoose.Schema.Types.ObjectId, ref: 'UserWord' }],
+  tags: [String],
+  creationDate: {
+    type: Date,
+    default: Date.now,
+  },
+  insertOrder: [Number],
+  words: [WordSchema],
+  // Gamification Fields
+  experiencePoints: {
+    type: Number,
+    default: 0,
+  },
+  level: {
+    type: Number,
+    default: 1,
+  },
+  completedChallenges: [String], // IDs or names of completed challenges
+  badges: [String], // IDs or names of earned badges
+  streak: {
+    type: Number,
+    default: 0,
+  },
+  lastStreakDate: {
+    type: Date,
+  },
 });
 
-// UserWord Schema (for tracking user's progress)
-const userWordSchema = new mongoose.Schema({
-  word: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Word',
-    required: true,
-  },
-  lastPracticedDate: Date,
-  correctCount: Number,
-  incorrectCount: Number,
-});
+
 
 // QuizResult Schema
 const quizResultSchema = new mongoose.Schema({
@@ -136,30 +138,8 @@ const userPreferencesSchema = new mongoose.Schema({
   difficultyLevel: String,
 });
 
-const User = mongoose.model('User', userSchema);
-const Word = mongoose.model('Word', wordSchema);
-const WordSet = mongoose.model('WordSet', wordSetSchema);
-const UserWord = mongoose.model('UserWord', userWordSchema);
-const QuizResult = mongoose.model('QuizResult', quizResultSchema);
-const DailyChallenge = mongoose.model('DailyChallenge', dailyChallengeSchema);
-const Leaderboard = mongoose.model('Leaderboard', leaderboardSchema);
-const Badge = mongoose.model('Badge', badgeSchema);
-const UserPreferences = mongoose.model('UserPreferences', userPreferencesSchema);
-
-module.exports = {
-  User,
-  Word,
-  WordSet,
-  UserWord,
-  QuizResult,
-  DailyChallenge,
-  Leaderboard,
-  Badge,
-  UserPreferences,
-};
 
 ---------------------------------------------------------------------------------
-
 
 import { useState } from "react";
 

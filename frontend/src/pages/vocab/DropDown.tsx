@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import { SelectChangeEvent } from "@mui/material";
 
 const Dropdown = styled(Select)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main, // Use the primary color
@@ -19,12 +20,12 @@ const Dropdown = styled(Select)(({ theme }) => ({
   },
 }));
 
-const DropdownComponent = () => {
-  const [selectedOption, setSelectedOption] = useState("recent"); // Set default option to "recent"
+const DropdownComponent: React.FC = () => {
+  const [selectedOption, setSelectedOption] = useState<string>("recent"); // Set default option to "recent"
 
-  const handleOptionChange = (event) => {
+  const handleOptionChange = (event: SelectChangeEvent<string>) => {
     setSelectedOption(event.target.value);
-    // You can perform any actions or handle the selected option here
+    console.log(event.target.value);
   };
 
   return (
@@ -34,7 +35,7 @@ const DropdownComponent = () => {
       displayEmpty
       inputProps={{ "aria-label": "select option" }}
     >
-      <MenuItem value="recent">Recent</MenuItem>
+      <MenuItem value="recent">Recent (Studied)</MenuItem>
       <MenuItem value="newest">Created (newest)</MenuItem>
       <MenuItem value="oldest">Created (oldest)</MenuItem>
     </Dropdown>

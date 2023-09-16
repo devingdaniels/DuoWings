@@ -1,22 +1,44 @@
-// import SearchAppBar from "./SearchBar";
-import Deck from "../../components//Deck";
-import { fakeDecks } from "../vocab/fakeData";
+import { useState } from "react";
+import CreateDeck from "../../components/CreateDeck";
+import Deck from "../../components/Deck";
 import SearchAppBar from "./SearchBar";
-
-import DropdownComponent from "./DropDown";
+import { fakeDecks } from "../vocab/fakeData";
 
 const DecksPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
     <div className="deck-page-container">
-      <div style={{ width: "max-content", display: "right" }}>
-        <SearchAppBar />
-        <DropdownComponent />
-      </div>
+      <SearchAppBar />
       <div className="deck-grid-container">
         {fakeDecks.map((deck: any, i: number) => {
           return <Deck key={i} deck={deck} />;
         })}
       </div>
+
+      {/* Button in the bottom-right corner */}
+      <button
+        className="bottom-right-button-create-deck-button"
+        onClick={toggleModal}
+      >
+        Create Deck
+      </button>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="modal-container">
+          <div className="modal-content">
+            <CreateDeck />
+            <button className="close-modal-button" onClick={toggleModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

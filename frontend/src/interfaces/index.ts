@@ -16,3 +16,9 @@ export interface IUserAuthResponse {
   status: boolean;
   data: { name: string; message: string };
 }
+
+export interface DeckData {
+  name: string;
+  description: string;
+  tags: string[];
+}
