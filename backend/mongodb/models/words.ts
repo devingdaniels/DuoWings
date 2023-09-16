@@ -65,8 +65,13 @@ const WordDeckSchema = new mongoose.Schema({
   creationDate: {
     type: Date,
     default: Date.now,
+    immutable: true,
   },
-  insertOrder: [Number],
+  preferences: {
+    sortOrder: [Number],
+    favorited: Boolean,
+    color: String,
+  },
   words: [WordSchema],
 });
 
