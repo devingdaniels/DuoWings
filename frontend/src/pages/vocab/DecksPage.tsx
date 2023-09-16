@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import CreateDeck from "../../components/CreateDeck";
 import Deck from "../../components/Deck";
-import SearchAppBar from "./SearchBar";
 import { fakeDecks } from "../vocab/fakeData";
-// import { MdOutlineCreateNewFolder as NewDeckIcon } from "react-icons/md";
+import { Button } from "@mui/material";
 
 const DecksPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [deckData, setDeckData] = useState<any[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation(); // Prevent the click event from propagating
+    e.stopPropagation();
     setIsModalOpen(!isModalOpen);
   };
 
@@ -20,53 +21,73 @@ const DecksPage: React.FC = () => {
   };
 
   useEffect(() => {
-    // Add a click event listener to the document
     const handleClickOutside = (e: MouseEvent) => {
       if (
         isModalOpen &&
         (e.target as Element).closest(".modal-content") === null
       ) {
-        // If the modal is open and the click is outside the modal content, close the modal
         setIsModalOpen(false);
       }
     };
 
-    // Attach the event listener
     document.addEventListener("keydown", handleEscapeKey);
     document.addEventListener("click", handleClickOutside);
+    setDeckData(fakeDecks);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       document.removeEventListener("click", handleClickOutside);
       document.removeEventListener("keydown", handleEscapeKey);
     };
   }, [isModalOpen]);
 
+  const handleDeckSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filterDecks = () => {
+    const filtered = fakeDecks.filter((deck: any) =>
+      deck.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setDeckData(filtered);
+  };
+
+  useEffect(() => {
+    filterDecks();
+  }, [searchTerm]);
+
   return (
     <div className="deck-page-container">
-      <SearchAppBar />
+      <div>
+        <input
+          type="text"
+          placeholder="Search decks"
+          value={searchTerm}
+          onChange={handleDeckSearch}
+        />
+        <button onClick={filterDecks}>Search</button>
+      </div>
       <div className="deck-grid-container">
-        {fakeDecks.map((deck: any, i: number) => {
+        {deckData.map((deck: any, i: number) => {
           return <Deck key={i} deck={deck} />;
         })}
       </div>
-
-      {/* Button in the bottom-right corner */}
       <button
         className="bottom-right-button-create-deck-button"
         onClick={toggleModal}
       >
         New Deck
       </button>
-
-      {/* Modal */}
       {isModalOpen && (
         <div className="modal-container">
           <div className="modal-content">
             <CreateDeck />
-            <button className="close-modal-button" onClick={toggleModal}>
+            <Button
+              variant="contained"
+              className="close-modal-button"
+              onClick={toggleModal}
+            >
               Close
-            </button>
+            </Button>
           </div>
         </div>
       )}
