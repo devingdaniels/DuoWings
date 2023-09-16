@@ -1,19 +1,19 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import CreateDeck from "../../components/CreateDeck";
 import Deck from "../../components/Deck";
 import SearchAppBar from "./SearchBar";
 import { fakeDecks } from "../vocab/fakeData";
-import { MdOutlineCreateNewFolder as NewDeckIcon } from "react-icons/md";
+// import { MdOutlineCreateNewFolder as NewDeckIcon } from "react-icons/md";
 
-const DecksPage = () => {
+const DecksPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleModal = (e) => {
+  const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation(); // Prevent the click event from propagating
     setIsModalOpen(!isModalOpen);
   };
 
-  const handleEscapeKey = (e) => {
+  const handleEscapeKey = (e: KeyboardEvent) => {
     if (e.key === "Escape" && isModalOpen) {
       setIsModalOpen(false);
     }
@@ -21,8 +21,11 @@ const DecksPage = () => {
 
   useEffect(() => {
     // Add a click event listener to the document
-    const handleClickOutside = (e) => {
-      if (isModalOpen && e.target.closest(".modal-content") === null) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        isModalOpen &&
+        (e.target as Element).closest(".modal-content") === null
+      ) {
         // If the modal is open and the click is outside the modal content, close the modal
         setIsModalOpen(false);
       }

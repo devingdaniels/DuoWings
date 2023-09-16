@@ -1,15 +1,13 @@
-import { DeckData } from "../interfaces/index";
-import { AiOutlineTag } from "react-icons/ai";
+import { IDeckData } from "../interfaces/index";
+// import { AiOutlineTag } from "react-icons/ai";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 
-interface DeckData {
-  name: string;
-  description: string;
-  tags: string[];
-}
+// Color Picker
+// Color Picker
+import { SketchPicker } from "react-color";
 
 const NewDeckForm: React.FC = () => {
-  const [deckData, setDeckData] = useState<DeckData>({
+  const [deckData, setDeckData] = useState<IDeckData>({
     name: "",
     description: "",
     tags: [],
