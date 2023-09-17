@@ -68,9 +68,9 @@ const WordDeckSchema = new mongoose.Schema({
     immutable: true,
   },
   preferences: {
-    sortOrder: [Number],
+    insertOrder: [Number],
     favorited: Boolean,
-    color: String,
+    // color: String,
   },
   words: [WordSchema],
 

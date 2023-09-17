@@ -1,27 +1,41 @@
-import { INewVocabWord } from "../interfaces/index";
+import { INewVocabDeck } from "../interfaces/index";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 
+enum ICardInsertionOrder {
+  Top = "top",
+  Bottom = "bottom",
+  Random = "random",
+}
+
 const NewDeckForm: React.FC = () => {
-  const initialDeckData: INewVocabWord = {
+  const initialDeckData: INewVocabDeck = {
     name: "",
     description: "",
-    insertOrder: [], // not sure about using an array data strcuture for this
     tags: [],
     preferences: {
-      displayOrder: [new Number()],
+      insertOrder: ICardInsertionOrder.Top,
       favorited: false,
-      color: "",
     },
   };
 
-  const [deckData, setDeckData] = useState<INewVocabWord>(initialDeckData);
+  const [deckData, setDeckData] = useState<INewVocabDeck>(initialDeckData);
   const [newTag, setNewTag] = useState<string>("");
 
   const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement> // Include HTMLSelectElement here
   ) => {
     const { name, value } = e.target;
-    setDeckData({ ...deckData, [name]: value });
+    if (name === "insertOrder") {
+      setDeckData({
+        ...deckData,
+        preferences: {
+          ...deckData.preferences,
+          [name]: value as ICardInsertionOrder,
+        },
+      });
+    } else {
+      setDeckData({ ...deckData, [name]: value });
+    }
   };
 
   const handleAddTag = () => {
@@ -64,6 +78,17 @@ const NewDeckForm: React.FC = () => {
             onChange={(e) => setNewTag(e.target.value)}
             placeholder="Tags"
           />
+          <select
+            name="insertOrder"
+            value={deckData.preferences.insertOrder}
+            onChange={handleInputChange}
+          >
+            {Object.values(ICardInsertionOrder).map((point) => (
+              <option key={point} value={point}>
+                {point}
+              </option>
+            ))}
+          </select>
           <button type="button" onClick={handleAddTag}>
             Add Tag
           </button>

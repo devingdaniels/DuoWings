@@ -29,14 +29,18 @@ export interface IVocabularyWord {
   lastIncorrectDate: Date | null;
 }
 
-export interface INewVocabWord {
+enum ICardInsertionOrder {
+  Top = "top",
+  Bottom = "bottom",
+  Random = "random",
+}
+
+export interface INewVocabDeck {
   name: string;
   description: string;
-  insertOrder: number[]; // for new cards
   tags: string[];
   preferences: {
-    displayOrder: [Number];
+    insertOrder: ICardInsertionOrder;
     favorited: Boolean;
-    color: String;
   };
 }
