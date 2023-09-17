@@ -61,7 +61,7 @@ const WordDeckSchema = new mongoose.Schema({
     required: true,
   },
   description: String,
-  tags: [String], // This field will store user-selected tags
+  tags: [String],
   creationDate: {
     type: Date,
     default: Date.now,
@@ -73,6 +73,25 @@ const WordDeckSchema = new mongoose.Schema({
     color: String,
   },
   words: [WordSchema],
+
+  // Gamification Fields (This needs to be implemented in the frontend w/updated interface)
+  experiencePoints: {
+    type: Number,
+    default: 0,
+  },
+  level: {
+    type: Number,
+    default: 1,
+  },
+  completedChallenges: [String], // IDs or names of completed challenges
+  badges: [String], // IDs or names of earned badges
+  streak: {
+    type: Number,
+    default: 0,
+  },
+  lastStreakDate: {
+    type: Date,
+  },
 });
 
 const WordSetModel = mongoose.model("WordDeck", WordDeckSchema);

@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
 import CreateDeck from "../../components/CreateDeck";
 import Deck from "../../components/Deck";
-import { fakeDecks } from "../vocab/fakeData";
+import { fakeDecks } from "./FakeDeckData";
 import { Button } from "@mui/material";
 
 const DecksPage: React.FC = () => {
+  // State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deckData, setDeckData] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  // Fucntion
+  const handleDeckSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
 
   const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -19,6 +25,18 @@ const DecksPage: React.FC = () => {
       setIsModalOpen(false);
     }
   };
+
+  const filterDecks = () => {
+    const filtered = fakeDecks.filter((deck: any) =>
+      deck.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setDeckData(filtered);
+  };
+
+  // Side Effects
+  useEffect(() => {
+    filterDecks();
+  }, [searchTerm]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -40,21 +58,6 @@ const DecksPage: React.FC = () => {
     };
   }, [isModalOpen]);
 
-  const handleDeckSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const filterDecks = () => {
-    const filtered = fakeDecks.filter((deck: any) =>
-      deck.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setDeckData(filtered);
-  };
-
-  useEffect(() => {
-    filterDecks();
-  }, [searchTerm]);
-
   return (
     <div className="deck-page-container">
       <div>
@@ -64,7 +67,6 @@ const DecksPage: React.FC = () => {
           value={searchTerm}
           onChange={handleDeckSearch}
         />
-        <button onClick={filterDecks}>Search</button>
       </div>
       <div className="deck-grid-container">
         {deckData.map((deck: any, i: number) => {

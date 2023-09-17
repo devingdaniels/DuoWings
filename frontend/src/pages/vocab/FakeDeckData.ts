@@ -15,8 +15,8 @@ export const fakeDecks = [
     tags: ["Tag1", "Tag2"],
   },
   {
-    name: "Elephant",
-    description: "Description 1",
+    name: "Devin",
+    description: "DEvin is awesome!!!",
     tags: ["Tag1", "Tag2"],
   },
 ];

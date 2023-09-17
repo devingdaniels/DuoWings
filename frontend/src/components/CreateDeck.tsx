@@ -1,18 +1,20 @@
-import { IDeckData } from "../interfaces/index";
-// import { AiOutlineTag } from "react-icons/ai";
+import { INewVocabWord } from "../interfaces/index";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 
-// Color Picker
-// Color Picker
-import { SketchPicker } from "react-color";
-
 const NewDeckForm: React.FC = () => {
-  const [deckData, setDeckData] = useState<IDeckData>({
+  const initialDeckData: INewVocabWord = {
     name: "",
     description: "",
+    insertOrder: [], // not sure about using an array data strcuture for this
     tags: [],
-  });
+    preferences: {
+      displayOrder: [new Number()],
+      favorited: false,
+      color: "",
+    },
+  };
 
+  const [deckData, setDeckData] = useState<INewVocabWord>(initialDeckData);
   const [newTag, setNewTag] = useState<string>("");
 
   const handleInputChange = (
@@ -31,9 +33,7 @@ const NewDeckForm: React.FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Send deckData to your server to create a new deck
-    // You should perform validation and error handling here
-    // After successfully creating the deck, you can redirect the user or update the UI
+    console.log(deckData);
   };
 
   return (
@@ -46,7 +46,7 @@ const NewDeckForm: React.FC = () => {
             name="name"
             value={deckData.name}
             onChange={handleInputChange}
-            placeholder="Deck Name"
+            placeholder="Deck Title"
             required
           />
           <br />
@@ -54,7 +54,7 @@ const NewDeckForm: React.FC = () => {
             name="description"
             value={deckData.description}
             onChange={handleInputChange}
-            placeholder="Description"
+            placeholder="Deck Description"
           />
           <br />
           <input

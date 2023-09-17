@@ -17,13 +17,7 @@ export interface IUserAuthResponse {
   data: { name: string; message: string };
 }
 
-export interface IDeckData {
-  name: string;
-  description: string;
-  tags: string[];
-}
-
-export interface IWordEntry {
+export interface IVocabularyWord {
   word: string;
   englishDefinition: string;
   exampleSentence: string;
@@ -35,25 +29,14 @@ export interface IWordEntry {
   lastIncorrectDate: Date | null;
 }
 
-export interface IDeckProps {
-  deck: {
-    id: number;
-    name: string;
-    description: string;
-    tags: string[];
-    words: IWordEntry[];
-    laststudy: Date | null;
+export interface INewVocabWord {
+  name: string;
+  description: string;
+  insertOrder: number[]; // for new cards
+  tags: string[];
+  preferences: {
+    displayOrder: [Number];
+    favorited: Boolean;
+    color: String;
   };
 }
-
-// words: {
-//   word: string;
-//   englishDefinition: string;
-//   exampleSentence: string;
-//   wordType: string;
-//   conjugation: string;
-//   correctCount: number[];
-//   incorrectCount: number[];
-//   lastCorrectDate: Date | null;
-//   lastIncorrectDate: Date | null;
-// }[];
