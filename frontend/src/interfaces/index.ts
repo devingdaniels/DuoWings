@@ -30,8 +30,8 @@ export interface IVocabularyWord {
 }
 
 enum ICardInsertionOrder {
-  Top = "top",
-  Bottom = "bottom",
+  Top = "first",
+  Bottom = "last",
   Random = "random",
 }
 

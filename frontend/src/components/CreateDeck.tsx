@@ -2,8 +2,8 @@ import { INewVocabDeck } from "../interfaces/index";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 
 enum ICardInsertionOrder {
-  Top = "top",
-  Bottom = "bottom",
+  Top = "first",
+  Bottom = "last",
   Random = "random",
 }
 
