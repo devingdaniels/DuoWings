@@ -8,30 +8,24 @@ enum ICardInsertionOrder {
 }
 
 const NewDeckForm: React.FC = () => {
-  const initialDeckData: INewVocabDeck = {
+  const deck: INewVocabDeck = {
     name: "",
     description: "",
     tags: [],
-    preferences: {
-      insertOrder: ICardInsertionOrder.Top,
-      favorited: false,
-    },
+    insertOrder: ICardInsertionOrder.Top,
   };
 
-  const [deckData, setDeckData] = useState<INewVocabDeck>(initialDeckData);
+  const [deckData, setDeckData] = useState<INewVocabDeck>(deck);
   const [newTag, setNewTag] = useState<string>("");
 
   const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement> // Include HTMLSelectElement here
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     if (name === "insertOrder") {
       setDeckData({
         ...deckData,
-        preferences: {
-          ...deckData.preferences,
-          [name]: value as ICardInsertionOrder,
-        },
+        [name]: value as ICardInsertionOrder,
       });
     } else {
       setDeckData({ ...deckData, [name]: value });
@@ -80,7 +74,7 @@ const NewDeckForm: React.FC = () => {
           />
           <select
             name="insertOrder"
-            value={deckData.preferences.insertOrder}
+            value={deckData.insertOrder}
             onChange={handleInputChange}
           >
             {Object.values(ICardInsertionOrder).map((point) => (
