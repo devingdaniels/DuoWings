@@ -1,13 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { RootState } from "../app/store";
 import deckService from "./deckService";
-
-interface Deck {
-  _id: string;
-}
+import { INewVocabDeck } from "../interfaces";
 
 export interface DeckState {
-  deck: Deck | null;
+  deck: INewVocabDeck | null;
   isSuccess: boolean;
   isLoading: boolean;
   isError: boolean;
@@ -29,9 +26,18 @@ const initialState: DeckState = {
     - Create a thunk to update a deck in the backend
     - Create a thunk to delete a deck in the backend
     - Create a thunk to fetch all decks from the backend
-
-
 */
+
+export const createDeck = createAsyncThunk(
+  "deck/createDeck",
+  async (deck: INewVocabDeck, thunkAPI) => {
+    try {
+      return await deckService.createDeck(deck);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
 
 const deckSlice = createSlice({
   name: "deck",
@@ -42,4 +48,5 @@ const deckSlice = createSlice({
   extraReducers: (builder) => {},
 });
 
+export const selectAllDecks = (state: RootState) => state.decks;
 export default deckSlice.reducer;
