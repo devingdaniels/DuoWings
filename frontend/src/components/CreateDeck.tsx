@@ -77,9 +77,9 @@ const NewDeckForm: React.FC = () => {
             value={deckData.insertOrder}
             onChange={handleInputChange}
           >
-            {Object.values(ICardInsertionOrder).map((point) => (
-              <option key={point} value={point}>
-                {point}
+            {Object.values(ICardInsertionOrder).map((val) => (
+              <option key={val} value={val}>
+                {val}
               </option>
             ))}
           </select>

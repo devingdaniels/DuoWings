@@ -10,7 +10,7 @@ const DecksPage: React.FC = () => {
   const [deckData, setDeckData] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Fucntion
+  // Fucntions
   const handleDeckSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
