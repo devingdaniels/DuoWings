@@ -57,10 +57,8 @@ enum ICardInsertionOrder {
  * Represents a new vocabulary deck with its metadata.
  */
 export interface INewVocabDeck {
-  deck: {
-    name: string; // Name of the vocabulary deck.
-    description: string; // Description of the deck.
-    tags: string[]; // Tags associated with the deck.
-    insertOrder: ICardInsertionOrder; // Order for inserting new cards into the deck.
-  };
+  name: string; // Name of the vocabulary deck.
+  description: string; // Description of the deck.
+  tags: string[]; // Tags associated with the deck.
+  insertOrder: ICardInsertionOrder; // Order for inserting new cards into the deck.
 }

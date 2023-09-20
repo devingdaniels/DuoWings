@@ -8,7 +8,11 @@ enum ICardInsertionOrder {
   Random = "random",
 }
 
-const NewDeckForm = () => {
+interface NewDeckFormProps {
+  toggleModal: () => void;
+}
+
+const NewDeckForm: React.FC<NewDeckFormProps> = ({ toggleModal }) => {
   const deck: INewVocabDeck = {
     name: "",
     description: "",
@@ -40,12 +44,14 @@ const NewDeckForm = () => {
     setNewTag("");
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const URL = import.meta.env.VITE_BACKEND_API_DECK + "/create-deck";
-      const response = axios.post(URL, deckData);
-      console.log(response);
+      const response = await axios.post(URL, deckData);
+      if (response.status === 201) {
+        toggleModal();
+      }
     } catch (error) {}
   };
 

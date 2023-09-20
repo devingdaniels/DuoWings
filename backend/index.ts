@@ -34,7 +34,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 app.use("/api/users/auth", userAuthRoutes);
-app.use("/api/users/decks", deckRoutes);
+app.use("/api/decks", deckRoutes);
 
 app.use(errorHandler);
 

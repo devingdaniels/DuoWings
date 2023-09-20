@@ -53,6 +53,6 @@ WordSchema.methods.incrementIncorrectCount = async function () {
   await this.save();
 };
 
-const WordModel = mongoose.model("Word", WordSchema);
+const WordModel = mongoose.model("Word", WordSchema, "words");
 
 export { WordModel };

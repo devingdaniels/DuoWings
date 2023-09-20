@@ -16,6 +16,7 @@ const DecksPage: React.FC = () => {
   };
 
   const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log("toggle modal");
     e.stopPropagation();
     setIsModalOpen(!isModalOpen);
   };
@@ -31,6 +32,11 @@ const DecksPage: React.FC = () => {
       deck.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setDeckData(filtered);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    // You can also refresh the deck data here if needed
   };
 
   // Side Effects
@@ -83,7 +89,7 @@ const DecksPage: React.FC = () => {
       {isModalOpen && (
         <div className="modal-container">
           <div className="modal-content">
-            <CreateDeck />
+            <CreateDeck toggleModal={handleCloseModal} />
             <Button
               variant="contained"
               className="close-modal-button"

@@ -40,4 +40,4 @@ const UserSchema = new mongoose.Schema({
   vocabulary: [{ type: mongoose.Schema.Types.ObjectId, ref: "WordDeck" }],
 });
 
-export const UserModel = mongoose.model("User", UserSchema, "Users");
+export const UserModel = mongoose.model("User", UserSchema, "users");

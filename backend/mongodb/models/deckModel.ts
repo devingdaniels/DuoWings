@@ -40,6 +40,6 @@ const WordDeckSchema = new mongoose.Schema({
   },
 });
 
-const DeckModel = mongoose.model("WordDeck", WordDeckSchema);
+const DeckModel = mongoose.model("Decks", WordDeckSchema, "decks");
 
 export { DeckModel };

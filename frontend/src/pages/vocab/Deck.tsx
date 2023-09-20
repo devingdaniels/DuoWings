@@ -1,11 +1,9 @@
-import { INewVocabDeck } from "../../interfaces/index";
-
-const Deck: React.FC<INewVocabDeck> = ({ name, description }) => {
+const Deck = ({ deck }) => {
   return (
     <>
-      <div className="deck-container" key={name}>
-        <h6>{name}</h6>
-        <h6>{description}</h6>
+      <div className="deck-container">
+        <h6>{deck.name}</h6>
+        <h6>{deck.description}</h6>
       </div>
     </>
   );
