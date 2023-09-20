@@ -7,7 +7,9 @@ import compression from "compression";
 import cors from "cors";
 import logging from "./config/logging";
 import dotenv from "dotenv";
-import userAuthRoutes from "./routes/user";
+// Routes
+import deckRoutes from "./routes/deckRoutes";
+import userAuthRoutes from "./routes/userRoutes";
 import errorHandler from "./middleware/errorHandler";
 dotenv.config();
 
@@ -32,6 +34,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 app.use("/api/users/auth", userAuthRoutes);
+app.use("/api/users/decks", deckRoutes);
 
 app.use(errorHandler);
 

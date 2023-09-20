@@ -1,5 +1,5 @@
 import React from "react";
-import CreateDeck from "../../components/CreateDeck";
+import CreateDeck from "./CreateDeck";
 
 interface DeckModalProps {
   isModalOpen: boolean;

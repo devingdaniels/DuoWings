@@ -1,5 +1,6 @@
-import { INewVocabDeck } from "../interfaces/index";
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import axios from "axios";
+import { INewVocabDeck } from "../../interfaces/index";
+import { useState, ChangeEvent, FormEvent } from "react";
 
 enum ICardInsertionOrder {
   Top = "first",
@@ -7,7 +8,7 @@ enum ICardInsertionOrder {
   Random = "random",
 }
 
-const NewDeckForm: React.FC = () => {
+const NewDeckForm = () => {
   const deck: INewVocabDeck = {
     name: "",
     description: "",
@@ -41,7 +42,11 @@ const NewDeckForm: React.FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(deckData);
+    try {
+      const URL = import.meta.env.VITE_BACKEND_API_DECK + "/create-deck";
+      const response = axios.post(URL, deckData);
+      console.log(response);
+    } catch (error) {}
   };
 
   return (

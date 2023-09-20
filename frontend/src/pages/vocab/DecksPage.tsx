@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import CreateDeck from "../../components/CreateDeck";
-import Deck from "../../components/Deck";
+import CreateDeck from "./CreateDeck";
+import Deck from "./Deck";
 import { fakeDecks } from "./FakeDeckData";
 import { Button } from "@mui/material";
 
@@ -69,6 +69,7 @@ const DecksPage: React.FC = () => {
         />
       </div>
       <div className="deck-grid-container">
+        {/* UPDATE THE DECK TYPE TO BE TYPE SAFE */}
         {deckData.map((deck: any, i: number) => {
           return <Deck key={i} deck={deck} />;
         })}
