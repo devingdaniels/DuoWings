@@ -20,6 +20,9 @@ const DecksPage: React.FC = () => {
   // State
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [deckData, setDeckData] = useState<IWordDeck[]>(decks || []);
+  const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(
+    deckData || []
+  );
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   // Fucntions
@@ -42,7 +45,7 @@ const DecksPage: React.FC = () => {
     const filtered = deckData.filter((deck: any) =>
       deck.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setDeckData(filtered);
+    setFilteredDecks(filtered);
   };
 
   const handleCloseModal = () => {
@@ -98,7 +101,7 @@ const DecksPage: React.FC = () => {
         />
       </div>
       <div className="deck-grid-container">
-        {deckData.map((deck: IWordDeck, i: number) => {
+        {filteredDecks.map((deck: IWordDeck, i: number) => {
           return <Deck key={i} deck={deck} />;
         })}
       </div>
