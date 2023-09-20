@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from "react";
 import CreateDeck from "./CreateDeck";
 import Deck from "./Deck";
-import { fakeDecks } from "./FakeDeckData";
 import { Button } from "@mui/material";
 
+// Redux
+// Redux
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { fetchDecks } from "../../features/deckSlice";
+
+// Types
+import { IWordDeck } from "../../interfaces/index";
+
 const DecksPage: React.FC = () => {
+  // Redux
+  const dispatch = useAppDispatch();
+  const { decks, isSuccess, isError, isLoading } = useAppSelector(
+    (state) => state.decks
+  );
   // State
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [deckData, setDeckData] = useState<any[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [deckData, setDeckData] = useState<IWordDeck[]>(decks || []);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   // Fucntions
   const handleDeckSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,7 +28,6 @@ const DecksPage: React.FC = () => {
   };
 
   const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("toggle modal");
     e.stopPropagation();
     setIsModalOpen(!isModalOpen);
   };
@@ -28,7 +39,7 @@ const DecksPage: React.FC = () => {
   };
 
   const filterDecks = () => {
-    const filtered = fakeDecks.filter((deck: any) =>
+    const filtered = deckData.filter((deck: any) =>
       deck.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setDeckData(filtered);
@@ -36,10 +47,23 @@ const DecksPage: React.FC = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    // You can also refresh the deck data here if needed
+    // Refresh data
+    dispatch(fetchDecks());
   };
 
-  // Side Effects
+  useEffect(() => {
+    if (isSuccess) {
+      setDeckData(decks);
+    }
+    if (isError) {
+      console.log("Error fetching decks");
+    }
+
+    if (isLoading) {
+      console.log("Loading decks");
+    }
+  }, [decks, isSuccess, isError, isLoading, dispatch]);
+
   useEffect(() => {
     filterDecks();
   }, [searchTerm]);
@@ -56,7 +80,6 @@ const DecksPage: React.FC = () => {
 
     document.addEventListener("keydown", handleEscapeKey);
     document.addEventListener("click", handleClickOutside);
-    setDeckData(fakeDecks);
 
     return () => {
       document.removeEventListener("click", handleClickOutside);
@@ -75,8 +98,7 @@ const DecksPage: React.FC = () => {
         />
       </div>
       <div className="deck-grid-container">
-        {/* UPDATE THE DECK TYPE TO BE TYPE SAFE */}
-        {deckData.map((deck: any, i: number) => {
+        {deckData.map((deck: IWordDeck, i: number) => {
           return <Deck key={i} deck={deck} />;
         })}
       </div>

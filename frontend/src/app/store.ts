@@ -2,6 +2,7 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage"; // Use the storage engine of your choice
 // Reducers
 import userAuthReducer from "../features/userAuthSlice";
+import deckReducer from "../features/deckSlice";
 // Redux Persist
 import {
   persistStore,
@@ -17,6 +18,7 @@ import {
 // Root reducer
 const rootReducer = combineReducers({
   auth: userAuthReducer,
+  decks: deckReducer,
 });
 
 const persistConfig = {

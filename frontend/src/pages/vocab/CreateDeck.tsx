@@ -52,7 +52,9 @@ const NewDeckForm: React.FC<NewDeckFormProps> = ({ toggleModal }) => {
       if (response.status === 201) {
         toggleModal();
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log("Error creating new deck", error);
+    }
   };
 
   return (
