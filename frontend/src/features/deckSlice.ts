@@ -36,7 +36,7 @@ const deckSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
-      state.decks = null;
+      state.decks = [];
       state.isSuccess = false;
       state.isLoading = false;
       state.isError = false;

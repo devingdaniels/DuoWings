@@ -54,6 +54,10 @@ const DecksPage: React.FC = () => {
     dispatch(fetchDecks());
   };
 
+  const handleDeckClick = (deck: IWordDeck) => {
+    console.log(deck);
+  };
+
   useEffect(() => {
     if (isSuccess) {
       setDeckData(decks);
@@ -102,7 +106,11 @@ const DecksPage: React.FC = () => {
       </div>
       <div className="deck-grid-container">
         {filteredDecks.map((deck: IWordDeck, i: number) => {
-          return <Deck key={i} deck={deck} />;
+          return (
+            <span key={i} onClick={() => handleDeckClick(deck)}>
+              <Deck deck={deck} />
+            </span>
+          );
         })}
       </div>
       <button
