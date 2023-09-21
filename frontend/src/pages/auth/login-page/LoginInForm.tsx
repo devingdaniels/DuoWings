@@ -7,7 +7,7 @@ import BarLoader from "react-spinners/BarLoader";
 import Button from "@mui/material/Button";
 // Redux
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import { login, reset } from "../../../features/userAuthSlice";
+import { login, resetUserStatus } from "../../../features/userAuthSlice";
 
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
@@ -17,9 +17,7 @@ const LoginInForm: React.FC = () => {
     password: "",
   });
 
-  const { user, isLoading, isError, isSuccess, message } = useAppSelector(
-    (state) => state.auth
-  );
+  const { user, isLoading, isError, isSuccess, message } = useAppSelector((state) => state.auth);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -37,22 +35,15 @@ const LoginInForm: React.FC = () => {
   };
 
   useEffect(() => {
-    if (isSuccess && user && !isError) {
+    if (isSuccess && user) {
       SwalSuccess("Success", `Welcome ${user.fname}!`);
+      dispatch(resetUserStatus());
       navigate("/home");
     }
     if (isError) {
-      ToastError(message);
       console.log(message);
     }
-
-    return () => {
-      // Without the timeout, isLoading is set to false too fast (with good connections) to be seen by client
-      setTimeout(() => {
-        dispatch(reset());
-      }, 1000);
-    };
-  }, [user, isError, isSuccess, message, navigate]);
+  }, [user, isSuccess, isError, message, navigate, dispatch]);
 
   const spinnerStyle = {
     display: "block",

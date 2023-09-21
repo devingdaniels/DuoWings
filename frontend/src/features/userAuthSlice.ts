@@ -88,7 +88,7 @@ const userAuthSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    reset: (state) => {
+    resetUserStatus: (state) => {
       state.isSuccess = false;
       state.isLoading = false;
       state.isError = false;
@@ -102,8 +102,6 @@ const userAuthSlice = createSlice({
     builder
       .addCase(login.pending, (state) => {
         state.isLoading = true;
-        state.isSuccess = false;
-        state.user = null;
         state.message = "Loading User";
       })
       .addCase(login.fulfilled, (state, action) => {
@@ -111,6 +109,7 @@ const userAuthSlice = createSlice({
         state.isLoading = false;
         state.isError = false;
         state.user = action.payload;
+        state.message = "Login successful";
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
@@ -140,10 +139,11 @@ const userAuthSlice = createSlice({
         state.message = "Logging out user...";
       })
       .addCase(logout.fulfilled, (state) => {
-        state.isSuccess = true;
+        state.user = null;
+        state.isSuccess = false;
         state.isLoading = false;
         state.isError = false;
-        state.user = null;
+        state.message = "";
       })
       .addCase(logout.rejected, (state, action) => {
         state.isLoading = false;
@@ -154,6 +154,6 @@ const userAuthSlice = createSlice({
   },
 });
 
-export const { reset } = userAuthSlice.actions;
+export const { resetUserStatus } = userAuthSlice.actions;
 export const selectUser = (state: RootState) => state.auth.user;
 export default userAuthSlice.reducer;

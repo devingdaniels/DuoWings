@@ -26,6 +26,7 @@ export const fetchDecks = createAsyncThunk("decks/fetchDecks", async () => {
     const response = await deckService.fetchAllDecks();
     return response;
   } catch (error) {
+    // TODO: Handle error
     throw error;
   }
 });
@@ -35,8 +36,7 @@ const deckSlice = createSlice({
   name: "decks",
   initialState,
   reducers: {
-    reset: (state) => {
-      state.decks = [];
+    resetDeckStatus: (state) => {
       state.isSuccess = false;
       state.isLoading = false;
       state.isError = false;
@@ -62,5 +62,5 @@ const deckSlice = createSlice({
   },
 });
 
-export const { reset } = deckSlice.actions;
+export const { resetDeckStatus } = deckSlice.actions;
 export default deckSlice.reducer;

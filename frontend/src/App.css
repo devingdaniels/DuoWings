@@ -252,7 +252,6 @@ a {
 
 /* ------------------------ CREATE DECK COMPONENT ------------------------  */
 
-/* Styles for the modal container */
 .modal-container {
   position: fixed;
   top: 0;
@@ -263,10 +262,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensure a higher z-index to overlay other content */
+  z-index: 1000;
 }
 
-/* Styles for the modal content */
 .modal-content {
   background: black;
   padding: 20px;
@@ -277,7 +275,6 @@ a {
   overflow: auto;
 }
 
-/* Styles for the "Close" button inside the modal */
 .close-modal-button {
   background-color: #ff0000;
   color: white;
@@ -288,7 +285,6 @@ a {
   margin-top: 10px;
 }
 
-/* Styles for the "New Deck" button */
 .bottom-right-button-create-deck-button {
   position: fixed;
   bottom: 20px;
@@ -299,5 +295,4 @@ a {
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  z-index: 1001; /* Ensure a higher z-index than the modal */
 }

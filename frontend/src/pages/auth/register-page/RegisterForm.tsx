@@ -6,7 +6,7 @@ import BarLoader from "react-spinners/BarLoader";
 import { ToastError } from "../../../utils/Toastify";
 // Redux
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import { register, reset } from "../../../features/userAuthSlice";
+import { register, resetUserStatus } from "../../../features/userAuthSlice";
 // Styles
 import Button from "@mui/material/Button";
 
@@ -64,7 +64,7 @@ const SignUpForm = () => {
     return () => {
       // Without the timeout, isLoading is set to false too fast to be seen by user
       setTimeout(() => {
-        dispatch(reset());
+        dispatch(resetUserStatus());
       }, 1000);
     };
   }, [user, isError, isSuccess, message, navigate]);
