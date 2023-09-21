@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IUserLogin } from "../../../interfaces";
 import { SwalSuccess } from "../../../utils/Sweetalert2";
-import { ToastError } from "../../../utils/Toastify";
 import BarLoader from "react-spinners/BarLoader";
 import Button from "@mui/material/Button";
 // Redux
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { login, resetUserStatus } from "../../../features/userAuthSlice";
+import { ToastInfo } from "../../../utils/Toastify";
 
 const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
@@ -37,12 +37,16 @@ const LoginInForm: React.FC = () => {
   useEffect(() => {
     if (isSuccess && user) {
       SwalSuccess("Success", `Welcome ${user.fname}!`);
-      dispatch(resetUserStatus());
       navigate("/home");
     }
     if (isError) {
+      ToastInfo(message);
       console.log(message);
     }
+
+    return () => {
+      dispatch(resetUserStatus());
+    };
   }, [user, isSuccess, isError, message, navigate, dispatch]);
 
   const spinnerStyle = {

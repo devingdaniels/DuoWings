@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import CreateDeck from "./CreateDeck";
 import Deck from "./Deck";
 import { Button } from "@mui/material";
 // Redux
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { fetchDecks } from "../../features/deckSlice";
+import { fetchAllUserDecks, resetDeckStatus } from "../../features/deckSlice";
+
 // Types
 import { IWordDeck } from "../../interfaces/index";
+import { ToastError, ToastInfo } from "../../utils/Toastify";
 
 const DecksPage: React.FC = () => {
   // Redux
   const dispatch = useAppDispatch();
-  const { decks, isSuccess, isError, isLoading } = useAppSelector((state) => state.decks);
+  const { decks, isSuccess, isError, isLoading, message } = useAppSelector((state) => state.decks);
   // State
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [deckData, setDeckData] = useState<IWordDeck[]>(decks || []);
@@ -19,10 +21,6 @@ const DecksPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   // Handlers
-  const handleDeckSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  };
-
   const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setIsModalOpen(!isModalOpen);
@@ -40,9 +38,11 @@ const DecksPage: React.FC = () => {
     }
   };
 
-  const filterDecks = () => {
+  const filterDecks = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const searchText = e.target.value.toLowerCase();
+    setSearchTerm(searchText);
     const filtered = deckData.filter((deck: IWordDeck) =>
-      deck.name.toLowerCase().includes(searchTerm.toLowerCase())
+      deck.name.toLowerCase().includes(searchText)
     );
     setFilteredDecks(filtered);
   };
@@ -50,7 +50,7 @@ const DecksPage: React.FC = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     // Refresh data
-    dispatch(fetchDecks());
+    dispatch(fetchAllUserDecks());
   };
 
   const handleDeckClick = (deck: IWordDeck) => {
@@ -59,7 +59,8 @@ const DecksPage: React.FC = () => {
 
   // Get the user decks
   useEffect(() => {
-    dispatch(fetchDecks());
+    // Fetches all user decks and stores them in decks state in redux
+    dispatch(fetchAllUserDecks());
   }, []);
 
   useEffect(() => {
@@ -68,17 +69,18 @@ const DecksPage: React.FC = () => {
     }
 
     if (isError) {
-      console.log("Error fetching decks");
+      ToastError(message);
     }
 
     if (isLoading) {
+      ToastInfo("Loading decks");
       console.log("Loading decks");
     }
-  }, [decks, isSuccess, isLoading, isError, dispatch]);
 
-  useEffect(() => {
-    filterDecks();
-  }, [searchTerm]);
+    return () => {
+      dispatch(resetDeckStatus());
+    };
+  }, [decks, isSuccess, isLoading, isError, message, dispatch]);
 
   useEffect(() => {
     document.addEventListener("keydown", handleEscapeKey);
@@ -93,12 +95,7 @@ const DecksPage: React.FC = () => {
   return (
     <div className="deck-page-container">
       <div>
-        <input
-          type="text"
-          placeholder="Search decks"
-          value={searchTerm}
-          onChange={handleDeckSearch}
-        />
+        <input type="text" placeholder="Search decks" value={searchTerm} onChange={filterDecks} />
       </div>
       <div className="deck-grid-container">
         {filteredDecks.map((deck: IWordDeck) => {

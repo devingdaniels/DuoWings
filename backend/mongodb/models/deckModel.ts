@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 import { WordSchema } from "./wordModel";
 
 const WordDeckSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
+  },
   name: {
     type: String,
     required: true,
@@ -20,7 +25,7 @@ const WordDeckSchema = new mongoose.Schema({
   },
   words: [WordSchema],
 
-  // Gamification Fields (This needs to be implemented in the frontend w/updated interface)
+  // Gamification Fields (This needs to be implemented in the frontend )
   experiencePoints: {
     type: Number,
     default: 0,

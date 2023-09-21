@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
     index: true,
     lowercase: true,
   },
-  password: { type: String, required: true, min: 6 },
+  password: { type: String, required: true, min: 6, max: 26 },
   phonenumber: {
     type: String,
     required: true,
@@ -36,8 +36,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  dialogues: [{ type: mongoose.Schema.Types.ObjectId, ref: "Dialogue" }],
-  vocabulary: [{ type: mongoose.Schema.Types.ObjectId, ref: "WordDeck" }],
 });
 
 export const UserModel = mongoose.model("User", UserSchema, "users");

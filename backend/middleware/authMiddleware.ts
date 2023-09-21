@@ -54,8 +54,9 @@ const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
     if (!user) {
       return res.status(401).json({ error: "Invalid user" });
     }
-
-    // Everything checks out, proceed to the next middleware
+    // Add user to request object
+    req.user = user;
+    // Call next middleware
     next();
   } catch (error: any) {
     logging.error(NAMESPACE, error.message, error);
