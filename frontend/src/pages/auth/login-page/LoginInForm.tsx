@@ -10,14 +10,18 @@ import { login, resetUserStatus } from "../../../features/userAuthSlice";
 import { ToastInfo } from "../../../utils/Toastify";
 
 const LoginInForm: React.FC = () => {
+  // Hooks
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+
+  // Redux state
+  const { user, isLoading, isError, isSuccess, message } = useAppSelector((state) => state.auth);
+
+  // Component state
   const [userData, setUserData] = useState<IUserLogin>({
     email: "",
     password: "",
   });
-
-  const { user, isLoading, isError, isSuccess, message } = useAppSelector((state) => state.auth);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -30,7 +34,7 @@ const LoginInForm: React.FC = () => {
   const handleLogin = (e: React.FormEvent) => {
     // Stop page reload
     e.preventDefault();
-    // Redux layer will
+    // Dispatch login action
     dispatch(login(userData));
   };
 
@@ -45,9 +49,13 @@ const LoginInForm: React.FC = () => {
     }
 
     return () => {
-      dispatch(resetUserStatus());
+      // the timeout is needed because the resetUserStatus() action is dispatched too quickly and user
+      // wont be able to see loading spinner
+      setTimeout(() => {
+        dispatch(resetUserStatus());
+      }, 1000);
     };
-  }, [user, isSuccess, isError, message, navigate, dispatch]);
+  }, [user, isSuccess, isError, isLoading, message, navigate, dispatch]);
 
   const spinnerStyle = {
     display: "block",
