@@ -46,7 +46,6 @@ const NewDeckForm: React.FC<NewDeckFormProps> = ({ handleCloseModal }) => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    handleCloseModal();
     try {
       const URL = import.meta.env.VITE_BACKEND_API_DECK + "/create-deck";
       const response = await axios.post(URL, deckData);

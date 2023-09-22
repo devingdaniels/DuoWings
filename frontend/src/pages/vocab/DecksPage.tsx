@@ -24,24 +24,6 @@ const DecksPage: React.FC = () => {
   const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(deckData || []);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  // Handlers
-  const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    setIsModalOpen(!isModalOpen);
-  };
-
-  const handleEscapeKey = (e: KeyboardEvent) => {
-    if (e.key === "Escape" && isModalOpen) {
-      setIsModalOpen(false);
-    }
-  };
-
-  const handleClickOutside = (e: MouseEvent) => {
-    if (isModalOpen && (e.target as Element).closest(".modal-content") === null) {
-      setIsModalOpen(false);
-    }
-  };
-
   const filterDecks = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchText = e.target.value.toLowerCase();
     setSearchTerm(searchText);
@@ -81,9 +63,29 @@ const DecksPage: React.FC = () => {
     };
   }, [decks, isSuccess, isLoading, isError, message, dispatch]);
 
+  // Modal handlers
+  const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const handleEscapeKey = (e: KeyboardEvent) => {
+    if (e.key === "Escape" && isModalOpen) {
+      setIsModalOpen(false);
+    }
+  };
+
+  const handleClickOutside = (e: MouseEvent) => {
+    if (isModalOpen && (e.target as Element).closest(".modal-content") === null) {
+      setIsModalOpen(false);
+    }
+  };
+
   useEffect(() => {
+    // Add event listeners
     document.addEventListener("click", handleClickOutside);
     document.addEventListener("keydown", handleEscapeKey);
+    // Cleanup
     return () => {
       document.removeEventListener("click", handleClickOutside);
       document.removeEventListener("keydown", handleEscapeKey);
