@@ -95,7 +95,7 @@ const DecksPage: React.FC = () => {
   return (
     <div className="deck-page-container">
       <div>
-        <input type="text" placeholder="Search decks" value={searchTerm} onChange={filterDecks} />
+        <input type="text" placeholder="Search..." value={searchTerm} onChange={filterDecks} />
       </div>
 
       {isLoading ? (
