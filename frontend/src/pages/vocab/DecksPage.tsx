@@ -53,7 +53,6 @@ const DecksPage: React.FC = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    // Refresh data
     dispatch(fetchAllUserDecks());
   };
 
@@ -117,7 +116,7 @@ const DecksPage: React.FC = () => {
       {isModalOpen && (
         <div className="modal-container">
           <div className="modal-content">
-            <CreateDeck toggleModal={handleCloseModal} />
+            <CreateDeck handleCloseModal={handleCloseModal} />
             <Button variant="contained" className="close-modal-button" onClick={toggleModal}>
               Close
             </Button>

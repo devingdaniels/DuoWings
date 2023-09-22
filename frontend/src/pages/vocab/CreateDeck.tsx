@@ -9,10 +9,10 @@ enum ICardInsertionOrder {
 }
 
 interface NewDeckFormProps {
-  toggleModal: () => void;
+  handleCloseModal: () => void;
 }
 
-const NewDeckForm: React.FC<NewDeckFormProps> = ({ toggleModal }) => {
+const NewDeckForm: React.FC<NewDeckFormProps> = ({ handleCloseModal }) => {
   const deck: INewVocabDeck = {
     name: "",
     description: "",
@@ -46,11 +46,12 @@ const NewDeckForm: React.FC<NewDeckFormProps> = ({ toggleModal }) => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    handleCloseModal();
     try {
       const URL = import.meta.env.VITE_BACKEND_API_DECK + "/create-deck";
       const response = await axios.post(URL, deckData);
       if (response.status === 201) {
-        toggleModal();
+        handleCloseModal();
       }
     } catch (error) {
       console.log("Error creating new deck", error);
@@ -85,11 +86,7 @@ const NewDeckForm: React.FC<NewDeckFormProps> = ({ toggleModal }) => {
             onChange={(e) => setNewTag(e.target.value)}
             placeholder="Tags"
           />
-          <select
-            name="insertOrder"
-            value={deckData.insertOrder}
-            onChange={handleInputChange}
-          >
+          <select name="insertOrder" value={deckData.insertOrder} onChange={handleInputChange}>
             {Object.values(ICardInsertionOrder).map((val) => (
               <option key={val} value={val}>
                 {val}
