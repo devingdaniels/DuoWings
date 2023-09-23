@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { persistor } from "../../app/store";
 import { clearUserDeckState } from "../../features/deckSlice";
 import { clearUserAuthState } from "../../features/userAuthSlice";
+import { logout } from "../../features/userAuthSlice";
 
 // Material UI
 import Button from "@mui/material/Button";
@@ -17,6 +18,7 @@ function Logout() {
   const handleLogout = () => {
     dispatch(clearUserDeckState());
     dispatch(clearUserAuthState());
+    dispatch(logout());
     // Purge local storage and wait for it to complete
     persistor.purge().then(() => {
       console.log("Logout successful");

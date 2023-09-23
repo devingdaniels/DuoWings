@@ -1,7 +1,8 @@
 // React
 import React, { useState, useEffect } from "react";
+import SearchAppBar from "./SearchBar";
 // Components
-import CreateDeck from "./CreateDeck";
+import CreateDeckModal from "./CreateDeckModal";
 import Deck from "./Deck";
 // MUI
 import { Button } from "@mui/material";
@@ -24,8 +25,8 @@ const DecksPage: React.FC = () => {
   const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(deckData || []);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const filterDecks = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchText = e.target.value.toLowerCase();
+  const filterDecks = (value: string) => {
+    const searchText = value.toLowerCase();
     setSearchTerm(searchText);
     const filtered = deckData.filter((deck: IWordDeck) =>
       deck.name.toLowerCase().includes(searchText)
@@ -94,10 +95,11 @@ const DecksPage: React.FC = () => {
 
   return (
     <div className="deck-page-container">
-      <div>
-        <input type="text" placeholder="Search..." value={searchTerm} onChange={filterDecks} />
+      <div className="deck-page-search-wrapper">
+        <div className="deck-page-search-container">
+          <SearchAppBar filterDecks={filterDecks} value={searchTerm} />
+        </div>
       </div>
-
       {isLoading ? (
         <Spinner />
       ) : (
@@ -118,7 +120,7 @@ const DecksPage: React.FC = () => {
       {isModalOpen && (
         <div className="modal-container">
           <div className="modal-content">
-            <CreateDeck handleCloseModal={handleCloseModal} />
+            <CreateDeckModal handleCloseModal={handleCloseModal} />
             <Button variant="contained" className="close-modal-button" onClick={toggleModal}>
               Close
             </Button>

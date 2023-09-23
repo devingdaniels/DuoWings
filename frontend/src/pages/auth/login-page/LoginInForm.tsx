@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 // Redux
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { login, resetUserStatus } from "../../../features/userAuthSlice";
-import { ToastInfo } from "../../../utils/Toastify";
 
 const LoginInForm: React.FC = () => {
   // Hooks
@@ -44,7 +43,6 @@ const LoginInForm: React.FC = () => {
       navigate("/home");
     }
     if (isError) {
-      ToastInfo(message);
       console.log(message);
     }
 

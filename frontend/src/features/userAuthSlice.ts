@@ -154,7 +154,7 @@ const userAuthSlice = createSlice({
   },
 });
 
-export const clearUserAuthState = createAction("auth/logoutUser");
+export const clearUserAuthState = createAction("auth/clearUserAuthState");
 export const { resetUserStatus } = userAuthSlice.actions;
 export const selectUser = (state: RootState) => state.auth.user;
 export default userAuthSlice.reducer;

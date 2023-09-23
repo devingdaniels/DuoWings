@@ -244,6 +244,11 @@ a {
   padding: 10%;
 }
 
+.deck-page-search-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 /* ------------------------ STATS PAGE (Right section of grid) ------------------------  */
 .stats-page-container {
   text-align: center;

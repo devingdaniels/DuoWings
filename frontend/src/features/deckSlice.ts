@@ -82,7 +82,7 @@ const deckSlice = createSlice({
 });
 
 // Actions
-export const clearUserDeckState = createAction("decks/logoutDeck");
+export const clearUserDeckState = createAction("decks/clearUserDeckState");
 export const { setUserDecks } = deckSlice.actions;
 export const { resetDeckStatus } = deckSlice.actions;
 // Reducer

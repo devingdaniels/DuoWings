@@ -12,7 +12,7 @@ interface NewDeckFormProps {
   handleCloseModal: () => void;
 }
 
-const NewDeckForm: React.FC<NewDeckFormProps> = ({ handleCloseModal }) => {
+const CreateDeckModal: React.FC<NewDeckFormProps> = ({ handleCloseModal }) => {
   const deck: INewVocabDeck = {
     name: "",
     description: "",
@@ -109,4 +109,4 @@ const NewDeckForm: React.FC<NewDeckFormProps> = ({ handleCloseModal }) => {
   );
 };
 
-export default NewDeckForm;
+export default CreateDeckModal;

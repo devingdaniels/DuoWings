@@ -36,6 +36,8 @@ const createDeck = async (req: Request, res: Response, next: NextFunction): Prom
 
 const fetchAllDecks = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
+    console.log("req.user:", req.user);
+
     // Assuming req.user contains user information including _id
     const userId = req.user;
 
