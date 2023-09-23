@@ -1,5 +1,5 @@
 // deckSlice.js
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import deckService from "./deckService";
 
 import { IWordDeck } from "../interfaces/index";
@@ -42,6 +42,7 @@ const deckSlice = createSlice({
   name: "decks",
   initialState,
   reducers: {
+    // This is used after fetching decks to reset the builder state
     resetDeckStatus: (state) => {
       state.isSuccess = false;
       state.isLoading = false;
@@ -68,10 +69,21 @@ const deckSlice = createSlice({
         state.message = action.error.message as string;
         state.isLoading = false;
         state.isSuccess = false;
+      })
+      // Handle the logout action to reset deckSlice
+      .addCase(clearUserDeckState, (state) => {
+        state.decks = [];
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.isError = false;
+        state.message = "";
       });
   },
 });
 
+// Actions
+export const clearUserDeckState = createAction("decks/logoutDeck");
 export const { setUserDecks } = deckSlice.actions;
 export const { resetDeckStatus } = deckSlice.actions;
+// Reducer
 export default deckSlice.reducer;

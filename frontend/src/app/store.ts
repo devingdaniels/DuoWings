@@ -3,7 +3,6 @@ import storage from "redux-persist/lib/storage"; // Use the storage engine of yo
 // Reducers
 import userAuthReducer from "../features/userAuthSlice";
 import deckReducer from "../features/deckSlice";
-
 // Redux Persist
 import {
   persistStore,
@@ -17,7 +16,7 @@ import {
 } from "redux-persist";
 
 // Root reducer
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   auth: userAuthReducer,
   decks: deckReducer,
 });
@@ -29,7 +28,7 @@ const persistConfig = {
 };
 
 // Create a persisted reducer with Redux Persist
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, appReducer);
 
 // Create the Redux store with the persisted reducer and default middleware
 export const store = configureStore({

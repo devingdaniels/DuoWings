@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import authService from "./userAuthService";
 import type { RootState } from "../app/store";
 
@@ -29,20 +29,20 @@ const initialState: UserState = {
 };
 
 // Create an async thunk for user login
-export const login = createAsyncThunk<
-  User,
-  { email: string; password: string }
->("auth/login", async (userData, { rejectWithValue }) => {
-  try {
-    return await authService.login(userData);
-  } catch (error: any) {
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString();
-    return rejectWithValue(message);
+export const login = createAsyncThunk<User, { email: string; password: string }>(
+  "auth/login",
+  async (userData, { rejectWithValue }) => {
+    try {
+      return await authService.login(userData);
+    } catch (error: any) {
+      const message =
+        (error.response && error.response.data && error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return rejectWithValue(message);
+    }
   }
-});
+);
 
 export const register = createAsyncThunk<
   User,
@@ -66,22 +66,17 @@ export const register = createAsyncThunk<
   }
 });
 
-export const logout = createAsyncThunk(
-  "auth/logout",
-  async (_, { rejectWithValue }) => {
-    try {
-      return await authService.logout();
-    } catch (error: any) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-      return rejectWithValue(message);
-    }
+export const logout = createAsyncThunk("auth/logout", async (_, { rejectWithValue }) => {
+  try {
+    return await authService.logout();
+  } catch (error: any) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString();
+    return rejectWithValue(message);
   }
-);
+});
 
 // Create the user slice with reducers
 const userAuthSlice = createSlice({
@@ -113,9 +108,7 @@ const userAuthSlice = createSlice({
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
-        state.isSuccess = false;
         state.isError = true;
-        state.user = null;
         state.message = action.payload as string;
       })
       .addCase(register.pending, (state) => {
@@ -150,10 +143,18 @@ const userAuthSlice = createSlice({
         state.isSuccess = false;
         state.isError = true;
         state.message = action.payload as string;
+      })
+      .addCase(clearUserAuthState, (state) => {
+        state.user = null;
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.isError = false;
+        state.message = "";
       });
   },
 });
 
+export const clearUserAuthState = createAction("auth/logoutUser");
 export const { resetUserStatus } = userAuthSlice.actions;
 export const selectUser = (state: RootState) => state.auth.user;
 export default userAuthSlice.reducer;
