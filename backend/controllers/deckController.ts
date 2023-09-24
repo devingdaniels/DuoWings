@@ -54,4 +54,18 @@ const fetchAllDecks = async (req: Request, res: Response, next: NextFunction): P
   }
 };
 
-export { createDeck, fetchAllDecks };
+const fetchDeckByID = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const userId = req.user;
+    const deckId = req.params.id;
+    // Fetch decks specific to the user from the database
+    const deck = await DeckModel.findOne({ user: userId, _id: deckId });
+    // Return the list of user-specific decks in the response
+    res.status(200).json(deck);
+  } catch (error) {
+    console.error("Error fetching decks:", error);
+    res.status(500).json({ error: "Failed to fetch decks" });
+  }
+};
+
+export { createDeck, fetchAllDecks, fetchDeckByID };
