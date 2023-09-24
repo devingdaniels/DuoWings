@@ -5,7 +5,7 @@ const Deck = ({ deck }: { deck: IWordDeck }) => {
   // Hooks
   const navigate = useNavigate();
   const handleDeckClick = (deck: IWordDeck) => {
-    navigate(`/decks/${deck._id}`);
+    navigate(`/vocab/decks/${deck._id}`);
   };
 
   return (

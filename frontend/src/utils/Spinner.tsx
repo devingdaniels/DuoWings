@@ -1,12 +1,8 @@
 import { PropagateLoader } from "react-spinners";
 
-const laodingContainer = {
-  margin: "10% auto",
-};
-
 function Spinner() {
   return (
-    <div style={laodingContainer}>
+    <div style={{ textAlign: "center", margin: "10% auto" }}>
       <PropagateLoader color="#36d7b7" />
     </div>
   );

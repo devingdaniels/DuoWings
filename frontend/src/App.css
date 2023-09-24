@@ -226,14 +226,12 @@ a {
 /* ------------------------ DECK PAGE (Right section of grid) ------------------------  */
 
 .deck-page-container {
-  text-align: center;
   width: 100%;
 }
 
 .deck-grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minMax(375px, 1fr));
-  padding: 3%;
+  grid-template-columns: repeat(auto-fill, minMax(500px, 1fr));
 }
 
 .deck-container {
@@ -261,13 +259,14 @@ a {
   border-radius: 5%;
   padding: 16px;
   margin: 16px;
+  text-align: center;
   /* offset-x | offset-y | blur-radius | spread-radius | color */
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
   cursor: pointer;
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-4px);
+    transform: translateY(-6px);
   }
 }
 
@@ -339,4 +338,10 @@ a {
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+/* ------------------------ DECK CARD DETAILS PAGE (RENDERED AFTER USER CLICKS ON CARD) ------------------------  */
+.deck-card-details-page-container {
+  text-align: center;
+  width: 100%;
 }

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import SearchAppBar from "./DeckSearchBar";
 // Components
 import CreateDeckModal from "./CreateDeckModal";
-import Deck from "./DeckCard";
+import Deck from "./DeckOverviewCard";
 // MUI
 import { Button } from "@mui/material";
 // Redux
