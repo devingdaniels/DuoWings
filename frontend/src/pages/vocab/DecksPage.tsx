@@ -53,6 +53,7 @@ const DecksPage: React.FC = () => {
   useEffect(() => {
     if (isSuccess) {
       setFilteredDecks(decks);
+      setDeckData(decks);
     }
 
     if (isError) {
