@@ -49,6 +49,7 @@ const CreateDeckModal: React.FC<NewDeckFormProps> = ({ handleCloseModal }) => {
     try {
       const URL = import.meta.env.VITE_BACKEND_API_DECK + "/create-deck";
       const response = await axios.post(URL, deckData);
+      console.log(deckData);
       if (response.status === 201) {
         handleCloseModal();
       }

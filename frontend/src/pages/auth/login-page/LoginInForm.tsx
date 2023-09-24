@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 // Redux
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { login, resetUserStatus } from "../../../features/userAuthSlice";
+import { ToastError } from "../../../utils/Toastify";
 
 const LoginInForm: React.FC = () => {
   // Hooks
@@ -43,7 +44,10 @@ const LoginInForm: React.FC = () => {
       navigate("/home");
     }
     if (isError) {
-      console.log(message);
+      if (message === "Invalid password") {
+        ToastError("Invalid password");
+        console.log(message);
+      }
     }
 
     return () => {

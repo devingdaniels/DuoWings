@@ -51,11 +51,13 @@ export interface IWordDeck {
   description: string;
   tags?: string[];
   creationDate: Date;
+  lastStudied: Date;
   preferences: {
     insertOrder: number[];
     favorited: boolean;
   };
   words: IVocabularyWord[];
+  // Stop
   experiencePoints: number;
   level: number;
   completedChallenges: string[];

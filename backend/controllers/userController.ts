@@ -98,7 +98,6 @@ const logoutUser = async (req: Request, res: Response, next: NextFunction): Prom
   try {
     // Access the cookie from the req.cookies object
     const cookieValue = req.cookies[USER_COOKIE_NAME];
-    console.log(cookieValue);
 
     if (!cookieValue) {
       throw new Error("Cookie not found");

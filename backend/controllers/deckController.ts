@@ -7,6 +7,8 @@ const createDeck = async (req: Request, res: Response, next: NextFunction): Prom
     const { name, description, tags, insertOrder } = req.body;
     const userId = req.user;
 
+    console.log("Backend: Creating deck:", req.body);
+
     // Check if a deck with the same name already exists for this user
     const existingDeck = await DeckModel.findOne({ name, user: userId });
 
@@ -21,7 +23,9 @@ const createDeck = async (req: Request, res: Response, next: NextFunction): Prom
       name,
       description,
       tags,
-      insertOrder,
+      preferences: {
+        insertOrder,
+      },
       createdBy: userId, // Associate the deck with the user
     });
 
@@ -36,8 +40,6 @@ const createDeck = async (req: Request, res: Response, next: NextFunction): Prom
 
 const fetchAllDecks = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    console.log("req.user:", req.user);
-
     // Assuming req.user contains user information including _id
     const userId = req.user;
 

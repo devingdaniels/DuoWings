@@ -19,11 +19,16 @@ const WordDeckSchema = new mongoose.Schema({
     immutable: true,
   },
   preferences: {
-    insertOrder: [Number],
+    insertOrder: [String],
     favorited: Boolean,
     // color: String,
   },
   words: [WordSchema],
+
+  lastStudied: {
+    type: Date,
+    default: Date.now,
+  },
 
   // Gamification Fields (This needs to be implemented in the frontend )
   experiencePoints: {

@@ -14,6 +14,8 @@ import { IWordDeck } from "../../interfaces/index";
 import { ToastError } from "../../utils/Toastify";
 // Spinner
 import Spinner from "../../utils/Spinner";
+// Icons
+import { FaCreativeCommonsZero } from "react-icons/fa";
 
 const DecksPage: React.FC = () => {
   // Redux
@@ -93,6 +95,18 @@ const DecksPage: React.FC = () => {
     };
   }, [isModalOpen, handleEscapeKey, handleClickOutside]);
 
+  if (decks.length === 0 && !isModalOpen && !isLoading) {
+    return (
+      <div className="deck-page-container-empty">
+        <h2>No Decks!</h2>
+        <FaCreativeCommonsZero size={65} />
+        <button className="bottom-right-button-create-deck-button" onClick={toggleModal}>
+          New Deck
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="deck-page-container">
       <div className="deck-page-search-wrapper">
@@ -113,7 +127,6 @@ const DecksPage: React.FC = () => {
           })}
         </div>
       )}
-
       <button className="bottom-right-button-create-deck-button" onClick={toggleModal}>
         New Deck
       </button>
