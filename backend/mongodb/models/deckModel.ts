@@ -27,7 +27,7 @@ const WordDeckSchema = new mongoose.Schema({
 
   lastStudied: {
     type: Date,
-    default: Date.now,
+    default: new Date(4),
   },
 
   // Gamification Fields (This needs to be implemented in the frontend )

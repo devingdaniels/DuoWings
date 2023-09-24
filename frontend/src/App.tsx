@@ -23,6 +23,7 @@ const App = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/home" element={user ? <HomePage /> : <PageNotFound />} />
         <Route path="/vocab/*" element={user ? <VocabPage /> : <PageNotFound />} />
+        <Route path="/decks/:deckId" element={<>hello</>} />
         <Route path="/user-settings" element={user ? <UserSettingsPage /> : <PageNotFound />} />
       </Routes>
       <ToastContainer

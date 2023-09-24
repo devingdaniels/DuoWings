@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 // Pages
-import DecksPage from "./DecksPage";
+import DecksPage from "../deck/DecksGridPage";
 import StatsPage from "./StatsPage";
 // Components
 import NavigationBar from "../../components/NavigationBar";

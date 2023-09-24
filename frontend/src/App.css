@@ -184,6 +184,7 @@ a {
 .vocab-page-container {
   display: flex;
   margin: 0.5% 0.5% 0 0.5%;
+  margin-right: 10%;
 }
 
 /* ------------------------ MENU PANEL (left menu component of grid)  ------------------------  */
@@ -236,8 +237,6 @@ a {
 }
 
 .deck-container {
-  /* offset-x | offset-y | blur-radius | spread-radius | color */
-  box-shadow: 2px 1px 13px 5px rgba(2, 92, 176, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -253,6 +252,40 @@ a {
   text-align: center;
   width: 100%;
   margin-top: 10%;
+}
+
+/* Deck.css */
+.deck-card {
+  background-color: #000000;
+  border-radius: 5px;
+  border-radius: 5%;
+  padding: 16px;
+  margin: 16px;
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+  }
+}
+
+.deck-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.level {
+  background-color: #007bff;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+
+.deck-details {
+  margin-top: 8px;
 }
 
 /* ------------------------ STATS PAGE (Right section of grid) ------------------------  */

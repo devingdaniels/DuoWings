@@ -1,9 +1,9 @@
 // React
 import React, { useState, useEffect } from "react";
-import SearchAppBar from "./SearchBar";
+import SearchAppBar from "./DeckSearchBar";
 // Components
 import CreateDeckModal from "./CreateDeckModal";
-import Deck from "./Deck";
+import Deck from "./DeckCard";
 // MUI
 import { Button } from "@mui/material";
 // Redux
@@ -39,10 +39,6 @@ const DecksPage: React.FC = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     dispatch(fetchAllUserDecks());
-  };
-
-  const handleDeckClick = (deck: IWordDeck) => {
-    console.log(deck);
   };
 
   // When component mounts, fetch all user decks
@@ -121,7 +117,7 @@ const DecksPage: React.FC = () => {
         <div className="deck-grid-container">
           {filteredDecks.map((deck: IWordDeck) => {
             return (
-              <span key={deck._id} onClick={() => handleDeckClick(deck)}>
+              <span key={deck._id}>
                 <Deck deck={deck} />
               </span>
             );
