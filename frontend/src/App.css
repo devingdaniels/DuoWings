@@ -262,7 +262,6 @@ a {
   text-align: center;
   /* offset-x | offset-y | blur-radius | spread-radius | color */
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-  cursor: pointer;
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
