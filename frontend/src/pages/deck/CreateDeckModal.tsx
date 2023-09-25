@@ -1,4 +1,4 @@
-import axios from "axios";
+import { deckAPI } from "../../api/DeckAPI";
 import { INewVocabDeck } from "../../interfaces/index";
 import { useState, ChangeEvent, FormEvent } from "react";
 
@@ -9,10 +9,11 @@ enum ICardInsertionOrder {
 }
 
 interface NewDeckFormProps {
-  handleCloseModal: () => void;
+  closeModal: () => void;
+  updateDeckData: () => void;
 }
 
-const CreateDeckModal: React.FC<NewDeckFormProps> = ({ handleCloseModal }) => {
+const CreateDeckModal: React.FC<NewDeckFormProps> = ({ closeModal, updateDeckData }) => {
   const deck: INewVocabDeck = {
     name: "",
     description: "",
@@ -27,10 +28,11 @@ const CreateDeckModal: React.FC<NewDeckFormProps> = ({ handleCloseModal }) => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
+    const key = name;
     if (name === "insertOrder") {
       setDeckData({
         ...deckData,
-        [name]: value as ICardInsertionOrder,
+        [key]: value as ICardInsertionOrder,
       });
     } else {
       setDeckData({ ...deckData, [name]: value });
@@ -45,17 +47,14 @@ const CreateDeckModal: React.FC<NewDeckFormProps> = ({ handleCloseModal }) => {
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    //TODO: Fix timing of loading spinner after modal closes
     e.preventDefault();
-    try {
-      const URL = import.meta.env.VITE_BACKEND_API_DECK + "/create-deck";
-      const response = await axios.post(URL, deckData);
-      console.log(deckData);
-      if (response.status === 201) {
-        handleCloseModal();
-      }
-    } catch (error) {
-      console.log("Error creating new deck", error);
-    }
+    // Trigger parent component to re-fetch all decks
+    closeModal();
+    // Send POST request to create a new deck
+    await deckAPI.createNewDeck(deckData);
+    //
+    updateDeckData();
   };
 
   return (

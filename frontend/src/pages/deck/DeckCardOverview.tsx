@@ -2,6 +2,9 @@ import { useState } from "react"; // Import useState
 import { IWordDeck } from "../../interfaces/index";
 import { useNavigate } from "react-router-dom";
 import { SlOptionsVertical } from "react-icons/sl";
+import { AiOutlineEdit } from "react-icons/ai";
+import { AiOutlineDelete } from "react-icons/ai";
+import { deckAPI } from "../../api/DeckAPI";
 
 const Deck = ({ deck }: { deck: IWordDeck }) => {
   // Hooks
@@ -18,6 +21,10 @@ const Deck = ({ deck }: { deck: IWordDeck }) => {
     setIsOptionsOpen((prev) => !prev);
   };
 
+  const handleDeleteDeck = () => {
+    deckAPI.deleteDeckByID(deck._id);
+  };
+
   return (
     <div className="deck-card">
       <div className="deck-header">
@@ -25,14 +32,14 @@ const Deck = ({ deck }: { deck: IWordDeck }) => {
         <h4 className="deck-header-item" onClick={() => handleDeckClick(deck)}>
           {deck.name}
         </h4>
-        <div className="deck-header-item options-container" onClick={handleOptionsClick}>
-          <SlOptionsVertical />
+        <div className="deck-header-item options-container">
           {isOptionsOpen && (
             <div className="submenu">
-              <div className="submenu-option">Edit</div>
-              <div className="submenu-option">Delete</div>
+              <AiOutlineEdit size={30} />
+              <AiOutlineDelete onClick={handleDeleteDeck} size={30} />
             </div>
           )}
+          <SlOptionsVertical onClick={handleOptionsClick} />
         </div>
       </div>
       <div className="deck-details">

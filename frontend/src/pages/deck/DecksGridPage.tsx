@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import SearchAppBar from "./DeckSearchBar";
 // Components
 import CreateDeckModal from "./CreateDeckModal";
-import Deck from "./DeckOverviewCard";
+import Deck from "./DeckCardOverview";
 // Redux
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { fetchAllUserDecks, resetDeckStatus } from "../../features/deckSlice";
@@ -35,14 +35,17 @@ const DecksPage: React.FC = () => {
     setFilteredDecks(filtered);
   };
 
-  const handleCloseModal = () => {
+  const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const updateDeckData = () => {
     dispatch(fetchAllUserDecks());
   };
 
   // When component mounts, fetch all user decks
   useEffect(() => {
-    dispatch(fetchAllUserDecks());
+    updateDeckData();
   }, []);
 
   useEffect(() => {
@@ -132,7 +135,7 @@ const DecksPage: React.FC = () => {
       {isModalOpen && (
         <div className="modal-container">
           <div className="modal-content">
-            <CreateDeckModal handleCloseModal={handleCloseModal} />
+            <CreateDeckModal closeModal={closeModal} updateDeckData={updateDeckData} />
             <Button variant="contained" className="close-modal-button" onClick={toggleModal}>
               Close
             </Button>

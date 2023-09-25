@@ -262,13 +262,14 @@ a {
   padding: 16px;
   margin: 16px;
   text-align: center;
-  /* offset-x | offset-y | blur-radius | spread-radius | color */
+
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-6px);
-    box-shadow: 0.5px 0.5px 1.5px 1px white;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: -0.5px -0.5px 1.5px 1px white;
   }
 }
 
@@ -283,9 +284,7 @@ a {
 }
 
 .deck-header-item.options-container {
-  align-items: right;
-  display: flex;
-  justify-content: flex-end;
+  text-align: center;
 }
 
 .deck-header-level-container {
