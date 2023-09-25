@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IUserRegister } from "../../../interfaces";
-import { SwalSuccess } from "../../../utils/Sweetalert2";
+import { SwalSuccess } from "../../../utils/SweetAlertModule";
 import BarLoader from "react-spinners/BarLoader";
 import { ToastError } from "../../../utils/Toastify";
 // Redux
@@ -22,9 +22,7 @@ const SignUpForm = () => {
     confirmPassword: "",
   });
 
-  const { user, isLoading, isError, isSuccess, message } = useAppSelector(
-    (state) => state.auth
-  );
+  const { user, isLoading, isError, isSuccess, message } = useAppSelector((state) => state.auth);
 
   const handleSignUp = async (e: React.FormEvent) => {
     // Stop page reload

@@ -50,7 +50,9 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
     // Generate a JWT token
     const token = await signJWT(newUser._id.toString());
 
-    res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: 7200000 }); // 2 hours
+    // set cookie for 24 hours (maxAge is in milliseconds)
+    const maxAge = 24 * 60 * 60 * 1000;
+    res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: maxAge });
 
     res.status(201).json(newUser);
   } catch (error) {

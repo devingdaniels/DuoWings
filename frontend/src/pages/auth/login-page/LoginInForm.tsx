@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IUserLogin } from "../../../interfaces";
-import { SwalSuccess } from "../../../utils/Sweetalert2";
+import { SwalSuccess } from "../../../utils/SweetAlertModule";
 import BarLoader from "react-spinners/BarLoader";
 import Button from "@mui/material/Button";
 // Redux

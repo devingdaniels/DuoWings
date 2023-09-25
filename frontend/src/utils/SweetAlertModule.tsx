@@ -4,9 +4,10 @@ const SwalSuccess = (title: string, text: string) => {
   Swal.fire({
     title,
     text,
+    timerProgressBar: true,
     timer: 2000,
     icon: "success",
-    confirmButtonText: "Ok",
+    confirmButtonText: "OK",
   });
 };
 

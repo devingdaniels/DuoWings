@@ -18,7 +18,7 @@ const NavigationBar = () => {
           <li>
             <NavLink
               to="/home"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className="nav-link" // Add custom class name for styling
             >
               Home
             </NavLink>
@@ -26,7 +26,7 @@ const NavigationBar = () => {
           <li>
             <NavLink
               to="/vocab"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className="nav-link" // Add custom class name for styling
             >
               Vocab
             </NavLink>
@@ -34,7 +34,7 @@ const NavigationBar = () => {
           <li>
             <NavLink
               to="/tutor"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className="nav-link" // Add custom class name for styling
             >
               Tutor
             </NavLink>

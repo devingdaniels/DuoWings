@@ -21,9 +21,11 @@ const Deck = ({ deck }: { deck: IWordDeck }) => {
   return (
     <div className="deck-card">
       <div className="deck-header">
-        <span className="level">Level {deck.level}</span>
-        <h4 onClick={() => handleDeckClick(deck)}>{deck.name}</h4>
-        <div className="options-container" onClick={handleOptionsClick}>
+        <span className="deck-header-item deck-header-level-container">Level {deck.level}</span>
+        <h4 className="deck-header-item" onClick={() => handleDeckClick(deck)}>
+          {deck.name}
+        </h4>
+        <div className="deck-header-item options-container" onClick={handleOptionsClick}>
           <SlOptionsVertical />
           {isOptionsOpen && (
             <div className="submenu">

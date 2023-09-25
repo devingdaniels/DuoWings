@@ -4,8 +4,6 @@ import SearchAppBar from "./DeckSearchBar";
 // Components
 import CreateDeckModal from "./CreateDeckModal";
 import Deck from "./DeckOverviewCard";
-// MUI
-import { Button } from "@mui/material";
 // Redux
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { fetchAllUserDecks, resetDeckStatus } from "../../features/deckSlice";
@@ -16,6 +14,7 @@ import { ToastError } from "../../utils/Toastify";
 import Spinner from "../../utils/Spinner";
 // Icons
 import { FaCreativeCommonsZero } from "react-icons/fa";
+import { Button } from "@mui/material";
 
 const DecksPage: React.FC = () => {
   // Redux

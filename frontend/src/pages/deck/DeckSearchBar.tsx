@@ -1,24 +1,33 @@
-import { styled, alpha } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+// Define a custom MUI theme with black background
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#000", // Black background
+    },
+    text: {
+      primary: "#fff", // White text color
+    },
+  },
+});
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: "#08051f", // Set background color to black
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: "#08051f", // Set background color to black on hover
   },
   marginLeft: 0,
   width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
-  },
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
@@ -55,21 +64,23 @@ export default function SearchAppBar({ ...props }) {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search Decks…"
-              onChange={handleSearchChange}
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <ThemeProvider theme={theme}>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search Decks…"
+                onChange={handleSearchChange}
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </ThemeProvider>
   );
 }
