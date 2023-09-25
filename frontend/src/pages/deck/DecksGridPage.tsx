@@ -126,6 +126,9 @@ const DecksPage: React.FC = () => {
           </div>
         </>
       )}
+      <button className="creat-new-deck-button" onClick={toggleModal}>
+        New Deck
+      </button>
       {isModalOpen && (
         <div className="modal-container">
           <div className="modal-content">

@@ -11,10 +11,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#000", // Black background
+      main: "#000",
     },
     text: {
-      primary: "#fff", // White text color
+      primary: "#fff",
     },
   },
 });
@@ -22,9 +22,9 @@ const theme = createTheme({
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: "#08051f", // Set background color to black
+  backgroundColor: "#08051f",
   "&:hover": {
-    backgroundColor: "#08051f", // Set background color to black on hover
+    backgroundColor: "#08051f",
   },
   marginLeft: 0,
   width: "100%",
