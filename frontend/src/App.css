@@ -268,6 +268,7 @@ a {
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-6px);
+    box-shadow: 2px 2px 6px 2px white;
   }
 }
 
@@ -304,41 +305,113 @@ a {
 }
 
 /* ------------------------ CREATE DECK COMPONENT ------------------------  */
+/* CreateDeckModal.css */
 
+/* Modal container */
 .modal-container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75);
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 1000; /* Adjust as needed */
 }
 
-.modal-content {
-  background: black;
-  padding: 20px;
-  border-radius: 5px;
+/* Modal form */
+.modal-form {
+  background: #fff;
+  border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  max-width: 80%;
-  max-height: 80%;
-  overflow: auto;
+  padding: 20px;
+  width: 400px;
+  text-align: center;
 }
 
-.close-modal-button {
-  background-color: #ff0000;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+/* Modal title */
+.modal-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Input fields */
+.modal-form input[type="text"],
+.modal-form textarea,
+.modal-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Tags container */
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show tags with animation */
+.tags.show {
+  opacity: 1;
+}
+
+/* Tags list items */
+.tags li {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin: 5px;
+  display: inline-block;
   cursor: pointer;
-  margin-top: 10px;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.bottom-right-button-create-deck-button {
+/* Tags list items hover effect */
+.tags li:hover {
+  background-color: #e0e0e0;
+}
+
+/* Submit button */
+.modal-form button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Submit button hover effect */
+.modal-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Close button (optional) */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #777;
+}
+
+/* Close button hover effect (optional) */
+.close-button:hover {
+  color: #333;
+}
+.creat-new-deck-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -348,10 +421,4 @@ a {
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-}
-
-/* ------------------------ DECK CARD DETAILS PAGE (RENDERED AFTER USER CLICKS ON CARD) ------------------------  */
-.deck-card-details-page-container {
-  text-align: center;
-  width: 100%;
 }

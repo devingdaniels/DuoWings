@@ -96,7 +96,7 @@ const DecksPage: React.FC = () => {
       <div className="deck-page-container-empty">
         <h2>No Decks!</h2>
         <FaCreativeCommonsZero size={65} />
-        <button className="bottom-right-button-create-deck-button" onClick={toggleModal}>
+        <button className="creat-new-deck-button" onClick={toggleModal}>
           New Deck
         </button>
       </div>
@@ -105,27 +105,27 @@ const DecksPage: React.FC = () => {
 
   return (
     <div className="deck-page-container">
-      <div className="deck-page-search-wrapper">
-        <div className="deck-page-search-container">
-          <SearchAppBar filterDecks={filterDecks} value={searchTerm} />
-        </div>
-      </div>
+      <></>
       {isLoading ? (
         <Spinner />
       ) : (
-        <div className="deck-grid-container">
-          {filteredDecks.map((deck: IWordDeck) => {
-            return (
-              <span key={deck._id}>
-                <Deck deck={deck} />
-              </span>
-            );
-          })}
-        </div>
+        <>
+          <div className="deck-page-search-wrapper">
+            <div className="deck-page-search-container">
+              <SearchAppBar filterDecks={filterDecks} value={searchTerm} />
+            </div>
+          </div>
+          <div className="deck-grid-container">
+            {filteredDecks.map((deck: IWordDeck) => {
+              return (
+                <span key={deck._id}>
+                  <Deck deck={deck} />
+                </span>
+              );
+            })}
+          </div>
+        </>
       )}
-      <button className="bottom-right-button-create-deck-button" onClick={toggleModal}>
-        New Deck
-      </button>
       {isModalOpen && (
         <div className="modal-container">
           <div className="modal-content">
