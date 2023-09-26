@@ -1,4 +1,3 @@
-import { deckAPI } from "../../api/DeckAPI";
 import { INewVocabDeck } from "../../interfaces/index";
 import { useState, ChangeEvent, FormEvent } from "react";
 
@@ -9,11 +8,10 @@ enum ICardInsertionOrder {
 }
 
 interface NewDeckFormProps {
-  closeModal: () => void;
-  updateDeckData: () => void;
+  handleCreateNewDeck: (deck: INewVocabDeck) => void;
 }
 
-const CreateDeckModalForm: React.FC<NewDeckFormProps> = ({ closeModal, updateDeckData }) => {
+const CreateDeckModalForm: React.FC<NewDeckFormProps> = ({ handleCreateNewDeck }) => {
   const deck: INewVocabDeck = {
     name: "",
     description: "",
@@ -21,7 +19,7 @@ const CreateDeckModalForm: React.FC<NewDeckFormProps> = ({ closeModal, updateDec
     insertOrder: ICardInsertionOrder.Top,
   };
 
-  const [deckData, setDeckData] = useState<INewVocabDeck>(deck);
+  const [deckFormData, setDeckData] = useState<INewVocabDeck>(deck);
   const [newTag, setNewTag] = useState<string>("");
 
   const handleInputChange = (
@@ -31,30 +29,26 @@ const CreateDeckModalForm: React.FC<NewDeckFormProps> = ({ closeModal, updateDec
     const key = name;
     if (name === "insertOrder") {
       setDeckData({
-        ...deckData,
+        ...deckFormData,
         [key]: value as ICardInsertionOrder,
       });
     } else {
-      setDeckData({ ...deckData, [name]: value });
+      setDeckData({ ...deckFormData, [name]: value });
     }
   };
 
   const handleAddTag = () => {
-    if (newTag.trim() !== "" && !deckData.tags.includes(newTag)) {
-      setDeckData({ ...deckData, tags: [...deckData.tags, newTag] });
+    if (newTag.trim() !== "" && !deckFormData.tags.includes(newTag)) {
+      setDeckData({ ...deckFormData, tags: [...deckFormData.tags, newTag] });
     }
     setNewTag("");
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    //TODO: Fix timing of loading spinner after modal closes
+    // Prevent page reload
     e.preventDefault();
-    closeModal();
-    // Set loading here
-    // Send POST request to create a new deck
-    await deckAPI.createNewDeck(deckData);
-    // Parent component will fetch all user decks
-    updateDeckData();
+    // Close modal, API POST to create card, handle loading state, etc
+    handleCreateNewDeck(deckFormData);
   };
 
   return (
@@ -65,7 +59,7 @@ const CreateDeckModalForm: React.FC<NewDeckFormProps> = ({ closeModal, updateDec
           <input
             type="text"
             name="name"
-            value={deckData.name}
+            value={deckFormData.name}
             onChange={handleInputChange}
             placeholder="Deck Title"
             required
@@ -73,7 +67,7 @@ const CreateDeckModalForm: React.FC<NewDeckFormProps> = ({ closeModal, updateDec
           <br />
           <textarea
             name="description"
-            value={deckData.description}
+            value={deckFormData.description}
             onChange={handleInputChange}
             placeholder="Deck Description"
           />
@@ -85,7 +79,7 @@ const CreateDeckModalForm: React.FC<NewDeckFormProps> = ({ closeModal, updateDec
             onChange={(e) => setNewTag(e.target.value)}
             placeholder="Tags"
           />
-          <select name="insertOrder" value={deckData.insertOrder} onChange={handleInputChange}>
+          <select name="insertOrder" value={deckFormData.insertOrder} onChange={handleInputChange}>
             {Object.values(ICardInsertionOrder).map((val) => (
               <option key={val} value={val}>
                 {val}
@@ -97,7 +91,7 @@ const CreateDeckModalForm: React.FC<NewDeckFormProps> = ({ closeModal, updateDec
           </button>
         </div>
         <ul>
-          {deckData.tags.map((tag, index) => (
+          {deckFormData.tags.map((tag, index) => (
             <li key={index}>{tag}</li>
           ))}
         </ul>

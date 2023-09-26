@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { SlOptionsVertical } from "react-icons/sl";
 import { AiOutlineEdit } from "react-icons/ai";
 import { AiOutlineDelete } from "react-icons/ai";
-import { deckAPI } from "../../api/DeckAPI";
 
 interface DeckProps {
   deck: IWordDeck;
@@ -27,7 +26,7 @@ const Deck: React.FC<DeckProps> = ({ deck, updateDeckData }) => {
   };
 
   const handleDeleteDeck = () => {
-    deckAPI.deleteDeckByID(deck._id);
+    console.log("dispatch redux delete card...");
     updateDeckData();
   };
 

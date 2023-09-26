@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import deckService from "./deckService";
 
 import { IWordDeck } from "../interfaces/index";
+import { INewVocabDeck } from "../interfaces/index";
 import { RootState } from "../app/store";
 
 interface DeckState {
@@ -11,7 +12,7 @@ interface DeckState {
   isSuccess: boolean;
   isError: boolean;
   message: string;
-  fetchedDeck: IWordDeck | null;
+  currentDeck: IWordDeck | null;
 }
 
 const initialState: DeckState = {
@@ -20,12 +21,12 @@ const initialState: DeckState = {
   isSuccess: false,
   isError: false,
   message: "",
-  fetchedDeck: null,
+  currentDeck: null,
 };
 
 // Create an async thunk to fetch user decks from the backend
 export const fetchAllUserDecks = createAsyncThunk(
-  "decks/fetchDecks",
+  "decks/fetchUserDecks",
   async (_, { rejectWithValue }) => {
     try {
       const response = await deckService.fetchAllDecks();
@@ -41,10 +42,26 @@ export const fetchAllUserDecks = createAsyncThunk(
 );
 
 export const getDeckByID = createAsyncThunk(
-  "decks/detchDeckByID",
+  "decks/fetchDeckByID",
   async (deckId: string | undefined, { rejectWithValue }) => {
     try {
       const response = await deckService.fetchDeckByID(deckId);
+      return response;
+    } catch (error: any) {
+      const message =
+        (error.response && error.response.data && error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return rejectWithValue(message);
+    }
+  }
+);
+
+export const createDeck = createAsyncThunk(
+  "decks/createDeck",
+  async (deck: INewVocabDeck, { rejectWithValue }) => {
+    try {
+      const response = await deckService.createDeck(deck);
       return response;
     } catch (error: any) {
       const message =
@@ -81,7 +98,7 @@ const deckSlice = createSlice({
         state.isSuccess = false;
         state.isError = false;
         state.message = "";
-        state.fetchedDeck = null;
+        state.currentDeck = null;
       })
       // Handle the fetchAllUserDecks async thunk
       .addCase(fetchAllUserDecks.pending, (state) => {
@@ -106,20 +123,35 @@ const deckSlice = createSlice({
       .addCase(getDeckByID.fulfilled, (state, action) => {
         state.isSuccess = true;
         state.isLoading = false;
-        state.fetchedDeck = action.payload as IWordDeck;
+        state.currentDeck = action.payload as IWordDeck;
       })
       .addCase(getDeckByID.rejected, (state, action) => {
         state.isError = true;
         state.message = action.error.message as string;
         state.isLoading = false;
         state.isSuccess = false;
+      })
+      // Handle the create async thunk
+      .addCase(createDeck.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createDeck.fulfilled, (state) => {
+        state.isSuccess = true;
+        state.isLoading = false;
+        // state.fetchedDeck = action.payload as IWordDeck;
+      })
+      .addCase(createDeck.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.message = action.error.message as string;
       });
   },
 });
 
 // Actions
-export const selectCurrentUserDeck = (satee: RootState) => satee.decks.fetchedDeck;
 export const clearUserDeckState = createAction("decks/clearUserDeckState");
+export const selectCurrentUserDeck = (state: RootState) => state.decks.currentDeck;
 export const { setUserDecks } = deckSlice.actions;
 export const { resetDeckStatus } = deckSlice.actions;
 // Reducer

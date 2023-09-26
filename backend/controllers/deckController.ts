@@ -6,17 +6,14 @@ const createDeck = async (req: Request, res: Response, next: NextFunction): Prom
   try {
     const { name, description, tags, insertOrder } = req.body;
     const userId = req.user;
-
-    console.log("Backend: Creating deck:", req.body);
-
     // Check if a deck with the same name already exists for this user
     const existingDeck = await DeckModel.findOne({ name, user: userId });
-
+    // Duplicate deck names are not allowed
     if (existingDeck) {
       res.status(404);
       throw new Error(`Deck with name ${name} already exists for this user`);
     }
-
+    // Create new instance of DeckModel
     const deck = new DeckModel({
       user: userId,
       _id: new mongoose.Types.ObjectId(),
@@ -28,9 +25,8 @@ const createDeck = async (req: Request, res: Response, next: NextFunction): Prom
       },
       createdBy: userId, // Associate the deck with the user
     });
-
+    // Save the deck to DB
     await deck.save();
-
     res.status(201).json({ message: "Deck created successfully", deck });
   } catch (error) {
     console.error("Backend: Error creating deck:", error);

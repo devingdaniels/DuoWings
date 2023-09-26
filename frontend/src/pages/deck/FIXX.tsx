@@ -90,6 +90,7 @@ const DecksPage: React.FC = () => {
     };
   }, [isModalOpen, handleEscapeKey, handleClickOutside]);
 
+  // No decks and no state-changing functionality in progress
   if (decks.length === 0 && !isModalOpen && !isLoading) {
     return (
       <div className="deck-page-container-empty">
