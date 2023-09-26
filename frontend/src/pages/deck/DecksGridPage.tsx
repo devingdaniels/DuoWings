@@ -11,7 +11,7 @@ import { createDeck, fetchAllUserDecks, resetDeckStatus } from "../../features/d
 import { IWordDeck } from "../../interfaces/index";
 import { INewVocabDeck } from "../../interfaces/index";
 // Notificiations
-import { ToastError } from "../../utils/Toastify";
+// import { ToastError } from "../../utils/Toastify";
 // Spinner
 import Spinner from "../../utils/Spinner";
 // Icons
@@ -20,7 +20,7 @@ import { Button } from "@mui/material";
 
 const DecksPage: React.FC = () => {
   // Redux
-  const { decks, isSuccess, isError, isLoading, message } = useAppSelector((state) => state.decks);
+  const { decks, isSuccess, isLoading } = useAppSelector((state) => state.decks);
   const dispatch = useAppDispatch();
   // State
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -37,27 +37,7 @@ const DecksPage: React.FC = () => {
     setFilteredDecks(filtered);
   };
 
-  const updateDeckData = () => {
-    dispatch(fetchAllUserDecks());
-  };
-
   // Modal handlers
-  const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    setIsModalOpen(!isModalOpen);
-  };
-
-  const handleEscapeKey = (e: KeyboardEvent) => {
-    if (e.key === "Escape" && isModalOpen) {
-      setIsModalOpen(false);
-    }
-  };
-
-  const handleClickOutside = (e: MouseEvent) => {
-    if (isModalOpen && (e.target as Element).closest(".modal-content") === null) {
-      setIsModalOpen(false);
-    }
-  };
 
   const handleCreateNewDeck = async (deck: INewVocabDeck) => {
     // First close the modal from the UI
@@ -70,26 +50,59 @@ const DecksPage: React.FC = () => {
     await dispatch(fetchAllUserDecks());
   };
 
+  const updateDeckData = () => {
+    dispatch(fetchAllUserDecks());
+  };
+
+  // Get latest user user decks on component mount
   useEffect(() => {
     updateDeckData();
   }, []);
 
+  // isSuccess means new data, set it
   useEffect(() => {
     setDeckData(decks);
     setFilteredDecks(decks);
   }, [isSuccess]);
 
+  // Modal handlers and event listeners
+  const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const handleModalInteraction = (e: KeyboardEvent | MouseEvent) => {
+    if (
+      (e instanceof KeyboardEvent && e.key === "Escape") ||
+      (e instanceof MouseEvent &&
+        isModalOpen &&
+        (e.target as Element).closest(".modal-content") === null)
+    ) {
+      setIsModalOpen(false);
+    }
+  };
+
   useEffect(() => {
     // Add event listeners
-    document.addEventListener("click", handleClickOutside);
-    document.addEventListener("keydown", handleEscapeKey);
+    document.addEventListener("click", handleModalInteraction);
+    document.addEventListener("keydown", handleModalInteraction);
     // Cleanup
     return () => {
-      document.removeEventListener("click", handleClickOutside);
-      document.removeEventListener("keydown", handleEscapeKey);
+      document.removeEventListener("click", handleModalInteraction);
+      document.removeEventListener("keydown", handleModalInteraction);
     };
-  }, [isModalOpen, handleEscapeKey, handleClickOutside]);
+  }, [isModalOpen, handleModalInteraction]);
 
+  // Show spinner for any async process
+  if (isLoading) {
+    return (
+      <div className="deck-page-container">
+        <Spinner />
+      </div>
+    );
+  }
+
+  // No decks and no state-changing functionality in progress
   if (decks.length === 0 && !isModalOpen && !isLoading) {
     return (
       <div className="deck-page-container-empty">
@@ -101,12 +114,10 @@ const DecksPage: React.FC = () => {
       </div>
     );
   }
-
+  // Not loading and user has decks
   return (
     <div className="deck-page-container">
-      {isLoading ? (
-        <Spinner />
-      ) : (
+      {!isModalOpen && (
         <>
           <div className="deck-page-search-wrapper">
             <div className="deck-page-search-container">
