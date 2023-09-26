@@ -255,16 +255,12 @@ a {
 }
 
 /* Deck.css */
-.deck-card {
+.deck-card-overview-container {
   background-color: #08051f;
-  border-radius: 5px;
-  border-radius: 5%;
+  border-radius: 15px;
   padding: 16px;
   margin: 16px;
-  text-align: center;
-
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-6px);
@@ -273,28 +269,14 @@ a {
   }
 }
 
-.deck-header {
+.deck-card-overview-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.deck-header-item {
-  flex: 1;
-}
-
-.deck-header-item.options-container {
-  text-align: center;
-}
-
-.deck-header-level-container {
-  color: #fff;
-  text-align: left;
-  border-radius: 3px;
-}
-
-.deck-details {
-  margin-top: 8px;
+.deck-card-overview-header {
+  flex-basis: 1;
 }
 
 /* ------------------------ STATS PAGE (Right section of grid) ------------------------  */
@@ -304,7 +286,6 @@ a {
 }
 
 /* ------------------------ CREATE DECK COMPONENT ------------------------  */
-/* CreateDeckModal.css */
 
 /* Modal container */
 .modal-container {
@@ -313,110 +294,17 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(43, 43, 43, 0.8); /* Semi-transparent background */
+  background: rgba(43, 43, 43, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Adjust as needed */
-}
-
-/* Modal form */
-.modal-form {
-  background: #ce1717;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  width: 400px;
-  text-align: center;
-  border: 1px solid red;
-}
-
-/* Modal title */
-.modal-form h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-/* Input fields */
-.modal-form input[type="text"],
-.modal-form textarea,
-.modal-form select {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-/* Tags container */
-.tags {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-/* Show tags with animation */
-.tags.show {
-  opacity: 1;
-}
-
-/* Tags list items */
-.tags li {
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 5px 10px;
-  margin: 5px;
-  display: inline-block;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-/* Tags list items hover effect */
-.tags li:hover {
-  background-color: #e0e0e0;
-}
-
-/* Submit button */
-.modal-form button[type="submit"] {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-/* Submit button hover effect */
-.modal-form button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-/* Close button (optional) */
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 20px;
-  color: #777;
-}
-
-/* Close button hover effect (optional) */
-.close-button:hover {
-  color: #333;
 }
 
 .creat-new-deck-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: rgba(0, 123, 255, 0.2); /* Transparent background color */
+  background-color: rgba(0, 123, 255, 0.2);
   color: white;
   border: none;
   border-radius: 5px;
