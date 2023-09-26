@@ -47,7 +47,24 @@ const fetchDeckByID = async (deckID: string | undefined) => {
       throw new Error(err.response.data.message);
     } else {
       console.error("Error:", err);
-      throw new Error(`Error: Failed to fetch deck with ID ${deckID}`);
+      throw new Error(`Error: Failed to fetch deck with ID: ${deckID}`);
+    }
+  }
+};
+
+const deleteDeckByID = async (deckID: string | undefined) => {
+  const URL = import.meta.env.VITE_BACKEND_API_DECK + `/${deckID}`;
+  try {
+    const response = await axios.delete(URL);
+    const deck = await response.data;
+    return deck;
+  } catch (err: any) {
+    if (err.response && err.response.data) {
+      console.error(err.response.data.message);
+      throw new Error(err.response.data.message);
+    } else {
+      console.error("Error:", err);
+      throw new Error(`Error: Failed to delete deck with ID: ${deckID}`);
     }
   }
 };
@@ -56,6 +73,7 @@ const deckService = {
   createDeck,
   fetchDeckByID,
   fetchAllDecks,
+  deleteDeckByID,
 };
 
 export default deckService;

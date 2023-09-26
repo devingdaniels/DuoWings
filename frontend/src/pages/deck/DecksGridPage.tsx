@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import SearchAppBar from "./DeckSearchBar";
 // Components
 import CreateDeckModalForm from "./CreateDeckModal";
-import Deck from "./DeckCardOverview";
+import DeckCardOverview from "./DeckCardOverview";
 // Redux
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { createDeck, fetchAllUserDecks, resetDeckStatus } from "../../features/deckSlice";
@@ -50,20 +50,20 @@ const DecksPage: React.FC = () => {
     await dispatch(fetchAllUserDecks());
   };
 
-  const updateDeckData = () => {
+  const fetchUserDecks = () => {
     dispatch(fetchAllUserDecks());
   };
 
   // Get latest user user decks on component mount
   useEffect(() => {
-    updateDeckData();
+    fetchUserDecks();
   }, []);
 
   // isSuccess means new data, set it
   useEffect(() => {
     setDeckData(decks);
     setFilteredDecks(decks);
-  }, [isSuccess]);
+  }, [decks, isSuccess, dispatch]);
 
   // Modal handlers and event listeners
   const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -128,7 +128,7 @@ const DecksPage: React.FC = () => {
             {filteredDecks.map((deck: IWordDeck) => {
               return (
                 <span key={deck._id}>
-                  <Deck deck={deck} updateDeckData={updateDeckData} />
+                  <DeckCardOverview deck={deck} fetchUserDecks={fetchUserDecks} />
                 </span>
               );
             })}

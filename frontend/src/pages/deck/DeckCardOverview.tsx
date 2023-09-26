@@ -1,33 +1,26 @@
-import { useState } from "react"; // Import useState
 import { IWordDeck } from "../../interfaces/index";
 import { useNavigate } from "react-router-dom";
-import { SlOptionsVertical } from "react-icons/sl";
-import { AiOutlineEdit } from "react-icons/ai";
 import { AiOutlineDelete } from "react-icons/ai";
+
+import { useAppDispatch } from "../../app/hooks";
+import { deleteDeckByID } from "../../features/deckSlice";
 
 interface DeckProps {
   deck: IWordDeck;
-  updateDeckData: () => void;
+  fetchUserDecks: () => void;
 }
 
-const Deck: React.FC<DeckProps> = ({ deck, updateDeckData }) => {
+const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
   // Hooks
   const navigate = useNavigate();
-  const [isOptionsOpen, setIsOptionsOpen] = useState(false); // State variable to control submenu visibility
-
+  const dispatch = useAppDispatch();
+  // Handlers
   const handleDeckClick = (deck: IWordDeck) => {
     navigate(`/vocab/decks/${deck._id}`);
   };
-
-  const handleOptionsClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    e.stopPropagation();
-    // Toggle the state variable to show/hide the submenu
-    setIsOptionsOpen((prev) => !prev);
-  };
-
-  const handleDeleteDeck = () => {
-    console.log("dispatch redux delete card...");
-    updateDeckData();
+  const handleDeleteDeck = async () => {
+    await dispatch(deleteDeckByID(deck._id));
+    fetchUserDecks();
   };
 
   return (
@@ -37,14 +30,8 @@ const Deck: React.FC<DeckProps> = ({ deck, updateDeckData }) => {
         <h4 className="deck-header-item" onClick={() => handleDeckClick(deck)}>
           {deck.name}
         </h4>
-        <div className="deck-header-item options-container">
-          {isOptionsOpen && (
-            <div className="submenu">
-              <AiOutlineEdit size={30} />
-              <AiOutlineDelete onClick={handleDeleteDeck} size={30} />
-            </div>
-          )}
-          <SlOptionsVertical onClick={handleOptionsClick} />
+        <div className="deck-header-item edit-delete-container">
+          <AiOutlineDelete onClick={handleDeleteDeck} size={30} />
         </div>
       </div>
       <div className="deck-details">
@@ -59,4 +46,4 @@ const Deck: React.FC<DeckProps> = ({ deck, updateDeckData }) => {
   );
 };
 
-export default Deck;
+export default DeckCardOverview;

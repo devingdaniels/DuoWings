@@ -26,7 +26,7 @@ const initialState: DeckState = {
 
 // Create an async thunk to fetch user decks from the backend
 export const fetchAllUserDecks = createAsyncThunk(
-  "decks/fetchUserDecks",
+  "decks/getAllUserDecks",
   async (_, { rejectWithValue }) => {
     try {
       const response = await deckService.fetchAllDecks();
@@ -42,7 +42,7 @@ export const fetchAllUserDecks = createAsyncThunk(
 );
 
 export const getDeckByID = createAsyncThunk(
-  "decks/fetchDeckByID",
+  "decks/getDeckByID",
   async (deckId: string | undefined, { rejectWithValue }) => {
     try {
       const response = await deckService.fetchDeckByID(deckId);
@@ -73,12 +73,27 @@ export const createDeck = createAsyncThunk(
   }
 );
 
+export const deleteDeckByID = createAsyncThunk(
+  "decks/deleteDeckByID",
+  async (deckID: string, { rejectWithValue }) => {
+    try {
+      const response = await deckService.deleteDeckByID(deckID);
+      return response;
+    } catch (error: any) {
+      const message =
+        (error.response && error.response.data && error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return rejectWithValue(message);
+    }
+  }
+);
+
 // Create the deckSlice
 const deckSlice = createSlice({
   name: "decks",
   initialState,
   reducers: {
-    // This is used after fetching decks to reset the builder state
     resetDeckStatus: (state) => {
       state.isSuccess = false;
       state.isLoading = false;
@@ -100,6 +115,7 @@ const deckSlice = createSlice({
         state.message = "";
         state.currentDeck = null;
       })
+
       // Handle the fetchAllUserDecks async thunk
       .addCase(fetchAllUserDecks.pending, (state) => {
         state.isLoading = true;
@@ -116,6 +132,7 @@ const deckSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = false;
       })
+
       // Handle the getDeckByID async thunk
       .addCase(getDeckByID.pending, (state) => {
         state.isLoading = true;
@@ -131,6 +148,7 @@ const deckSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = false;
       })
+
       // Handle the create async thunk
       .addCase(createDeck.pending, (state) => {
         state.isLoading = true;
@@ -141,6 +159,21 @@ const deckSlice = createSlice({
         // state.fetchedDeck = action.payload as IWordDeck;
       })
       .addCase(createDeck.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.message = action.error.message as string;
+      })
+
+      // Handle the delete async thunk
+      .addCase(deleteDeckByID.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteDeckByID.fulfilled, (state) => {
+        state.isSuccess = true;
+        state.isLoading = false;
+      })
+      .addCase(deleteDeckByID.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
         state.isSuccess = false;
