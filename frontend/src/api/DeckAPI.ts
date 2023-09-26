@@ -12,18 +12,6 @@ const createNewDeck = async (deck: INewVocabDeck) => {
   }
 };
 
-const fetchDeckByID = async (deckID: string | undefined) => {
-  const URL = import.meta.env.VITE_BACKEND_API_DECK + `/${deckID}`;
-  try {
-    const response = await axios.get(URL);
-    const deck = await response.data;
-    console.log(deck);
-  } catch (error) {
-    // TODO: Handle error
-    console.log("Error fetching deck by ID", error);
-  }
-};
-
 const deleteDeckByID = async (deckID: string | undefined) => {
   const URL = import.meta.env.VITE_BACKEND_API_DECK + `/${deckID}`;
   try {
@@ -38,7 +26,6 @@ const deleteDeckByID = async (deckID: string | undefined) => {
 
 const deckAPI = {
   createNewDeck,
-  fetchDeckByID,
   deleteDeckByID,
 };
 

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import SearchAppBar from "./DeckSearchBar";
 // Components
-import CreateDeckModal from "./CreateDeckModal";
+import CreateDeckModalForm from "./CreateDeckModal";
 import Deck from "./DeckCardOverview";
 // Redux
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
@@ -18,8 +18,8 @@ import { Button } from "@mui/material";
 
 const DecksPage: React.FC = () => {
   // Redux
-  const dispatch = useAppDispatch();
   const { decks, isSuccess, isError, isLoading, message } = useAppSelector((state) => state.decks);
+  const dispatch = useAppDispatch();
   // State
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [deckData, setDeckData] = useState<IWordDeck[]>(decks || []);
@@ -122,7 +122,7 @@ const DecksPage: React.FC = () => {
             {filteredDecks.map((deck: IWordDeck) => {
               return (
                 <span key={deck._id}>
-                  <Deck deck={deck} />
+                  <Deck deck={deck} updateDeckData={updateDeckData} />
                 </span>
               );
             })}
@@ -135,7 +135,7 @@ const DecksPage: React.FC = () => {
       {isModalOpen && (
         <div className="modal-container">
           <div className="modal-content">
-            <CreateDeckModal closeModal={closeModal} updateDeckData={updateDeckData} />
+            <CreateDeckModalForm closeModal={closeModal} updateDeckData={updateDeckData} />
             <Button variant="contained" className="close-modal-button" onClick={toggleModal}>
               Close
             </Button>

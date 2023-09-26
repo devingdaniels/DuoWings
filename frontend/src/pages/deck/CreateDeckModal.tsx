@@ -13,7 +13,7 @@ interface NewDeckFormProps {
   updateDeckData: () => void;
 }
 
-const CreateDeckModal: React.FC<NewDeckFormProps> = ({ closeModal, updateDeckData }) => {
+const CreateDeckModalForm: React.FC<NewDeckFormProps> = ({ closeModal, updateDeckData }) => {
   const deck: INewVocabDeck = {
     name: "",
     description: "",
@@ -49,11 +49,11 @@ const CreateDeckModal: React.FC<NewDeckFormProps> = ({ closeModal, updateDeckDat
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     //TODO: Fix timing of loading spinner after modal closes
     e.preventDefault();
-    // Trigger parent component to re-fetch all decks
     closeModal();
+    // Set loading here
     // Send POST request to create a new deck
     await deckAPI.createNewDeck(deckData);
-    //
+    // Parent component will fetch all user decks
     updateDeckData();
   };
 
@@ -109,4 +109,4 @@ const CreateDeckModal: React.FC<NewDeckFormProps> = ({ closeModal, updateDeckDat
   );
 };
 
-export default CreateDeckModal;
+export default CreateDeckModalForm;

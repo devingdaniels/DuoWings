@@ -6,7 +6,12 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { AiOutlineDelete } from "react-icons/ai";
 import { deckAPI } from "../../api/DeckAPI";
 
-const Deck = ({ deck }: { deck: IWordDeck }) => {
+interface DeckProps {
+  deck: IWordDeck;
+  updateDeckData: () => void;
+}
+
+const Deck: React.FC<DeckProps> = ({ deck, updateDeckData }) => {
   // Hooks
   const navigate = useNavigate();
   const [isOptionsOpen, setIsOptionsOpen] = useState(false); // State variable to control submenu visibility
@@ -23,6 +28,7 @@ const Deck = ({ deck }: { deck: IWordDeck }) => {
 
   const handleDeleteDeck = () => {
     deckAPI.deleteDeckByID(deck._id);
+    updateDeckData();
   };
 
   return (

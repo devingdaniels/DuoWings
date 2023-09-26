@@ -1,15 +1,32 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { deckAPI } from "../../api/DeckAPI";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { selectCurrentUserDeck, getDeckByID } from "../../features/deckSlice";
 
 const DeckCardDetails = () => {
+  const dispatch = useAppDispatch();
+  const deck = useAppSelector(selectCurrentUserDeck);
+  const { isLoading, isError, message } = useAppSelector((state) => state.decks);
   const { deckId } = useParams();
 
   useEffect(() => {
-    deckAPI.fetchDeckByID(deckId);
-  }, []);
+    // Fetch deck by ID when the component mounts
+    dispatch(getDeckByID(deckId));
+  }, [dispatch, deckId]); // Include dispatch and deckId in the dependency array
 
-  return <div className="deck-card-details-page-container">Deck ID: {deckId}</div>;
+  return (
+    <div>
+      {isLoading && <p>Loading...</p>}
+      {deck && !isLoading && (
+        <div>
+          <h1>Deck Details</h1>
+          <p>Deck ID: {deckId}</p>
+          <p>Deck Name: {deck.name}</p>
+        </div>
+      )}
+      {isError && <p>Error: {message}</p>}
+    </div>
+  );
 };
 
 export default DeckCardDetails;
