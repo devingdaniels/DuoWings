@@ -258,14 +258,15 @@ a {
 .deck-card-overview-container {
   background-color: #08051f;
   border-radius: 15px;
-  padding: 16px;
-  margin: 16px;
+  padding: 3%;
+  margin: 3%;
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-6px);
     /* offset-x | offset-y | blur-radius | spread-radius | color */
     box-shadow: -0.5px -0.5px 1.5px 1px white;
+    cursor: pointer;
   }
 }
 
@@ -277,6 +278,10 @@ a {
 
 .deck-card-overview-header {
   flex-basis: 1;
+}
+
+.delete-container:hover {
+  color: red;
 }
 
 /* ------------------------ STATS PAGE (Right section of grid) ------------------------  */

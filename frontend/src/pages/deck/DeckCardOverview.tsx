@@ -18,25 +18,25 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
   const handleDeckClick = (deck: IWordDeck) => {
     navigate(`/vocab/decks/${deck._id}`);
   };
-  const handleDeleteDeck = async () => {
+
+  const handleDeleteDeck = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    // Delete button is inside deck container which also has onClick
+    e.stopPropagation();
     await dispatch(deleteDeckByID(deck._id));
     fetchUserDecks();
   };
 
   return (
-    <div className="deck-card-overview-container">
+    <div className="deck-card-overview-container" onClick={() => handleDeckClick(deck)}>
       <div className="deck-card-overview-header">
         <span className="deck-header-item deck-header-level-container">Level {deck.level}</span>
-        <h2 className="deck-header-item" onClick={() => handleDeckClick(deck)}>
-          {deck.name}
-        </h2>
-        <div className="deck-header-item edit-delete-container">
+        <h2 className="deck-header-item">{deck.name}</h2>
+        <div className="deck-header-item delete-container">
           <AiOutlineDelete onClick={handleDeleteDeck} size={30} />
         </div>
       </div>
       <div className="deck-details">
-        <p>Description: {deck.description}</p>
-        <p>Tags: {deck.tags?.join(", ")}</p>
+        <p>{deck.description}</p>
         <p>Created: {new Date(deck.creationDate).toLocaleDateString()}</p>
         <p>Last Studied: {new Date(deck.lastStudied).toLocaleDateString()}</p>
       </div>
