@@ -7,11 +7,11 @@ enum ICardInsertionOrder {
   Random = "random",
 }
 
-interface NewDeckFormProps {
+interface Props {
   handleCreateNewDeck: (deck: INewVocabDeck) => void;
 }
 
-const CreateDeckModalForm: React.FC<NewDeckFormProps> = ({ handleCreateNewDeck }) => {
+const CreateDeckModalForm = ({ handleCreateNewDeck }: Props) => {
   const deck: INewVocabDeck = {
     name: "",
     description: "",
