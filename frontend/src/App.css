@@ -281,8 +281,13 @@ a {
   flex-basis: 1;
 }
 
+.delete-container {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
 .delete-container:hover {
   color: red;
+  transform: scale(1.4);
 }
 
 .deck-header-level-container {
@@ -315,10 +320,16 @@ a {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: rgba(0, 123, 255, 0.2);
+  background-color: rgba(150, 0, 0, 0.7);
   color: white;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.creat-new-deck-button:hover {
+  background-color: rgba(255, 0, 0, 0.9);
+  transform: scale(1.1);
 }
