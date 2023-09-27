@@ -1,20 +1,13 @@
 // React
 import React, { useState, useEffect } from "react";
 import SearchAppBar from "./DeckSearchBar";
-// Components
 import CreateDeckModalForm from "./CreateDeckModal";
 import DeckCardOverview from "./DeckCardOverview";
-// Redux
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { createDeck, fetchAllUserDecks, resetDeckStatus } from "../../features/deckSlice";
-// Types
 import { IWordDeck } from "../../interfaces/index";
 import { INewVocabDeck } from "../../interfaces/index";
-// Notificiations
-// import { ToastError } from "../../utils/Toastify";
-// Spinner
 import Spinner from "../../utils/Spinner";
-// Icons
 import { FaCreativeCommonsZero } from "react-icons/fa";
 import { Button } from "@mui/material";
 
@@ -37,8 +30,6 @@ const DecksPage: React.FC = () => {
     setFilteredDecks(filtered);
   };
 
-  // Modal handlers
-
   const handleCreateNewDeck = async (deck: INewVocabDeck) => {
     // First close the modal from the UI
     setIsModalOpen(false);
@@ -59,7 +50,7 @@ const DecksPage: React.FC = () => {
     fetchUserDecks();
   }, []);
 
-  // isSuccess means new data, set it
+  // if decks or dispatch has occured, set new data
   useEffect(() => {
     setDeckData(decks);
     setFilteredDecks(decks);
@@ -70,7 +61,7 @@ const DecksPage: React.FC = () => {
     e.stopPropagation();
     setIsModalOpen(!isModalOpen);
   };
-
+  // Modal handler
   const handleModalInteraction = (e: KeyboardEvent | MouseEvent) => {
     if (
       (e instanceof KeyboardEvent && e.key === "Escape") ||
@@ -114,7 +105,7 @@ const DecksPage: React.FC = () => {
       </div>
     );
   }
-  // Not loading and user has decks
+
   return (
     <div className="deck-page-container">
       {!isModalOpen && (
