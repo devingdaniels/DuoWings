@@ -25,7 +25,7 @@ const NavigationBar = () => {
           </li>
           <li>
             <NavLink
-              to="/vocab"
+              to="/vocab/decks"
               className="nav-link" // Add custom class name for styling
             >
               Vocab

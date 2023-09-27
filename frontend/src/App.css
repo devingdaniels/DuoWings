@@ -228,6 +228,7 @@ a {
 
 .deck-page-container {
   width: 100%;
+  height: 100vh;
 }
 
 .deck-grid-container {
@@ -265,7 +266,7 @@ a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-6px);
     /* offset-x | offset-y | blur-radius | spread-radius | color */
-    box-shadow: -0.5px -0.5px 1.5px 1px white;
+    box-shadow: -0.5px -0.5px 5px 0.5px white;
     cursor: pointer;
   }
 }
@@ -274,12 +275,10 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2%;
 }
 
-.deck-card-overview-header {
-  flex-basis: 1;
-}
+/* .deck-header-item {
+} */
 
 .delete-container {
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -295,32 +294,116 @@ a {
   padding: 0 2%;
 }
 
-/* ------------------------ STATS PAGE (Right section of grid) ------------------------  */
+/* ------------------------ STATS PAGE CONTAINER ------------------------  */
 .stats-page-container {
   text-align: center;
   width: 100%;
 }
 
-/* ------------------------ CREATE DECK COMPONENT ------------------------  */
-
+/* ------------------------ CREATE DECK COMPONENT (Modal with embeded form)------------------------  */
 /* Modal container */
+/* CSS for the modal container */
 .modal-container {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(43, 43, 43, 0.8);
+  background: rgba(43, 43, 43, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.modal-container.show {
+  pointer-events: auto;
+}
+
+/* CSS for the modal content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+}
+
+/* CSS for form elements and buttons */
+.deck-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-tag-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.add-tag-button:hover {
+  background-color: #0056b3;
+}
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tag-item {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+.create-deck-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.create-deck-button:hover {
+  background-color: #0056b3;
+}
+
+.close-modal-button {
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.close-modal-button:hover {
+  background-color: #999;
 }
 
 .creat-new-deck-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: rgba(150, 0, 0, 0.7);
+  background-color: rgba(34, 255, 5, 0.4);
   color: white;
   border: none;
   border-radius: 5px;
@@ -330,6 +413,6 @@ a {
 }
 
 .creat-new-deck-button:hover {
-  background-color: rgba(255, 0, 0, 0.9);
+  background-color: rgba(34, 255, 5, 0.8);
   transform: scale(1.1);
 }

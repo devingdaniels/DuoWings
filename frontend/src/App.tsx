@@ -1,5 +1,3 @@
-import "./App.css";
-import "react-toastify/dist/ReactToastify.css";
 import HomePage from "./pages/home-page/HomePage";
 import LandingPage from "./pages/landing-page/LandingPage";
 import LoginPage from "./pages/auth/login-page/LoginPage";
@@ -11,10 +9,11 @@ import { ToastContainer } from "react-toastify";
 import { useAppSelector } from "./app/hooks";
 import UserSettingsPage from "./pages/user-settings/UserSettingsPage";
 import VocabPage from "./pages/vocab/VocabPage";
+import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 
-const App = () => {
+const DuoWingsApp = () => {
   const user = useAppSelector(selectUser);
-
   return (
     <>
       <Routes>
@@ -35,10 +34,10 @@ const App = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="dark"
       />
     </>
   );
 };
 
-export default App;
+export default DuoWingsApp;

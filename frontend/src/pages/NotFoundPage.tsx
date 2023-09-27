@@ -4,7 +4,8 @@ const NotFoundPage = () => {
   return (
     <>
       <Link to="/">
-        <h1>404 Page Not Found</h1>
+        <h1>404 Page Not Found, click to return to DuoWings</h1>
+        <p>Under construction</p>
       </Link>
     </>
   );
