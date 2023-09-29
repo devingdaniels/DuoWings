@@ -47,7 +47,7 @@ const CreateDeckModalForm = ({ handleCreateNewDeck }: Props) => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     // Prevent page reload
     e.preventDefault();
-    // function will close modal, API POST to create card, handle loading state, etc
+    // function will close modal, API POST to create card, handle loading state, etcs
     handleCreateNewDeck(deckFormData);
   };
 
