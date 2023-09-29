@@ -52,9 +52,9 @@ const CreateDeckModalForm = ({ handleCreateNewDeck }: Props) => {
   };
 
   return (
-    <>
+    <div className="modal-content">
       <form onSubmit={handleSubmit}>
-        <h2>Create a New Deck</h2>
+        <h2>New Deck</h2>
         <div>
           <input
             type="text"
@@ -99,7 +99,7 @@ const CreateDeckModalForm = ({ handleCreateNewDeck }: Props) => {
           <button type="submit">Create Deck</button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

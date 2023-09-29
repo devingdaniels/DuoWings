@@ -131,12 +131,10 @@ const DecksPage: React.FC = () => {
       </button>
       {isModalOpen && (
         <div className="modal-container">
-          <div className="modal-content">
-            <CreateDeckModalForm handleCreateNewDeck={handleCreateNewDeck} />
-            <Button variant="contained" className="close-modal-button" onClick={toggleModal}>
-              Close
-            </Button>
-          </div>
+          <CreateDeckModalForm handleCreateNewDeck={handleCreateNewDeck} />
+          <Button variant="contained" className="close-modal-button" onClick={toggleModal}>
+            Close
+          </Button>
         </div>
       )}
     </div>
