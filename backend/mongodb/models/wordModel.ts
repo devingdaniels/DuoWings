@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-export const WordSchema = new mongoose.Schema({
+const WordSchema = new mongoose.Schema({
   word: {
     type: String,
     required: true,
@@ -13,30 +13,29 @@ export const WordSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  conjugation: String,
-  correctCount: {
-    type: Number,
-    default: 0,
+  conjugationsByTense: {
+    type: Map,
+    of: [
+      {
+        conjugatedForm: String,
+        correctCount: Number,
+        incorrectCount: Number,
+      },
+    ],
   },
-  incorrectCount: {
-    type: Number,
-    default: 0,
-  },
-  lastCorrectDate: {
-    type: [Date],
-  },
-  lastIncorrectDate: {
-    type: [Date],
-  },
-  creationDate: {
-    type: Date,
-    required: true,
-  },
-  difficulty: {
-    type: Number,
-    default: 0,
-  },
-  tags: [String], //
+  userPerformance: [
+    {
+      userId: {
+        type: String,
+      },
+      tense: String,
+      correctCount: Number,
+      incorrectCount: Number,
+      lastAttemptDate: Date,
+    },
+  ],
+  difficulty: Number,
+  tags: [String],
   exampleSentence: String,
   userNotes: String,
 });
@@ -53,6 +52,4 @@ WordSchema.methods.incrementIncorrectCount = async function () {
   await this.save();
 };
 
-const WordModel = mongoose.model("Word", WordSchema, "words");
-
-export { WordModel };
+export const WordModel = mongoose.model("Word", WordSchema, "words");
