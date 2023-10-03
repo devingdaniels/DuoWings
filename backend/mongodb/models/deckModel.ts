@@ -25,7 +25,7 @@ const WordDeckSchema = new mongoose.Schema({
   words: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Word", // Reference to the WordModel
+      ref: "Word",
     },
   ],
 
