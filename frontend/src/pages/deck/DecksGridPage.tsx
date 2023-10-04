@@ -100,7 +100,7 @@ const DecksPage: React.FC = () => {
         <h2>No Decks!</h2>
         <FaCreativeCommonsZero size={65} />
         <button className="creat-new-deck-button" onClick={toggleModal}>
-          New Deck
+          Create Deck
         </button>
       </div>
     );
