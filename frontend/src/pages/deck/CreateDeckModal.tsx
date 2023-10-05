@@ -26,11 +26,10 @@ const CreateDeckModalForm = ({ handleCreateNewDeck }: Props) => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    const key = name;
     if (name === "insertOrder") {
       setDeckData({
         ...deckFormData,
-        [key]: value as ICardInsertionOrder,
+        [name]: value as ICardInsertionOrder,
       });
     } else {
       setDeckData({ ...deckFormData, [name]: value });
