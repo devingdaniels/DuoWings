@@ -37,6 +37,7 @@ const CreateDeckModalForm = ({ handleCreateNewDeck }: Props) => {
   };
 
   const handleAddTag = () => {
+    // Prevent empty tags and duplicate tags
     if (newTag.trim() !== "" && !deckFormData.tags.includes(newTag)) {
       setDeckData({ ...deckFormData, tags: [...deckFormData.tags, newTag] });
     }

@@ -45,7 +45,7 @@ const DecksPage: React.FC = () => {
     dispatch(fetchAllUserDecks());
   };
 
-  // Get latest user user decks on component mount
+  // Get latest user decks on component mount
   useEffect(() => {
     fetchUserDecks();
   }, []);
