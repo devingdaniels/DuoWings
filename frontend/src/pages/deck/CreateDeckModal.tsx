@@ -1,5 +1,7 @@
 import { INewVocabDeck } from "../../interfaces/index";
 import { useState, ChangeEvent, FormEvent } from "react";
+import { Button } from "@mui/material";
+import { BiSolidPlusCircle } from "react-icons/bi";
 
 enum ICardInsertionOrder {
   Top = "first",
@@ -9,9 +11,10 @@ enum ICardInsertionOrder {
 
 interface Props {
   handleCreateNewDeck: (deck: INewVocabDeck) => void;
+  toggleModal: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const CreateDeckModalForm = ({ handleCreateNewDeck }: Props) => {
+const CreateDeckModalForm = ({ handleCreateNewDeck, toggleModal }: Props) => {
   const deck: INewVocabDeck = {
     name: "",
     description: "",
@@ -53,7 +56,7 @@ const CreateDeckModalForm = ({ handleCreateNewDeck }: Props) => {
 
   return (
     <div className="modal-content">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="modal-form-container">
         <h2>New Deck</h2>
         <div>
           <input
@@ -79,6 +82,7 @@ const CreateDeckModalForm = ({ handleCreateNewDeck }: Props) => {
             onChange={(e) => setNewTag(e.target.value)}
             placeholder="Tags"
           />
+          <BiSolidPlusCircle onClick={handleAddTag} />
           <select name="insertOrder" value={deckFormData.insertOrder} onChange={handleInputChange}>
             {Object.values(ICardInsertionOrder).map((val) => (
               <option key={val} value={val}>
@@ -86,9 +90,6 @@ const CreateDeckModalForm = ({ handleCreateNewDeck }: Props) => {
               </option>
             ))}
           </select>
-          <button type="button" onClick={handleAddTag}>
-            Add Tag
-          </button>
         </div>
         <ul>
           {deckFormData.tags.map((tag, index) => (
@@ -96,8 +97,11 @@ const CreateDeckModalForm = ({ handleCreateNewDeck }: Props) => {
           ))}
         </ul>
         <div>
-          <button type="submit">Create Deck</button>
+          <Button type="submit">Create Deck</Button>
         </div>
+        <Button variant="contained" className="close-modal-button" onClick={toggleModal}>
+          Cancel
+        </Button>
       </form>
     </div>
   );

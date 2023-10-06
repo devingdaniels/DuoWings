@@ -9,7 +9,6 @@ import { IWordDeck } from "../../interfaces/index";
 import { INewVocabDeck } from "../../interfaces/index";
 import Spinner from "../../utils/Spinner";
 import { FaCreativeCommonsZero } from "react-icons/fa";
-import { Button } from "@mui/material";
 
 const DecksPage: React.FC = () => {
   // Redux
@@ -131,10 +130,10 @@ const DecksPage: React.FC = () => {
       </button>
       {isModalOpen && (
         <div className="modal-container">
-          <CreateDeckModalForm handleCreateNewDeck={handleCreateNewDeck} />
-          <Button variant="contained" className="close-modal-button" onClick={toggleModal}>
-            Close
-          </Button>
+          <CreateDeckModalForm
+            handleCreateNewDeck={handleCreateNewDeck}
+            toggleModal={toggleModal}
+          />
         </div>
       )}
     </div>

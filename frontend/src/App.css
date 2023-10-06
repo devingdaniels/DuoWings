@@ -311,6 +311,73 @@ a {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
+/* Styles for the modal container */
+.modal-content {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px 2px rgba(154, 141, 141, 0.2);
+  width: 400px;
+  max-width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Styles for the form container within the modal */
+.modal-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styles for the form title */
+.modal-form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 4%;
+  text-align: center;
+}
+
+/* Styles for input fields and textarea */
+.modal-form-container input[type="text"],
+.modal-form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Styles for the button to add tags */
+.modal-form-container button[type="button"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Styles for the list of tags */
+.modal-form-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-form-container ul li {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+/* Styles for the select element */
+.modal-form-container select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
 
 /* ------------------------ CREATE NEW DECK BUTTON (FIXED) ------------------------  */
 .creat-new-deck-button {
