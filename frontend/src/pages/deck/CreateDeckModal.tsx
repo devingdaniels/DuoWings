@@ -3,6 +3,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import { Button } from "@mui/material";
 import { BiSolidPlusCircle } from "react-icons/bi";
 
+// Insert order when creating a new word inside a deck
 enum ICardInsertionOrder {
   Top = "first",
   Bottom = "last",
