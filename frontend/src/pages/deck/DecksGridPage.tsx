@@ -104,7 +104,7 @@ const DecksPage: React.FC = () => {
       </div>
     );
   }
-
+  // Primary JSX return
   return (
     <div className="deck-page-container">
       {!isModalOpen && (
