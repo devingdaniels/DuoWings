@@ -60,6 +60,7 @@ const DecksPage: React.FC = () => {
     e.stopPropagation();
     setIsModalOpen(!isModalOpen);
   };
+
   // Modal handler
   const handleModalInteraction = (e: KeyboardEvent | MouseEvent) => {
     if (
@@ -104,6 +105,7 @@ const DecksPage: React.FC = () => {
       </div>
     );
   }
+
   // Primary JSX return
   return (
     <div className="deck-page-container">
