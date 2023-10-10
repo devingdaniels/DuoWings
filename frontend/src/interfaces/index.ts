@@ -20,7 +20,7 @@ export interface IUserAuthResponse {
   };
 }
 
-export interface IVocabularyWord {
+export interface INewVocabWord {
   word: string;
   englishDefinition: string;
   exampleSentence: string;
@@ -56,7 +56,7 @@ export interface IWordDeck {
     insertOrder: number[];
     favorited: boolean;
   };
-  words: IVocabularyWord[];
+  words: INewVocabWord[];
   // Stop
   experiencePoints: number;
   level: number;

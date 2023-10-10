@@ -10,7 +10,7 @@ import { INewVocabDeck } from "../../interfaces/index";
 import Spinner from "../../utils/Spinner";
 import { FaCreativeCommonsZero } from "react-icons/fa";
 
-const DecksPage: React.FC = () => {
+const AllDecksPage: React.FC = () => {
   // Redux
   const { decks, isSuccess, isLoading } = useAppSelector((state) => state.decks);
   const dispatch = useAppDispatch();
@@ -142,4 +142,4 @@ const DecksPage: React.FC = () => {
   );
 };
 
-export default DecksPage;
+export default AllDecksPage;

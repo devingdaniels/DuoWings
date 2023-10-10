@@ -2,8 +2,9 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { selectCurrentUserDeck, getDeckByID } from "../../features/deckSlice";
+import NewWordForm from "../../components/words/NewWordForm";
 
-const DeckCardDetails = () => {
+const DeckPage = () => {
   const dispatch = useAppDispatch();
   const deck = useAppSelector(selectCurrentUserDeck);
   const { isLoading, isError, message } = useAppSelector((state) => state.decks);
@@ -25,8 +26,9 @@ const DeckCardDetails = () => {
         </div>
       )}
       {isError && <p>Error: {message}</p>}
+      <NewWordForm />
     </div>
   );
 };
 
-export default DeckCardDetails;
+export default DeckPage;

@@ -10,6 +10,7 @@ import dotenv from "dotenv";
 // Routes
 import deckRoutes from "./routes/deckRoutes";
 import userAuthRoutes from "./routes/userRoutes";
+import wordRoutes from "./routes/wordRoutes";
 import errorHandler from "./middleware/errorHandler";
 dotenv.config();
 
@@ -35,6 +36,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users/auth", userAuthRoutes);
 app.use("/api/decks", deckRoutes);
+app.use("/api/words", wordRoutes);
 
 app.use(errorHandler);
 
