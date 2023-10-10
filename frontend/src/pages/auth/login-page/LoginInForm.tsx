@@ -15,7 +15,9 @@ const LoginInForm: React.FC = () => {
   const dispatch = useAppDispatch();
 
   // Redux state
-  const { user, isLoading, isError, isSuccess, message } = useAppSelector((state) => state.auth);
+  const { user, isLoading, isError, isSuccess, message } = useAppSelector(
+    (state) => state.auth
+  );
 
   // Component state
   const [userData, setUserData] = useState<IUserLogin>({

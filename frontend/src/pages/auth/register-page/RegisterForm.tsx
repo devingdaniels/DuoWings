@@ -22,7 +22,9 @@ const SignUpForm = () => {
     confirmPassword: "",
   });
 
-  const { user, isLoading, isError, isSuccess, message } = useAppSelector((state) => state.auth);
+  const { user, isLoading, isError, isSuccess, message } = useAppSelector(
+    (state) => state.auth
+  );
 
   const handleSignUp = async (e: React.FormEvent) => {
     // Stop page reload
@@ -65,7 +67,7 @@ const SignUpForm = () => {
         dispatch(resetUserStatus());
       }, 1000);
     };
-  }, [user, isError, isSuccess, message, navigate]);
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const spinnerStyle = {
     display: "block",

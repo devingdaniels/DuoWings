@@ -4,7 +4,11 @@ import SearchAppBar from "./DeckSearchBar";
 import CreateDeckModalForm from "./CreateDeckModal";
 import DeckCardOverview from "./DeckCardOverview";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { createDeck, fetchAllUserDecks, resetDeckStatus } from "../../features/deckSlice";
+import {
+  createDeck,
+  fetchAllUserDecks,
+  resetDeckStatus,
+} from "../../features/deckSlice";
 import { IWordDeck } from "../../interfaces/index";
 import { INewVocabDeck } from "../../interfaces/index";
 import Spinner from "../../utils/Spinner";
@@ -12,12 +16,16 @@ import { FaCreativeCommonsZero } from "react-icons/fa";
 
 const AllDecksPage: React.FC = () => {
   // Redux
-  const { decks, isSuccess, isLoading } = useAppSelector((state) => state.decks);
+  const { decks, isSuccess, isLoading } = useAppSelector(
+    (state) => state.decks
+  );
   const dispatch = useAppDispatch();
   // State
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [deckData, setDeckData] = useState<IWordDeck[]>(decks || []);
-  const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(deckData || []);
+  const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(
+    deckData || []
+  );
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   const filterDecks = (value: string) => {
@@ -49,7 +57,7 @@ const AllDecksPage: React.FC = () => {
     fetchUserDecks();
   }, []);
 
-  // if decks or dispatch has occured, set new data
+  // if decks or dispatch has ocurred, set new data
   useEffect(() => {
     setDeckData(decks);
     setFilteredDecks(decks);
@@ -62,18 +70,17 @@ const AllDecksPage: React.FC = () => {
   };
 
   // Modal handler
-  const handleModalInteraction = (e: KeyboardEvent | MouseEvent) => {
-    if (
-      (e instanceof KeyboardEvent && e.key === "Escape") ||
-      (e instanceof MouseEvent &&
-        isModalOpen &&
-        (e.target as Element).closest(".modal-content") === null)
-    ) {
-      setIsModalOpen(false);
-    }
-  };
-
   useEffect(() => {
+    const handleModalInteraction = (e: KeyboardEvent | MouseEvent) => {
+      if (
+        (e instanceof KeyboardEvent && e.key === "Escape") ||
+        (e instanceof MouseEvent &&
+          isModalOpen &&
+          (e.target as Element).closest(".modal-content") === null)
+      ) {
+        setIsModalOpen(false);
+      }
+    };
     // Add event listeners
     document.addEventListener("click", handleModalInteraction);
     document.addEventListener("keydown", handleModalInteraction);
@@ -82,7 +89,7 @@ const AllDecksPage: React.FC = () => {
       document.removeEventListener("click", handleModalInteraction);
       document.removeEventListener("keydown", handleModalInteraction);
     };
-  }, [isModalOpen, handleModalInteraction]);
+  }, [isModalOpen]);
 
   // Show spinner for any async process
   if (isLoading) {
@@ -99,7 +106,7 @@ const AllDecksPage: React.FC = () => {
       <div className="deck-page-container-empty">
         <h2>No Decks!</h2>
         <FaCreativeCommonsZero size={65} />
-        <button className="creat-new-deck-button" onClick={toggleModal}>
+        <button className="create-new-deck-button" onClick={toggleModal}>
           Create Deck
         </button>
       </div>
@@ -120,14 +127,17 @@ const AllDecksPage: React.FC = () => {
             {filteredDecks.map((deck: IWordDeck) => {
               return (
                 <span key={deck._id}>
-                  <DeckCardOverview deck={deck} fetchUserDecks={fetchUserDecks} />
+                  <DeckCardOverview
+                    deck={deck}
+                    fetchUserDecks={fetchUserDecks}
+                  />
                 </span>
               );
             })}
           </div>
         </>
       )}
-      <button className="creat-new-deck-button" onClick={toggleModal}>
+      <button className="create-new-deck-button" onClick={toggleModal}>
         New Deck
       </button>
       {isModalOpen && (

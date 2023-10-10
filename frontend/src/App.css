@@ -380,7 +380,7 @@ a {
 }
 
 /* ------------------------ CREATE NEW DECK BUTTON (FIXED) ------------------------  */
-.creat-new-deck-button {
+.create-new-deck-button {
   position: fixed;
   bottom: 20px;
   right: 20px;

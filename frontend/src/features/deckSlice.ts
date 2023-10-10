@@ -33,7 +33,9 @@ export const fetchAllUserDecks = createAsyncThunk(
       return response;
     } catch (error: any) {
       const message =
-        (error.response && error.response.data && error.response.data.message) ||
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
@@ -49,7 +51,9 @@ export const getDeckByID = createAsyncThunk(
       return response;
     } catch (error: any) {
       const message =
-        (error.response && error.response.data && error.response.data.message) ||
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
@@ -65,7 +69,9 @@ export const createDeck = createAsyncThunk(
       return response;
     } catch (error: any) {
       const message =
-        (error.response && error.response.data && error.response.data.message) ||
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
@@ -81,7 +87,9 @@ export const deleteDeckByID = createAsyncThunk(
       return response;
     } catch (error: any) {
       const message =
-        (error.response && error.response.data && error.response.data.message) ||
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
@@ -184,7 +192,8 @@ const deckSlice = createSlice({
 
 // Actions
 export const clearUserDeckState = createAction("decks/clearUserDeckState");
-export const selectCurrentUserDeck = (state: RootState) => state.decks.currentDeck;
+export const selectCurrentUserDeck = (state: RootState) =>
+  state.decks.currentDeck;
 export const { setUserDecks } = deckSlice.actions;
 export const { resetDeckStatus } = deckSlice.actions;
 // Reducer

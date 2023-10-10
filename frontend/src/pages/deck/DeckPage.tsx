@@ -7,7 +7,9 @@ import NewWordForm from "../../components/words/NewWordForm";
 const DeckPage = () => {
   const dispatch = useAppDispatch();
   const deck = useAppSelector(selectCurrentUserDeck);
-  const { isLoading, isError, message } = useAppSelector((state) => state.decks);
+  const { isLoading, isError, message } = useAppSelector(
+    (state) => state.decks
+  );
   const { deckId } = useParams();
 
   useEffect(() => {

@@ -84,7 +84,11 @@ const CreateDeckModalForm = ({ handleCreateNewDeck, toggleModal }: Props) => {
             placeholder="Tags"
           />
           <BiSolidPlusCircle onClick={handleAddTag} />
-          <select name="insertOrder" value={deckFormData.insertOrder} onChange={handleInputChange}>
+          <select
+            name="insertOrder"
+            value={deckFormData.insertOrder}
+            onChange={handleInputChange}
+          >
             {Object.values(ICardInsertionOrder).map((val) => (
               <option key={val} value={val}>
                 {val}
@@ -100,7 +104,11 @@ const CreateDeckModalForm = ({ handleCreateNewDeck, toggleModal }: Props) => {
         <div>
           <Button type="submit">Create Deck</Button>
         </div>
-        <Button variant="contained" className="close-modal-button" onClick={toggleModal}>
+        <Button
+          variant="contained"
+          className="close-modal-button"
+          onClick={toggleModal}
+        >
           Cancel
         </Button>
       </form>

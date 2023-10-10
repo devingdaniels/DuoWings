@@ -22,8 +22,14 @@ const DuoWingsApp = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/home" element={user ? <HomePage /> : <PageNotFound />} />
-        <Route path="/vocab/*" element={user ? <VocabPage /> : <PageNotFound />} />
-        <Route path="/user-settings" element={user ? <UserSettingsPage /> : <PageNotFound />} />
+        <Route
+          path="/vocab/*"
+          element={user ? <VocabPage /> : <PageNotFound />}
+        />
+        <Route
+          path="/user-settings"
+          element={user ? <UserSettingsPage /> : <PageNotFound />}
+        />
       </Routes>
       <ToastContainer
         position="top-right"

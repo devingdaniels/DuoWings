@@ -30,7 +30,12 @@ const NewWordForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="word">Word:</label>
-      <input type="text" id="word" value={word} onChange={(e) => setWord(e.target.value)} />
+      <input
+        type="text"
+        id="word"
+        value={word}
+        onChange={(e) => setWord(e.target.value)}
+      />
       <label htmlFor="definition">Definition:</label>
       <textarea
         id="definition"
