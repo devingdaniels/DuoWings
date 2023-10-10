@@ -1,13 +1,11 @@
-// deckSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import wordService from "./wordService";
 
-import { IWordDeck } from "../interfaces/index";
 import { INewVocabWord } from "../interfaces/index";
 // import { RootState } from "../app/store";
 
 interface WordState {
-  decks: IWordDeck[] | [];
+  word: INewVocabWord | null;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
@@ -15,7 +13,7 @@ interface WordState {
 }
 
 const initialState: WordState = {
-  decks: [],
+  word: null,
   isLoading: false,
   isSuccess: false,
   isError: false,
@@ -38,7 +36,6 @@ export const createWord = createAsyncThunk(
   }
 );
 
-// Create the deckSlice
 const wordSlice = createSlice({
   name: "words",
   initialState,
@@ -49,14 +46,12 @@ const wordSlice = createSlice({
       state.isError = false;
       state.message = "";
     },
-    setUserDecks: (state, action) => {
-      state.decks = action.payload;
-    },
   },
   extraReducers: (builder) => {
     builder.addCase(createWord.pending, (state) => {
       state.isLoading = true;
     });
+    //! after creating a new word, I need to find the deck from redux state and push the word onto the deck.words array
   },
 });
 
