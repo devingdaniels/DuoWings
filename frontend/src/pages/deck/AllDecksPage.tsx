@@ -14,6 +14,7 @@ import { INewVocabDeck } from "../../interfaces/index";
 import Spinner from "../../utils/Spinner";
 import { FaCreativeCommonsZero } from "react-icons/fa";
 
+// AllDeckComponent
 const AllDecksPage: React.FC = () => {
   // Redux
   const { decks, isSuccess, isLoading } = useAppSelector(
