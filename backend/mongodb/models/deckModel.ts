@@ -34,7 +34,7 @@ const WordDeckSchema = new mongoose.Schema({
     default: new Date(4),
   },
 
-  // Gamification Fields (This needs to be implemented in the frontend )
+  // Gaamification Fields (This needs to be implemented in the frontend )
   experiencePoints: {
     type: Number,
     default: 0,
