@@ -13,6 +13,8 @@ import { IWordDeck } from "../../../interfaces/index";
 import { INewVocabDeck } from "../../../interfaces/index";
 import Spinner from "../../../utils/Spinner";
 import { FaCreativeCommonsZero } from "react-icons/fa";
+// Icons
+import { GrAdd } from "react-icons/gr";
 
 // AllDeckComponent
 const AllDecksPage: React.FC = () => {
@@ -138,9 +140,8 @@ const AllDecksPage: React.FC = () => {
           </div>
         </>
       )}
-      <button className="create-new-deck-button" onClick={toggleModal}>
-        New Deck
-      </button>
+
+      <GrAdd size={80} style={{ color: "red" }} onClick={toggleModal}></GrAdd>
       {isModalOpen && (
         <div className="modal-container">
           <CreateDeckModalForm
