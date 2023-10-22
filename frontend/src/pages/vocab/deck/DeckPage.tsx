@@ -1,8 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { selectCurrentUserDeck, getDeckByID } from "../../features/deckSlice";
-import NewWordForm from "../../components/words/NewWordForm";
+import { useAppSelector, useAppDispatch } from "../../../app/hooks";
+import {
+  selectCurrentUserDeck,
+  getDeckByID,
+} from "../../../features/deckSlice";
+import NewWordForm from "../../../components/words/NewWordForm";
 
 const DeckPage = () => {
   const dispatch = useAppDispatch();

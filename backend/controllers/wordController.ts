@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import mongoose from "mongoose";
 import { WordModel } from "../mongodb/models/wordModel";
 
 const createWord = async (req: Request, res: Response, next: NextFunction): Promise<void> => {

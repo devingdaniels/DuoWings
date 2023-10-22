@@ -1,4 +1,4 @@
-import { INewVocabDeck } from "../../interfaces/index";
+import { INewVocabDeck } from "../../../interfaces/index";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { Button } from "@mui/material";
 import { BiSolidPlusCircle } from "react-icons/bi";

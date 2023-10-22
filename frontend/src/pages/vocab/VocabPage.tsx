@@ -1,12 +1,12 @@
 import { Routes, Route, Outlet } from "react-router-dom";
 // Pages
-import AllDecksPage from "../deck/AllDecksPage";
-import StatsPage from "./StatsPage";
+import AllDecksPage from "../vocab/deck/AllDecksPage";
+import StatsPage from "../vocab/stats/StatsPage";
 // Components
 import NavigationBar from "../../components/NavigationBar";
 import MenuPanel from "../../components/MenuPanel";
 //
-import DeckPage from "../deck/DeckPage";
+import DeckPage from "../vocab/deck/DeckPage";
 
 const VocabPage = () => {
   return (

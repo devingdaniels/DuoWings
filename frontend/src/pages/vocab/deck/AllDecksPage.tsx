@@ -3,15 +3,15 @@ import React, { useState, useEffect } from "react";
 import SearchAppBar from "./DeckSearchBar";
 import CreateDeckModalForm from "./CreateDeckModal";
 import DeckCardOverview from "./DeckCardOverview";
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import {
   createDeck,
   fetchAllUserDecks,
   resetDeckStatus,
-} from "../../features/deckSlice";
-import { IWordDeck } from "../../interfaces/index";
-import { INewVocabDeck } from "../../interfaces/index";
-import Spinner from "../../utils/Spinner";
+} from "../../../features/deckSlice";
+import { IWordDeck } from "../../../interfaces/index";
+import { INewVocabDeck } from "../../../interfaces/index";
+import Spinner from "../../../utils/Spinner";
 import { FaCreativeCommonsZero } from "react-icons/fa";
 
 // AllDeckComponent

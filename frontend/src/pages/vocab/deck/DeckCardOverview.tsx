@@ -1,9 +1,9 @@
-import { IWordDeck } from "../../interfaces/index";
+import { IWordDeck } from "../../../interfaces/index";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineDelete } from "react-icons/ai";
 
-import { useAppDispatch } from "../../app/hooks";
-import { deleteDeckByID } from "../../features/deckSlice";
+import { useAppDispatch } from "../../../app/hooks";
+import { deleteDeckByID } from "../../../features/deckSlice";
 
 interface DeckProps {
   deck: IWordDeck;
