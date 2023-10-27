@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import storage from "redux-persist/lib/storage"; // Use the storage engine of your choice
+import storage from "redux-persist/lib/storage";
 // Reducers
 import userAuthReducer from "../features/userAuthSlice";
 import deckReducer from "../features/deckSlice";

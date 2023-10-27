@@ -2,11 +2,13 @@ import axios from "axios";
 // Type
 import { INewVocabDeck } from "../interfaces/index";
 
+// Backend server URL
+const URL = import.meta.env.VITE_BACKEND_API_DECK;
+
 const createDeck = async (deck: INewVocabDeck) => {
-  const URL = import.meta.env.VITE_BACKEND_API_DECK + "/create-deck";
   try {
-    const response = await axios.post(URL, deck);
-    // Backend returns 201 and the new deck
+    const response = await axios.post(URL + "/create-deck", deck);
+    // Success: 201 and new deck object
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
@@ -21,7 +23,6 @@ const createDeck = async (deck: INewVocabDeck) => {
 
 const fetchAllDecks = async () => {
   try {
-    const URL = import.meta.env.VITE_BACKEND_API_DECK;
     const response = await axios.get(URL);
     return response.data;
   } catch (err: any) {
@@ -36,9 +37,8 @@ const fetchAllDecks = async () => {
 };
 
 const fetchDeckByID = async (deckID: string | undefined) => {
-  const URL = import.meta.env.VITE_BACKEND_API_DECK + `/${deckID}`;
   try {
-    const response = await axios.get(URL);
+    const response = await axios.get(URL + `/${deckID}`);
     const deck = await response.data;
     return deck;
   } catch (err: any) {
@@ -52,10 +52,9 @@ const fetchDeckByID = async (deckID: string | undefined) => {
   }
 };
 
-const deleteDeckByID = async (deckID: string | undefined) => {
-  const URL = import.meta.env.VITE_BACKEND_API_DECK + `/${deckID}`;
+const deleteDeckByID = async (deckID: string) => {
   try {
-    const response = await axios.delete(URL);
+    const response = await axios.delete(URL + `/${deckID}`);
     const deck = await response.data;
     return deck;
   } catch (err: any) {

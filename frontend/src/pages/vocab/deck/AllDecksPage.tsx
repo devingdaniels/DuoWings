@@ -1,24 +1,28 @@
 // React
 import React, { useState, useEffect } from "react";
+// Components
 import SearchAppBar from "./DeckSearchBar";
 import CreateDeckModalForm from "./CreateDeckModal";
 import DeckCardOverview from "./DeckCardOverview";
+//  Redux store actions
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import {
   createDeck,
   fetchAllUserDecks,
   resetDeckStatus,
 } from "../../../features/deckSlice";
+// TypeScript interfaces
 import { IWordDeck } from "../../../interfaces/index";
 import { INewVocabDeck } from "../../../interfaces/index";
+// Loading spinners
 import Spinner from "../../../utils/Spinner";
-import { FaCreativeCommonsZero } from "react-icons/fa";
 // Icons
 import { GrAdd } from "react-icons/gr";
+import { FaCreativeCommonsZero } from "react-icons/fa";
 
 // AllDeckComponent
 const AllDecksPage: React.FC = () => {
-  // Redux
+  // Redux deck state
   const { decks, isSuccess, isLoading } = useAppSelector(
     (state) => state.decks
   );
@@ -57,8 +61,8 @@ const AllDecksPage: React.FC = () => {
 
   // Get latest user decks on component mount
   useEffect(() => {
-    fetchUserDecks();
-  }, []);
+    dispatch(fetchAllUserDecks());
+  }, [dispatch]);
 
   // if decks or dispatch has ocurred, set new data
   useEffect(() => {
