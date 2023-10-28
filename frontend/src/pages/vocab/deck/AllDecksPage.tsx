@@ -17,7 +17,7 @@ import { INewVocabDeck } from "../../../interfaces/index";
 // Loading spinners
 import Spinner from "../../../utils/Spinner";
 // Icons
-import { GrAdd } from "react-icons/gr";
+import { AiOutlinePlus } from "react-icons/ai";
 import { FaCreativeCommonsZero } from "react-icons/fa";
 
 // AllDeckComponent
@@ -142,10 +142,15 @@ const AllDecksPage: React.FC = () => {
               );
             })}
           </div>
+          <AiOutlinePlus
+            className="add-new-deck-button"
+            size={80}
+            style={{ color: "red" }}
+            onClick={toggleModal}
+          ></AiOutlinePlus>
         </>
       )}
 
-      <GrAdd size={80} style={{ color: "red" }} onClick={toggleModal}></GrAdd>
       {isModalOpen && (
         <div className="modal-container">
           <CreateDeckModalForm

@@ -189,7 +189,7 @@ a {
   margin-right: 10%;
 }
 
-/* ------------------------ MENU PANEL (left menu component of grid)  ------------------------  */
+/* ------------------------ MENU PANEL (Decks, Stats ...)  ------------------------  */
 .menu-panel-container {
   height: max-content;
   display: flex;
@@ -224,7 +224,7 @@ a {
   margin-left: 1rem;
 }
 
-/* ------------------------ DECK PAGE (Right section of grid) ------------------------  */
+/* ------------------------ DECK PAGE  ------------------------  */
 
 .deck-page-container {
   width: 100%;
@@ -289,6 +289,12 @@ a {
 .deck-header-level-container {
   background-color: blue;
   padding: 0 2%;
+}
+
+.add-new-deck-button {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
 }
 
 /* ------------------------ STATS PAGE CONTAINER ------------------------  */
