@@ -11,11 +11,14 @@ import {
   fetchAllUserDecks,
   resetDeckStatus,
 } from "../../../features/deckSlice";
+
 // TypeScript interfaces
 import { IWordDeck } from "../../../interfaces/index";
 import { INewVocabDeck } from "../../../interfaces/index";
+
 // Loading spinners
 import Spinner from "../../../utils/Spinner";
+
 // Icons
 import { AiOutlinePlus } from "react-icons/ai";
 import { FaCreativeCommonsZero } from "react-icons/fa";
