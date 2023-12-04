@@ -91,6 +91,7 @@ const AllDecksPage: React.FC = () => {
         setIsModalOpen(false);
       }
     };
+
     // Add event listeners
     document.addEventListener("click", handleModalInteraction);
     document.addEventListener("keydown", handleModalInteraction);
