@@ -46,10 +46,7 @@ const LoginInForm: React.FC = () => {
       navigate("/home");
     }
     if (isError) {
-      if (message === "Invalid password") {
-        ToastError("Invalid password");
-        console.log(message);
-      }
+      ToastError(message);
     }
 
     return () => {

@@ -29,20 +29,20 @@ const initialState: UserState = {
 };
 
 // Create an async thunk for user login
-export const login = createAsyncThunk<User, { email: string; password: string }>(
-  "auth/login",
-  async (userData, { rejectWithValue }) => {
-    try {
-      return await authService.login(userData);
-    } catch (error: any) {
-      const message =
-        (error.response && error.response.data && error.response.data.message) ||
-        error.message ||
-        error.toString();
-      return rejectWithValue(message);
-    }
+export const login = createAsyncThunk<
+  User,
+  { email: string; password: string }
+>("auth/login", async (userData, { rejectWithValue }) => {
+  try {
+    return await authService.login(userData);
+  } catch (error: any) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString();
+    return rejectWithValue(message);
   }
-);
+});
 
 export const register = createAsyncThunk<
   User,
@@ -66,17 +66,22 @@ export const register = createAsyncThunk<
   }
 });
 
-export const logout = createAsyncThunk("auth/logout", async (_, { rejectWithValue }) => {
-  try {
-    return await authService.logout();
-  } catch (error: any) {
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString();
-    return rejectWithValue(message);
+export const logout = createAsyncThunk(
+  "auth/logout",
+  async (_, { rejectWithValue }) => {
+    try {
+      return await authService.logout();
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return rejectWithValue(message);
+    }
   }
-});
+);
 
 // Create the user slice with reducers
 const userAuthSlice = createSlice({
