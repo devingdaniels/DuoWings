@@ -5,7 +5,7 @@ import {
   selectCurrentUserDeck,
   getDeckByID,
 } from "../../../features/deckSlice";
-import NewWordForm from "../../../components/words/NewWordForm";
+import NewWordForm from "../words/NewWordForm";
 
 const DeckPage = () => {
   const dispatch = useAppDispatch();
@@ -13,6 +13,7 @@ const DeckPage = () => {
   const { isLoading, isError, message } = useAppSelector(
     (state) => state.decks
   );
+
   const { deckId } = useParams();
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const DeckPage = () => {
         </div>
       )}
       {isError && <p>Error: {message}</p>}
-      <NewWordForm />
+      {deckId && <NewWordForm deckID={deckId} />}
     </div>
   );
 };

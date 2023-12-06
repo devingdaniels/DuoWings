@@ -30,6 +30,7 @@ export interface INewVocabWord {
   incorrectCount: number[];
   lastCorrectDate: Date | null;
   lastIncorrectDate: Date | null;
+  deckID: string;
 }
 
 // enum ICardInsertionOrder {

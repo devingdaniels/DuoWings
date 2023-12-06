@@ -38,7 +38,6 @@ const WordSchema = new mongoose.Schema({
   difficulty: Number,
   tags: [String],
   exampleSentence: String,
-  userNotes: String,
 });
 
 WordSchema.methods.incrementCorrectCount = async function () {

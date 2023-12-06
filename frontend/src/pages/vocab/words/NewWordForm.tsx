@@ -1,21 +1,26 @@
 import React, { useState } from "react";
-import { useAppDispatch } from "../../app/hooks";
-import { createWord } from "../../features/wordSlice";
-import { INewVocabWord } from "../../interfaces";
+import { useAppDispatch } from "../../../app/hooks";
+import { createWord } from "../../../features/wordSlice";
+import { INewVocabWord } from "../../../interfaces";
 
-const fakeWord: INewVocabWord = {
-  word: "fakeWord",
-  englishDefinition: "fakeDefinition",
-  exampleSentence: "fakeSentence",
-  wordType: "fakeType",
-  conjugation: "fakeConjugation",
-  correctCount: [1, 2, 3],
-  incorrectCount: [1, 2, 3],
-  lastCorrectDate: new Date(),
-  lastIncorrectDate: new Date(),
-};
+interface NewWordFormProps {
+  deckID: string;
+}
 
-const NewWordForm = () => {
+const NewWordForm: React.FC<NewWordFormProps> = ({ deckID }) => {
+  const fakeWord: INewVocabWord = {
+    word: "fakeWord",
+    englishDefinition: "fakeDefinition",
+    exampleSentence: "fakeSentence",
+    wordType: "fakeType",
+    conjugation: "fakeConjugation",
+    correctCount: [1, 2, 3],
+    incorrectCount: [1, 2, 3],
+    lastCorrectDate: new Date(),
+    lastIncorrectDate: new Date(),
+    deckID: deckID,
+  };
+
   const [word, setWord] = useState("");
   const [definition, setDefinition] = useState("");
   const dispatch = useAppDispatch();

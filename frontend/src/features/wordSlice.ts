@@ -28,7 +28,9 @@ export const createWord = createAsyncThunk(
       return response;
     } catch (error: any) {
       const message =
-        (error.response && error.response.data && error.response.data.message) ||
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
