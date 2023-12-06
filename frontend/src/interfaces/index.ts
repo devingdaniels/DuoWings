@@ -32,17 +32,16 @@ export interface INewVocabWord {
   lastIncorrectDate: Date | null;
 }
 
+// enum ICardInsertionOrder {
+//   Top = "first",
+//   Bottom = "last",
+//   Random = "random",
+// }
 export interface INewVocabDeck {
   name: string;
   description: string;
-  tags: string[];
-  insertOrder: ICardInsertionOrder;
-}
-
-enum ICardInsertionOrder {
-  Top = "first",
-  Bottom = "last",
-  Random = "random",
+  // tags: string[];
+  // insertOrder: ICardInsertionOrder;
 }
 
 export interface IWordDeck {

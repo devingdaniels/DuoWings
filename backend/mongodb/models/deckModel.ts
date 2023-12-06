@@ -6,17 +6,21 @@ const WordDeckSchema = new mongoose.Schema({
     required: true,
     ref: "User",
   },
+
   name: {
     type: String,
     required: true,
   },
+
   description: String,
   tags: [String],
+
   creationDate: {
     type: Date,
     default: Date.now,
-    immutable: true,
+    immutable: false,
   },
+
   preferences: {
     insertOrder: [String],
     favorited: Boolean,

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { WordModel } from "../mongodb/models/wordModel";
+// import { WordModel } from "../mongodb/models/wordModel";
 
-const createWord = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const createWord = async (req: Request, res: Response): Promise<void> => {
   try {
     console.log("Backend: req.body:", req.body);
     // Get the deck  ID from req.body or req.params

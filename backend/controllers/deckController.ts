@@ -4,7 +4,7 @@ import { DeckModel } from "../mongodb/models/deckModel";
 
 const createDeck = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const { name, description, tags, insertOrder } = req.body;
+    const { name, description } = req.body;
     const userId = req.user;
     // Check if a deck with the same name already exists for this user
     const existingDeck = await DeckModel.findOne({ name, user: userId });
@@ -20,10 +20,6 @@ const createDeck = async (req: Request, res: Response, next: NextFunction): Prom
       _id: new mongoose.Types.ObjectId(),
       name,
       description,
-      tags,
-      preferences: {
-        insertOrder,
-      },
       createdBy: userId, // Associate the deck with the user
     });
     // Save the deck to DB
