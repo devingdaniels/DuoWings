@@ -5,7 +5,7 @@ const WordSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  englishDefinition: {
+  definition: {
     type: String,
     required: true,
   },
@@ -13,6 +13,8 @@ const WordSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  exampleSentence: String,
+  tags: [String],
   conjugationsByTense: {
     type: Map,
     of: [
@@ -23,11 +25,16 @@ const WordSchema = new mongoose.Schema({
       },
     ],
   },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
+  deckID: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
   userPerformance: [
     {
-      userId: {
-        type: String,
-      },
       tense: String,
       correctCount: Number,
       incorrectCount: Number,
@@ -35,8 +42,6 @@ const WordSchema = new mongoose.Schema({
     },
   ],
   difficulty: Number,
-  tags: [String],
-  exampleSentence: String,
 });
 
 WordSchema.methods.incrementCorrectCount = async function () {
