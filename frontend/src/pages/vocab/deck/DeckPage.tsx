@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { getDeckByID } from "../../../features/deckSlice";
 import NewWordForm from "../words/NewWordForm";
 import { IWordDeck } from "../../../interfaces";
+import Spinner from "../../../utils/Spinner";
 
 const DeckPage = () => {
   const { deckId } = useParams();
@@ -24,19 +25,19 @@ const DeckPage = () => {
     fetchDeck();
   }, [dispatch, deckId]);
 
+  if (isLoading) return <Spinner />;
+
+  if (isError) return <p>Error: {message}</p>;
+
   return (
     <div>
-      {isLoading && <p>Loading...</p>}
       {currentDeck && !isLoading && (
         <div>
-          <h1>Deck Details</h1>
-          <p>Deck ID: {deckId}</p>
-          <p>Deck Name: {currentDeck.name}</p>
+          <h1>{currentDeck.name}</h1>
+          <p>ID: {deckId}</p>
+          {deckId && <NewWordForm deckID={deckId} />}
         </div>
       )}
-
-      {isError && <p>Error: {message}</p>}
-      {deckId && <NewWordForm deckID={deckId} />}
     </div>
   );
 };

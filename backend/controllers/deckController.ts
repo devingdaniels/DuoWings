@@ -1,8 +1,8 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import mongoose from "mongoose";
 import { DeckModel } from "../mongodb/models/deckModel";
 
-const createDeck = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const createDeck = async (req: Request, res: Response): Promise<void> => {
   try {
     const { name, description } = req.body;
     const userId = req.user;
@@ -13,8 +13,8 @@ const createDeck = async (req: Request, res: Response, next: NextFunction): Prom
       res.status(404);
       throw new Error(`Deck with name ${name} already exists for this user`);
     }
-    // Create new instance of DeckModel
 
+    // Create new instance of DeckModel
     const deck = new DeckModel({
       user: userId,
       _id: new mongoose.Types.ObjectId(),
@@ -22,8 +22,10 @@ const createDeck = async (req: Request, res: Response, next: NextFunction): Prom
       description,
       createdBy: userId, // Associate the deck with the user
     });
+
     // Save the deck to DB
     await deck.save();
+
     res.status(201).json({ message: "Deck created successfully", deck });
   } catch (error) {
     console.error("Backend: Error creating deck:", error);
@@ -31,7 +33,7 @@ const createDeck = async (req: Request, res: Response, next: NextFunction): Prom
   }
 };
 
-const fetchAllDecks = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const fetchAllDecks = async (req: Request, res: Response): Promise<void> => {
   try {
     // Assuming req.user contains user information including _id
     const userId = req.user;
@@ -47,7 +49,7 @@ const fetchAllDecks = async (req: Request, res: Response, next: NextFunction): P
   }
 };
 
-const fetchDeckByID = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const fetchDeckByID = async (req: Request, res: Response): Promise<void> => {
   try {
     const userId = req.user;
     const deckId = req.params.id;
@@ -61,7 +63,7 @@ const fetchDeckByID = async (req: Request, res: Response, next: NextFunction): P
   }
 };
 
-const deleteDeckByID = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const deleteDeckByID = async (req: Request, res: Response): Promise<void> => {
   try {
     const userId = req.user;
     const deckId = req.params.id;

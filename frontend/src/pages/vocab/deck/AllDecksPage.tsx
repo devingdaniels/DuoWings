@@ -26,7 +26,7 @@ import { FaCreativeCommonsZero } from "react-icons/fa";
 // AllDeckComponent
 const AllDecksPage: React.FC = () => {
   // Redux deck state
-  const { decks, isSuccess, isLoading } = useAppSelector(
+  const { decks, isSuccess, isLoading, isError } = useAppSelector(
     (state) => state.decks
   );
   const dispatch = useAppDispatch();
@@ -101,6 +101,8 @@ const AllDecksPage: React.FC = () => {
       document.removeEventListener("keydown", handleModalInteraction);
     };
   }, [isModalOpen]);
+
+  if (isError) return <p>Error: {isError}</p>;
 
   // Show spinner for any async process
   if (isLoading) {

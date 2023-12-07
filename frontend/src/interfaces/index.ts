@@ -20,16 +20,21 @@ export interface IUserAuthResponse {
   };
 }
 
+// export interface INewVocabWord {
+//   word: string;
+//   englishDefinition: string;
+//   exampleSentence: string;
+//   wordType: string;
+//   conjugation: string;
+//   correctCount: number[];
+//   incorrectCount: number[];
+//   lastCorrectDate: Date | null;
+//   lastIncorrectDate: Date | null;
+//   deckID: string;
+// }
+
 export interface INewVocabWord {
   word: string;
-  englishDefinition: string;
-  exampleSentence: string;
-  wordType: string;
-  conjugation: string;
-  correctCount: number[];
-  incorrectCount: number[];
-  lastCorrectDate: Date | null;
-  lastIncorrectDate: Date | null;
   deckID: string;
 }
 

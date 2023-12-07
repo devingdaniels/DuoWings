@@ -7,7 +7,7 @@ const createWord = async (word: INewVocabWord) => {
   try {
     const response = await axios.post(URL, word);
     // Backend returns 201 and the new word
-    console.log("Frontend: response.data:", response.data);
+    console.log("wordService:", response.data);
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
