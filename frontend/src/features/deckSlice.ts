@@ -21,7 +21,7 @@ const initialState: DeckState = {
   isSuccess: false,
   isError: false,
   message: "",
-  currentDeck: null,
+  currentDeck: null, // useful because we can avoid fetching the deck again if we already have it
 };
 
 // Create an async thunk to fetch user decks from the backend
@@ -145,6 +145,7 @@ const deckSlice = createSlice({
       .addCase(getDeckByID.pending, (state) => {
         state.isLoading = true;
       })
+
       .addCase(getDeckByID.fulfilled, (state, action) => {
         state.isSuccess = true;
         state.isLoading = false;

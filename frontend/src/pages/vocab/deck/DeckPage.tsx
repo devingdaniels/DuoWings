@@ -1,36 +1,40 @@
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import {
-  selectCurrentUserDeck,
-  getDeckByID,
-} from "../../../features/deckSlice";
+import { getDeckByID } from "../../../features/deckSlice";
 import NewWordForm from "../words/NewWordForm";
+import { IWordDeck } from "../../../interfaces";
 
 const DeckPage = () => {
+  const { deckId } = useParams();
   const dispatch = useAppDispatch();
-  const deck = useAppSelector(selectCurrentUserDeck);
+
+  const [currentDeck, setCurrentDeck] = useState<IWordDeck | null>(null);
+
   const { isLoading, isError, message } = useAppSelector(
     (state) => state.decks
   );
 
-  const { deckId } = useParams();
-
+  // Do stuff on component mount
   useEffect(() => {
-    // Fetch deck by ID when the component mounts
-    dispatch(getDeckByID(deckId));
-  }, [dispatch, deckId]); // Include dispatch and deckId in the dependency array
+    const fetchDeck = async () => {
+      const res = await dispatch(getDeckByID(deckId));
+      setCurrentDeck(res.payload);
+    };
+    fetchDeck();
+  }, [dispatch, deckId]);
 
   return (
     <div>
       {isLoading && <p>Loading...</p>}
-      {deck && !isLoading && (
+      {currentDeck && !isLoading && (
         <div>
           <h1>Deck Details</h1>
           <p>Deck ID: {deckId}</p>
-          <p>Deck Name: {deck.name}</p>
+          <p>Deck Name: {currentDeck.name}</p>
         </div>
       )}
+
       {isError && <p>Error: {message}</p>}
       {deckId && <NewWordForm deckID={deckId} />}
     </div>
