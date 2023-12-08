@@ -20,7 +20,8 @@ const createDeck = async (req: Request, res: Response): Promise<void> => {
       _id: new mongoose.Types.ObjectId(),
       name,
       description,
-      createdBy: userId, // Associate the deck with the user
+      // add today's date as the creation date
+      creationDate: new Date(),
     });
 
     // Save the deck to DB
