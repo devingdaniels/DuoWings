@@ -1,15 +1,21 @@
 import { INewVocabDeck } from "../../../interfaces/index";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { Button } from "@mui/material";
-
-// Insert order when creating a new word inside a deck
+// Bring in the toast utility
+import { ToastWarning } from "../../../utils/Toastify";
 
 interface Props {
-  handleCreateNewDeck: (deck: INewVocabDeck) => void;
-  toggleModal: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  handleCreateNewDeck: (deck: INewVocabDeck) => void; // Callback function to handle creating a new deck
+  toggleModal: (e: React.MouseEvent<HTMLButtonElement>) => void; // Callback function to toggle modal
+  decks: INewVocabDeck[];
 }
 
-const CreateDeckModalForm = ({ handleCreateNewDeck, toggleModal }: Props) => {
+const CreateDeckModalForm = ({
+  handleCreateNewDeck,
+  toggleModal,
+  decks,
+}: Props) => {
+  // Deck form data
   const deck: INewVocabDeck = {
     name: "",
     description: "",
@@ -24,9 +30,17 @@ const CreateDeckModalForm = ({ handleCreateNewDeck, toggleModal }: Props) => {
     setDeckData({ ...deckFormData, [name]: value });
   };
 
+  const isDuplicateDeck = (name: string) => {
+    return decks.some((deck) => deck.name === name);
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     // Prevent page reload
     e.preventDefault();
+    if (isDuplicateDeck(deckFormData.name)) {
+      ToastWarning(`Deck name ${deckFormData.name} already exists!`);
+      return;
+    }
     // function will close modal, API POST to create card, handle loading state, etc
     handleCreateNewDeck(deckFormData);
   };

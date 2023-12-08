@@ -102,7 +102,18 @@ const AllDecksPage: React.FC = () => {
     };
   }, [isModalOpen]);
 
-  if (isError) return <p>Error: {isError}</p>;
+  const NewDeckButton = () => {
+    return (
+      <AiOutlinePlus
+        className="add-new-deck-button"
+        size={80}
+        style={{ color: "red" }}
+        onClick={toggleModal}
+      ></AiOutlinePlus>
+    );
+  };
+
+  if (isError) return <p>Application error. Please refresh the page</p>;
 
   // Show spinner for any async process
   if (isLoading) {
@@ -119,9 +130,7 @@ const AllDecksPage: React.FC = () => {
       <div className="deck-page-container-empty">
         <h2>No Decks!</h2>
         <FaCreativeCommonsZero size={65} />
-        <button className="create-new-deck-button" onClick={toggleModal}>
-          Create Deck
-        </button>
+        <NewDeckButton />
       </div>
     );
   }
@@ -148,12 +157,7 @@ const AllDecksPage: React.FC = () => {
               );
             })}
           </div>
-          <AiOutlinePlus
-            className="add-new-deck-button"
-            size={80}
-            style={{ color: "red" }}
-            onClick={toggleModal}
-          ></AiOutlinePlus>
+          <NewDeckButton />
         </>
       )}
 
@@ -162,6 +166,7 @@ const AllDecksPage: React.FC = () => {
           <CreateDeckModalForm
             handleCreateNewDeck={handleCreateNewDeck}
             toggleModal={toggleModal}
+            decks={deckData}
           />
         </div>
       )}

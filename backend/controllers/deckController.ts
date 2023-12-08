@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import mongoose from "mongoose";
 import { DeckModel } from "../mongodb/models/deckModel";
 
+const NAME_SPACE = "DeckController";
+
 const createDeck = async (req: Request, res: Response): Promise<void> => {
   try {
     const { name, description } = req.body;
@@ -11,25 +13,26 @@ const createDeck = async (req: Request, res: Response): Promise<void> => {
     // Duplicate deck names are not allowed
     if (existingDeck) {
       res.status(404);
-      throw new Error(`Deck with name ${name} already exists for this user`);
+      throw new Error(`Deck ${name} already exists`);
     }
-
-    // Create new instance of DeckModel
     const deck = new DeckModel({
-      user: userId,
       _id: new mongoose.Types.ObjectId(),
+      user: userId,
       name,
       description,
-      // add today's date as the creation date
+      tags: [],
       creationDate: new Date(),
+      preferences: {
+        insertOrder: ["newest"],
+        favorited: false,
+      },
+      words: [],
     });
-
     // Save the deck to DB
     await deck.save();
-
-    res.status(201).json({ message: "Deck created successfully", deck });
+    res.status(201).json({ message: `${name} created successfully`, deck });
   } catch (error) {
-    console.error("Backend: Error creating deck:", error);
+    console.error(`${NAME_SPACE}: Error creating deck:`, error);
     res.status(500).json({ error: "Failed to create deck" });
   }
 };
@@ -38,14 +41,12 @@ const fetchAllDecks = async (req: Request, res: Response): Promise<void> => {
   try {
     // Assuming req.user contains user information including _id
     const userId = req.user;
-
     // Fetch decks specific to the user from the database
     const decks = await DeckModel.find({ user: userId });
-
-    // Return the list of user-specific decks in the response
+    // Return all decks
     res.status(200).json(decks);
   } catch (error) {
-    console.error("Error fetching decks:", error);
+    console.error(`${NAME_SPACE}: Error fetching decks:`, error);
     res.status(500).json({ error: "Failed to fetch decks" });
   }
 };
@@ -69,9 +70,9 @@ const deleteDeckByID = async (req: Request, res: Response): Promise<void> => {
     const userId = req.user;
     const deckId = req.params.id;
     // Fetch decks specific to the user from the database
-    const deck = await DeckModel.findOneAndDelete({ user: userId, _id: deckId });
+    await DeckModel.findOneAndDelete({ user: userId, _id: deckId });
     // Return the list of user-specific decks in the response
-    res.status(200).json(deck);
+    res.status(200).json({ message: "Deck deleted successfully" });
   } catch (error) {
     console.error("Error fetching decks:", error);
     res.status(500).json({ error: "Failed to fetch decks" });
