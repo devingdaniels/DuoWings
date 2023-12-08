@@ -1,14 +1,6 @@
 const mongoose = require("mongoose");
 
 const WordSchema = new mongoose.Schema({
-  userID: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
-  deckID: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
   word: {
     type: String,
     required: true,
@@ -53,4 +45,6 @@ const WordSchema = new mongoose.Schema({
 //   await this.save();
 // };
 
-export const WordModel = mongoose.model("Word", WordSchema, "words");
+const WordModel = mongoose.model("Word", WordSchema, "words");
+
+export { WordModel, WordSchema };

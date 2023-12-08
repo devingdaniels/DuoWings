@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineDelete } from "react-icons/ai";
 
 import { useAppDispatch } from "../../../app/hooks";
-import { deleteDeckByID } from "../../../features/deckSlice";
+import { deleteDeckByID, setCurrentDeck } from "../../../features/deckSlice";
 
 interface DeckProps {
   deck: IWordDeck;
@@ -16,6 +16,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
   const dispatch = useAppDispatch();
   // Handlers
   const handleDeckClick = (deck: IWordDeck) => {
+    dispatch(setCurrentDeck(deck));
     navigate(`/vocab/decks/${deck._id}`);
   };
 

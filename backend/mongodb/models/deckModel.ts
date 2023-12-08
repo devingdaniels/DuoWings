@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { WordSchema } from "./wordModel";
 
 const WordDeckSchema = new mongoose.Schema({
   user: {
@@ -22,12 +23,7 @@ const WordDeckSchema = new mongoose.Schema({
     favorited: Boolean,
     // color: String,
   },
-  words: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Word",
-    },
-  ],
+  words: [WordSchema],
 });
 
 const DeckModel = mongoose.model("Decks", WordDeckSchema, "decks");

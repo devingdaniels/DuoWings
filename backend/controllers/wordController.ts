@@ -13,7 +13,6 @@ const createWord = async (req: Request, res: Response): Promise<void> => {
     if (!deck) {
       res.status(404).json({ error: "Deck not found" });
     }
-    // Here will be a micoserver call to add word details like defintion, example, conjugations, etc.
 
     // Create a new word
     const newWord = new WordModel({
@@ -38,9 +37,8 @@ const createWord = async (req: Request, res: Response): Promise<void> => {
 
     // Save the word to the DB
     await newWord.save();
-
     // Add the word to the deck
-    deck!.words.push(newWord._id);
+    deck!.words.push(newWord);
     await deck!.save();
 
     res.status(201).json({ message: "Word created and added to the deck successfully", deck });

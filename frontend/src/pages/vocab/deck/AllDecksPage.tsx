@@ -13,7 +13,7 @@ import {
 } from "../../../features/deckSlice";
 // TypeScript interfaces
 import { IWordDeck } from "../../../interfaces/index";
-import { INewVocabDeck } from "../../../interfaces/index";
+import { IVocabWord } from "../../../interfaces/index";
 // Loading spinners
 import Spinner from "../../../utils/Spinner";
 // Icons
@@ -43,7 +43,7 @@ const AllDecksPage: React.FC = () => {
     setFilteredDecks(filtered);
   };
 
-  const handleCreateNewDeck = async (deck: INewVocabDeck) => {
+  const handleCreateNewDeck = async (deck: IVocabWord) => {
     // First close the modal from the UI
     setIsModalOpen(false);
     // Dispatch creation of new deck, should set loading to true

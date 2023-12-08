@@ -1,8 +1,7 @@
 import axios from "axios";
-// Types
-import { INewVocabWord } from "../interfaces";
+import { ICreateNewVocabWord } from "../interfaces/index";
 
-const createWord = async (word: INewVocabWord) => {
+const createWord = async (word: ICreateNewVocabWord) => {
   const URL = import.meta.env.VITE_BACKEND_API_WORD + "/create-word";
   try {
     const response = await axios.post(URL, word);

@@ -1,28 +1,20 @@
 import React, { useState } from "react";
-import { useAppDispatch } from "../../../app/hooks";
-import { createWord } from "../../../features/wordSlice";
-import { INewVocabWord } from "../../../interfaces";
 
 interface NewWordFormProps {
-  deckID: string;
+  handleCreateNewWord: (word: string) => void;
 }
 
-const NewWordForm: React.FC<NewWordFormProps> = ({ deckID }) => {
-  const dispatch = useAppDispatch();
-  const [word, setWord] = useState<INewVocabWord>({
-    word: "",
-    deckID: deckID,
-  });
+const NewWordForm: React.FC<NewWordFormProps> = ({ handleCreateNewWord }) => {
+  const [word, setWord] = useState<string | "">("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await dispatch(createWord(word));
-    console.log(response.payload);
-    setWord({
-      word: "",
-      deckID: "",
-    });
+    const w = word.trim();
+    setWord("");
+    handleCreateNewWord(w);
   };
+
+  handleCreateNewWord;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -30,8 +22,8 @@ const NewWordForm: React.FC<NewWordFormProps> = ({ deckID }) => {
       <input
         type="text"
         id="word"
-        value={word?.word}
-        onChange={(e) => setWord({ ...word, word: e.target.value })}
+        value={word}
+        onChange={(e) => setWord(e.target.value)}
       />
       <button type="submit">Add Vocab</button>
     </form>

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import wordService from "./wordService";
-
+import { ICreateNewVocabWord } from "../interfaces/index";
 import { INewVocabWord } from "../interfaces/index";
 // import { RootState } from "../app/store";
 
@@ -22,7 +22,7 @@ const initialState: WordState = {
 
 export const createWord = createAsyncThunk(
   "words/createWord",
-  async (word: INewVocabWord, { rejectWithValue }) => {
+  async (word: ICreateNewVocabWord, { rejectWithValue }) => {
     try {
       const response = await wordService.createWord(word);
       return response;

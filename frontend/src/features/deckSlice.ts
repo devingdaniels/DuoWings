@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import deckService from "./deckService";
 
 import { IWordDeck } from "../interfaces/index";
-import { INewVocabDeck } from "../interfaces/index";
+import { IVocabWord } from "../interfaces/index";
 import { RootState } from "../app/store";
 
 interface DeckState {
@@ -63,7 +63,7 @@ export const getDeckByID = createAsyncThunk(
 
 export const createDeck = createAsyncThunk(
   "decks/createDeck",
-  async (deck: INewVocabDeck, { rejectWithValue }) => {
+  async (deck: IVocabWord, { rejectWithValue }) => {
     try {
       const response = await deckService.createDeck(deck);
       return response;
@@ -110,6 +110,9 @@ const deckSlice = createSlice({
     },
     setUserDecks: (state, action) => {
       state.decks = action.payload;
+    },
+    setCurrentDeck: (state, action) => {
+      state.currentDeck = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -197,5 +200,6 @@ export const selectCurrentUserDeck = (state: RootState) =>
   state.decks.currentDeck;
 export const { setUserDecks } = deckSlice.actions;
 export const { resetDeckStatus } = deckSlice.actions;
+export const { setCurrentDeck } = deckSlice.actions;
 // Reducer
 export default deckSlice.reducer;

@@ -20,34 +20,9 @@ export interface IUserAuthResponse {
   };
 }
 
-// export interface INewVocabWord {
-//   word: string;
-//   englishDefinition: string;
-//   exampleSentence: string;
-//   wordType: string;
-//   conjugation: string;
-//   correctCount: number[];
-//   incorrectCount: number[];
-//   lastCorrectDate: Date | null;
-//   lastIncorrectDate: Date | null;
-//   deckID: string;
-// }
-
-export interface INewVocabWord {
+export interface ICreateNewVocabWord {
   word: string;
   deckID: string;
-}
-
-// enum ICardInsertionOrder {
-//   Top = "first",
-//   Bottom = "last",
-//   Random = "random",
-// }
-export interface INewVocabDeck {
-  name: string;
-  description: string;
-  // tags: string[];
-  // insertOrder: ICardInsertionOrder;
 }
 
 export interface IWordDeck {
@@ -61,7 +36,7 @@ export interface IWordDeck {
     insertOrder: number[];
     favorited: boolean;
   };
-  words: INewVocabWord[];
+  words: IVocabWord[];
   // Stop
   experiencePoints: number;
   level: number;
@@ -69,4 +44,18 @@ export interface IWordDeck {
   badges: string[];
   streak: number;
   lastStreakDate?: Date;
+}
+
+export interface IVocabWord {
+  _id: string;
+  word: string;
+  englishDefinition: string;
+  exampleSentence: string;
+  wordType: string;
+  conjugation: string;
+  correctCount: number[];
+  incorrectCount: number[];
+  lastCorrectDate: Date | null;
+  lastIncorrectDate: Date | null;
+  deckID: string;
 }
