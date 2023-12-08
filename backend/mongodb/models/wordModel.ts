@@ -1,9 +1,27 @@
 const mongoose = require("mongoose");
 
 const WordSchema = new mongoose.Schema({
+  userID: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
+  deckID: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
   word: {
     type: String,
     required: true,
+  },
+  conjugations: {
+    present: {
+      yo: String,
+      tu: String,
+      el: String,
+      nosotros: String,
+      vosotros: String,
+      ellos: String,
+    },
   },
   definition: {
     type: String,
@@ -21,14 +39,6 @@ const WordSchema = new mongoose.Schema({
     immutable: false,
   },
   difficulty: Number,
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
-  deckID: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
 });
 
 // WordSchema.methods.incrementCorrectCount = async function () {

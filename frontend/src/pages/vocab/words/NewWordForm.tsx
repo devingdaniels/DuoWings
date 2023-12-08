@@ -14,9 +14,10 @@ const NewWordForm: React.FC<NewWordFormProps> = ({ deckID }) => {
     deckID: deckID,
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(createWord(word));
+    const response = await dispatch(createWord(word));
+    console.log(response.payload);
     setWord({
       word: "",
       deckID: "",

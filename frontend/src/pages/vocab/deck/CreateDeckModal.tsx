@@ -38,7 +38,7 @@ const CreateDeckModalForm = ({
     // Prevent page reload
     e.preventDefault();
     if (isDuplicateDeck(deckFormData.name)) {
-      ToastWarning(`Deck name ${deckFormData.name} already exists!`);
+      ToastWarning(`Deck ${deckFormData.name} already exists!`);
       return;
     }
     // function will close modal, API POST to create card, handle loading state, etc

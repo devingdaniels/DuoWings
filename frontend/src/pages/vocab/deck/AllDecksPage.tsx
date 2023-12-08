@@ -11,25 +11,21 @@ import {
   fetchAllUserDecks,
   resetDeckStatus,
 } from "../../../features/deckSlice";
-
 // TypeScript interfaces
 import { IWordDeck } from "../../../interfaces/index";
 import { INewVocabDeck } from "../../../interfaces/index";
-
 // Loading spinners
 import Spinner from "../../../utils/Spinner";
-
 // Icons
 import { AiOutlinePlus } from "react-icons/ai";
 import { FaCreativeCommonsZero } from "react-icons/fa";
 
-// AllDeckComponent
 const AllDecksPage: React.FC = () => {
-  // Redux deck state
+  // Redux
+  const dispatch = useAppDispatch();
   const { decks, isSuccess, isLoading, isError } = useAppSelector(
     (state) => state.decks
   );
-  const dispatch = useAppDispatch();
   // State
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [deckData, setDeckData] = useState<IWordDeck[]>(decks || []);
@@ -67,7 +63,7 @@ const AllDecksPage: React.FC = () => {
     dispatch(fetchAllUserDecks());
   }, [dispatch]);
 
-  // if decks or dispatch has ocurred, set new data
+  // If decks change, update state
   useEffect(() => {
     setDeckData(decks);
     setFilteredDecks(decks);
@@ -80,13 +76,14 @@ const AllDecksPage: React.FC = () => {
   };
 
   // Modal handler
+  // Note: this is a bit of a hacky solution, but it works
   useEffect(() => {
     const handleModalInteraction = (e: KeyboardEvent | MouseEvent) => {
       if (
         (e instanceof KeyboardEvent && e.key === "Escape") ||
         (e instanceof MouseEvent &&
           isModalOpen &&
-          (e.target as Element).closest(".modal-content") === null)
+          (e.target as Element).closest(".modal-content") === null) // Clicked outside of modal container
       ) {
         setIsModalOpen(false);
       }
@@ -160,7 +157,6 @@ const AllDecksPage: React.FC = () => {
           <NewDeckButton />
         </>
       )}
-
       {isModalOpen && (
         <div className="modal-container">
           <CreateDeckModalForm
