@@ -1,35 +1,35 @@
 // deckSlice.js
 import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
-import deckService from "./deckService";
+import { VocabService } from "./vocabService";
 
-import { IWordDeck } from "../interfaces/index";
-import { IVocabWord } from "../interfaces/index";
+import { ICreateNewDeck, IWordDeck } from "../interfaces/index";
+import { ICreateNewVocabWord } from "../interfaces/index";
 import { RootState } from "../app/store";
 
-interface DeckState {
+interface VocabState {
   decks: IWordDeck[] | [];
+  currentDeck: IWordDeck | null;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
   message: string;
-  currentDeck: IWordDeck | null;
 }
 
-const initialState: DeckState = {
+const initialState: VocabState = {
   decks: [],
+  currentDeck: null, // useful because as reference to improve performance
   isLoading: false,
   isSuccess: false,
   isError: false,
   message: "",
-  currentDeck: null, // useful because we can avoid fetching the deck again if we already have it
 };
 
 // Create an async thunk to fetch user decks from the backend
 export const fetchAllUserDecks = createAsyncThunk(
-  "decks/getAllUserDecks",
+  "vocab/getAllUserDecks",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await deckService.fetchAllDecks();
+      const response = await VocabService.fetchAllDecks();
       return response;
     } catch (error: any) {
       const message =
@@ -44,10 +44,10 @@ export const fetchAllUserDecks = createAsyncThunk(
 );
 
 export const getDeckByID = createAsyncThunk(
-  "decks/getDeckByID",
-  async (deckId: string | undefined, { rejectWithValue }) => {
+  "vocab/getDeckByID",
+  async (deckId: string, { rejectWithValue }) => {
     try {
-      const response = await deckService.fetchDeckByID(deckId);
+      const response = await VocabService.fetchDeckByID(deckId);
       return response;
     } catch (error: any) {
       const message =
@@ -62,10 +62,10 @@ export const getDeckByID = createAsyncThunk(
 );
 
 export const createDeck = createAsyncThunk(
-  "decks/createDeck",
-  async (deck: IVocabWord, { rejectWithValue }) => {
+  "vocab/createDeck",
+  async (deck: ICreateNewDeck, { rejectWithValue }) => {
     try {
-      const response = await deckService.createDeck(deck);
+      const response = await VocabService.createDeck(deck);
       return response;
     } catch (error: any) {
       const message =
@@ -80,10 +80,36 @@ export const createDeck = createAsyncThunk(
 );
 
 export const deleteDeckByID = createAsyncThunk(
-  "decks/deleteDeckByID",
+  "vocab/deleteDeckByID",
   async (deckID: string, { rejectWithValue }) => {
     try {
-      const response = await deckService.deleteDeckByID(deckID);
+      const response = await VocabService.deleteDeckByID(deckID);
+      return response;
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return rejectWithValue(message);
+    }
+  }
+);
+
+/*
+  
+  ***************************** 
+          WORD THUNKS 
+  *****************************
+  
+*/
+
+export const createWord = createAsyncThunk(
+  "vocab/createWord",
+  async (word: ICreateNewVocabWord, { rejectWithValue }) => {
+    try {
+      const response = await VocabService.createWord(word);
       return response;
     } catch (error: any) {
       const message =
@@ -98,8 +124,8 @@ export const deleteDeckByID = createAsyncThunk(
 );
 
 // Create the deckSlice
-const deckSlice = createSlice({
-  name: "decks",
+const vocabSlice = createSlice({
+  name: "vocab",
   initialState,
   reducers: {
     resetDeckStatus: (state) => {
@@ -197,9 +223,9 @@ const deckSlice = createSlice({
 // Actions
 export const clearUserDeckState = createAction("decks/clearUserDeckState");
 export const selectCurrentUserDeck = (state: RootState) =>
-  state.decks.currentDeck;
-export const { setUserDecks } = deckSlice.actions;
-export const { resetDeckStatus } = deckSlice.actions;
-export const { setCurrentDeck } = deckSlice.actions;
+  state.vocab.currentDeck;
+export const { setUserDecks } = vocabSlice.actions;
+export const { resetDeckStatus } = vocabSlice.actions;
+export const { setCurrentDeck } = vocabSlice.actions;
 // Reducer
-export default deckSlice.reducer;
+export default vocabSlice.reducer;

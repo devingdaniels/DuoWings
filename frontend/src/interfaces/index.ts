@@ -25,6 +25,11 @@ export interface ICreateNewVocabWord {
   deckID: string;
 }
 
+export interface ICreateNewDeck {
+  name: string;
+  description: string;
+}
+
 export interface IWordDeck {
   _id: string;
   name: string;

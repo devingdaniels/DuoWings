@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineDelete } from "react-icons/ai";
 
 import { useAppDispatch } from "../../../app/hooks";
-import { deleteDeckByID, setCurrentDeck } from "../../../features/deckSlice";
+import { deleteDeckByID, setCurrentDeck } from "../../../features/vocabSlice";
 
 interface DeckProps {
   deck: IWordDeck;

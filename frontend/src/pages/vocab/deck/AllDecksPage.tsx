@@ -10,7 +10,7 @@ import {
   createDeck,
   fetchAllUserDecks,
   resetDeckStatus,
-} from "../../../features/deckSlice";
+} from "../../../features/vocabSlice";
 // TypeScript interfaces
 import { IWordDeck } from "../../../interfaces/index";
 import { IVocabWord } from "../../../interfaces/index";

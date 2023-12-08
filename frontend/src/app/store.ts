@@ -2,7 +2,7 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 // Reducers
 import userAuthReducer from "../features/userAuthSlice";
-import deckReducer from "../features/deckSlice";
+import vocabReducer from "../features/vocabSlice";
 // Redux Persist
 import {
   persistStore,
@@ -18,7 +18,7 @@ import {
 // Root reducer
 const appReducer = combineReducers({
   auth: userAuthReducer,
-  decks: deckReducer,
+  vocab: vocabReducer,
 });
 
 const persistConfig = {
