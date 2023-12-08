@@ -15,16 +15,12 @@ const WordSchema = new mongoose.Schema({
   },
   exampleSentence: String,
   tags: [String],
-  conjugationsByTense: {
-    type: Map,
-    of: [
-      {
-        conjugatedForm: String,
-        correctCount: Number,
-        incorrectCount: Number,
-      },
-    ],
+  creationDate: {
+    type: Date,
+    default: Date.now,
+    immutable: false,
   },
+  difficulty: Number,
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -33,15 +29,6 @@ const WordSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
-  userPerformance: [
-    {
-      tense: String,
-      correctCount: Number,
-      incorrectCount: Number,
-      lastAttemptDate: Date,
-    },
-  ],
-  difficulty: Number,
 });
 
 WordSchema.methods.incrementCorrectCount = async function () {
