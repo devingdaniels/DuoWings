@@ -126,8 +126,8 @@ const AllDecksPage: React.FC = () => {
   if (decks.length === 0 && !isModalOpen && !isLoading) {
     return (
       <div className="all-decks-page-container-empty">
-        <h2>No Decks!</h2>
-        <FaCreativeCommonsZero size={65} />
+        <h2>No Decks :(</h2>
+        <FaCreativeCommonsZero size={45} />
         <NewDeckButton />
       </div>
     );
