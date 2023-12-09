@@ -9,6 +9,7 @@ import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import {
   createDeck,
   fetchAllUserDecks,
+  resetCurrentDeck,
   resetDeckStatus,
 } from "../../../features/vocabSlice";
 // TypeScript interfaces
@@ -60,6 +61,7 @@ const AllDecksPage: React.FC = () => {
   // Get latest user decks on component mount
   useEffect(() => {
     dispatch(fetchAllUserDecks());
+    dispatch(resetCurrentDeck());
   }, [dispatch]);
 
   // If decks change, update state
@@ -114,7 +116,7 @@ const AllDecksPage: React.FC = () => {
   // Show spinner for any async process
   if (isLoading) {
     return (
-      <div className="deck-page-container">
+      <div className="all-decks-page-container">
         <Spinner />
       </div>
     );
@@ -123,7 +125,7 @@ const AllDecksPage: React.FC = () => {
   // No decks and no state-changing functionality in progress
   if (decks.length === 0 && !isModalOpen && !isLoading) {
     return (
-      <div className="deck-page-container-empty">
+      <div className="all-decks-page-container-empty">
         <h2>No Decks!</h2>
         <FaCreativeCommonsZero size={65} />
         <NewDeckButton />
@@ -133,15 +135,15 @@ const AllDecksPage: React.FC = () => {
 
   // Primary JSX return
   return (
-    <div className="deck-page-container">
+    <div className="all-decks-page-container">
       {!isModalOpen && (
         <>
-          <div className="deck-page-search-wrapper">
-            <div className="deck-page-search-container">
+          <div className="all-deck-page-search-wrapper">
+            <div className="all-deck-page-search-container">
               <SearchAppBar filterDecks={filterDecks} value={searchTerm} />
             </div>
           </div>
-          <div className="deck-grid-container">
+          <div className="all-decks-grid-container">
             {filteredDecks.map((deck: IWordDeck) => {
               return (
                 <span key={deck._id}>

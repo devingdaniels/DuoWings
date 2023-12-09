@@ -4,6 +4,7 @@ import NewWordForm from "../words/NewWordForm";
 import Spinner from "../../../utils/Spinner";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
 import { selectCurrentUserDeck } from "../../../features/vocabSlice";
+import { Button } from "@mui/material";
 
 const DeckPage = () => {
   const dispatch = useAppDispatch();
@@ -28,12 +29,13 @@ const DeckPage = () => {
     return <p>Error: There was an error in the application -- {message}</p>;
 
   return (
-    <div>
+    <div className="deck-page-container">
       {currentDeck && !isLoading && (
         <div>
           <h1>{currentDeck.name}</h1>
           <p>ID: {currentDeck._id}</p>
           <NewWordForm handleCreateNewWord={handleCreateNewWord} />
+          <Button>Upload words</Button>
           {currentDeck.words.map((item) => {
             return (
               <div key={item._id}>

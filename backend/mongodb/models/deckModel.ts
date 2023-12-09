@@ -15,7 +15,7 @@ const WordDeckSchema = new mongoose.Schema({
   tags: [String],
   creationDate: {
     type: Date,
-    default: Date.now,
+    default: new Date(),
     immutable: true,
   },
   preferences: {

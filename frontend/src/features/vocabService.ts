@@ -10,8 +10,8 @@ const createDeck = async (deck: ICreateNewDeck) => {
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
-      console.error(err.response.data.message);
-      throw new Error(err.response.data.message);
+      console.error(err.response.data);
+      throw new Error(err.response.data);
     } else {
       console.error("Error:", err);
       throw new Error(`Failed to create deck.`);
@@ -25,8 +25,8 @@ const fetchAllDecks = async () => {
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
-      console.error(err.response.data.message);
-      throw new Error(err.response.data.message);
+      console.error(err.response.data);
+      throw new Error(err.response.data);
     } else {
       console.error("Error:", err);
       throw new Error("Error: Failed to fetch decks");
@@ -40,8 +40,8 @@ const fetchDeckByID = async (deckID: string) => {
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
-      console.error(err.response.data.message);
-      throw new Error(err.response.data.message);
+      console.error(err.response.data);
+      throw new Error(err.response.data);
     } else {
       console.error("Error:", err);
       throw new Error(`Error: Failed to fetch deck with ID: ${deckID}`);
@@ -55,8 +55,8 @@ const deleteDeckByID = async (deckID: string) => {
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
-      console.error(err.response.data.message);
-      throw new Error(err.response.data.message);
+      console.error(err.response.data);
+      throw new Error(err.response.data);
     } else {
       console.error("Error:", err);
       throw new Error(`Error: Failed to delete deck with ID: ${deckID}`);
@@ -71,8 +71,8 @@ const createWord = async (word: ICreateNewVocabWord) => {
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
-      console.error(err.response.data.message);
-      throw new Error(err.response.data.message);
+      console.error(err.response.data);
+      throw new Error(err.response.data);
     } else {
       console.error("Error:", err);
       throw new Error(`Failed to create word.`);

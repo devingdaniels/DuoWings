@@ -21,7 +21,6 @@ const createDeck = async (req: Request, res: Response): Promise<void> => {
       name,
       description,
       tags: [],
-      creationDate: new Date(),
       preferences: {
         insertOrder: ["newest"],
         favorited: false,

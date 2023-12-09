@@ -14,7 +14,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const DuoWingsApp = () => {
   const user = useAppSelector(selectUser);
-  console.log(user);
 
   return (
     <>

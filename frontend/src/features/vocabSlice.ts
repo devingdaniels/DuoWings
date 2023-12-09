@@ -109,8 +109,7 @@ export const createWord = createAsyncThunk(
   "vocab/createWord",
   async (word: ICreateNewVocabWord, { rejectWithValue }) => {
     try {
-      const response = await VocabService.createWord(word);
-      return response;
+      return await VocabService.createWord(word);
     } catch (error: any) {
       const message =
         (error.response &&
@@ -140,6 +139,9 @@ const vocabSlice = createSlice({
     setCurrentDeck: (state, action) => {
       state.currentDeck = action.payload;
     },
+    resetCurrentDeck: (state) => {
+      state.currentDeck = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -152,7 +154,6 @@ const vocabSlice = createSlice({
         state.message = "";
         state.currentDeck = null;
       })
-
       // Handle the fetchAllUserDecks async thunk
       .addCase(fetchAllUserDecks.pending, (state) => {
         state.isLoading = true;
@@ -169,12 +170,10 @@ const vocabSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = false;
       })
-
       // Handle the getDeckByID async thunk
       .addCase(getDeckByID.pending, (state) => {
         state.isLoading = true;
       })
-
       .addCase(getDeckByID.fulfilled, (state, action) => {
         state.isSuccess = true;
         state.isLoading = false;
@@ -186,15 +185,13 @@ const vocabSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = false;
       })
-
-      // Handle the create async thunk
+      // Handle the createDeck async thunk
       .addCase(createDeck.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(createDeck.fulfilled, (state) => {
         state.isSuccess = true;
         state.isLoading = false;
-        // state.fetchedDeck = action.payload as IWordDeck;
       })
       .addCase(createDeck.rejected, (state, action) => {
         state.isError = true;
@@ -202,8 +199,7 @@ const vocabSlice = createSlice({
         state.isSuccess = false;
         state.message = action.error.message as string;
       })
-
-      // Handle the delete async thunk
+      // Handle the deleteDeckByID async thunk
       .addCase(deleteDeckByID.pending, (state) => {
         state.isLoading = true;
       })
@@ -223,9 +219,8 @@ const vocabSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(createWord.fulfilled, (state, action) => {
-        console.log("action.payload:", action.payload);
-        state.decks = [...state.decks, action.payload.deck as IWordDeck];
-        state.currentDeck = action.payload as IWordDeck;
+        // Get the current deck from the state and add the new word to it
+        state.currentDeck = action.payload.deck as IWordDeck;
         state.isSuccess = true;
         state.isLoading = false;
         state.isError = false;
@@ -240,7 +235,8 @@ const vocabSlice = createSlice({
 });
 
 // Actions
-export const clearUserDeckState = createAction("decks/clearUserDeckState");
+export const clearUserDeckState = createAction("vocab/clearDeckState");
+export const resetCurrentDeck = createAction("vocab/resetCurrentDeck");
 export const selectCurrentUserDeck = (state: RootState) =>
   state.vocab.currentDeck;
 export const { setUserDecks } = vocabSlice.actions;

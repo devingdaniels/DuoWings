@@ -44,7 +44,6 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
       <div className="deck-details">
         <p>{deck.description}</p>
         <p>Created: {new Date(deck.creationDate).toLocaleDateString()}</p>
-        <p>Last Studied: {new Date(deck.lastStudied).toLocaleDateString()}</p>
       </div>
     </div>
   );
