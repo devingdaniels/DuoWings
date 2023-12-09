@@ -1,6 +1,6 @@
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { createWord } from "../../../features/vocabSlice";
-import NewWordForm from "../words/NewWordForm";
+import CreateWordForm from "../words/CreateWordForm";
 import Spinner from "../../../utils/Spinner";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
 import { selectCurrentUserDeck } from "../../../features/vocabSlice";
@@ -34,7 +34,7 @@ const DeckPage = () => {
         <div>
           <h1>{currentDeck.name}</h1>
           <p>ID: {currentDeck._id}</p>
-          <NewWordForm handleCreateNewWord={handleCreateNewWord} />
+          <CreateWordForm handleCreateNewWord={handleCreateNewWord} />
           <Button>Upload words</Button>
           {currentDeck.words.map((item) => {
             return (

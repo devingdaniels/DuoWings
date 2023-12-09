@@ -1,13 +1,11 @@
 import { IUserLogin, IUserRegister } from "../interfaces";
-import axios from "axios";
-// Set this so that cookies are included with every API request
-axios.defaults.withCredentials = true;
+import { Axios } from "../middleware/axios";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_API_AUTH || "undefined";
 
 const login = async (userData: IUserLogin) => {
   try {
-    const response = await axios.post(BASE_URL + "/login", userData);
+    const response = await Axios.post(BASE_URL + "/login", userData);
     // If server returns anything but 201, catch block will execute
     return response.data;
   } catch (err: any) {
@@ -21,7 +19,7 @@ const login = async (userData: IUserLogin) => {
 
 const register = async (userData: IUserRegister) => {
   try {
-    const response = await axios.post(BASE_URL + "/register", userData);
+    const response = await Axios.post(BASE_URL + "/register", userData);
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
@@ -34,7 +32,7 @@ const register = async (userData: IUserRegister) => {
 
 const logout = async () => {
   try {
-    const response = await axios.get(BASE_URL + "/logout");
+    const response = await Axios.get(BASE_URL + "/logout");
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {

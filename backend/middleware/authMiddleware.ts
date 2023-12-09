@@ -46,6 +46,7 @@ const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
     }
 
     // Verify token
+    // Params: token, secret, options
     const decoded: JwtPayload = jwt.verify(token, config.server.token.secret) as JwtPayload;
 
     // Decode the token to get unique user id
@@ -60,7 +61,7 @@ const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
     next();
   } catch (error: any) {
     logging.error(NAMESPACE, error.message, error);
-    res.status(401).json({ error: "Token validation error" });
+    res.status(401).json({ error: "Verification failed, invalid user token" });
   }
 };
 

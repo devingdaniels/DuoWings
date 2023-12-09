@@ -1,4 +1,4 @@
-import axios from "axios";
+import { Axios } from "../middleware/axios";
 import { ICreateNewDeck, ICreateNewVocabWord } from "../interfaces/index";
 
 // Backend server URL
@@ -6,7 +6,7 @@ const URL = import.meta.env.VITE_BACKEND_API_DECK;
 
 const createDeck = async (deck: ICreateNewDeck) => {
   try {
-    const response = await axios.post(URL + "/create-deck", deck);
+    const response = await Axios.post(URL + "/create-deck", deck);
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
@@ -21,7 +21,7 @@ const createDeck = async (deck: ICreateNewDeck) => {
 
 const fetchAllDecks = async () => {
   try {
-    const response = await axios.get(URL);
+    const response = await Axios.get(URL);
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
@@ -36,7 +36,7 @@ const fetchAllDecks = async () => {
 
 const fetchDeckByID = async (deckID: string) => {
   try {
-    const response = await axios.get(URL + `/${deckID}`);
+    const response = await Axios.get(URL + `/${deckID}`);
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
@@ -51,7 +51,7 @@ const fetchDeckByID = async (deckID: string) => {
 
 const deleteDeckByID = async (deckID: string) => {
   try {
-    const response = await axios.delete(URL + `/${deckID}`);
+    const response = await Axios.delete(URL + `/${deckID}`);
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
@@ -67,7 +67,7 @@ const deleteDeckByID = async (deckID: string) => {
 const createWord = async (word: ICreateNewVocabWord) => {
   const URL = import.meta.env.VITE_BACKEND_API_WORD + "/create-word";
   try {
-    const response = await axios.post(URL, word);
+    const response = await Axios.post(URL, word);
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {

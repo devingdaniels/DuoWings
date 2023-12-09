@@ -18,14 +18,15 @@ const NewWordForm: React.FC<NewWordFormProps> = ({ handleCreateNewWord }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="word">Word:</label>
       <input
         type="text"
         id="word"
         value={word}
+        required
+        placeholder="Enter a new word"
         onChange={(e) => setWord(e.target.value)}
       />
-      <button type="submit">Add Vocab</button>
+      <button type="submit">Create</button>
     </form>
   );
 };

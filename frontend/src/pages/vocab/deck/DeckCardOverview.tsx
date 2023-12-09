@@ -1,7 +1,6 @@
 import { IWordDeck } from "../../../interfaces/index";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineDelete } from "react-icons/ai";
-
 import { useAppDispatch } from "../../../app/hooks";
 import { deleteDeckByID, setCurrentDeck } from "../../../features/vocabSlice";
 
@@ -15,13 +14,14 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   // Handlers
-  const handleDeckClick = (deck: IWordDeck) => {
+  const goToDeckPage = (deck: IWordDeck) => {
     dispatch(setCurrentDeck(deck));
     navigate(`/vocab/decks/${deck._id}`);
   };
 
   const handleDeleteDeck = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    // Delete button is inside deck container which also has onClick
+    // Delete button is inside deck card which also has onClick
+    // stopPropagation prevents the onClick from firing that would result in going to that deck's page
     e.stopPropagation();
     await dispatch(deleteDeckByID(deck._id));
     fetchUserDecks();
@@ -30,7 +30,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
   return (
     <div
       className="deck-card-overview-container"
-      onClick={() => handleDeckClick(deck)}
+      onClick={() => goToDeckPage(deck)}
     >
       <div className="deck-card-overview-header">
         <span className="deck-header-item deck-header-level-container">

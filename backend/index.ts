@@ -14,7 +14,7 @@ import wordRoutes from "./routes/wordRoutes";
 import errorHandler from "./middleware/errorHandler";
 dotenv.config();
 
-const NAMESPACE = "index.ts";
+const NAMESPACE = "backend/index.ts";
 const PORT = process.env.SERVER_PORT || 8000;
 
 const app = express();
@@ -25,8 +25,8 @@ connectMongDB();
 app.use(
   cors({
     origin: "http://localhost:5173",
-    methods: ["POST", "PUT", "GET", "OPTIONS", "DELETE", "HEAD"],
-    credentials: true,
+    methods: ["POST", "PUT", "GET", "DELETE", "HEAD"],
+    credentials: true, // allow session cookie from browser to pass through
   })
 );
 
