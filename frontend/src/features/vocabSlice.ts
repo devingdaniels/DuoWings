@@ -26,7 +26,7 @@ const initialState: VocabState = {
 
 // Create an async thunk to fetch user decks from the backend
 export const fetchAllUserDecks = createAsyncThunk(
-  "vocab/getAllUserDecks",
+  "vocab/fetchAllUserDecks",
   async (_, { rejectWithValue }) => {
     try {
       const response = await VocabService.fetchAllDecks();
@@ -212,6 +212,25 @@ const vocabSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(deleteDeckByID.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.message = action.error.message as string;
+      })
+      /* WORD CASES */
+      // Handle the createWord async thunk
+      .addCase(createWord.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createWord.fulfilled, (state, action) => {
+        console.log("action.payload:", action.payload);
+        state.decks = [...state.decks, action.payload.deck as IWordDeck];
+        state.currentDeck = action.payload as IWordDeck;
+        state.isSuccess = true;
+        state.isLoading = false;
+        state.isError = false;
+      })
+      .addCase(createWord.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
         state.isSuccess = false;

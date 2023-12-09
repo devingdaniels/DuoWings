@@ -1,7 +1,5 @@
 import axios from "axios";
-// Type
-import { ICreateNewDeck } from "../interfaces/index";
-import { ICreateNewVocabWord } from "../interfaces/index";
+import { ICreateNewDeck, ICreateNewVocabWord } from "../interfaces/index";
 
 // Backend server URL
 const URL = import.meta.env.VITE_BACKEND_API_DECK;
@@ -9,7 +7,6 @@ const URL = import.meta.env.VITE_BACKEND_API_DECK;
 const createDeck = async (deck: ICreateNewDeck) => {
   try {
     const response = await axios.post(URL + "/create-deck", deck);
-    // Success: 201 and new deck object
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
@@ -40,8 +37,7 @@ const fetchAllDecks = async () => {
 const fetchDeckByID = async (deckID: string) => {
   try {
     const response = await axios.get(URL + `/${deckID}`);
-    const deck = await response.data;
-    return deck;
+    return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
       console.error(err.response.data.message);
@@ -56,8 +52,7 @@ const fetchDeckByID = async (deckID: string) => {
 const deleteDeckByID = async (deckID: string) => {
   try {
     const response = await axios.delete(URL + `/${deckID}`);
-    const deck = await response.data;
-    return deck;
+    return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
       console.error(err.response.data.message);
@@ -73,8 +68,6 @@ const createWord = async (word: ICreateNewVocabWord) => {
   const URL = import.meta.env.VITE_BACKEND_API_WORD + "/create-word";
   try {
     const response = await axios.post(URL, word);
-    // Backend returns 201 and the new word
-    console.log("wordService:", response.data);
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {
@@ -89,10 +82,10 @@ const createWord = async (word: ICreateNewVocabWord) => {
 
 const VocabService = {
   createDeck,
+  createWord,
   fetchDeckByID,
   fetchAllDecks,
   deleteDeckByID,
-  createWord,
 };
 
 export { VocabService };

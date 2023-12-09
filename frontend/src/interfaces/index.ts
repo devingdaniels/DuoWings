@@ -12,6 +12,16 @@ export interface IUserLogin {
   password: string;
 }
 
+export interface IUser {
+  _id: string;
+  fname: string;
+  lname: string;
+  email: string;
+  phonenumber: string;
+  role: "user" | "admin";
+  // Add props for words and dialogue
+}
+
 export interface IUserAuthResponse {
   status: boolean;
   data: {

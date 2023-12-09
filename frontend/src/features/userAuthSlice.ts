@@ -1,19 +1,10 @@
 import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import authService from "./userAuthService";
 import type { RootState } from "../app/store";
+import { IUser } from "../interfaces//index";
 
-interface User {
-  _id: string;
-  fname: string;
-  lname: string;
-  email: string;
-  phonenumber: string;
-  role: "user" | "admin";
-  // Add props for words and dialogue
-}
-
-export interface UserState {
-  user: User | null;
+interface UserState {
+  user: IUser | null;
   isSuccess: boolean;
   isLoading: boolean;
   isError: boolean;
@@ -30,7 +21,7 @@ const initialState: UserState = {
 
 // Create an async thunk for user login
 export const login = createAsyncThunk<
-  User,
+  IUser,
   { email: string; password: string }
 >("auth/login", async (userData, { rejectWithValue }) => {
   try {
@@ -45,7 +36,7 @@ export const login = createAsyncThunk<
 });
 
 export const register = createAsyncThunk<
-  User,
+  IUser,
   {
     fname: string;
     lname: string;

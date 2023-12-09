@@ -5,6 +5,15 @@ const WordSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  definition: {
+    type: String,
+    required: true,
+  },
+  wordType: {
+    type: String,
+    // required: true,
+  },
+  exampleSentence: String,
   conjugations: {
     present: {
       yo: String,
@@ -15,22 +24,13 @@ const WordSchema = new mongoose.Schema({
       ellos: String,
     },
   },
-  definition: {
-    type: String,
-    required: true,
-  },
-  wordType: {
-    type: String,
-    required: true,
-  },
-  exampleSentence: String,
+  difficulty: Number,
   tags: [String],
   creationDate: {
     type: Date,
     default: Date.now,
     immutable: false,
   },
-  difficulty: Number,
 });
 
 // WordSchema.methods.incrementCorrectCount = async function () {

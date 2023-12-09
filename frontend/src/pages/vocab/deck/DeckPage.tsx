@@ -1,17 +1,24 @@
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import { createWord } from "../../../features/wordSlice";
+import { createWord } from "../../../features/vocabSlice";
 import NewWordForm from "../words/NewWordForm";
 import Spinner from "../../../utils/Spinner";
+import { ICreateNewVocabWord } from "../../../interfaces/index";
+import { selectCurrentUserDeck } from "../../../features/vocabSlice";
 
 const DeckPage = () => {
   const dispatch = useAppDispatch();
+  const currentDeck = useAppSelector(selectCurrentUserDeck);
 
-  const { currentDeck, isLoading, isError, message } = useAppSelector(
-    (state) => state.decks
+  const { isLoading, isError, message } = useAppSelector(
+    (state) => state.vocab
   );
 
   const handleCreateNewWord = async (word: string) => {
-    const response = await dispatch(createWord(word));
+    const newWord: ICreateNewVocabWord = {
+      word,
+      deckID: currentDeck!._id,
+    };
+    const response = await dispatch(createWord(newWord));
     console.log(response);
   };
 

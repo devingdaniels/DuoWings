@@ -12,8 +12,7 @@ import {
   resetDeckStatus,
 } from "../../../features/vocabSlice";
 // TypeScript interfaces
-import { IWordDeck } from "../../../interfaces/index";
-import { IVocabWord } from "../../../interfaces/index";
+import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
 // Loading spinners
 import Spinner from "../../../utils/Spinner";
 // Icons
@@ -24,7 +23,7 @@ const AllDecksPage: React.FC = () => {
   // Redux
   const dispatch = useAppDispatch();
   const { decks, isSuccess, isLoading, isError } = useAppSelector(
-    (state) => state.decks
+    (state) => state.vocab
   );
   // State
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -43,7 +42,7 @@ const AllDecksPage: React.FC = () => {
     setFilteredDecks(filtered);
   };
 
-  const handleCreateNewDeck = async (deck: IVocabWord) => {
+  const handleCreateNewDeck = async (deck: ICreateNewDeck) => {
     // First close the modal from the UI
     setIsModalOpen(false);
     // Dispatch creation of new deck, should set loading to true
