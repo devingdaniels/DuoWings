@@ -1,27 +1,24 @@
-import { INewVocabDeck } from "../../../interfaces/index";
-import { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Button } from "@mui/material";
-// Bring in the toast utility
 import { ToastWarning } from "../../../utils/Toastify";
+import { ICreateNewDeck } from "../../../interfaces/index";
 
 interface Props {
-  handleCreateNewDeck: (deck: INewVocabDeck) => void; // Callback function to handle creating a new deck
-  toggleModal: (e: React.MouseEvent<HTMLButtonElement>) => void; // Callback function to toggle modal
-  decks: INewVocabDeck[];
+  handleCreateNewDeck: (deck: ICreateNewDeck) => void;
+  toggleModal: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  decks: ICreateNewDeck[];
 }
 
-const CreateDeckModalForm = ({
+const CreateDeckModalForm: React.FC<Props> = ({
   handleCreateNewDeck,
   toggleModal,
   decks,
 }: Props) => {
-  // Deck form data
-  const deck: INewVocabDeck = {
+  // Component state
+  const [deckFormData, setDeckData] = useState<ICreateNewDeck>({
     name: "",
     description: "",
-  };
-
-  const [deckFormData, setDeckData] = useState<INewVocabDeck>(deck);
+  });
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -35,13 +32,11 @@ const CreateDeckModalForm = ({
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    // Prevent page reload
     e.preventDefault();
     if (isDuplicateDeck(deckFormData.name)) {
       ToastWarning(`Deck ${deckFormData.name} already exists!`);
       return;
     }
-    // function will close modal, API POST to create card, handle loading state, etc
     handleCreateNewDeck(deckFormData);
   };
 
