@@ -1,5 +1,4 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { Button } from "@mui/material";
 import { ToastWarning } from "../../../utils/Toastify";
 import { ICreateNewDeck } from "../../../interfaces/index";
 // import { useEffect } from "react";
@@ -67,7 +66,8 @@ const CreateDeckModalForm: React.FC<Props> = ({
   // }, [isModal, toggleModal]);
 
   const closeModal = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
     toggleModal(false);
   };
 

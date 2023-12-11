@@ -5,8 +5,10 @@ import Spinner from "../../../utils/Spinner";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
 import { VocabSliceService } from "../../../features/vocabSlice";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const DeckPage = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const currentDeck = useAppSelector(VocabSliceService.getCurrentDeck);
 
@@ -35,7 +37,9 @@ const DeckPage = () => {
           <h1>{currentDeck.name}</h1>
           <p>ID: {currentDeck._id}</p>
           <CreateWordForm handleCreateNewWord={handleCreateNewWord} />
-          <Button>Upload words</Button>
+          <Button onClick={() => navigate("/vocab/upload-words")}>
+            Upload words
+          </Button>
           {currentDeck.words.map((item) => {
             return (
               <div key={item._id}>

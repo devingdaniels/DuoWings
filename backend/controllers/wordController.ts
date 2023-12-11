@@ -7,6 +7,7 @@ const createWord = async (req: Request, res: Response) => {
   // Get the userID from the request user assigned by middleware
   const { word, deckID } = req.body;
   const userID = req.user;
+
   try {
     // Get the deck from the DB
     const deck = await DeckModel.findById(deckID);
