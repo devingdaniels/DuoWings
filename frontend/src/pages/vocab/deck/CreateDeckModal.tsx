@@ -2,12 +2,12 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Button } from "@mui/material";
 import { ToastWarning } from "../../../utils/Toastify";
 import { ICreateNewDeck } from "../../../interfaces/index";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 interface Props {
   isModal: boolean;
   handleCreateNewDeck: (deck: ICreateNewDeck) => void;
-  toggleModal: (e: boolean) => void;
+  toggleModal: (val: boolean) => void;
   decks: ICreateNewDeck[];
 }
 
@@ -43,30 +43,31 @@ const CreateDeckModalForm: React.FC<Props> = ({
     handleCreateNewDeck(deckFormData);
   };
 
-  useEffect(() => {
-    const handleModalInteraction = (e: KeyboardEvent | MouseEvent) => {
-      if (
-        (e instanceof KeyboardEvent && e.key === "Escape") ||
-        (e instanceof MouseEvent &&
-          isModal &&
-          (e.target as Element).closest(".modal-content") === null) // Clicked outside of modal container
-      ) {
-        toggleModal(false);
-      }
-    };
-
-    // Add event listeners
-    document.addEventListener("click", handleModalInteraction);
-    document.addEventListener("keydown", handleModalInteraction);
-    // Cleanup
-    return () => {
-      document.removeEventListener("click", handleModalInteraction);
-      document.removeEventListener("keydown", handleModalInteraction);
-    };
-  }, [isModal, toggleModal]);
+  // useEffect(() => {
+  //   const handleModalInteraction = (e: KeyboardEvent | MouseEvent) => {
+  //     // Clicked outside of modal container
+  //     if (
+  //       (e instanceof KeyboardEvent && e.key === "Escape") ||
+  //       (e instanceof MouseEvent &&
+  //         isModal &&
+  //         (e.target as Element).closest(".modal-content") === null)
+  //     ) {
+  //       console.log("closing modal");
+  //       // toggleModal(false);
+  //     }
+  //   };
+  //   // Add event listeners
+  //   document.addEventListener("click", handleModalInteraction);
+  //   document.addEventListener("keydown", handleModalInteraction);
+  //   // Cleanup
+  //   return () => {
+  //     document.removeEventListener("click", handleModalInteraction);
+  //     document.removeEventListener("keydown", handleModalInteraction);
+  //   };
+  // }, [isModal, toggleModal]);
 
   const closeModal = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
+    // e.stopPropagation();
     toggleModal(false);
   };
 
@@ -93,16 +94,10 @@ const CreateDeckModalForm: React.FC<Props> = ({
             />
             <br />
           </div>
-          <Button type="submit" variant="contained">
-            Create Deck
-          </Button>
-          <Button
-            variant="contained"
-            className="close-modal-button"
-            onClick={closeModal}
-          >
-            Cancel
-          </Button>
+          <div className="create-deck-modal-container">
+            <button type="submit">Create</button>
+            <button onClick={closeModal}>Cancel</button>
+          </div>
         </form>
       </div>
     </div>

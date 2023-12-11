@@ -385,6 +385,16 @@ a {
   font-size: 16px;
 }
 
+.create-deck-modal-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+
+.button-item {
+}
+
 /* ------------------------ CREATE NEW DECK BUTTON (FIXED) ------------------------  */
 .create-new-deck-button {
   position: fixed;
