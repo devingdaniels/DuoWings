@@ -1,18 +1,17 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
-import { FaCreativeCommonsZero } from "react-icons/fa";
-import SearchAppBar from "./DeckSearchBar";
 import CreateDeckModalForm from "./CreateDeckModal";
 import DeckCardOverview from "./DeckCardOverview";
+import { FaCreativeCommonsZero } from "react-icons/fa";
+import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
+import React from "react";
+import SearchAppBar from "./DeckSearchBar";
 import Spinner from "../../../utils/Spinner";
 import { ToastError } from "../../../utils/Toastify";
-import { useAppSelector } from "../../../app/hooks";
 import { useAppDispatch } from "../../../app/hooks";
-
+import { useAppSelector } from "../../../app/hooks";
+import { useEffect } from "react";
+import { useState } from "react";
 import { VocabSliceService } from "../../../features/vocabSlice";
-import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
 
 const AllDecksPage: React.FC = () => {
   // Redux
