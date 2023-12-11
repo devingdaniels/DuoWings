@@ -2,7 +2,7 @@ import { IWordDeck } from "../../../interfaces/index";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useAppDispatch } from "../../../app/hooks";
-import { deleteDeckByID, setCurrentDeck } from "../../../features/vocabSlice";
+import { VocabSliceService } from "../../../features/vocabSlice";
 
 interface DeckProps {
   deck: IWordDeck;
@@ -15,7 +15,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
   const dispatch = useAppDispatch();
   // Handlers
   const goToDeckPage = (deck: IWordDeck) => {
-    dispatch(setCurrentDeck(deck));
+    dispatch(VocabSliceService.setCurrentDeck(deck));
     navigate(`/vocab/decks/${deck._id}`);
   };
 
@@ -23,7 +23,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
     // Delete button is inside deck card which also has onClick
     // stopPropagation prevents the onClick from firing that would result in going to that deck's page
     e.stopPropagation();
-    await dispatch(deleteDeckByID(deck._id));
+    await dispatch(VocabSliceService.deleteDeckByID(deck._id));
     fetchUserDecks();
   };
 

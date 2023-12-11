@@ -25,7 +25,7 @@ const initialState: VocabState = {
 };
 
 // Create an async thunk to fetch user decks from the backend
-export const fetchAllUserDecks = createAsyncThunk(
+const fetchAllUserDecks = createAsyncThunk(
   "vocab/fetchAllUserDecks",
   async (_, { rejectWithValue }) => {
     try {
@@ -61,7 +61,7 @@ export const getDeckByID = createAsyncThunk(
   }
 );
 
-export const createDeck = createAsyncThunk(
+const createDeck = createAsyncThunk(
   "vocab/createDeck",
   async (deck: ICreateNewDeck, { rejectWithValue }) => {
     try {
@@ -132,9 +132,6 @@ const vocabSlice = createSlice({
       state.isLoading = false;
       state.isError = false;
       state.message = "";
-    },
-    setUserDecks: (state, action) => {
-      state.decks = action.payload;
     },
     setCurrentDeck: (state, action) => {
       state.currentDeck = action.payload;
@@ -234,13 +231,25 @@ const vocabSlice = createSlice({
   },
 });
 
-// Actions
-export const clearUserDeckState = createAction("vocab/clearDeckState");
-export const resetCurrentDeck = createAction("vocab/resetCurrentDeck");
-export const selectCurrentUserDeck = (state: RootState) =>
-  state.vocab.currentDeck;
-export const { setUserDecks } = vocabSlice.actions;
-export const { resetDeckStatus } = vocabSlice.actions;
-export const { setCurrentDeck } = vocabSlice.actions;
+const resetCurrentDeck = createAction("vocab/resetCurrentDeck");
+const clearUserDeckState = createAction("vocab/clearDeckState");
+const getCurrentDeck = (state: RootState) => state.vocab.currentDeck;
+const { setCurrentDeck } = vocabSlice.actions;
+const { resetDeckStatus } = vocabSlice.actions;
+
 // Reducer
 export default vocabSlice.reducer;
+
+const VocabSliceService = {
+  createDeck,
+  fetchAllUserDecks,
+  getDeckByID,
+  deleteDeckByID,
+  createWord,
+  resetCurrentDeck,
+  clearUserDeckState,
+  getCurrentDeck,
+  resetDeckStatus,
+  setCurrentDeck,
+};
+export { VocabSliceService };

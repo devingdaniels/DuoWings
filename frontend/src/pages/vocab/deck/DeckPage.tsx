@@ -3,12 +3,12 @@ import { createWord } from "../../../features/vocabSlice";
 import CreateWordForm from "../words/CreateWordForm";
 import Spinner from "../../../utils/Spinner";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
-import { selectCurrentUserDeck } from "../../../features/vocabSlice";
+import { VocabSliceService } from "../../../features/vocabSlice";
 import { Button } from "@mui/material";
 
 const DeckPage = () => {
   const dispatch = useAppDispatch();
-  const currentDeck = useAppSelector(selectCurrentUserDeck);
+  const currentDeck = useAppSelector(VocabSliceService.getCurrentDeck);
 
   const { isLoading, isError, message } = useAppSelector(
     (state) => state.vocab

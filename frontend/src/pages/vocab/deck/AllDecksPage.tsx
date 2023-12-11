@@ -1,24 +1,18 @@
-// React
-import React, { useState, useEffect } from "react";
-// Components
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { AiOutlinePlus } from "react-icons/ai";
+import { FaCreativeCommonsZero } from "react-icons/fa";
 import SearchAppBar from "./DeckSearchBar";
 import CreateDeckModalForm from "./CreateDeckModal";
 import DeckCardOverview from "./DeckCardOverview";
-//  Redux store actions
-import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import {
-  createDeck,
-  fetchAllUserDecks,
-  resetCurrentDeck,
-  resetDeckStatus,
-} from "../../../features/vocabSlice";
-// TypeScript interfaces
-import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
-// Loading spinners
 import Spinner from "../../../utils/Spinner";
-// Icons
-import { AiOutlinePlus } from "react-icons/ai";
-import { FaCreativeCommonsZero } from "react-icons/fa";
+import { ToastError } from "../../../utils/Toastify";
+import { useAppSelector } from "../../../app/hooks";
+import { useAppDispatch } from "../../../app/hooks";
+
+import { VocabSliceService } from "../../../features/vocabSlice";
+import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
 
 const AllDecksPage: React.FC = () => {
   // Redux
@@ -27,12 +21,17 @@ const AllDecksPage: React.FC = () => {
     (state) => state.vocab
   );
   // State
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [deckData, setDeckData] = useState<IWordDeck[]>(decks || []);
   const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(
     deckData || []
   );
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [isModal, setIsModal] = useState<boolean>(false);
+
+  // Modal handlers and event listeners
+  const toggleModal = (val: boolean) => {
+    setIsModal(val);
+  };
 
   const filterDecks = (value: string) => {
     const searchText = value.toLowerCase();
@@ -45,60 +44,29 @@ const AllDecksPage: React.FC = () => {
 
   const handleCreateNewDeck = async (deck: ICreateNewDeck) => {
     // First close the modal from the UI
-    setIsModalOpen(false);
+    setIsModal(false);
     // Dispatch creation of new deck, should set loading to true
-    await dispatch(createDeck(deck));
+    await dispatch(VocabSliceService.createDeck(deck));
     // Reset deck loading states
-    dispatch(resetDeckStatus());
+    dispatch(VocabSliceService.resetDeckStatus());
     // Get updated decks
-    await dispatch(fetchAllUserDecks());
+    await dispatch(VocabSliceService.fetchAllUserDecks());
   };
 
   const fetchUserDecks = () => {
-    dispatch(fetchAllUserDecks());
+    dispatch(VocabSliceService.fetchAllUserDecks());
   };
-
-  // Get latest user decks on component mount
+  // Get latest user decks on component mount and when decks change
   useEffect(() => {
-    dispatch(fetchAllUserDecks());
-    dispatch(resetCurrentDeck());
+    dispatch(VocabSliceService.fetchAllUserDecks());
+    dispatch(VocabSliceService.resetCurrentDeck());
   }, [dispatch]);
 
   // If decks change, update state
   useEffect(() => {
     setDeckData(decks);
     setFilteredDecks(decks);
-  }, [decks, isSuccess, dispatch]);
-
-  // Modal handlers and event listeners
-  const toggleModal = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    setIsModalOpen(!isModalOpen);
-  };
-
-  // Modal handler
-  // Note: this is a bit of a hacky solution, but it works
-  useEffect(() => {
-    const handleModalInteraction = (e: KeyboardEvent | MouseEvent) => {
-      if (
-        (e instanceof KeyboardEvent && e.key === "Escape") ||
-        (e instanceof MouseEvent &&
-          isModalOpen &&
-          (e.target as Element).closest(".modal-content") === null) // Clicked outside of modal container
-      ) {
-        setIsModalOpen(false);
-      }
-    };
-
-    // Add event listeners
-    document.addEventListener("click", handleModalInteraction);
-    document.addEventListener("keydown", handleModalInteraction);
-    // Cleanup
-    return () => {
-      document.removeEventListener("click", handleModalInteraction);
-      document.removeEventListener("keydown", handleModalInteraction);
-    };
-  }, [isModalOpen]);
+  }, [decks, isSuccess]);
 
   const NewDeckButton = () => {
     return (
@@ -106,12 +74,17 @@ const AllDecksPage: React.FC = () => {
         className="add-new-deck-button"
         size={80}
         style={{ color: "red" }}
-        onClick={toggleModal}
+        onClick={() => {
+          setIsModal(true);
+        }}
       ></AiOutlinePlus>
     );
   };
 
-  if (isError) return <p>Application error. Please refresh the page</p>;
+  if (isError) {
+    ToastError("something went wrong");
+    return <p>Application error. Please try again</p>;
+  }
 
   // Show spinner for any async process
   if (isLoading) {
@@ -123,7 +96,7 @@ const AllDecksPage: React.FC = () => {
   }
 
   // No decks and no state-changing functionality in progress
-  if (decks.length === 0 && !isModalOpen && !isLoading) {
+  if (decks.length === 0 && !isModal && !isLoading) {
     return (
       <div className="all-decks-page-container-empty">
         <h2>No Decks :(</h2>
@@ -136,7 +109,7 @@ const AllDecksPage: React.FC = () => {
   // Primary JSX return
   return (
     <div className="all-decks-page-container">
-      {!isModalOpen && (
+      {!isModal && (
         <>
           <div className="all-deck-page-search-wrapper">
             <div className="all-deck-page-search-container">
@@ -158,14 +131,13 @@ const AllDecksPage: React.FC = () => {
           <NewDeckButton />
         </>
       )}
-      {isModalOpen && (
-        <div className="modal-container">
-          <CreateDeckModalForm
-            handleCreateNewDeck={handleCreateNewDeck}
-            toggleModal={toggleModal}
-            decks={deckData}
-          />
-        </div>
+      {isModal && (
+        <CreateDeckModalForm
+          isModal={isModal}
+          handleCreateNewDeck={handleCreateNewDeck}
+          toggleModal={toggleModal}
+          decks={deckData}
+        />
       )}
     </div>
   );

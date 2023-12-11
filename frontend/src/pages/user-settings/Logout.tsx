@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 // Redux
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { persistor } from "../../app/store";
-import { clearUserDeckState } from "../../features/vocabSlice";
+import { VocabSliceService } from "../../features/vocabSlice";
 import { clearUserAuthState } from "../../features/userAuthSlice";
 import { logout } from "../../features/userAuthSlice";
 
@@ -16,7 +16,7 @@ function Logout() {
   const { isLoading } = useAppSelector((state) => state.auth);
 
   const handleLogout = () => {
-    dispatch(clearUserDeckState());
+    dispatch(VocabSliceService.clearUserDeckState());
     dispatch(clearUserAuthState());
     dispatch(logout());
     // Purge local storage and wait for it to complete
