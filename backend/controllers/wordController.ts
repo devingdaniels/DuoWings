@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { WordModel } from "../mongodb/models/wordModel";
-import { DeckModel } from "../mongodb/models/deckModel";
+import { WordModel } from "../database/models/wordModel";
+import { DeckModel } from "../database/models/deckModel";
 
 import { openAIService } from "../services/openai/config";
 

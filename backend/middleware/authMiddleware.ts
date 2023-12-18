@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { UserModel } from "../mongodb/models/userModel";
+import { UserModel } from "../database/models/userModel";
 import { JwtPayload } from "jsonwebtoken";
 import jwt from "jsonwebtoken";
 import config from "../config/config";

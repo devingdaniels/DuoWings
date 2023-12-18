@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import mongoose from "mongoose";
-import { DeckModel } from "../mongodb/models/deckModel";
+import { DeckModel } from "../database/models/deckModel";
 
 const NAME_SPACE = "DeckController";
 

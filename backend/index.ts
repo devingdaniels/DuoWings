@@ -1,6 +1,6 @@
 import express from "express";
 import http from "http";
-import connectMongDB from "./mongodb/configDB";
+import connectMongDB from "./database/configDB";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import compression from "compression";
