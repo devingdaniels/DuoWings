@@ -1,4 +1,6 @@
 import axios from "axios";
+import { logout } from "../features/userAuthSlice";
+import { useAppDispatch } from "../app/hooks";
 
 const Axios = axios.create({});
 
@@ -10,11 +12,11 @@ Axios.interceptors.response.use(
     return response;
   },
   (error) => {
+    const dispatch = useAppDispatch();
+    console.log(error);
     const { status } = error.response;
     if (status === 401) {
-      // Dispatch action to reset Redux store slices
-      console.log("401 error");
-      // Perform any other actions like redirecting to the login page
+      dispatch(logout());
     } else {
       // Log the error response
       console.error("Error Response:", error.response);

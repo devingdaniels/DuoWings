@@ -16,13 +16,11 @@ const DeckPage = () => {
     (state) => state.vocab
   );
 
-  const handleCreateNewWord = async (word: string) => {
-    const newWord: ICreateNewVocabWord = {
-      word,
-      deckID: currentDeck!._id,
-    };
-    const response = await dispatch(createWord(newWord));
+  const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
+    word.deckID = currentDeck!._id;
+    const response = await dispatch(createWord(word));
     console.log(response);
+    // do stuff
   };
 
   if (isLoading) return <Spinner />;

@@ -64,10 +64,10 @@ const deleteDeckByID = async (deckID: string) => {
   }
 };
 
-const createWord = async (word: ICreateNewVocabWord) => {
+const createWord = async (wordFormData: ICreateNewVocabWord) => {
   const URL = import.meta.env.VITE_BACKEND_API_WORD + "/create-word";
   try {
-    const response = await Axios.post(URL, word);
+    const response = await Axios.post(URL, wordFormData);
     return response.data;
   } catch (err: any) {
     if (err.response && err.response.data) {

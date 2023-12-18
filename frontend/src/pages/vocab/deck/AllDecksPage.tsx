@@ -16,7 +16,7 @@ import { VocabSliceService } from "../../../features/vocabSlice";
 const AllDecksPage: React.FC = () => {
   // Redux
   const dispatch = useAppDispatch();
-  const { decks, isSuccess, isLoading, isError } = useAppSelector(
+  const { decks, isSuccess, isLoading, isError, message } = useAppSelector(
     (state) => state.vocab
   );
   // State
@@ -81,7 +81,7 @@ const AllDecksPage: React.FC = () => {
   };
 
   if (isError) {
-    ToastError("something went wrong");
+    ToastError(message);
     return <p>Application error. Please try again</p>;
   }
 
