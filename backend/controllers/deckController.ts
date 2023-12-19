@@ -27,6 +27,7 @@ const createDeck = async (req: Request, res: Response): Promise<void> => {
       },
       words: [],
     });
+
     // Save the deck to DB
     await deck.save();
     res.status(201).json({ message: `${name} created successfully`, deck });

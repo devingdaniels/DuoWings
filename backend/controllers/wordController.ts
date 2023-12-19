@@ -16,11 +16,12 @@ const createWord = async (req: Request, res: Response) => {
     const deck = await DeckModel.findById(deckID);
 
     if (!deck) {
-      return res.status(404).json({ error: "Error getting deck" });
+      return res.status(404).json({ error: `${deck} does not exist` });
     } else {
       // Create a new word
-
-      const newWord = new WordModel(openAIService.fakeWordBuilder(word, definition)); // TODO: Change to openAIService.buildWord(word)
+      const builtWord = await openAIService.fakeWordBuilder(word, definition);
+      console.log("Backend: Word created:", builtWord);
+      const newWord = new WordModel(builtWord);
       await newWord.save();
       deck.words.push(newWord);
       await deck.save();

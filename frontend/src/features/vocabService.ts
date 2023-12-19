@@ -1,5 +1,8 @@
-import { Axios } from "../middleware/axios";
+// import { Axios } from "../middleware/axios";
 import { ICreateNewDeck, ICreateNewVocabWord } from "../interfaces/index";
+
+import Axios from "axios";
+Axios.defaults.withCredentials = true;
 
 // Backend server URL
 const URL = import.meta.env.VITE_BACKEND_API_DECK;

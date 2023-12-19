@@ -11,7 +11,7 @@ const WordSchema = new mongoose.Schema({
   },
   wordType: {
     type: String,
-    // required: true,
+    required: true,
   },
   exampleSentence: String,
   conjugations: {
