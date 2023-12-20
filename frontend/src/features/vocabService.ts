@@ -1,7 +1,6 @@
-// import { Axios } from "../middleware/axios";
+import Axios from "axios";
 import { ICreateNewDeck, ICreateNewVocabWord } from "../interfaces/index";
 
-import Axios from "axios";
 Axios.defaults.withCredentials = true;
 
 // Backend server URL

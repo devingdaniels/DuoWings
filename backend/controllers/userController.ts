@@ -50,9 +50,8 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
     // Generate a JWT token
     const token = await signJWT(newUser._id.toString());
 
-    // set cookie for 24 hours (maxAge is in milliseconds)
-    const maxAge = 24 * 60 * 60 * 1000;
-    res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: maxAge });
+    // maxAge: config.server.token.expireTime
+    res.cookie(USER_COOKIE_NAME, token, { httpOnly: true });
 
     res.status(201).json(newUser);
   } catch (error) {
@@ -86,7 +85,8 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     const token = await signJWT(existingUser._id.toString());
 
     // Set the cookie in the response using the JWT token
-    res.cookie(USER_COOKIE_NAME, token, { httpOnly: true, maxAge: 3600000 });
+    //maxAge: config.server.token.expireTime
+    res.cookie(USER_COOKIE_NAME, token, { httpOnly: true });
 
     res.status(201).json(existingUser);
   } catch (error) {
@@ -107,7 +107,7 @@ const logoutUser = async (req: Request, res: Response, next: NextFunction): Prom
 
     // Clear the cookie
     res.clearCookie(USER_COOKIE_NAME, { httpOnly: true });
-    res.status(200).json({ message: "Cookie removed: logout successful" });
+    res.status(200).json({ message: "Auth revoked and logout successful" });
   } catch (error: any) {
     next(error);
   }

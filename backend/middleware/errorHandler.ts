@@ -1,11 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 
 const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error("Error handler has been triggered");
-
   const statusCode = res.statusCode || 500;
 
-  console.error(err);
+  console.error("Express error handler caught: ", err);
 
   const customError = {
     message: err.message || "Internal Server Error",

@@ -1,5 +1,5 @@
 import { DeckModel } from "../database/models/deckModel";
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 
 const NAMESPACE = "DeckController";
@@ -43,23 +43,29 @@ const fetchAllDecks = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-const fetchDeckByID = async (req: Request, res: Response): Promise<void> => {
+const fetchDeckByID = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const deck = await DeckModel.findOne({ userID: req.user._id, _id: req.params.id });
     res.status(200).json(deck);
   } catch (error) {
-    console.error("Error fetching decks:", error);
-    res.status(500).json({ error: "Failed to fetch decks" });
+    next(error);
   }
 };
 
-const deleteDeckByID = async (req: Request, res: Response): Promise<void> => {
+const deleteDeckByID = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    await DeckModel.findOneAndDelete({ userID: req.user._id, _id: req.params.id });
-    res.status(200).json({ message: "Deck deleted successfully" });
-  } catch (error) {
-    console.error("Error fetching decks:", error);
-    res.status(500).json({ error: "Failed to fetch decks" });
+    const result = await DeckModel.findOneAndDelete({ userID: req.user._id, _id: req.params.id });
+
+    if (!result) {
+      // Deck not found, return 404 status
+      res.status(404).json({ message: "Deck not found" });
+    } else {
+      res.status(200).json({ message: "Deck deleted successfully" });
+    }
+  } catch (error: any) {
+    // Internal server error, return 500 status
+    res.status(500).json({ message: "Internal Server Error" });
+    next(error);
   }
 };
 

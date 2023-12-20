@@ -82,7 +82,7 @@ const AllDecksPage: React.FC = () => {
 
   if (isError) {
     ToastError(message);
-    return <p>Application error. Please try again</p>;
+    // return <p>Application error. Please try again</p>;
   }
 
   // Show spinner for any async process

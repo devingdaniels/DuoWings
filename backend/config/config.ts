@@ -37,7 +37,7 @@ const SERVER = {
   namespace: NAMESPACE,
   userauthcookie: SERVER_USER_COOKIE_NAME,
   token: {
-    expireTime: SERVER_TOKEN_EXPIRETIME,
+    expireTime: parseInt(SERVER_TOKEN_EXPIRETIME as string),
     issuer: SERVER_TOKEN_ISSUER,
     secret: SERVER_TOKEN_SECRET,
   },
