@@ -9,11 +9,11 @@ const WordSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  exampleSentence: String,
   wordType: {
     type: String,
     required: true,
   },
-  exampleSentence: String,
   conjugations: {
     present: {
       yo: String,
@@ -23,14 +23,40 @@ const WordSchema = new mongoose.Schema({
       vosotros: String,
       ellos: String,
     },
+    preterite: {
+      yo: String,
+      tu: String,
+      el: String,
+      nosotros: String,
+      vosotros: String,
+      ellos: String,
+    },
+    future: {
+      yo: String,
+      tu: String,
+      el: String,
+      nosotros: String,
+      vosotros: String,
+      ellos: String,
+    },
+    imperfect: {
+      yo: String,
+      tu: String,
+      el: String,
+      nosotros: String,
+      vosotros: String,
+      ellos: String,
+    },
   },
-  difficulty: Number,
+  stats: {
+    difficulty: Number,
+    creationDate: {
+      type: Date,
+      default: new Date(),
+      immutable: false,
+    },
+  },
   tags: [String],
-  creationDate: {
-    type: Date,
-    default: new Date(),
-    immutable: false,
-  },
 });
 
 // WordSchema.methods.incrementCorrectCount = async function () {

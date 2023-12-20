@@ -27,7 +27,6 @@ const signJWT = async (_id: string): Promise<string> => {
         expiresIn: expirationTimeInSeconds,
       }
     );
-
     return token;
   } catch (error: any) {
     logging.error(NAMESPACE, error.message, error);
