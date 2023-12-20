@@ -1,10 +1,9 @@
-import { json } from "body-parser";
 import dotenv from "dotenv";
 import OpenAI from "openai";
 dotenv.config();
 
 const NAMESPACE = "openai service";
-const openai = new OpenAI();
+const openAI = new OpenAI();
 // const KEY = process.env.OPENAI_API_KEY;
 // const URL = process.env.OPENAI_API_URL || "";
 
@@ -31,7 +30,7 @@ const fakeWordBuilder = (word: string) => {
 };
 
 // Returns a stringified JSON object
-const buildWord = async (word: string): Promise<string> => {
+const buildWord = async (word: string): Promise<object> => {
   // Prompt string
   const prompt = `Given the word "${word}", complete the following object with appropriate values. For each key, ensure each word has single quotes around it. \n\n:
   {
@@ -76,7 +75,7 @@ const buildWord = async (word: string): Promise<string> => {
 }`;
 
   try {
-    const response = await openai.chat.completions.create({
+    const response = await openAI.chat.completions.create({
       messages: [{ role: "system", content: prompt }],
       model: "gpt-3.5-turbo",
     });
@@ -86,8 +85,9 @@ const buildWord = async (word: string): Promise<string> => {
     }
 
     const word = response.choices[0].message.content;
+    const parsed = JSON.parse(word);
 
-    return word;
+    return parsed;
   } catch (error) {
     console.error(error);
     throw new Error(`${NAMESPACE}: ${error}`);

@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { WordSchema } from "./wordModel";
 
 const WordDeckSchema = new mongoose.Schema({
-  user: {
+  userID: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: "User",
@@ -26,6 +26,7 @@ const WordDeckSchema = new mongoose.Schema({
   words: [WordSchema],
 });
 
+// Parameters: (modelName, schema, collectionName)
 const DeckModel = mongoose.model("Decks", WordDeckSchema, "decks");
 
 export { DeckModel };
