@@ -33,12 +33,11 @@ const DuoWingsApp = () => {
         />
         <Route path="/tutor" element={user ? <TutorPage /> : <TutorPage />} />
       </Routes>
-
       <ToastContainer
         position="top-right"
-        autoClose={3500}
+        autoClose={2500}
         hideProgressBar={false}
-        newestOnTop={false}
+        newestOnTop={true}
         closeOnClick
         rtl={false}
         pauseOnFocusLoss

@@ -32,7 +32,7 @@ const fakeWordBuilder = (word: string) => {
 // Returns a stringified JSON object
 const buildWord = async (word: string): Promise<string> => {
   // Prompt string
-  const prompt = `Given the word "${word}", complete the following object with appropriate values. For each key, ensure each word has single quotes around it. \n\n:
+  const prompt = `Given the word "${word}", complete the following object with appropriate values and return a JSON object. For each key, ensure each word has single quotes around it. \n\n:
   {
     word: "${word}",
     definition: [definition of the word],
@@ -77,14 +77,15 @@ const buildWord = async (word: string): Promise<string> => {
   try {
     const response = await openAI.chat.completions.create({
       messages: [{ role: "system", content: prompt }],
-      model: "gpt-3.5-turbo",
+      model: "gpt-3.5-turbo-1106",
+      response_format: { type: "json_object" },
     });
 
     if (response.choices[0].message.content == null) {
       throw new Error(`${NAMESPACE}: No choices returned`);
     }
 
-    return response.choices[0].message.content;
+    return JSON.parse(response.choices[0].message.content);
   } catch (error) {
     console.error(error);
     throw new Error(`${NAMESPACE}: ${error}`);

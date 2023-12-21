@@ -6,6 +6,7 @@ import { ICreateNewVocabWord } from "../../../interfaces/index";
 import { VocabSliceService } from "../../../features/vocabSlice";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const DeckPage = () => {
   const navigate = useNavigate();
@@ -22,6 +23,10 @@ const DeckPage = () => {
     console.log(response);
     // do stuff
   };
+
+  useEffect(() => {
+    dispatch(VocabSliceService.resetDeckStatus());
+  }, [dispatch]);
 
   if (isLoading) return <Spinner />;
 

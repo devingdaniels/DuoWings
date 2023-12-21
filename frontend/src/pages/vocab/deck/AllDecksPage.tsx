@@ -34,6 +34,7 @@ const AllDecksPage: React.FC = () => {
     }
 
     dispatch(VocabSliceService.resetCurrentDeck());
+    // dispatch(VocabSliceService.resetDeckStatus());
   }, [dispatch, decks.length, isLoading, isError]);
 
   // If decks change, update state
