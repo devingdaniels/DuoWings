@@ -27,6 +27,21 @@ const AllDecksPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [isModal, setIsModal] = useState<boolean>(false);
 
+  // Get latest user decks on component mount and when decks change
+  useEffect(() => {
+    if (decks.length === 0 && !isLoading && !isError) {
+      dispatch(VocabSliceService.fetchAllUserDecks());
+    }
+
+    dispatch(VocabSliceService.resetCurrentDeck());
+  }, [dispatch, decks.length, isLoading, isError]);
+
+  // If decks change, update state
+  useEffect(() => {
+    setDeckData(decks);
+    setFilteredDecks(decks);
+  }, [decks, isSuccess]);
+
   // Modal handlers and event listeners
   const toggleModal = (val: boolean) => {
     setIsModal(val);
@@ -55,17 +70,6 @@ const AllDecksPage: React.FC = () => {
   const fetchUserDecks = () => {
     dispatch(VocabSliceService.fetchAllUserDecks());
   };
-  // Get latest user decks on component mount and when decks change
-  useEffect(() => {
-    dispatch(VocabSliceService.fetchAllUserDecks());
-    dispatch(VocabSliceService.resetCurrentDeck());
-  }, [dispatch]);
-
-  // If decks change, update state
-  useEffect(() => {
-    setDeckData(decks);
-    setFilteredDecks(decks);
-  }, [decks, isSuccess]);
 
   const NewDeckButton = () => {
     return (
@@ -82,10 +86,8 @@ const AllDecksPage: React.FC = () => {
 
   if (isError) {
     ToastError(message);
-    // return <p>Application error. Please try again</p>;
   }
 
-  // Show spinner for any async process
   if (isLoading) {
     return (
       <div className="all-decks-page-container">

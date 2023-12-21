@@ -30,7 +30,7 @@ const fakeWordBuilder = (word: string) => {
 };
 
 // Returns a stringified JSON object
-const buildWord = async (word: string): Promise<object> => {
+const buildWord = async (word: string): Promise<string> => {
   // Prompt string
   const prompt = `Given the word "${word}", complete the following object with appropriate values. For each key, ensure each word has single quotes around it. \n\n:
   {
@@ -84,10 +84,7 @@ const buildWord = async (word: string): Promise<object> => {
       throw new Error(`${NAMESPACE}: No choices returned`);
     }
 
-    const word = response.choices[0].message.content;
-    const parsed = JSON.parse(word);
-
-    return parsed;
+    return response.choices[0].message.content;
   } catch (error) {
     console.error(error);
     throw new Error(`${NAMESPACE}: ${error}`);

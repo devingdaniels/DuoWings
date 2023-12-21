@@ -8,7 +8,7 @@ import { RootState } from "../app/store";
 
 interface VocabState {
   decks: IWordDeck[] | [];
-  currentDeck: IWordDeck | null;
+  currentDeck: IWordDeck | null; // useful as reference to improve performance
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
@@ -17,7 +17,7 @@ interface VocabState {
 
 const initialState: VocabState = {
   decks: [],
-  currentDeck: null, // useful because as reference to improve performance
+  currentDeck: null,
   isLoading: false,
   isSuccess: false,
   isError: false,
@@ -43,7 +43,7 @@ const fetchAllUserDecks = createAsyncThunk(
   }
 );
 
-export const getDeckByID = createAsyncThunk(
+const getDeckByID = createAsyncThunk(
   "vocab/getDeckByID",
   async (deckId: string, { rejectWithValue }) => {
     try {
@@ -211,7 +211,6 @@ const vocabSlice = createSlice({
         state.message = action.error.message as string;
       })
       /* WORD CASES */
-      // Handle the createWord async thunk
       .addCase(createWord.pending, (state) => {
         state.isLoading = true;
       })
@@ -237,9 +236,6 @@ const getCurrentDeck = (state: RootState) => state.vocab.currentDeck;
 const { setCurrentDeck } = vocabSlice.actions;
 const { resetDeckStatus } = vocabSlice.actions;
 
-// Reducer
-export default vocabSlice.reducer;
-
 const VocabSliceService = {
   createDeck,
   fetchAllUserDecks,
@@ -248,8 +244,10 @@ const VocabSliceService = {
   createWord,
   resetCurrentDeck,
   clearUserDeckState,
-  getCurrentDeck,
   resetDeckStatus,
   setCurrentDeck,
+  getCurrentDeck,
 };
 export { VocabSliceService };
+// Reducer
+export default vocabSlice.reducer;
