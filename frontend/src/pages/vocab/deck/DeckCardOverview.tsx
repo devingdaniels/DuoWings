@@ -34,7 +34,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
     >
       <div className="deck-card-overview-header">
         <span className="deck-header-item deck-header-level-container">
-          Level {deck.level}
+          Level 1{deck.level}
         </span>
         <h2 className="deck-header-item">{deck.name}</h2>
         <div className="deck-header-item delete-container">
@@ -42,7 +42,6 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
         </div>
       </div>
       <div className="deck-details">
-        <p>{deck.description}</p>
         <p>Created: {new Date(deck.creationDate).toLocaleDateString()}</p>
       </div>
     </div>
