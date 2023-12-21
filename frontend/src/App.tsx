@@ -5,6 +5,7 @@ import PageNotFound from "./pages/NotFoundPage";
 import RegisterPage from "./pages/auth/register-page/RegisterPage";
 import { Route, Routes } from "react-router-dom";
 import { selectUser } from "./features/userAuthSlice";
+import TutorPage from "./pages/tutor/TutorPage";
 import { ToastContainer } from "react-toastify";
 import { useAppSelector } from "./app/hooks";
 import UserSettingsPage from "./pages/user-settings/UserSettingsPage";
@@ -30,7 +31,9 @@ const DuoWingsApp = () => {
           path="/user-settings"
           element={user ? <UserSettingsPage /> : <PageNotFound />}
         />
+        <Route path="/tutor" element={user ? <TutorPage /> : <TutorPage />} />
       </Routes>
+
       <ToastContainer
         position="top-right"
         autoClose={3500}
