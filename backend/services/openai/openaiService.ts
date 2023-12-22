@@ -7,37 +7,15 @@ const openAI = new OpenAI();
 // const KEY = process.env.OPENAI_API_KEY;
 // const URL = process.env.OPENAI_API_URL || "";
 
-const fakeWordBuilder = (word: string) => {
-  return {
-    word: word,
-    definition: "to speak",
-    wordType: "verb",
-    exampleSentence: "Me gusta hablar español todos los días.",
-    conjugations: {
-      present: {
-        yo: "hablo",
-        tu: "hablas",
-        el: "habla",
-        nosotros: "hablamos",
-        vosotros: "habláis",
-        ellos: "hablan",
-      },
-    },
-    difficulty: 2,
-    tags: ["language", "communication"],
-    creationDate: "2023-12-19T18:35:56.002Z",
-  };
-};
-
 // Returns a stringified JSON object
 const buildWord = async (word: string): Promise<string> => {
   // Prompt string
-  const prompt = `Given the word "${word}", complete the following object with appropriate values and return a JSON object. For each key, ensure each word has single quotes around it. \n\n:
+  const prompt = `Given the word "${word}", complete the following object with appropriate values and return a JSON object. \n\n:
   {
     word: "${word}",
     definition: [definition of the word],
     wordType: [type of word],
-    exampleSentence: [example sentence using the word],
+    exampleSentence: [1 example sentence using the word],
     conjugations: {
         present: {
             yo: [conjugation for 'yo'],
@@ -94,7 +72,6 @@ const buildWord = async (word: string): Promise<string> => {
 
 const openAIService = {
   buildWord,
-  fakeWordBuilder,
 };
 
 export { openAIService };

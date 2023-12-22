@@ -392,7 +392,7 @@ a {
   margin: auto;
 }
 
-/* ------------------------ CREATE NEW DECK BUTTON (FIXED) ------------------------  */
+/* ------------------------ CREATE NEW DECK BUTTON (FIXED ON PAGE) ------------------------  */
 .create-new-deck-button {
   position: fixed;
   bottom: 20px;
@@ -418,4 +418,15 @@ a {
   flex-direction: column;
   align-items: center;
   margin: auto;
+}
+
+/* ------------------------ CREATE NEW WORD PAGE W/FORM ------------------------  */
+
+.create-new-word input {
+  margin-bottom: 30px;
+  width: 50%;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  font-size: inherit;
 }

@@ -27,7 +27,7 @@ const NewWordForm: React.FC<NewWordFormProps> = ({ handleCreateNewWord }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="create-new-word" onSubmit={handleSubmit}>
       <input
         type="text"
         id="word"

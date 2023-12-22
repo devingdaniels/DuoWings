@@ -7,12 +7,12 @@ import { VocabSliceService } from "../../../features/vocabSlice";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import DeckPageTable from "./DeckPageTable";
 
 const DeckPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const currentDeck = useAppSelector(VocabSliceService.getCurrentDeck);
-
   const { isLoading, isError, message } = useAppSelector(
     (state) => state.vocab
   );
@@ -43,13 +43,7 @@ const DeckPage = () => {
           <Button onClick={() => navigate("/vocab/upload-words")}>
             Upload words
           </Button>
-          {currentDeck.words.map((item) => {
-            return (
-              <div key={item._id}>
-                <p>{item.word}</p>
-              </div>
-            );
-          })}
+          <DeckPageTable deck={currentDeck.words} />
         </div>
       )}
     </div>

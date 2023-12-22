@@ -65,7 +65,7 @@ export interface IWordDeck {
 export interface IVocabWord {
   _id: string;
   word: string;
-  englishDefinition: string;
+  definition: string;
   exampleSentence: string;
   wordType: string;
   conjugation: string;
