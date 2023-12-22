@@ -1,5 +1,6 @@
 import { IUserLogin, IUserRegister } from "../interfaces";
-import { Axios } from "../middleware/axios";
+
+import Axios from "axios";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_API_AUTH || "undefined";
 
@@ -23,7 +24,7 @@ const register = async (user: IUserRegister) => {
     console.log(response);
     return response.data;
   } catch (err: any) {
-    console.log("THIS IS WHERE WE ARE");
+    console.log(err);
     if (err.response && err.response.data) {
       throw new Error(err.response.data.message);
     } else {

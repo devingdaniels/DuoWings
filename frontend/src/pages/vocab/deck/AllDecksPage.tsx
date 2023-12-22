@@ -14,12 +14,12 @@ import { useState } from "react";
 import { VocabSliceService } from "../../../features/vocabSlice";
 
 const AllDecksPage: React.FC = () => {
-  // Redux
+  // Redux functions and state
   const dispatch = useAppDispatch();
   const { decks, isSuccess, isLoading, isError, message } = useAppSelector(
     (state) => state.vocab
   );
-  // State
+  // AllDecksPage state
   const [deckData, setDeckData] = useState<IWordDeck[]>(decks || []);
   const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(
     deckData || []
@@ -29,13 +29,19 @@ const AllDecksPage: React.FC = () => {
 
   // Get latest user decks on component mount and when decks change
   useEffect(() => {
-    if (decks.length === 0 && !isLoading && !isError) {
-      dispatch(VocabSliceService.fetchAllUserDecks());
-    }
+    const fetchDecks = async () => {
+      if (decks.length === 0 && !isLoading && !isError) {
+        await dispatch(VocabSliceService.fetchAllUserDecks());
+      }
+    };
+    fetchDecks();
+  }, [dispatch, decks.length, isLoading, isError]); // Removed 'dispatch' to avoid re-triggering due to dispatch function changes
 
+  useEffect(() => {
+    // This effect is for resetting deck status, separate from fetching decks
+    dispatch(VocabSliceService.resetDeckStatus());
     dispatch(VocabSliceService.resetCurrentDeck());
-    // dispatch(VocabSliceService.resetDeckStatus());
-  }, [dispatch, decks.length, isLoading, isError]);
+  }, [dispatch, decks]); // Depends on 'decks', triggers when decks are updated
 
   // If decks change, update state
   useEffect(() => {
