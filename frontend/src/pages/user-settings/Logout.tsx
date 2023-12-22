@@ -1,12 +1,9 @@
 import { useNavigate } from "react-router-dom";
-// Redux
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { persistor } from "../../app/store";
 import { VocabSliceService } from "../../features/vocabSlice";
 import { clearUserAuthState } from "../../features/userAuthSlice";
-import { logout } from "../../features/userAuthSlice";
-
-// Material UI
+import { logout, deleteAccount } from "../../features/userAuthSlice";
 import Button from "@mui/material/Button";
 
 function Logout() {
@@ -26,17 +23,24 @@ function Logout() {
     });
   };
 
+  const handleDeleteAccount = () => {
+    console.log("Delete account");
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
-  } else {
-    return (
-      <>
-        <Button variant="contained" onClick={handleLogout}>
-          Logout
-        </Button>
-      </>
-    );
   }
+
+  return (
+    <>
+      <Button variant="contained" onClick={handleLogout}>
+        Logout
+      </Button>
+      <Button variant="contained" onClick={handleDeleteAccount}>
+        Delete account
+      </Button>
+    </>
+  );
 }
 
 export default Logout;

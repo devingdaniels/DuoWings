@@ -71,6 +71,23 @@ export const logout = createAsyncThunk(
   }
 );
 
+export const deleteAccount = createAsyncThunk(
+  "auth/deleteAccount",
+  async (_, { rejectWithValue }) => {
+    try {
+      return await authService.logout();
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return rejectWithValue(message);
+    }
+  }
+);
+
 // Create the user slice with reducers
 const userAuthSlice = createSlice({
   name: "auth",

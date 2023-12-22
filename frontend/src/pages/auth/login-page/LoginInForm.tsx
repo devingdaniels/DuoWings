@@ -45,6 +45,7 @@ const LoginInForm: React.FC = () => {
       SwalSuccess("Success", `Welcome ${user.fname}!`);
       navigate("/home");
     }
+
     if (isError) {
       ToastError(message);
     }

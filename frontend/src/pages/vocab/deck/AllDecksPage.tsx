@@ -35,7 +35,7 @@ const AllDecksPage: React.FC = () => {
       }
     };
     fetchDecks();
-  }, [dispatch, decks.length, isLoading, isError]); // Removed 'dispatch' to avoid re-triggering due to dispatch function changes
+  }, [dispatch, decks.length, isLoading, isError]);
 
   useEffect(() => {
     // This effect is for resetting deck status, separate from fetching decks
