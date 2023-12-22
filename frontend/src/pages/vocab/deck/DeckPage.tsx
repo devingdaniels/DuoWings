@@ -1,13 +1,13 @@
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { createWord } from "../../../features/vocabSlice";
 import CreateWordForm from "../words/CreateWordForm";
-import Spinner from "../../../utils/Spinner";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
 import { VocabSliceService } from "../../../features/vocabSlice";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import DeckPageTable from "./DeckPageTable";
+import { SpinnerDotted } from "spinners-react";
 
 const DeckPage = () => {
   const navigate = useNavigate();
@@ -28,7 +28,15 @@ const DeckPage = () => {
     dispatch(VocabSliceService.resetDeckStatus());
   }, [dispatch]);
 
-  if (isLoading) return <Spinner />;
+  if (isLoading)
+    return (
+      <SpinnerDotted
+        size={53}
+        thickness={92}
+        speed={69}
+        color="rgba(59, 172, 57, 0.66)"
+      />
+    );
 
   if (isError)
     return <p>Error: There was an error in the application -- {message}</p>;

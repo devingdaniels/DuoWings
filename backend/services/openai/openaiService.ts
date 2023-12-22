@@ -10,7 +10,7 @@ const openAI = new OpenAI();
 // Returns a stringified JSON object
 const buildWord = async (word: string): Promise<string> => {
   // Prompt string
-  const prompt = `Given the word "${word}", complete the following object with appropriate values and return a JSON object. \n\n:
+  const prompt = `Given the word "${word}", complete the following object with appropriate values in Spanish and return a JSON object. Provide only the specific category information requested without additional explanations or examples in other languages.\n\n:   \n\n:
   {
     word: "${word}",
     definition: [definition of the word],

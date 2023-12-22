@@ -10,12 +10,16 @@ const USER_COOKIE_NAME = config.server.userauthcookie;
 // Login route handler
 const registerUser = async (req: Request, res: Response, next: NextFunction) => {
   // Deconstruct the request body
-  const { fname, lname, phonenumber, email, password, confirmPassword } = req.body;
+  let { fname, lname, phonenumber, username, email, password, confirmPassword } = req.body;
 
   try {
-    if (!fname || !lname || !phonenumber || !email || !password || !confirmPassword) {
+    if (!fname || !lname || !username || !email || !password || !confirmPassword) {
       res.status(400);
       throw new Error("All fields are required");
+    }
+
+    if (!username) {
+      username = "";
     }
 
     // Check if the password and confirm password fields match
@@ -42,6 +46,7 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
       _id: new mongoose.Types.ObjectId(),
       fname,
       lname,
+      username,
       email,
       phonenumber,
       password: hashedPassword,
@@ -56,6 +61,7 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
     res.status(201).json(newUser);
   } catch (error) {
     // Call the error handler middleware with the error
+    res.status(500);
     next(error);
   }
 };
@@ -91,6 +97,7 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     res.status(201).json(existingUser);
   } catch (error) {
     // Pass error to error handler middleware
+    res.status(500);
     next(error);
   }
 };

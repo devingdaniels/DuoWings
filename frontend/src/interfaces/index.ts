@@ -1,8 +1,9 @@
 export interface IUserRegister {
   fname: string;
   lname: string;
+  username: string;
   email: string;
-  phonenumber: string;
+  phonenumber: string | "";
   password: string;
   confirmPassword: string;
 }
@@ -12,14 +13,15 @@ export interface IUserLogin {
   password: string;
 }
 
+// User interface after authentication
 export interface IUser {
   _id: string;
   fname: string;
   lname: string;
+  username: string;
   email: string;
-  phonenumber: string;
+  phonenumber: string | "";
   role: "user" | "admin";
-  // Add props for words and dialogue
 }
 
 export interface IUserAuthResponse {

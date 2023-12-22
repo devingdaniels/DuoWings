@@ -3,9 +3,9 @@ import { Axios } from "../middleware/axios";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_API_AUTH || "undefined";
 
-const login = async (userData: IUserLogin) => {
+const login = async (user: IUserLogin) => {
   try {
-    const response = await Axios.post(BASE_URL + "/login", userData);
+    const response = await Axios.post(BASE_URL + "/login", user);
     // If server returns anything but 201, catch block will execute
     return response.data;
   } catch (err: any) {
@@ -17,11 +17,13 @@ const login = async (userData: IUserLogin) => {
   }
 };
 
-const register = async (userData: IUserRegister) => {
+const register = async (user: IUserRegister) => {
   try {
-    const response = await Axios.post(BASE_URL + "/register", userData);
+    const response = await Axios.post(BASE_URL + "/register", user);
+    console.log(response);
     return response.data;
   } catch (err: any) {
+    console.log("THIS IS WHERE WE ARE");
     if (err.response && err.response.data) {
       throw new Error(err.response.data.message);
     } else {

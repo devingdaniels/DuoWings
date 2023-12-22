@@ -17,6 +17,7 @@ const SignUpForm = () => {
     fname: "",
     lname: "",
     email: "",
+    username: "",
     phonenumber: "",
     password: "",
     confirmPassword: "",
@@ -46,6 +47,7 @@ const SignUpForm = () => {
       fname: "",
       lname: "",
       email: "",
+      username: "",
       phonenumber: "",
       password: "",
       confirmPassword: "",
@@ -103,6 +105,15 @@ const SignUpForm = () => {
               />
               <br />
               <input
+                className="username"
+                type="username"
+                placeholder="Username"
+                name="username"
+                value={userData.username}
+                onChange={handleInputChange}
+                required
+              />
+              <input
                 className="email"
                 type="email"
                 placeholder="Email"
@@ -118,7 +129,6 @@ const SignUpForm = () => {
                 name="phonenumber"
                 value={userData.phonenumber}
                 onChange={handleInputChange}
-                required
               />
               <br />
               <input

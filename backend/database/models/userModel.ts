@@ -21,10 +21,17 @@ const UserSchema = new mongoose.Schema({
     index: true,
     lowercase: true,
   },
+  username: {
+    type: String,
+    required: true,
+    min: 3,
+    max: 20,
+    unique: true,
+    index: true, // Indexes are used to quickly locate data without having to search every row in a database every time a database table is accessed.
+  },
   password: { type: String, required: true, min: 6, max: 26 },
   phonenumber: {
     type: String,
-    required: true,
     max: 20,
   },
   role: {
@@ -38,4 +45,5 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
+// Params: modelName, schema, collectionName
 export const UserModel = mongoose.model("User", UserSchema, "users");

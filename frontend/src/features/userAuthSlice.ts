@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import authService from "./userAuthService";
 import type { RootState } from "../app/store";
-import { IUser } from "../interfaces//index";
+import { IUser, IUserLogin, IUserRegister } from "../interfaces//index";
 
 interface UserState {
   user: IUser | null;
@@ -20,42 +20,39 @@ const initialState: UserState = {
 };
 
 // Create an async thunk for user login
-export const login = createAsyncThunk<
-  IUser,
-  { email: string; password: string }
->("auth/login", async (userData, { rejectWithValue }) => {
-  try {
-    return await authService.login(userData);
-  } catch (error: any) {
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString();
-    return rejectWithValue(message);
+export const login = createAsyncThunk<IUser, IUserLogin>(
+  "auth/login",
+  async (userData, { rejectWithValue }) => {
+    try {
+      return await authService.login(userData);
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return rejectWithValue(message);
+    }
   }
-});
+);
 
-export const register = createAsyncThunk<
-  IUser,
-  {
-    fname: string;
-    lname: string;
-    email: string;
-    phonenumber: string;
-    password: string;
-    confirmPassword: string;
+export const register = createAsyncThunk<IUser, IUserRegister>(
+  "auth/register",
+  async (user, { rejectWithValue }) => {
+    try {
+      return await authService.register(user);
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return rejectWithValue(message);
+    }
   }
->("auth/register", async (userData, { rejectWithValue }) => {
-  try {
-    return await authService.register(userData);
-  } catch (error: any) {
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString();
-    return rejectWithValue(message);
-  }
-});
+);
 
 export const logout = createAsyncThunk(
   "auth/logout",
