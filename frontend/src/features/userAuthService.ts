@@ -46,10 +46,20 @@ const logout = async () => {
   }
 };
 
+const deleteAccount = async () => {
+  try {
+    const response = await Axios.delete(BASE_URL + "/delete-account");
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const authService = {
   login,
   register,
   logout,
+  deleteAccount,
 };
 
 export default authService;

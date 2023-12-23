@@ -120,4 +120,9 @@ const logoutUser = async (req: Request, res: Response, next: NextFunction): Prom
   }
 };
 
-export { registerUser, logoutUser, loginUser };
+const deleteUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  console.log("deleteUser");
+  res.status(200).json({ message: "deleteUser" });
+};
+
+export { registerUser, logoutUser, loginUser, deleteUser };

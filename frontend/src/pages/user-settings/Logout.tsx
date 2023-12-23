@@ -24,7 +24,15 @@ function Logout() {
   };
 
   const handleDeleteAccount = () => {
-    console.log("Delete account");
+    // dispatch(VocabSliceService.clearUserDeckState());
+    // dispatch(clearUserAuthState());
+    dispatch(deleteAccount());
+
+    // Purge local storage and wait for it to complete
+    // persistor.purge().then(() => {
+    //   console.log("Account deleted");
+    //   navigate("/");
+    // });
   };
 
   if (isLoading) {
