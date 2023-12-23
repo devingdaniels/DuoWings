@@ -56,6 +56,7 @@ a {
 .auth-site-title {
   padding: 1%;
   cursor: pointer;
+  width: max-content;
 }
 
 /* ------------------------ LOGIN AND REGISTER AUTH FORMS ------------------------ */
@@ -134,13 +135,12 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 1% 8%;
-  /* background-color: #1b1b1b; */
   background-color: #08051f;
   color: white;
 }
 
 .home-nav-title {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 600;
   color: #ffffff;
   margin: 0;
