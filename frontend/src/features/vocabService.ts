@@ -70,7 +70,7 @@ const createWord = async (wordFormData: ICreateNewVocabWord) => {
   const URL = import.meta.env.VITE_BACKEND_API_WORD + "/create-word";
   try {
     const response = await Axios.post(URL, wordFormData);
-    return response.data;
+    return response.data.deck;
   } catch (err: any) {
     if (err.response && err.response.data) {
       console.error(err.response.data);

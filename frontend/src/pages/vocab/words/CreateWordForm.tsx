@@ -8,7 +8,6 @@ interface NewWordFormProps {
 const NewWordForm: React.FC<NewWordFormProps> = ({ handleCreateNewWord }) => {
   const [formData, setFormData] = useState<ICreateNewVocabWord>({
     word: "",
-    definition: "",
     deckID: "",
   });
 
@@ -16,14 +15,13 @@ const NewWordForm: React.FC<NewWordFormProps> = ({ handleCreateNewWord }) => {
     e.preventDefault();
     // Trim whitespace from word and definition
     formData.word = formData.word.trim();
-    formData.definition = formData.definition.trim();
+    // Call parent component function, which will make API call to create new word
+    handleCreateNewWord(formData);
     // Reset form
     setFormData({
       word: "",
-      definition: "",
       deckID: "",
     });
-    handleCreateNewWord(formData);
   };
 
   return (
@@ -38,19 +36,6 @@ const NewWordForm: React.FC<NewWordFormProps> = ({ handleCreateNewWord }) => {
           setFormData({
             ...formData,
             word: e.target.value,
-          })
-        }
-      />
-      <input
-        type="text"
-        id="definition"
-        value={formData.definition}
-        required
-        placeholder="Enter a definition"
-        onChange={(e) =>
-          setFormData({
-            ...formData,
-            definition: e.target.value,
           })
         }
       />

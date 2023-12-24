@@ -2,10 +2,10 @@ import React from "react";
 import { IVocabWord } from "../../../interfaces";
 
 interface DeckPageTableProps {
-  deck: IVocabWord[];
+  words: IVocabWord[];
 }
 
-const DeckPageTable: React.FC<DeckPageTableProps> = ({ deck }) => {
+const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
   return (
     <table>
       <thead>
@@ -19,7 +19,7 @@ const DeckPageTable: React.FC<DeckPageTableProps> = ({ deck }) => {
         </tr>
       </thead>
       <tbody>
-        {deck.map((word: IVocabWord) => (
+        {words.map((word: IVocabWord) => (
           <tr key={word._id}>
             <td>{word.word}</td>
             <td>{word.definition}</td>
@@ -34,4 +34,4 @@ const DeckPageTable: React.FC<DeckPageTableProps> = ({ deck }) => {
   );
 };
 
-export default DeckPageTable;
+export default DeckPageWordsTable;

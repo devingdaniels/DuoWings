@@ -27,11 +27,18 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
       res.status(400);
       throw new Error("Passwords do not match");
     }
-    // First check if the user already exists
-    const existingUser = await User.findOne({ email }).exec();
-    if (existingUser) {
+    // Check if the user with the given email already exists
+    const existingUserByEmail = await User.findOne({ email }).exec();
+    if (existingUserByEmail) {
       res.status(400);
       throw new Error(`User with email ${email} already exists`);
+    }
+
+    // Check if the user with the given username already exists
+    const existingUserByUsername = await User.findOne({ username }).exec();
+    if (existingUserByUsername) {
+      res.status(400);
+      throw new Error(`User with username ${username} already exists`);
     }
 
     // Hash the user's password

@@ -13,11 +13,6 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
   // Hooks
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  // Handlers
-  const goToDeckPage = (deck: IWordDeck) => {
-    dispatch(VocabSliceService.setCurrentDeck(deck));
-    navigate(`/vocab/decks/${deck._id}`);
-  };
 
   const handleDeleteDeck = async (e: React.MouseEvent<HTMLButtonElement>) => {
     // Delete button is inside deck card which also has onClick
@@ -27,15 +22,16 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
     fetchUserDecks();
   };
 
+  const goToDeckPage = (deck: IWordDeck) => {
+    console.log("Current deck in DeckCardOverview", deck);
+    dispatch(VocabSliceService.setCurrentDeck(deck));
+    navigate(`/vocab/decks/${deck._id}`);
+  };
+
   return (
-    <div
-      className="deck-card-overview-container"
-      onClick={() => goToDeckPage(deck)}
-    >
+    <div className="deck-card-overview-container" onClick={() => goToDeckPage(deck)}>
       <div className="deck-card-overview-header">
-        <span className="deck-header-item deck-header-level-container">
-          Level 1{deck.level}
-        </span>
+        <span className="deck-header-item deck-header-level-container">Level 1{deck.level}</span>
         <h2 className="deck-header-item">{deck.name}</h2>
         <div className="deck-header-item delete-container">
           <AiOutlineDelete onClick={handleDeleteDeck} size={30} />

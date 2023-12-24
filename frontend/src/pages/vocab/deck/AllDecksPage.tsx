@@ -16,26 +16,23 @@ import { VocabSliceService } from "../../../features/vocabSlice";
 const AllDecksPage: React.FC = () => {
   // Redux functions and state
   const dispatch = useAppDispatch();
-  const { decks, isSuccess, isLoading, isError, message } = useAppSelector(
-    (state) => state.vocab
-  );
+  const { decks, isSuccess, isLoading, isError, message } = useAppSelector((state) => state.vocab);
   // AllDecksPage state
   const [deckData, setDeckData] = useState<IWordDeck[]>(decks || []);
-  const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(
-    deckData || []
-  );
+  const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(deckData || []);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [isModal, setIsModal] = useState<boolean>(false);
 
   // Get latest user decks on component mount and when decks change
   useEffect(() => {
-    const fetchDecks = async () => {
-      if (decks.length === 0 && !isLoading && !isError) {
-        await dispatch(VocabSliceService.fetchAllUserDecks());
-      }
-    };
-    fetchDecks();
-  }, [dispatch, decks.length, isLoading, isError]);
+    // const fetchDecks = async () => {
+    //   if (decks.length === 0 && !isLoading && !isError) {
+    //     await dispatch(VocabSliceService.fetchAllUserDecks());
+    //   }
+    // };
+    // fetchDecks();
+    dispatch(VocabSliceService.fetchAllUserDecks());
+  }, [dispatch]);
 
   useEffect(() => {
     // This effect is for resetting deck status, separate from fetching decks
@@ -128,10 +125,7 @@ const AllDecksPage: React.FC = () => {
             {filteredDecks.map((deck: IWordDeck) => {
               return (
                 <span key={deck._id}>
-                  <DeckCardOverview
-                    deck={deck}
-                    fetchUserDecks={fetchUserDecks}
-                  />
+                  <DeckCardOverview deck={deck} fetchUserDecks={fetchUserDecks} />
                 </span>
               );
             })}

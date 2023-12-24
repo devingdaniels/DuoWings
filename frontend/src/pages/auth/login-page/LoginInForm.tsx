@@ -13,12 +13,10 @@ const LoginInForm: React.FC = () => {
   // Hooks
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-
   // Redux state
   const { user, isLoading, isError, isSuccess, message } = useAppSelector(
     (state) => state.auth
   );
-
   // Component state
   const [userData, setUserData] = useState<IUserLogin>({
     email: "",
@@ -74,8 +72,8 @@ const LoginInForm: React.FC = () => {
             <div className="user-info-wrapper">
               <input
                 className="email"
-                type="email"
-                placeholder="Email or phone number"
+                type="text"
+                placeholder="email or username"
                 name="email"
                 value={userData.email}
                 onChange={handleInputChange}
@@ -85,7 +83,7 @@ const LoginInForm: React.FC = () => {
               <input
                 className="password"
                 type="password"
-                placeholder="Password"
+                placeholder="password"
                 name="password"
                 value={userData.password}
                 onChange={handleInputChange}
@@ -98,7 +96,6 @@ const LoginInForm: React.FC = () => {
                 color="#fa0000"
                 cssOverride={spinnerStyle}
                 aria-label="Loading Spinner"
-                data-testid="loader"
               />
             ) : (
               <div className="auth-form-button-wrapper">

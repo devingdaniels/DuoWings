@@ -34,7 +34,6 @@ export interface IUserAuthResponse {
 
 export interface ICreateNewVocabWord {
   word: string;
-  definition: string;
   deckID: string;
 }
 

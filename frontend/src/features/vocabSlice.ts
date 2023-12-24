@@ -1,4 +1,3 @@
-// deckSlice.js
 import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import { VocabService } from "./vocabService";
 
@@ -33,9 +32,7 @@ const fetchAllUserDecks = createAsyncThunk(
       return response;
     } catch (error: any) {
       const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
@@ -51,9 +48,7 @@ const getDeckByID = createAsyncThunk(
       return response;
     } catch (error: any) {
       const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
@@ -69,9 +64,7 @@ const createDeck = createAsyncThunk(
       return response;
     } catch (error: any) {
       const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
@@ -87,9 +80,7 @@ export const deleteDeckByID = createAsyncThunk(
       return response;
     } catch (error: any) {
       const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
@@ -112,9 +103,7 @@ export const createWord = createAsyncThunk(
       return await VocabService.createWord(word);
     } catch (error: any) {
       const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
