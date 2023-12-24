@@ -24,6 +24,7 @@ const AllDecksPage: React.FC = () => {
   const [isModal, setIsModal] = useState<boolean>(false);
 
   // Get latest user decks on component mount and when decks change
+  //! This needs a higher level of abstraction
   useEffect(() => {
     // const fetchDecks = async () => {
     //   if (decks.length === 0 && !isLoading && !isError) {
@@ -38,7 +39,7 @@ const AllDecksPage: React.FC = () => {
     // This effect is for resetting deck status, separate from fetching decks
     dispatch(VocabSliceService.resetDeckStatus());
     dispatch(VocabSliceService.resetCurrentDeck());
-  }, [dispatch, decks]); // Depends on 'decks', triggers when decks are updated
+  }, [dispatch, decks]);
 
   // If decks change, update state
   useEffect(() => {
