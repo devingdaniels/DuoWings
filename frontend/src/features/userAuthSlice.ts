@@ -27,9 +27,7 @@ export const login = createAsyncThunk<IUser, IUserLogin>(
       return await authService.login(userData);
     } catch (error: any) {
       const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
@@ -44,9 +42,7 @@ export const register = createAsyncThunk<IUser, IUserRegister>(
       return await authService.register(user);
     } catch (error: any) {
       const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
@@ -54,22 +50,17 @@ export const register = createAsyncThunk<IUser, IUserRegister>(
   }
 );
 
-export const logout = createAsyncThunk(
-  "auth/logout",
-  async (_, { rejectWithValue }) => {
-    try {
-      return await authService.logout();
-    } catch (error: any) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-      return rejectWithValue(message);
-    }
+export const logout = createAsyncThunk("auth/logout", async (_, { rejectWithValue }) => {
+  try {
+    return await authService.logout();
+  } catch (error: any) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString();
+    return rejectWithValue(message);
   }
-);
+});
 
 export const deleteAccount = createAsyncThunk(
   "auth/deleteAccount",
@@ -78,9 +69,7 @@ export const deleteAccount = createAsyncThunk(
       return await authService.deleteAccount();
     } catch (error: any) {
       const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return rejectWithValue(message);
@@ -117,6 +106,7 @@ const userAuthSlice = createSlice({
         state.message = "Login successful";
       })
       .addCase(login.rejected, (state, action) => {
+        state.isSuccess = false;
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload as string;

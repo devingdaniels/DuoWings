@@ -14,9 +14,7 @@ const LoginInForm: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   // Redux state
-  const { user, isLoading, isError, isSuccess, message } = useAppSelector(
-    (state) => state.auth
-  );
+  const { user, isLoading, isError, isSuccess, message } = useAppSelector((state) => state.auth);
   // Component state
   const [userData, setUserData] = useState<IUserLogin>({
     email: "",
@@ -92,11 +90,7 @@ const LoginInForm: React.FC = () => {
               />
             </div>
             {isLoading ? (
-              <BarLoader
-                color="#fa0000"
-                cssOverride={spinnerStyle}
-                aria-label="Loading Spinner"
-              />
+              <BarLoader color="#fa0000" cssOverride={spinnerStyle} aria-label="Loading Spinner" />
             ) : (
               <div className="auth-form-button-wrapper">
                 <Button type="submit" variant="contained">

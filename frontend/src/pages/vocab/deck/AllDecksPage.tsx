@@ -26,13 +26,13 @@ const AllDecksPage: React.FC = () => {
   // Get latest user decks on component mount and when decks change
   //! This needs a higher level of abstraction
   useEffect(() => {
-    // const fetchDecks = async () => {
-    //   if (decks.length === 0 && !isLoading && !isError) {
-    //     await dispatch(VocabSliceService.fetchAllUserDecks());
-    //   }
-    // };
-    // fetchDecks();
-    dispatch(VocabSliceService.fetchAllUserDecks());
+    const fetchDecks = async () => {
+      await dispatch(VocabSliceService.fetchAllUserDecks());
+      // if (decks.length === 0 && !isLoading && !isError) {
+      // }
+    };
+    fetchDecks();
+    // dispatch(VocabSliceService.fetchAllUserDecks());
   }, [dispatch]);
 
   useEffect(() => {
@@ -72,8 +72,8 @@ const AllDecksPage: React.FC = () => {
     await dispatch(VocabSliceService.fetchAllUserDecks());
   };
 
-  const fetchUserDecks = () => {
-    dispatch(VocabSliceService.fetchAllUserDecks());
+  const fetchUserDecks = async () => {
+    await dispatch(VocabSliceService.fetchAllUserDecks());
   };
 
   const NewDeckButton = () => {
@@ -102,7 +102,7 @@ const AllDecksPage: React.FC = () => {
   }
 
   // No decks and no state-changing functionality in progress
-  if (decks.length === 0 && !isModal && !isLoading) {
+  else if (decks.length === 0 && !isModal && !isLoading) {
     return (
       <div className="all-decks-page-container-empty">
         <h2>No Decks :(</h2>

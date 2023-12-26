@@ -18,10 +18,6 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
       throw new Error("All fields are required");
     }
 
-    if (!username) {
-      username = "";
-    }
-
     // Check if the password and confirm password fields match
     if (password !== confirmPassword) {
       res.status(400);
