@@ -48,7 +48,7 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
       throw new Error("Unknown error. Please try again");
     }
 
-    // Create a new instance of the User model
+    // Create and save new user to DB
     const newUser = await new User({
       _id: new mongoose.Types.ObjectId(),
       fname,
@@ -62,7 +62,7 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
     // Generate a JWT token
     const token = await signJWT(newUser._id.toString());
 
-    // maxAge: config.server.token.expireTime
+    //! This is not working properly. Need some kind frontend middleware --> maxAge: config.server.token.expireTime
     res.cookie(USER_COOKIE_NAME, token, { httpOnly: true });
 
     res.status(201).json(newUser);
@@ -98,7 +98,7 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     const token = await signJWT(existingUser._id.toString());
 
     // Set the cookie in the response using the JWT token
-    //maxAge: config.server.token.expireTime
+    //! This is not working properly. Need some kind frontend middleware --> maxAge: config.server.token.expireTime
     res.cookie(USER_COOKIE_NAME, token, { httpOnly: true });
 
     res.status(201).json(existingUser);

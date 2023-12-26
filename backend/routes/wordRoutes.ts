@@ -4,6 +4,6 @@ import { verifyJWT } from "../middleware/authMiddleware";
 
 const router = express.Router();
 
-router.post("/create-word", createWord);
+router.post("/create-word", verifyJWT, createWord);
 
 export = router;

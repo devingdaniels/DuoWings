@@ -7,6 +7,6 @@ const router = express.Router();
 router.post("/register", registerUser);
 router.get("/logout", verifyJWT, logoutUser);
 router.post("/login", loginUser);
-router.delete("/delete-account", deleteUser);
+router.delete("/delete-account", verifyJWT, deleteUser);
 
 export = router;
