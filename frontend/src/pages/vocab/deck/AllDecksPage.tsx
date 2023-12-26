@@ -27,17 +27,15 @@ const AllDecksPage: React.FC = () => {
   //! This needs a higher level of abstraction
   useEffect(() => {
     const fetchDecks = async () => {
-      await dispatch(VocabSliceService.fetchAllUserDecks());
-      // if (decks.length === 0 && !isLoading && !isError) {
-      // }
+      if (decks.length === 0 && !isLoading && !isError) {
+        await dispatch(VocabSliceService.fetchAllUserDecks());
+      }
     };
     fetchDecks();
-    // dispatch(VocabSliceService.fetchAllUserDecks());
-  }, [dispatch]);
+  }, [dispatch, decks.length, isLoading, isError]);
 
   useEffect(() => {
-    // This effect is for resetting deck status, separate from fetching decks
-    dispatch(VocabSliceService.resetDeckStatus());
+    // dispatch(VocabSliceService.resetDeckStatus());
     dispatch(VocabSliceService.resetCurrentDeck());
   }, [dispatch, decks]);
 
@@ -105,7 +103,7 @@ const AllDecksPage: React.FC = () => {
   else if (decks.length === 0 && !isModal && !isLoading) {
     return (
       <div className="all-decks-page-container-empty">
-        <h2>No Decks :(</h2>
+        <h2>No Decks ☹️</h2>
         <FaCreativeCommonsZero size={45} />
         <NewDeckButton />
       </div>

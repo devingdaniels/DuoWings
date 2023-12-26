@@ -21,8 +21,9 @@ const DeckPage = () => {
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
     word.deckID = currentDeck!._id;
     const response = await dispatch(createWord(word));
-    console.log(response);
     setDeck(response.payload);
+    //! This is a hacky way to update the deck page
+    dispatch(VocabSliceService.fetchAllUserDecks());
   };
 
   useEffect(() => {
