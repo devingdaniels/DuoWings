@@ -1,7 +1,6 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import CreateDeckModalForm from "./CreateDeckModal";
 import DeckCardOverview from "./DeckCardOverview";
-import { FaCreativeCommonsZero } from "react-icons/fa";
 import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
 import React from "react";
 import SearchAppBar from "./DeckSearchBar";
@@ -14,64 +13,44 @@ import { useState } from "react";
 import { VocabSliceService } from "../../../features/vocabSlice";
 
 const AllDecksPage: React.FC = () => {
-  // Redux functions and state
   const dispatch = useAppDispatch();
-  const { decks, isSuccess, isLoading, isError, message } = useAppSelector((state) => state.vocab);
-  // AllDecksPage state
-  const [deckData, setDeckData] = useState<IWordDeck[]>(decks || []);
-  const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(deckData || []);
+  const { decks, isLoading, isError, message } = useAppSelector((state) => state.vocab);
+
+  const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(decks || []);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [isModal, setIsModal] = useState<boolean>(false);
 
-  // Get latest user decks on component mount and when decks change
-  //! This needs a higher level of abstraction
   useEffect(() => {
-    const fetchDecks = async () => {
-      if (decks.length === 0 && !isLoading && !isError) {
-        await dispatch(VocabSliceService.fetchAllUserDecks());
-      }
-    };
-    fetchDecks();
-  }, [dispatch, decks.length, isLoading, isError]);
+    dispatch(VocabSliceService.fetchAllUserDecks());
+  }, [dispatch]);
 
+  // Update filteredDecks whenever decks or searchTerm changes
   useEffect(() => {
-    // dispatch(VocabSliceService.resetDeckStatus());
-    dispatch(VocabSliceService.resetCurrentDeck());
-  }, [dispatch, decks]);
+    const filtered = decks.filter((deck) =>
+      deck.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredDecks(filtered);
+  }, [decks, searchTerm]);
 
-  // If decks change, update state
-  useEffect(() => {
-    setDeckData(decks);
-    setFilteredDecks(decks);
-  }, [decks, isSuccess]);
+  const toggleModal = (val: boolean) => setIsModal(val);
+  const fetchUserDecks = async () => await dispatch(VocabSliceService.fetchAllUserDecks());
 
-  // Modal handlers and event listeners
-  const toggleModal = (val: boolean) => {
-    setIsModal(val);
+  const handleCreateNewDeck = async (deck: ICreateNewDeck) => {
+    // First close the modal
+    setIsModal(false);
+    // Dispatch creation of new deck, should set loading to true
+    await dispatch(VocabSliceService.createDeck(deck));
+    // Get updated decks
+    fetchUserDecks();
   };
 
   const filterDecks = (value: string) => {
     const searchText = value.toLowerCase();
     setSearchTerm(searchText);
-    const filtered = deckData.filter((deck: IWordDeck) =>
+    const filtered = decks.filter((deck: IWordDeck) =>
       deck.name.toLowerCase().includes(searchText)
     );
     setFilteredDecks(filtered);
-  };
-
-  const handleCreateNewDeck = async (deck: ICreateNewDeck) => {
-    // First close the modal from the UI
-    setIsModal(false);
-    // Dispatch creation of new deck, should set loading to true
-    await dispatch(VocabSliceService.createDeck(deck));
-    // Reset deck loading states
-    dispatch(VocabSliceService.resetDeckStatus());
-    // Get updated decks
-    await dispatch(VocabSliceService.fetchAllUserDecks());
-  };
-
-  const fetchUserDecks = async () => {
-    await dispatch(VocabSliceService.fetchAllUserDecks());
   };
 
   const NewDeckButton = () => {
@@ -100,11 +79,10 @@ const AllDecksPage: React.FC = () => {
   }
 
   // No decks and no state-changing functionality in progress
-  else if (decks.length === 0 && !isModal && !isLoading) {
+  if (decks.length === 0 && !isModal && !isLoading) {
     return (
       <div className="all-decks-page-container-empty">
         <h2>No Decks ☹️</h2>
-        <FaCreativeCommonsZero size={45} />
         <NewDeckButton />
       </div>
     );
@@ -123,9 +101,7 @@ const AllDecksPage: React.FC = () => {
           <div className="all-decks-grid-container">
             {filteredDecks.map((deck: IWordDeck) => {
               return (
-                <span key={deck._id}>
-                  <DeckCardOverview deck={deck} fetchUserDecks={fetchUserDecks} />
-                </span>
+                <DeckCardOverview key={deck._id} deck={deck} fetchUserDecks={fetchUserDecks} />
               );
             })}
           </div>
@@ -137,7 +113,7 @@ const AllDecksPage: React.FC = () => {
           isModal={isModal}
           handleCreateNewDeck={handleCreateNewDeck}
           toggleModal={toggleModal}
-          decks={deckData}
+          decks={decks}
         />
       )}
     </div>
