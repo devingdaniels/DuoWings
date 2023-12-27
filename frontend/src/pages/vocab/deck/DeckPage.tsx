@@ -16,18 +16,21 @@ const DeckPage = () => {
   const dispatch = useAppDispatch();
   const { currentDeck, isLoading, isError, message } = useAppSelector((state) => state.vocab);
 
-  const [deck, setDeck] = useState<IWordDeck>(currentDeck);
+  const [deck, setDeck] = useState<IWordDeck>(currentDeck!);
 
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
     word.deckID = currentDeck!._id;
     const response = await dispatch(createWord(word));
     setDeck(response.payload);
-    //! This is a hacky way to update the deck page
     dispatch(VocabSliceService.fetchAllUserDecks());
   };
 
   useEffect(() => {
     dispatch(VocabSliceService.resetDeckStatus());
+
+    return () => {
+      dispatch(VocabSliceService.resetCurrentDeck());
+    };
   }, [dispatch]);
 
   if (isLoading)
@@ -44,7 +47,6 @@ const DeckPage = () => {
       {deck && !isLoading && (
         <div>
           <h1>{deck.name}</h1>
-          <p>ID: {deck._id}</p>
           <CreateWordForm handleCreateNewWord={handleCreateNewWord} />
           <Button onClick={() => navigate("/vocab/upload-words")}>Upload words</Button>
           <DeckPageTable words={deck.words} />

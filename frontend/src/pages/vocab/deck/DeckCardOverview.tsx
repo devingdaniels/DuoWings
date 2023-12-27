@@ -23,7 +23,6 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
   };
 
   const goToDeckPage = (deck: IWordDeck) => {
-    // console.log("Current deck in DeckCardOverview", deck);
     dispatch(VocabSliceService.setCurrentDeck(deck));
     navigate(`/vocab/decks/${deck._id}`);
   };

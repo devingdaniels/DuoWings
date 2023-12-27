@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
+import { Button } from "@mui/material";
 
 interface NewWordFormProps {
   handleCreateNewWord: (formData: ICreateNewVocabWord) => void;
@@ -12,12 +13,11 @@ const NewWordForm: React.FC<NewWordFormProps> = ({ handleCreateNewWord }) => {
   });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    // Prevent default form submission
     e.preventDefault();
     // Trim whitespace from word and definition
     formData.word = formData.word.trim();
-    // Call parent component function, which will make API call to create new word
     handleCreateNewWord(formData);
-    // Reset form
     setFormData({
       word: "",
       deckID: "",
@@ -39,7 +39,7 @@ const NewWordForm: React.FC<NewWordFormProps> = ({ handleCreateNewWord }) => {
           })
         }
       />
-      <button type="submit">Create</button>
+      <Button type="submit">Create</Button>
     </form>
   );
 };
