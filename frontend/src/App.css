@@ -134,7 +134,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1% 8%;
+  padding: 1% 5%;
   background-color: #08051f;
   color: white;
 }
@@ -416,11 +416,15 @@ a {
   flex-direction: column;
   align-items: center;
   margin: auto;
+  width: 100%;
+}
+
+.return-to-decks-icon {
+  cursor: pointer;
 }
 
 .deck-page-deck-header {
   text-align: center;
-  margin: 2%;
 }
 
 /* ------------------------ CREATE NEW WORD PAGE W/FORM ------------------------  */
@@ -430,13 +434,11 @@ a {
   flex-direction: column;
   align-items: center;
   margin: auto;
-  position: relative;
 }
 
 .create-new-word-container input {
   display: block;
   padding: 2% 2% 2% 0;
-  width: 35%;
   height: 40px;
   border-radius: 5px;
   border: none;
@@ -445,13 +447,11 @@ a {
 
 /* Base Table Styles */
 .word-table-container table {
-  width: 100%;
   text-align: center;
   border-collapse: collapse;
   margin: 20px 0;
   font-size: 0.9em;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -468,16 +468,16 @@ a {
 
 /* Body of the Table */
 .word-table-container tbody tr {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #ffffff;
 }
 
 .word-table-container tbody tr:nth-of-type(even) {
   background-color: rgb(12, 43, 80);
 }
 
-.word-table-container tbody tr:last-of-type {
-  border-bottom: 2px solid #004998;
-}
+/* .word-table-container tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+} */
 
 .word-table-container tbody tr.active-row {
   font-weight: bold;
@@ -486,8 +486,9 @@ a {
 
 /* Hover Effect */
 .word-table-container tbody tr:hover {
-  background-color: #416ced;
+  background-color: #49e88b;
   cursor: pointer;
+  color: black;
 }
 
 /* Word Type Specific Styling */

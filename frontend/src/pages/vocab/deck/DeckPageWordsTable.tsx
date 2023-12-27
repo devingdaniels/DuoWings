@@ -11,6 +11,7 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
       <table>
         <thead>
           <tr>
+            <th>#</th>
             <th>Word</th>
             <th>Definition</th>
             <th>Example Sentence</th>
@@ -20,8 +21,9 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
           </tr>
         </thead>
         <tbody>
-          {words.map((word: IVocabWord) => (
+          {words.map((word: IVocabWord, index: number) => (
             <tr key={word._id}>
+              <td>{index + 1}</td>
               <td>{word.word}</td>
               <td>{word.definition}</td>
               <td>{word.exampleSentence}</td>

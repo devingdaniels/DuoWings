@@ -10,6 +10,7 @@ import DeckPageTable from "./DeckPageWordsTable";
 import { useState } from "react";
 import { SpinnerDotted } from "spinners-react";
 import { IWordDeck } from "../../../interfaces";
+import { IoMdReturnLeft } from "react-icons/io";
 
 const DeckPage = () => {
   const navigate = useNavigate();
@@ -45,15 +46,16 @@ const DeckPage = () => {
   return (
     <div className="deck-page-container">
       {deck && !isLoading && (
-        <div>
+        <>
+          <div className="return-to-decks-icon">{/* <IoMdReturnLeft /> */}</div>
           <div className="deck-page-deck-header">
             <h1>{deck.name}</h1>
             <p>{deck.description}</p>
           </div>
           <CreateWordForm handleCreateNewWord={handleCreateNewWord} />
           <DeckPageTable words={deck.words} />
-          <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button>
-        </div>
+          {/* <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button> */}
+        </>
       )}
     </div>
   );
