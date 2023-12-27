@@ -56,7 +56,7 @@ const AllDecksPage: React.FC = () => {
   const NewDeckButton = () => {
     return (
       <AiOutlinePlus
-        className="add-new-deck-button"
+        className="create-new-deck-button"
         size={80}
         style={{ color: "red" }}
         onClick={() => {
@@ -79,7 +79,7 @@ const AllDecksPage: React.FC = () => {
   }
 
   // No decks and no state-changing functionality in progress
-  if (decks.length === 0 && !isModal && !isLoading) {
+  if (decks.length === 0 && !isModal && !isLoading && !isError) {
     return (
       <div className="all-decks-page-container-empty">
         <h2>No Decks ☹️</h2>
