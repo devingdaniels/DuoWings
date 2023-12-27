@@ -1,3 +1,4 @@
+import "./App.css";
 import HomePage from "./pages/home-page/HomePage";
 import LandingPage from "./pages/landing-page/LandingPage";
 import LoginPage from "./pages/auth/login-page/LoginPage";
@@ -10,7 +11,6 @@ import { ToastContainer } from "react-toastify";
 import { useAppSelector } from "./app/hooks";
 import UserSettingsPage from "./pages/user-settings/UserSettingsPage";
 import VocabPage from "./pages/vocab/VocabPage";
-import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const DuoWingsApp = () => {
@@ -23,14 +23,8 @@ const DuoWingsApp = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/home" element={user ? <HomePage /> : <PageNotFound />} />
-        <Route
-          path="/vocab/*"
-          element={user ? <VocabPage /> : <PageNotFound />}
-        />
-        <Route
-          path="/user-settings"
-          element={user ? <UserSettingsPage /> : <PageNotFound />}
-        />
+        <Route path="/vocab/*" element={user ? <VocabPage /> : <PageNotFound />} />
+        <Route path="/user-settings" element={user ? <UserSettingsPage /> : <PageNotFound />} />
         <Route path="/tutor" element={user ? <TutorPage /> : <TutorPage />} />
       </Routes>
       <ToastContainer

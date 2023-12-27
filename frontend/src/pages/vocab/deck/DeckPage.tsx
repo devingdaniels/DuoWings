@@ -28,9 +28,9 @@ const DeckPage = () => {
   useEffect(() => {
     dispatch(VocabSliceService.resetDeckStatus());
 
-    return () => {
-      dispatch(VocabSliceService.resetCurrentDeck());
-    };
+    // return () => {
+    //   dispatch(VocabSliceService.resetCurrentDeck());
+    // };
   }, [dispatch]);
 
   if (isLoading)
@@ -47,8 +47,9 @@ const DeckPage = () => {
       {deck && !isLoading && (
         <div>
           <h1>{deck.name}</h1>
+          <p>{deck.description}</p>
           <CreateWordForm handleCreateNewWord={handleCreateNewWord} />
-          <Button onClick={() => navigate("/vocab/upload-words")}>Upload words</Button>
+          <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button>
           <DeckPageTable words={deck.words} />
         </div>
       )}

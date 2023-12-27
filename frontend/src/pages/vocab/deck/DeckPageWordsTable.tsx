@@ -25,8 +25,8 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
             <td>{word.definition}</td>
             <td>{word.exampleSentence}</td>
             <td>{word.wordType}</td>
-            <td>{word.correctCount}</td>
-            <td>{word.incorrectCount}</td>
+            <td>{word.stats.correctCount}</td>
+            <td>{word.stats.incorrectCount}</td>
           </tr>
         ))}
       </tbody>

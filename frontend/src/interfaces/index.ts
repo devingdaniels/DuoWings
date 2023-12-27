@@ -65,6 +65,7 @@ export interface IWordDeck {
 
 export interface IVocabWord {
   _id: string;
+  deckID: string;
   word: string;
   definition: string;
   exampleSentence: string;
@@ -74,5 +75,10 @@ export interface IVocabWord {
   incorrectCount: number[];
   lastCorrectDate: Date | null;
   lastIncorrectDate: Date | null;
-  deckID: string;
+  stats: {
+    difficulty: number;
+    creationDate: Date;
+    correctCount: number;
+    incorrectCount: number;
+  };
 }

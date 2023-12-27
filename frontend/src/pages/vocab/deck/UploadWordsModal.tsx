@@ -13,18 +13,18 @@ const UploadWordsPage: React.FunctionComponent = () => {
 
   return (
     <div>
-      <h1>Flashcard Generator</h1>
+      <h1>Vocab word Generator</h1>
       <textarea
         rows={10}
         cols={30}
-        placeholder="Paste your words here (one word per line)"
+        placeholder="Paste your words here (one word per line without commas or other punctuation)"
         value={wordList}
         onChange={(e) => {
           setWordList(e.target.value);
         }}
       ></textarea>
       <br />
-      <button onClick={handleCreateFlashcards}>Create Flashcards</button>
+      <button onClick={handleCreateFlashcards}>Create Words</button>
     </div>
   );
 };

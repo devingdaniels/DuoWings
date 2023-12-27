@@ -55,21 +55,29 @@ const WordSchema = new mongoose.Schema({
       default: new Date(),
       immutable: false,
     },
+    correctCount: {
+      type: Number,
+      default: 0,
+    },
+    incorrectCount: {
+      type: Number,
+      default: 0,
+    },
   },
   tags: [String],
 });
 
-// WordSchema.methods.incrementCorrectCount = async function () {
-//   this.correctCount += 1;
-//   this.lastCorrectDate = new Date();
-//   await this.save();
-// };
+WordSchema.methods.incrementCorrectCount = async function () {
+  this.correctCount += 1;
+  this.lastCorrectDate = new Date();
+  await this.save();
+};
 
-// WordSchema.methods.incrementIncorrectCount = async function () {
-//   this.incorrectCount += 1;
-//   this.lastIncorrectDate = new Date();
-//   await this.save();
-// };
+WordSchema.methods.incrementIncorrectCount = async function () {
+  this.incorrectCount += 1;
+  this.lastIncorrectDate = new Date();
+  await this.save();
+};
 
 const WordModel = mongoose.model("Word", WordSchema, "words");
 
