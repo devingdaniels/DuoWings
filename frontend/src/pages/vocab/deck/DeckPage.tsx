@@ -46,11 +46,13 @@ const DeckPage = () => {
     <div className="deck-page-container">
       {deck && !isLoading && (
         <div>
-          <h1>{deck.name}</h1>
-          <p>{deck.description}</p>
+          <div className="deck-page-deck-header">
+            <h1>{deck.name}</h1>
+            <p>{deck.description}</p>
+          </div>
           <CreateWordForm handleCreateNewWord={handleCreateNewWord} />
-          <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button>
           <DeckPageTable words={deck.words} />
+          <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button>
         </div>
       )}
     </div>

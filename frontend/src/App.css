@@ -418,6 +418,11 @@ a {
   margin: auto;
 }
 
+.deck-page-deck-header {
+  text-align: center;
+  margin: 2%;
+}
+
 /* ------------------------ CREATE NEW WORD PAGE W/FORM ------------------------  */
 
 .create-new-word-container {
@@ -436,4 +441,56 @@ a {
   border-radius: 5px;
   border: none;
   font-size: inherit;
+}
+
+/* Base Table Styles */
+.word-table-container table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.word-table-container thead tr {
+  background-color: #004998;
+  color: #ffffff;
+}
+
+.word-table-container th,
+.word-table-container td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+/* Body of the Table */
+.word-table-container tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.word-table-container tbody tr:nth-of-type(even) {
+  background-color: rgb(12, 43, 80);
+}
+
+.word-table-container tbody tr:last-of-type {
+  border-bottom: 2px solid #004998;
+}
+
+.word-table-container tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+/* Hover Effect */
+.word-table-container tbody tr:hover {
+  background-color: #416ced;
+  cursor: pointer;
+}
+
+/* Word Type Specific Styling */
+.word-table-container td.wordType {
+  text-transform: capitalize;
 }
