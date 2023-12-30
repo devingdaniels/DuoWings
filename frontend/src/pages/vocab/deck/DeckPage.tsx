@@ -8,16 +8,15 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import DeckPageTable from "./DeckPageWordsTable";
 import { useState } from "react";
-import { SpinnerDotted } from "spinners-react";
+import RingLoader from "react-spinners/RingLoader";
 import { IWordDeck } from "../../../interfaces";
-import { IoMdReturnLeft } from "react-icons/io";
 
 const DeckPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { currentDeck, isLoading, isError, message } = useAppSelector((state) => state.vocab);
 
-  const [deck, setDeck] = useState<IWordDeck>(currentDeck!);
+  const [deck, setDeck] = useState<IWordDeck>(currentDeck!); //! Problematic?
 
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
     word.deckID = currentDeck!._id;
@@ -28,33 +27,32 @@ const DeckPage = () => {
 
   useEffect(() => {
     dispatch(VocabSliceService.resetDeckStatus());
-
     // return () => {
     //   dispatch(VocabSliceService.resetCurrentDeck());
     // };
   }, [dispatch]);
 
+  if (isError) return <p>Error: There was an error in the application -- {message}</p>;
+
   if (isLoading)
     return (
       <div className="deck-page-container">
-        <SpinnerDotted size={53} thickness={92} speed={69} color="rgba(59, 172, 57, 0.66)" />
+        <RingLoader size={53} color="rgba(59, 172, 57, 0.66)" />
       </div>
     );
-
-  if (isError) return <p>Error: There was an error in the application -- {message}</p>;
 
   return (
     <div className="deck-page-container">
       {deck && !isLoading && (
         <>
-          <div className="return-to-decks-icon">{/* <IoMdReturnLeft /> */}</div>
+          {/* <div className="return-to-decks-icon"><IoMdReturnLeft /></div> */}
           <div className="deck-page-deck-header">
             <h1>{deck.name}</h1>
             <p>{deck.description}</p>
           </div>
           <CreateWordForm handleCreateNewWord={handleCreateNewWord} />
           <DeckPageTable words={deck.words} />
-          {/* <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button> */}
+          <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button>
         </>
       )}
     </div>
