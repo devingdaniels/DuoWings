@@ -88,7 +88,6 @@ const AllDecksPage: React.FC = () => {
     );
   }
 
-  // Primary JSX return
   return (
     <div className="all-decks-page-container">
       {!isModal && (

@@ -10,7 +10,6 @@ interface DeckProps {
 }
 
 const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
-  // Hooks
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
