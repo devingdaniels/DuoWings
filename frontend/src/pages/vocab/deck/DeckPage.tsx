@@ -22,6 +22,7 @@ const DeckPage = () => {
     word.deckID = currentDeck!._id;
     const response = await dispatch(createWord(word));
     setDeck(response.payload);
+    // This updates the deck in Redux store
     dispatch(VocabSliceService.fetchAllUserDecks());
   };
 
