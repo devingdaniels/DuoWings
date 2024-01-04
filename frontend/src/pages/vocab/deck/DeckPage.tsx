@@ -52,8 +52,8 @@ const DeckPage = () => {
             <p>{deck.description}</p>
           </div>
           <CreateWordForm handleCreateNewWord={handleCreateNewWord} />
-          <DeckPageTable words={deck.words} />
           <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button>
+          <DeckPageTable words={deck.words} />
         </>
       )}
     </div>

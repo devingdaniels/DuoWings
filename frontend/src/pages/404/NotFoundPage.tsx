@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SideEye from "../assets/sideEye.png";
+import SideEye from "../../assets/sideEye.png";
 
 const NotFoundPage = () => {
   return (

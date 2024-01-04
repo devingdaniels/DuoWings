@@ -14,9 +14,9 @@ const VocabPage = () => {
         <MenuPanel />
         <Routes>
           <Route path="/decks/*" element={<AllDecksPage />} />
+          <Route path="/decks/upload-words" element={<UploadWordsPage />} />
           <Route path="/decks/:deckId" element={<DeckPage />} />
           <Route path="/stats" element={<StatsPage />} />
-          <Route path="/upload-words" element={<UploadWordsPage />} />
         </Routes>
         <Outlet />
       </div>

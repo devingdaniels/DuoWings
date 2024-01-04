@@ -23,10 +23,11 @@ function Logout() {
     });
   };
 
-  const handleDeleteAccount = () => {
+  const handleDeleteAccount = async () => {
     // dispatch(VocabSliceService.clearUserDeckState());
     // dispatch(clearUserAuthState());
-    dispatch(deleteAccount());
+    await dispatch(deleteAccount());
+    console.log("Delete account logic to be implemented");
 
     // Purge local storage and wait for it to complete
     // persistor.purge().then(() => {

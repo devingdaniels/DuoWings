@@ -2,7 +2,7 @@ import "./App.css";
 import HomePage from "./pages/home/HomePage";
 import LandingPage from "./pages/landing/LandingPage";
 import LoginPage from "./pages/auth/login/LoginPage";
-import PageNotFound from "./pages/NotFoundPage";
+import PageNotFound from "./pages/404/NotFoundPage";
 import RegisterPage from "./pages/auth/register/RegisterPage";
 import { Route, Routes } from "react-router-dom";
 import { selectUser } from "./features/userAuthSlice";
