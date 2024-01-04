@@ -4,15 +4,19 @@ import { IUserRegister } from "../../../interfaces";
 import { SwalSuccess } from "../../../utils/SweetAlertModule";
 import BarLoader from "react-spinners/BarLoader";
 import { ToastError } from "../../../utils/Toastify";
-// Redux
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { register, resetUserStatus } from "../../../features/userAuthSlice";
-// Styles
 import Button from "@mui/material/Button";
 
 const SignUpForm = () => {
+  // Hooks
   const navigate = useNavigate();
+
+  // Redux
   const dispatch = useAppDispatch();
+  const { user, isLoading, isError, isSuccess, message } = useAppSelector((state) => state.auth);
+
+  // Component state
   const [userData, setUserData] = useState<IUserRegister>({
     fname: "",
     lname: "",
@@ -23,20 +27,16 @@ const SignUpForm = () => {
     confirmPassword: "",
   });
 
-  const { user, isLoading, isError, isSuccess, message } = useAppSelector((state) => state.auth);
-
+  // Component methods
   const handleSignUp = async (e: React.FormEvent) => {
     // Stop page reload
     e.preventDefault();
-
     // Ensure username does not include spaces or @
     // if so, send toast error to have user try again
     if (userData.username.includes(" ") || userData.username.includes("@")) {
       ToastError("Username cannot include spaces or @");
       return;
     }
-
-    // Redux layer will
     dispatch(register(userData));
   };
 
@@ -59,6 +59,7 @@ const SignUpForm = () => {
       confirmPassword: "",
     });
   };
+
   useEffect(() => {
     if (isSuccess && user) {
       SwalSuccess("Success", `Welcome ${user.fname}!`);
@@ -68,7 +69,6 @@ const SignUpForm = () => {
     if (isError) {
       ToastError(message);
     }
-
     return () => {
       // Without the timeout, isLoading is set to false too fast to be seen by user
       setTimeout(() => {

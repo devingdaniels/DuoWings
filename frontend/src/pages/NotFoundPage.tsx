@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
+import SideEye from "../assets/sideEye.png";
 
 const NotFoundPage = () => {
   return (
     <>
-      <Link to="/">
-        <h1>404 Page Not Found, better redirect page coming soon...</h1>
-        <p>Under construction</p>
-      </Link>
+      <div className="not-found-page-container">
+        <Link to="/">
+          <img src={SideEye} alt="Side Eye" />
+          <p>Nice try you sneaky sneaky</p>
+        </Link>
+      </div>
     </>
   );
 };

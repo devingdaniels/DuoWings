@@ -1,6 +1,6 @@
 import "./App.css";
-import HomePage from "./pages/home-page/HomePage";
-import LandingPage from "./pages/landing-page/LandingPage";
+import HomePage from "./pages/home/HomePage";
+import LandingPage from "./pages/landing/LandingPage";
 import LoginPage from "./pages/auth/login/LoginPage";
 import PageNotFound from "./pages/NotFoundPage";
 import RegisterPage from "./pages/auth/register/RegisterPage";
