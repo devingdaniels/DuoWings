@@ -12,20 +12,17 @@ import RingLoader from "react-spinners/RingLoader";
 import { IWordDeck } from "../../../interfaces";
 
 const DeckPage = () => {
+  // Hooks
   const navigate = useNavigate();
+
+  // Redux
   const dispatch = useAppDispatch();
   const { currentDeck, isLoading, isError, message } = useAppSelector((state) => state.vocab);
 
-  const [deck, setDeck] = useState<IWordDeck>(currentDeck!); //! Problematic?
+  // Component state
+  const [deck, setDeck] = useState<IWordDeck>(currentDeck!); //! Problematic since we have to !
 
-  const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
-    word.deckID = currentDeck!._id;
-    const response = await dispatch(createWord(word));
-    setDeck(response.payload);
-    // This updates the deck in Redux store
-    dispatch(VocabSliceService.fetchAllUserDecks());
-  };
-
+  // Side effects
   useEffect(() => {
     dispatch(VocabSliceService.resetDeckStatus());
     // return () => {
@@ -33,7 +30,16 @@ const DeckPage = () => {
     // };
   }, [dispatch]);
 
-  if (isError) return <p>Error: There was an error in the application -- {message}</p>;
+  // Componenet functions
+  const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
+    word.deckID = currentDeck!._id;
+    const response = await dispatch(createWord(word));
+    setDeck(response.payload);
+    //! Without this, the deck page will not update with the new word, but this is not ideal
+    dispatch(VocabSliceService.fetchAllUserDecks());
+  };
+
+  if (isError) return <p>Error: {message}</p>;
 
   if (isLoading)
     return (

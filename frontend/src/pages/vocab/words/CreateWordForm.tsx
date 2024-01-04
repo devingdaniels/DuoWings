@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
 import { Button } from "@mui/material";
 
-interface NewWordFormProps {
+interface CreateWordForm {
   handleCreateNewWord: (formData: ICreateNewVocabWord) => void;
 }
 
-const NewWordForm: React.FC<NewWordFormProps> = ({ handleCreateNewWord }) => {
+const CreateWordForm: React.FC<CreateWordForm> = ({ handleCreateNewWord }) => {
   const [formData, setFormData] = useState<ICreateNewVocabWord>({
     word: "",
     deckID: "",
@@ -46,4 +46,4 @@ const NewWordForm: React.FC<NewWordFormProps> = ({ handleCreateNewWord }) => {
   );
 };
 
-export default NewWordForm;
+export default CreateWordForm;
