@@ -23,13 +23,19 @@ const SignUpForm = () => {
     confirmPassword: "",
   });
 
-  const { user, isLoading, isError, isSuccess, message } = useAppSelector(
-    (state) => state.auth
-  );
+  const { user, isLoading, isError, isSuccess, message } = useAppSelector((state) => state.auth);
 
   const handleSignUp = async (e: React.FormEvent) => {
     // Stop page reload
     e.preventDefault();
+
+    // Ensure username does not include spaces or @
+    // if so, send toast error to have user try again
+    if (userData.username.includes(" ") || userData.username.includes("@")) {
+      ToastError("Username cannot include spaces or @");
+      return;
+    }
+
     // Redux layer will
     dispatch(register(userData));
   };
