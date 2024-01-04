@@ -13,7 +13,7 @@ import UserSettingsPage from "./pages/user-settings/UserSettingsPage";
 import VocabPage from "./pages/vocab/VocabPage";
 import "react-toastify/dist/ReactToastify.css";
 
-const DuoWingsApp = () => {
+const App = () => {
   const user = useAppSelector(selectUser);
 
   return (
@@ -43,4 +43,4 @@ const DuoWingsApp = () => {
   );
 };
 
-export default DuoWingsApp;
+export default App;

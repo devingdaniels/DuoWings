@@ -1,6 +1,5 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import DuoWingsApp from "./App.tsx";
+import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
 // Redux
 import { Provider } from "react-redux";
@@ -14,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     {/* UPDATE TO HASHROUTER(?) FOR PRODUCTION */}
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <DuoWingsApp />
+        <App />
       </PersistGate>
     </Provider>
   </BrowserRouter>
