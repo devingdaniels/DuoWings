@@ -9,7 +9,7 @@ export interface IUserRegister {
 }
 
 export interface IUserLogin {
-  email: string;
+  identifier: string;
   password: string;
 }
 

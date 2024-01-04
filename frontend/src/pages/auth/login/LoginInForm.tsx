@@ -17,7 +17,7 @@ const LoginInForm: React.FC = () => {
   const { user, isLoading, isError, isSuccess, message } = useAppSelector((state) => state.auth);
   // Component state
   const [userData, setUserData] = useState<IUserLogin>({
-    email: "",
+    identifier: "",
     password: "",
   });
 
@@ -69,11 +69,11 @@ const LoginInForm: React.FC = () => {
             <h2>Login</h2>
             <div className="user-info-wrapper">
               <input
-                className="email"
+                className="identifier"
                 type="text"
-                placeholder="email or username"
-                name="email"
-                value={userData.email}
+                placeholder="Email or username"
+                name="identifier"
+                value={userData.identifier}
                 onChange={handleInputChange}
                 required
               />
@@ -81,7 +81,7 @@ const LoginInForm: React.FC = () => {
               <input
                 className="password"
                 type="password"
-                placeholder="password"
+                placeholder="Password"
                 name="password"
                 value={userData.password}
                 onChange={handleInputChange}

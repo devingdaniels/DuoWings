@@ -1,9 +1,9 @@
 import "./App.css";
 import HomePage from "./pages/home-page/HomePage";
 import LandingPage from "./pages/landing-page/LandingPage";
-import LoginPage from "./pages/auth/login-page/LoginPage";
+import LoginPage from "./pages/auth/login/LoginPage";
 import PageNotFound from "./pages/NotFoundPage";
-import RegisterPage from "./pages/auth/register-page/RegisterPage";
+import RegisterPage from "./pages/auth/register/RegisterPage";
 import { Route, Routes } from "react-router-dom";
 import { selectUser } from "./features/userAuthSlice";
 import TutorPage from "./pages/tutor/TutorPage";

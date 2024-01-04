@@ -22,9 +22,9 @@ const initialState: UserState = {
 // Create an async thunk for user login
 export const login = createAsyncThunk<IUser, IUserLogin>(
   "auth/login",
-  async (userData, { rejectWithValue }) => {
+  async (user, { rejectWithValue }) => {
     try {
-      return await authService.login(userData);
+      return await authService.login(user);
     } catch (error: any) {
       const message =
         (error.response && error.response.data && error.response.data.message) ||

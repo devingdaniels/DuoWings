@@ -23,18 +23,18 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
       res.status(400);
       throw new Error("Passwords do not match");
     }
-    // Check if the user with the given email already exists
-    const existingUserByEmail = await User.findOne({ email }).exec();
-    if (existingUserByEmail) {
-      res.status(400);
-      throw new Error(`User with email ${email} already exists`);
-    }
 
     // Check if the user with the given username already exists
     const existingUserByUsername = await User.findOne({ username }).exec();
     if (existingUserByUsername) {
       res.status(400);
-      throw new Error(`User with username ${username} already exists`);
+      throw new Error(`${username} is taken`);
+    }
+    // Check if the user with the given email already exists
+    const existingUserByEmail = await User.findOne({ email }).exec();
+    if (existingUserByEmail) {
+      res.status(400);
+      throw new Error(`${email} already exists`);
     }
 
     // Hash the user's password
@@ -71,18 +71,25 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
 
 const loginUser = async (req: Request, res: Response, next: NextFunction) => {
   // Deconstruct the request body
-  const { email, password } = req.body;
+  const { identifier, password } = req.body;
+
+  if (!identifier || !password) {
+    res.status(400);
+    throw new Error("Missing email/username or password");
+  }
+
+  // User can login with email or username, determine which
+  // This works because usernames are required to not contain '@'
+  const isEmail = identifier.includes("@");
+  const query = isEmail ? { email: identifier } : { username: identifier };
+
+  console.log(query);
 
   try {
-    if (!email || !password) {
-      res.status(400);
-      throw new Error("Missing email or password");
-    }
-
-    const existingUser = await User.findOne({ email }).exec();
+    const existingUser = await User.findOne(query).exec();
     if (!existingUser) {
       res.status(404);
-      throw new Error(`${email} does not exist`);
+      throw new Error("User not found");
     }
 
     if (!(await comparePassword(password, existingUser.password))) {
