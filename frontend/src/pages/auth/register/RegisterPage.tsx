@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import React from "react";
 import RegisterForm from "./RegisterForm";
-import { useNavigate } from "react-router-dom";
+//! Delete this later
+import GetUserDemographics from "./GetUserDemographics";
 
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
@@ -10,6 +12,7 @@ const RegisterPage: React.FC = () => {
         DuoWings
       </h1>
       <RegisterForm />
+      <GetUserDemographics />
     </>
   );
 };
