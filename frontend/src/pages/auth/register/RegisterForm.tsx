@@ -29,15 +29,13 @@ const SignUpForm = () => {
 
   // Component methods
   const handleSignUp = async (e: React.FormEvent) => {
-    // Stop page reload
     e.preventDefault();
     // Ensure username does not include spaces or @
-    // if so, send toast error to have user try again
     if (userData.username.includes(" ") || userData.username.includes("@")) {
       ToastError("Username cannot include spaces or @");
       return;
     }
-    dispatch(register(userData));
+    await dispatch(register(userData));
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
