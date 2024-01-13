@@ -6,15 +6,16 @@ import { openAIService } from "../services/openai/openaiService";
 
 const createWord = async (req: Request, res: Response) => {
   // Get the word and deckID from the request body
-  // Get the userID from the request user assigned by middleware
+
   const { word, deckID } = req.body;
-  // const userID = req.user;
+  // Get the user from the request object (Middleware)
+  const user = req.user;
 
   try {
     const deck = await DeckModel.findById(deckID);
     if (deck) {
       // Build a new word using the OpenAI API
-      const newWord = await openAIService.buildWord(word);
+      const newWord = await openAIService.buildWord(word, user);
       console.log(newWord);
       const createdWord = new WordModel(newWord);
       await createdWord.save();

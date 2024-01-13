@@ -6,7 +6,8 @@ const NAMESPACE = "openai word builder";
 const openAI = new OpenAI();
 
 // Returns a stringified JSON object
-const buildWord = async (word: string): Promise<string> => {
+//! TODO: Create TypeScript interface for the user object
+const buildWord = async (word: string, user: any): Promise<string> => {
   const prompt = `Given the word "${word}", complete the following object with appropriate values in Spanish and return a JSON object. Provide only the specific category information requested without additional explanations or examples in other languages.\n\n:   \n\n:
   {
     word: "${word}",
@@ -52,7 +53,7 @@ const buildWord = async (word: string): Promise<string> => {
   try {
     const response = await openAI.chat.completions.create({
       messages: [{ role: "system", content: prompt }],
-      model: "gpt-3.5-turbo-1106",
+      model: "gpt-3.5-turbo-1106", //! TODO: This should be an environment variable so premium users can use the Davinci model
       response_format: { type: "json_object" },
     });
 
