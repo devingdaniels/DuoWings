@@ -38,6 +38,8 @@ Welcome to LinguaLeap, the innovative language learning platform that leaps beyo
 ```bash
 git clone https://github.com/your-username/LinguaLeap.git
 cd LinguaLeap
+cd backend
 npm install
+cd frontent
 npm start
 ```
