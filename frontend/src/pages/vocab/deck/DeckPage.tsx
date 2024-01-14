@@ -32,6 +32,7 @@ const DeckPage = () => {
 
   // Componenet functions
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
+    //! This can be undefined which is causing an issue on the frotend after creating a new word and then trying to create another one
     word.deckID = currentDeck!._id;
     const response = await dispatch(createWord(word));
     setDeck(response.payload);
