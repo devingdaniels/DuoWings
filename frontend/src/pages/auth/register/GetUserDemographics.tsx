@@ -2,19 +2,13 @@ import React, { useState } from "react";
 
 const GetUserDemographics: React.FC = () => {
   const [userDemographics, setUserDemographics] = useState({
-    learningStyle: "",
+    nativeLanguage: "",
+    desiredLanguage: "",
     interests: "",
-    languageProficiency: "",
     learningGoals: "",
-    timeAvailability: "",
-    learningPace: "",
-    feedbackPatterns: "",
+    desiredLanguageProficiency: "",
     culturalContext: "",
-    motivationLevel: "",
     challenges: "",
-    previousLanguageLearning: "",
-    cognitiveSkills: "",
-    physicalAbilities: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,93 +26,53 @@ const GetUserDemographics: React.FC = () => {
   return (
     <form onSubmit={handleFormSubmit}>
       <label>
-        Learning Style Preferences:
+        Native language:
         <input
           type="text"
-          name="learningStyle"
-          value={userDemographics.learningStyle}
+          name="nativeLanguage"
+          value={userDemographics.nativeLanguage}
           onChange={handleChange}
-          placeholder="Enter learning style preferences"
+          placeholder="What is your native language?"
         />
       </label>
       <label>
-        Interests and Hobbies:
+        What language do you want to learn?
+        <input
+          type="text"
+          name="languageProficiency"
+          value={userDemographics.desiredLanguage}
+          onChange={handleChange}
+          placeholder="What language do you want to learn?"
+        />
+      </label>
+      <label>
+        Interests:
         <input
           type="text"
           name="interests"
           value={userDemographics.interests}
           onChange={handleChange}
-          placeholder="Enter interests and hobbies"
+          placeholder="What are your interests?"
         />
       </label>
       <label>
-        Language Proficiency Level:
-        <input
-          type="text"
-          name="languageProficiency"
-          value={userDemographics.languageProficiency}
-          onChange={handleChange}
-          placeholder="Enter language proficiency level"
-        />
-      </label>
-      <label>
-        Learning Goals:
+        learningGoals:
         <input
           type="text"
           name="learningGoals"
           value={userDemographics.learningGoals}
           onChange={handleChange}
-          placeholder="Enter learning goals"
+          placeholder="learningGoals"
         />
       </label>
       <label>
-        Time Availability:
-        <input
-          type="text"
-          name="timeAvailability"
-          value={userDemographics.timeAvailability}
-          onChange={handleChange}
-          placeholder="Enter time availability"
-        />
-      </label>
-      <label>
-        Learning Pace:
-        <input
-          type="text"
-          name="learningPace"
-          value={userDemographics.learningPace}
-          onChange={handleChange}
-          placeholder="Enter learning pace"
-        />
-      </label>
-      <label>
-        Feedback Patterns:
-        <input
-          type="text"
-          name="feedbackPatterns"
-          value={userDemographics.feedbackPatterns}
-          onChange={handleChange}
-          placeholder="Enter feedback patterns"
-        />
-      </label>
-      <label>
-        Cultural Context:
+        desiredLanguageProficiency
         <input
           type="text"
           name="culturalContext"
-          value={userDemographics.culturalContext}
+          value={userDemographics.desiredLanguageProficiency}
           onChange={handleChange}
-          placeholder="Enter cultural context"
-        />
-      </label>
-      <label>
-        Motivation Level:
-        <input
-          type="text"
-          name="motivationLevel"
-          value={userDemographics.motivationLevel}
-          onChange={handleChange}
-          placeholder="Enter motivation level"
+          placeholder="desiredLanguageProficiency"
         />
       </label>
       <label>
@@ -132,33 +86,23 @@ const GetUserDemographics: React.FC = () => {
         />
       </label>
       <label>
-        Previous Language Learning Experience:
+        culturalContext:
         <input
           type="text"
-          name="previousLanguageLearning"
-          value={userDemographics.previousLanguageLearning}
+          name="challenges"
+          value={userDemographics.culturalContext}
           onChange={handleChange}
-          placeholder="Enter previous language learning experiences"
+          placeholder="culturalContext"
         />
       </label>
       <label>
-        Cognitive Skills:
+        Challenges:
         <input
           type="text"
-          name="cognitiveSkills"
-          value={userDemographics.cognitiveSkills}
+          name="challenges"
+          value={userDemographics.challenges}
           onChange={handleChange}
-          placeholder="Enter cognitive skills"
-        />
-      </label>
-      <label>
-        Physical Abilities:
-        <input
-          type="text"
-          name="physicalAbilities"
-          value={userDemographics.physicalAbilities}
-          onChange={handleChange}
-          placeholder="Enter physical abilities"
+          placeholder="Enter challenges faced"
         />
       </label>
       <button type="submit">Submit</button>
