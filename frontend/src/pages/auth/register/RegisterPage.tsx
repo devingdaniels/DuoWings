@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import RegisterForm from "./RegisterForm";
-//! Delete this later
+//! Delete this later and turn into a onboard flow
 import GetUserDemographics from "./GetUserDemographics";
 
 const RegisterPage: React.FC = () => {
