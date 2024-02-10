@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema({
     min: 3,
     max: 20,
     unique: true,
-    index: true, // Indexes are used to quickly locate data without having to search every row in a database every time a database table is accessed.
+    index: true,
   },
   password: {
     type: String,

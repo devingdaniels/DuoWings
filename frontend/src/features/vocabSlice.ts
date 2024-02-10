@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import { VocabService } from "./vocabService";
-
 import { ICreateNewDeck, IWordDeck } from "../interfaces/index";
 import { ICreateNewVocabWord } from "../interfaces/index";
-import { RootState } from "../app/store";
+
 
 interface VocabState {
   decks: IWordDeck[] | [];
@@ -22,6 +21,16 @@ const initialState: VocabState = {
   isError: false,
   message: "",
 };
+
+
+
+/*
+  
+  ***************************** 
+          DECK THUNKS 
+  *****************************
+  
+*/
 
 // Create an async thunk to fetch user decks from the backend
 const fetchAllUserDecks = createAsyncThunk(
@@ -221,7 +230,6 @@ const vocabSlice = createSlice({
 
 const resetCurrentDeck = createAction("vocab/resetCurrentDeck");
 const clearUserDeckState = createAction("vocab/clearDeckState");
-const getCurrentDeck = (state: RootState) => state.vocab.currentDeck;
 const { setCurrentDeck } = vocabSlice.actions;
 const { resetDeckStatus } = vocabSlice.actions;
 
@@ -235,7 +243,6 @@ const VocabSliceService = {
   clearUserDeckState,
   resetDeckStatus,
   setCurrentDeck,
-  getCurrentDeck,
 };
 export { VocabSliceService };
 // Reducer

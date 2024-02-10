@@ -2,7 +2,7 @@ import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { createWord } from "../../../features/vocabSlice";
 import CreateWordForm from "../words/CreateWordForm";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
-import { VocabSliceService } from "../../../features/vocabSlice";
+// import { VocabSliceService } from "../../../features/vocabSlice";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -20,24 +20,19 @@ const DeckPage = () => {
   const { currentDeck, isLoading, isError, message } = useAppSelector((state) => state.vocab);
 
   // Component state
-  const [deck, setDeck] = useState<IWordDeck>(currentDeck!); //! Problematic since we have to !
+   //! This is returning null sometimes and causing a crash
+  const [deck, setDeck] = useState<IWordDeck>(currentDeck!);
 
   // Side effects
   useEffect(() => {
-    dispatch(VocabSliceService.resetDeckStatus());
-    // return () => {
-    //   dispatch(VocabSliceService.resetCurrentDeck());
-    // };
-  }, [dispatch]);
+    
+  }, [dispatch, currentDeck, navigate]);
 
   // Componenet functions
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
-    //! This can be undefined which is causing an issue on the frotend after creating a new word and then trying to create another one
-    word.deckID = currentDeck!._id;
+    word.deckID = deck._id
     const response = await dispatch(createWord(word));
     setDeck(response.payload);
-    //! Without this, the deck page will not update with the new word, but this is not ideal
-    dispatch(VocabSliceService.fetchAllUserDecks());
   };
 
   if (isError) return <p>Error: {message}</p>;

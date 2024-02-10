@@ -54,7 +54,6 @@ export interface IWordDeck {
     favorited: boolean;
   };
   words: IVocabWord[];
-  // Stop
   experiencePoints: number;
   level: number;
   completedChallenges: string[];

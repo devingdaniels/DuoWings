@@ -15,6 +15,7 @@ const createWord = async (req: Request, res: Response) => {
     if (deck) {
       // Build a new word using the OpenAI API
       const newWord = await openAIService.buildWord(word, user);
+      // Create the word and add it to the deck
       const createdWord = new WordModel(newWord);
       await createdWord.save();
       deck.words.push(createdWord);

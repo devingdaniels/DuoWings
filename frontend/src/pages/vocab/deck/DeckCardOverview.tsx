@@ -15,7 +15,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
 
   const handleDeleteDeck = async (e: React.MouseEvent<HTMLButtonElement>) => {
     // Delete button is inside deck card which also has onClick
-    // stopPropagation prevents the onClick from firing that would result in going to that deck's page
+    // stopPropagation prevents the onClick from firing that would result in going to that deck's page under the delete button
     e.stopPropagation();
     await dispatch(VocabSliceService.deleteDeckByID(deck._id));
     fetchUserDecks();
