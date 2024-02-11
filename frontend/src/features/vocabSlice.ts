@@ -232,6 +232,7 @@ const resetCurrentDeck = createAction("vocab/resetCurrentDeck");
 const clearUserDeckState = createAction("vocab/clearDeckState");
 const { setCurrentDeck } = vocabSlice.actions;
 const { resetDeckStatus } = vocabSlice.actions;
+const getCurrentDeck = (state: any) => state.vocab.currentDeck;
 
 const VocabSliceService = {
   createDeck,
@@ -243,7 +244,9 @@ const VocabSliceService = {
   clearUserDeckState,
   resetDeckStatus,
   setCurrentDeck,
+  getCurrentDeck
 };
+
 export { VocabSliceService };
 // Reducer
 export default vocabSlice.reducer;

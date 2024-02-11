@@ -5,6 +5,7 @@ import NavigationBar from "../../components/NavigationBar";
 import MenuPanel from "../../components/MenuPanel";
 import DeckPage from "../vocab/deck/DeckPage";
 import UploadWordsPage from "./deck/UploadWordsModal";
+import FlashCardsPage from "./flashcards/FlashCardsPage";
 
 const VocabPage = () => {
   return (
@@ -15,6 +16,7 @@ const VocabPage = () => {
         <Routes>
           <Route path="/decks/*" element={<AllDecksPage />} />
           <Route path="/decks/upload-words" element={<UploadWordsPage />} />
+          <Route path="/decks/flashcards" element={<FlashCardsPage />} />
           <Route path="/decks/:deckId" element={<DeckPage />} />
           <Route path="/stats" element={<StatsPage />} />
         </Routes>

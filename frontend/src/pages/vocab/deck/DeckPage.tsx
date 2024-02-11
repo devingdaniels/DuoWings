@@ -1,37 +1,32 @@
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import { createWord } from "../../../features/vocabSlice";
+import { VocabSliceService, createWord } from "../../../features/vocabSlice";
 import CreateWordForm from "../words/CreateWordForm";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
-// import { VocabSliceService } from "../../../features/vocabSlice";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import DeckPageTable from "./DeckPageWordsTable";
 import { useState } from "react";
 import RingLoader from "react-spinners/RingLoader";
 import { IWordDeck } from "../../../interfaces";
+import { FaPlay } from "react-icons/fa";
 
 const DeckPage = () => {
   // Hooks
   const navigate = useNavigate();
-
   // Redux
   const dispatch = useAppDispatch();
   const { currentDeck, isLoading, isError, message } = useAppSelector((state) => state.vocab);
 
   // Component state
-   //! This is returning null sometimes and causing a crash
   const [deck, setDeck] = useState<IWordDeck>(currentDeck!);
 
-  // Side effects
-  useEffect(() => {
-    
-  }, [dispatch, currentDeck, navigate]);
-
-  // Componenet functions
+  // Component functions
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
-    word.deckID = deck._id
+    word.deckID = deck._id;
     const response = await dispatch(createWord(word));
+    // Reset the current deck in the store
+    dispatch(VocabSliceService.setCurrentDeck(response.payload));
+    // Update the local state
     setDeck(response.payload);
   };
 
@@ -55,6 +50,7 @@ const DeckPage = () => {
           </div>
           <CreateWordForm handleCreateNewWord={handleCreateNewWord} />
           <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button>
+          <FaPlay onClick={() => navigate("/vocab/decks/flashcards")} />
           <DeckPageTable words={deck.words} />
         </>
       )}
