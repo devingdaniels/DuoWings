@@ -1,5 +1,5 @@
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import { VocabSliceService, createWord } from "../../../features/vocabSlice";
+import { VocabSliceService } from "../../../features/vocabSlice";
 import CreateWordForm from "../words/CreateWordForm";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
 import { Button } from "@mui/material";
@@ -22,13 +22,10 @@ const DeckPage = () => {
 
   // Component functions
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
-    // There is probably a safer way to do this
-    word.deckID = deck._id;
-    const response = await dispatch(createWord(word));
-    //! This should be handled in the slice but it is not working
-    // dispatch(VocabSliceService.setCurrentDeck(response.payload));
+    const response = await dispatch(VocabSliceService.createWord(word));
+    console.log(response.payload);
     // Update the local state
-    setDeck(response.payload);
+    setDeck(response.payload.responseDeck);
   };
 
   if (isError) return <p>Error: {message}</p>;
@@ -42,17 +39,17 @@ const DeckPage = () => {
 
   return (
     <div className="deck-page-container">
-      {deck && !isLoading && (
+      {deck && !isLoading && currentDeck && (
         <>
           {/* <div className="return-to-decks-icon"><IoMdReturnLeft /></div> */}
           <div className="deck-page-deck-header">
             <h1>{deck.name}</h1>
             <p>{deck.description}</p>
           </div>
-          <CreateWordForm handleCreateNewWord={handleCreateNewWord} />
+          <CreateWordForm handleCreateNewWord={handleCreateNewWord} deckID={currentDeck._id} />
           <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button>
           <FaPlay onClick={() => navigate("/vocab/decks/flashcards")} />
-          <DeckPageTable words={deck.words} />
+          <DeckPageTable words={currentDeck.words} />
         </>
       )}
     </div>

@@ -1,8 +1,8 @@
 import React from "react";
-import { IVocabWord } from "../../../interfaces";
+import { IWord } from "../../../interfaces";
 
 interface DeckPageTableProps {
-  words: IVocabWord[];
+  words: IWord[];
 }
 
 const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
@@ -21,7 +21,7 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
           </tr>
         </thead>
         <tbody>
-          {words.map((word: IVocabWord, index: number) => (
+          {words.map((word: IWord, index: number) => (
             <tr key={word._id}>
               <td>{index + 1}</td>
               <td>{word.word}</td>

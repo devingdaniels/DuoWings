@@ -3,7 +3,6 @@ import { VocabService } from "./vocabService";
 import { ICreateNewDeck, IWordDeck } from "../interfaces/index";
 import { ICreateNewVocabWord } from "../interfaces/index";
 
-
 interface VocabState {
   decks: IWordDeck[] | [];
   currentDeck: IWordDeck | null;
@@ -21,7 +20,6 @@ const initialState: VocabState = {
   isError: false,
   message: "",
 };
-
 
 /*
   
@@ -80,7 +78,7 @@ const createDeck = createAsyncThunk(
   }
 );
 
-export const deleteDeckByID = createAsyncThunk(
+const deleteDeckByID = createAsyncThunk(
   "vocab/deleteDeckByID",
   async (deckID: string, { rejectWithValue }) => {
     try {
@@ -102,7 +100,7 @@ export const deleteDeckByID = createAsyncThunk(
   *****************************
 */
 
-export const createWord = createAsyncThunk(
+const createWord = createAsyncThunk(
   "vocab/createWord",
   async (word: ICreateNewVocabWord, { rejectWithValue }) => {
     try {
@@ -122,7 +120,6 @@ const vocabSlice = createSlice({
   name: "vocab",
   initialState,
   reducers: {
-    
     setCurrentDeck: (state, action) => {
       state.currentDeck = action.payload;
     },
@@ -197,18 +194,19 @@ const vocabSlice = createSlice({
         state.isSuccess = false;
         state.message = action.error.message as string;
       })
+
       /* WORD CASES */
       .addCase(createWord.pending, (state) => {
         state.isLoading = true;
       })
+
       .addCase(createWord.fulfilled, (state, action) => {
-        //! Not sure why the deck is not getting set here
-        console.log(action.payload.deck)
-        // state.currentDeck = action.payload.deck as IWordDeck;
+        state.currentDeck = action.payload.responseDeck;
         state.isSuccess = true;
         state.isLoading = false;
         state.isError = false;
       })
+
       .addCase(createWord.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
@@ -217,7 +215,6 @@ const vocabSlice = createSlice({
       });
   },
 });
-
 
 const clearUserDeckState = createAction("vocab/clearDeckState");
 const { setCurrentDeck } = vocabSlice.actions;

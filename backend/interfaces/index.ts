@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface Conjugation {
+interface IConjugation {
   yo?: string;
   tu?: string;
   el?: string;
@@ -16,32 +16,29 @@ interface Stats {
   incorrectCount: number;
 }
 
-interface Word {
+export interface IWord {
+  _id: mongoose.Types.ObjectId;
   word: string;
   definition: string;
   exampleSentence: string;
   wordType: string;
   conjugations: {
-    present?: Conjugation;
-    preterite?: Conjugation;
-    future?: Conjugation;
-    imperfect?: Conjugation;
+    present?: IConjugation;
+    preterite?: IConjugation;
+    future?: IConjugation;
+    imperfect?: IConjugation;
   };
   stats: Stats;
   tags: string[];
 }
 
-interface WordDeck {
+export interface IWordDeck {
+  _id: mongoose.Types.ObjectId;
   userID: mongoose.Types.ObjectId;
   name: string;
   description?: string;
   tags?: string[];
   creationDate: Date;
-  preferences: {
-    insertOrder: string[];
-    favorited?: boolean;
-  };
-  words: Word[];
+  favorited?: boolean;
+  words: IWord[];
 }
-
-export default WordDeck;

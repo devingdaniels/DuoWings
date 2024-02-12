@@ -7,6 +7,9 @@ const openAI = new OpenAI();
 
 // Returns a stringified JSON object
 //! TODO: Create TypeScript interface for the user object
+// The user will have a learning context, like the language they are learning, native language, etc.
+// This will then be used to tailor the prompt to the user's learning context
+
 const buildWord = async (word: string, user: any): Promise<string> => {
   const prompt = `Given the word "${word}", complete the following object with appropriate values in Spanish and return a JSON object. Provide only the specific category information requested without additional explanations or examples in other languages.\n\n:   \n\n:
   {
@@ -60,7 +63,7 @@ const buildWord = async (word: string, user: any): Promise<string> => {
     if (response.choices[0].message.content == null) {
       throw new Error(`${NAMESPACE}: No choices returned`);
     }
-
+    // Deserialize the JSON object and return it
     return JSON.parse(response.choices[0].message.content);
   } catch (error) {
     console.error(error);

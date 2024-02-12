@@ -18,10 +18,11 @@ const WordDeckSchema = new mongoose.Schema({
     default: new Date(),
     immutable: true,
   },
-  preferences: {
-    insertOrder: [String],
-    favorited: Boolean,
+  favorited: {
+    type: Boolean,
+    default: false,
   },
+
   words: [WordSchema],
 });
 

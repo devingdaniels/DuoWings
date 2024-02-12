@@ -4,12 +4,13 @@ import { Button } from "@mui/material";
 
 interface CreateWordForm {
   handleCreateNewWord: (formData: ICreateNewVocabWord) => void;
+  deckID: string;
 }
 
-const CreateWordForm: React.FC<CreateWordForm> = ({ handleCreateNewWord }) => {
+const CreateWordForm: React.FC<CreateWordForm> = ({ handleCreateNewWord, deckID }) => {
   const [formData, setFormData] = useState<ICreateNewVocabWord>({
     word: "",
-    deckID: "",
+    deckID: deckID,
   });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,7 +18,11 @@ const CreateWordForm: React.FC<CreateWordForm> = ({ handleCreateNewWord }) => {
     e.preventDefault();
     // Trim whitespace from word and definition
     formData.word = formData.word.trim();
+    // Capitalize the first letter of the word
+    formData.word = formData.word.charAt(0).toUpperCase() + formData.word.slice(1).toLowerCase();
+    // Call the parent function
     handleCreateNewWord(formData);
+    // Reset the state
     setFormData({
       word: "",
       deckID: "",

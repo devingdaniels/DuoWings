@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { WordModel } from "../database/models/wordModel";
 import { DeckModel } from "../database/models/deckModel";
+import { IWordDeck, IWord } from "../interfaces";
 
 import { openAIService } from "../services/openai/openaiService";
 
@@ -15,12 +16,28 @@ const createWord = async (req: Request, res: Response) => {
     if (deck) {
       // Build a new word using the OpenAI API
       const newWord = await openAIService.buildWord(word, user);
-      // Create the word and add it to the deck
+      // Create the word in MongoDB
       const createdWord = new WordModel(newWord);
+      // Save the word to the database
       await createdWord.save();
+      // Add the word to the deck
       deck.words.push(createdWord);
+      // Save the deck to the database
       await deck.save();
-      return res.status(201).json({ message: "Word created and added to the deck successfully", deck });
+      // Transform the deck document to match the WordDeck interface
+      const responseDeck: IWordDeck = {
+        _id: deck._id,
+        userID: deck.userID,
+        name: deck.name,
+        description: deck.description,
+        tags: deck.tags,
+        creationDate: deck.creationDate,
+        favorited: deck.favorited,
+        words: JSON.parse(JSON.stringify(deck.words)), //! This is 30x slower than .map, fix later
+      };
+
+      // Return the deck with the new word added
+      return res.status(201).json({ message: "Word created and added to the deck successfully", responseDeck });
     }
     // If the deck does not exist or bad deckID
     return res.status(404).json({ error: `${deckID} bad deckID or deck does not exist.` });

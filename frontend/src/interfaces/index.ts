@@ -53,36 +53,45 @@ export interface ICreateNewDeck {
   name: string;
   description: string;
 }
-
-export interface IWordDeck {
-  _id: string;
-  name: string;
-  description?: string;
-  tags?: string[];
-  creationDate: Date;
-  preferences: {
-    insertOrder: string[];
-    favorited: boolean;
-  };
-  words: IVocabWord[];
+interface IConjugation {
+  yo?: string;
+  tu?: string;
+  el?: string;
+  nosotros?: string;
+  vosotros?: string;
+  ellos?: string;
 }
 
-export interface IVocabWord {
+interface Stats {
+  difficulty: number;
+  creationDate: Date;
+  correctCount: number;
+  incorrectCount: number;
+}
+
+export interface IWord {
   _id: string;
-  deckID: string;
   word: string;
   definition: string;
   exampleSentence: string;
   wordType: string;
-  conjugation: string;
-  correctCount: number[];
-  incorrectCount: number[];
-  lastCorrectDate: Date | null;
-  lastIncorrectDate: Date | null;
-  stats: {
-    difficulty: number;
-    creationDate: Date;
-    correctCount: number;
-    incorrectCount: number;
+  conjugations: {
+    present?: IConjugation;
+    preterite?: IConjugation;
+    future?: IConjugation;
+    imperfect?: IConjugation;
   };
+  stats: Stats;
+  tags: string[];
+}
+
+export interface IWordDeck {
+  _id: string;
+  userID: string;
+  name: string;
+  description?: string;
+  tags?: string[];
+  creationDate: Date;
+  favorited?: boolean;
+  words: IWord[];
 }
