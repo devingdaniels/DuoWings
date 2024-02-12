@@ -22,10 +22,11 @@ const DeckPage = () => {
 
   // Component functions
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
+    // There is probably a safer way to do this
     word.deckID = deck._id;
     const response = await dispatch(createWord(word));
-    // Reset the current deck in the store
-    dispatch(VocabSliceService.setCurrentDeck(response.payload));
+    //! This should be handled in the slice but it is not working
+    // dispatch(VocabSliceService.setCurrentDeck(response.payload));
     // Update the local state
     setDeck(response.payload);
   };

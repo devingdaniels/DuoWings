@@ -1,3 +1,9 @@
+/*
+  ***************************** 
+          USER AUTH INTERFACES
+  *****************************
+*/
+
 export interface IUserRegister {
   fname: string;
   lname: string;
@@ -32,6 +38,12 @@ export interface IUserAuthResponse {
   };
 }
 
+/*
+  ***************************** 
+          DECK AND WORDS INTERFACES
+  *****************************
+*/
+
 export interface ICreateNewVocabWord {
   word: string;
   deckID: string;
@@ -45,21 +57,14 @@ export interface ICreateNewDeck {
 export interface IWordDeck {
   _id: string;
   name: string;
-  description: string;
+  description?: string;
   tags?: string[];
   creationDate: Date;
-  lastStudied: Date;
   preferences: {
-    insertOrder: number[];
+    insertOrder: string[];
     favorited: boolean;
   };
   words: IVocabWord[];
-  experiencePoints: number;
-  level: number;
-  completedChallenges: string[];
-  badges: string[];
-  streak: number;
-  lastStreakDate?: Date;
 }
 
 export interface IVocabWord {

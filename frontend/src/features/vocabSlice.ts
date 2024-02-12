@@ -6,7 +6,7 @@ import { ICreateNewVocabWord } from "../interfaces/index";
 
 interface VocabState {
   decks: IWordDeck[] | [];
-  currentDeck: IWordDeck | null; // useful as reference to improve performance
+  currentDeck: IWordDeck | null;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
@@ -21,7 +21,6 @@ const initialState: VocabState = {
   isError: false,
   message: "",
 };
-
 
 
 /*
@@ -98,11 +97,9 @@ export const deleteDeckByID = createAsyncThunk(
 );
 
 /*
-  
   ***************************** 
           WORD THUNKS 
   *****************************
-  
 */
 
 export const createWord = createAsyncThunk(
@@ -125,17 +122,9 @@ const vocabSlice = createSlice({
   name: "vocab",
   initialState,
   reducers: {
-    resetDeckStatus: (state) => {
-      state.isSuccess = false;
-      state.isLoading = false;
-      state.isError = false;
-      state.message = "";
-    },
+    
     setCurrentDeck: (state, action) => {
       state.currentDeck = action.payload;
-    },
-    resetCurrentDeck: (state) => {
-      state.currentDeck = null;
     },
   },
   extraReducers: (builder) => {
@@ -213,8 +202,9 @@ const vocabSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(createWord.fulfilled, (state, action) => {
-        // Get the current deck from the state and add the new word to it
-        state.currentDeck = action.payload.deck as IWordDeck;
+        //! Not sure why the deck is not getting set here
+        console.log(action.payload.deck)
+        // state.currentDeck = action.payload.deck as IWordDeck;
         state.isSuccess = true;
         state.isLoading = false;
         state.isError = false;
@@ -228,11 +218,9 @@ const vocabSlice = createSlice({
   },
 });
 
-const resetCurrentDeck = createAction("vocab/resetCurrentDeck");
+
 const clearUserDeckState = createAction("vocab/clearDeckState");
 const { setCurrentDeck } = vocabSlice.actions;
-const { resetDeckStatus } = vocabSlice.actions;
-const getCurrentDeck = (state: any) => state.vocab.currentDeck;
 
 const VocabSliceService = {
   createDeck,
@@ -240,11 +228,8 @@ const VocabSliceService = {
   getDeckByID,
   deleteDeckByID,
   createWord,
-  resetCurrentDeck,
   clearUserDeckState,
-  resetDeckStatus,
   setCurrentDeck,
-  getCurrentDeck
 };
 
 export { VocabSliceService };

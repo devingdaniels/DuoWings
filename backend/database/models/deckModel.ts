@@ -21,7 +21,6 @@ const WordDeckSchema = new mongoose.Schema({
   preferences: {
     insertOrder: [String],
     favorited: Boolean,
-    // color: String,
   },
   words: [WordSchema],
 });
