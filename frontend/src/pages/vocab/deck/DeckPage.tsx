@@ -23,7 +23,6 @@ const DeckPage = () => {
   // Component functions
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
     const response = await dispatch(VocabSliceService.createWord(word));
-    console.log(response.payload);
     // Update the local state
     setDeck(response.payload.responseDeck);
   };
@@ -33,7 +32,14 @@ const DeckPage = () => {
   if (isLoading)
     return (
       <div className="deck-page-container">
+        <div className="deck-page-deck-header">
+          <h1>{deck.name}</h1>
+          <p>{deck.description}</p>
+        </div>
         <RingLoader size={53} color="rgba(59, 172, 57, 0.66)" />
+        <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button>
+        <FaPlay onClick={() => navigate("/vocab/decks/flashcards")} />
+        <DeckPageTable words={deck.words} />
       </div>
     );
 
