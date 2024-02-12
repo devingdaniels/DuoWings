@@ -9,7 +9,10 @@ const WordSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  exampleSentence: String,
+  exampleSentence: {
+    type: String,
+    required: true,
+  },
   wordType: {
     type: String,
     required: true,
@@ -49,7 +52,12 @@ const WordSchema = new mongoose.Schema({
     },
   },
   stats: {
-    difficulty: Number,
+    difficulty: {
+      min: 0,
+      max: 10,
+      type: Number,
+      default: 0,
+    },
     creationDate: {
       type: Date,
       default: new Date(),
@@ -67,7 +75,6 @@ const WordSchema = new mongoose.Schema({
   tags: [String],
 });
 
-
 /* 
 Concurrency Handling: The $inc operator ensures that even if multiple users are updating the same word's counts at the same time, each operation will be applied correctly, preventing any loss of updates.
 Performance: Atomic operations like $inc are optimized for performance and can handle high throughput, which is beneficial for applications with many concurrent users.
@@ -83,10 +90,7 @@ WordSchema.methods.incrementCorrectCount = async function () {
 };
 
 WordSchema.methods.incrementIncorrectCount = async function () {
-  await WordModel.updateOne(
-    { _id: this._id },
-    { $inc: { incorrectCount: 1 } }
-  );
+  await WordModel.updateOne({ _id: this._id }, { $inc: { incorrectCount: 1 } });
 };
 
 const WordModel = mongoose.model("Word", WordSchema, "words");
