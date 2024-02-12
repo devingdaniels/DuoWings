@@ -1,0 +1,84 @@
+[
+    {
+        "word": "Creer",
+        "definition": "Tener la convicción de la existencia o veracidad de algo.",
+        "wordType": "verbo",
+        "exampleSentence": "Yo creo en ti y en tus habilidades.",
+        "conjugations": {
+          "present": {
+            "yo": "creo",
+            "tu": "crees",
+            "el": "cree",
+            "nosotros": "creemos",
+            "vosotros": "creéis",
+            "ellos": "creen"
+          },
+          "preterite": {
+            "yo": "creí",
+            "tu": "creíste",
+            "el": "creyó",
+            "nosotros": "creímos",
+            "vosotros": "creísteis",
+            "ellos": "creyeron"
+          },
+          "future": {
+            "yo": "creeré",
+            "tu": "creerás",
+            "el": "creerá",
+            "nosotros": "creeremos",
+            "vosotros": "creeréis",
+            "ellos": "creerán"
+          },
+          "imperfect": {
+            "yo": "creía",
+            "tu": "creías",
+            "el": "creía",
+            "nosotros": "creíamos",
+            "vosotros": "creíais",
+            "ellos": "creían"
+          }
+        }
+      },
+      {
+        "word": "Haber",
+        "definition": "Existir, suceder, o haber realizado una acción en el pasado",
+        "wordType": "verbo auxiliar",
+        "exampleSentence": "Tienes que haber estudiado para el examen.",
+        "conjugations": {
+          "present": {
+            "yo": "he",
+            "tu": "has",
+            "el": "ha",
+            "nosotros": "hemos",
+            "vosotros": "habéis",
+            "ellos": "han"
+          },
+          "preterite": {
+            "yo": "hube",
+            "tu": "hubiste",
+            "el": "hubo",
+            "nosotros": "hubimos",
+            "vosotros": "hubisteis",
+            "ellos": "hubieron"
+          },
+          "future": {
+            "yo": "habré",
+            "tu": "habrás",
+            "el": "habrá",
+            "nosotros": "habremos",
+            "vosotros": "habréis",
+            "ellos": "habrán"
+          },
+          "imperfect": {
+            "yo": "había",
+            "tu": "habías",
+            "el": "había",
+            "nosotros": "habíamos",
+            "vosotros": "habíais",
+            "ellos": "habían"
+          }
+        }
+      }
+      
+
+]
