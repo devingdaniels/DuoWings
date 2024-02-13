@@ -6,9 +6,9 @@ Axios.defaults.withCredentials = true;
 const NAMESPACE = "vocabService.ts";
 
 // Backend server URL
-const URL = import.meta.env.VITE_BACKEND_API_DECK;
 
 const createDeck = async (deck: ICreateNewDeck) => {
+  const URL = import.meta.env.VITE_BACKEND_API_DECK;
   try {
     const response = await Axios.post(URL + "/create-deck", deck);
     return response.data;
@@ -24,6 +24,7 @@ const createDeck = async (deck: ICreateNewDeck) => {
 };
 
 const fetchAllDecks = async () => {
+  const URL = import.meta.env.VITE_BACKEND_API_DECK;
   try {
     const response = await Axios.get(URL);
     return response.data;
@@ -39,6 +40,7 @@ const fetchAllDecks = async () => {
 };
 
 const fetchDeckByID = async (deckID: string) => {
+  const URL = import.meta.env.VITE_BACKEND_API_DECK;
   try {
     const response = await Axios.get(URL + `/${deckID}`);
     return response.data;
@@ -54,6 +56,7 @@ const fetchDeckByID = async (deckID: string) => {
 };
 
 const deleteDeckByID = async (deckID: string) => {
+  const URL = import.meta.env.VITE_BACKEND_API_DECK;
   try {
     const response = await Axios.delete(URL + `/${deckID}`);
     return response.data;
@@ -79,12 +82,25 @@ const createWord = async (word: ICreateNewVocabWord) => {
   }
 };
 
+const deleteWordByID = async (id: string) => {
+  const URL = `${import.meta.env.VITE_BACKEND_API_WORD}/delete-word`;
+  try {
+    const response = await Axios.delete(URL + `/${id}`);
+    console.log(response);
+    return response.data;
+  } catch (err: any) {
+    console.error(NAMESPACE, err);
+    throw new Error(err.response?.data?.error || "Failed to delete word");
+  }
+};
+
 const VocabService = {
   createDeck,
   createWord,
   fetchDeckByID,
   fetchAllDecks,
   deleteDeckByID,
+  deleteWordByID,
 };
 
 export { VocabService };

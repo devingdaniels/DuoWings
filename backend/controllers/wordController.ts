@@ -54,4 +54,34 @@ const createWord = async (req: Request, res: Response) => {
   }
 };
 
-export { createWord };
+const deleteWordByID = async (req: Request, res: Response) => {
+  // Get the wordID from the request body
+  const { id } = req.params;
+  console.log("Backend: Deleting word with ID:", req.params);
+
+  try {
+    // Find the word by ID and delete it
+    const deletedWord = await WordModel.findByIdAndDelete(id);
+    console.log(deletedWord);
+
+    // Ensure word was found
+    if (!deletedWord) {
+      return res.status(404).json({ error: "Word not found" });
+    }
+    // Ensure deck was found
+    const responseDeck = await DeckModel.findById(deletedWord);
+    if (!responseDeck) {
+      return res.status(404).json({ error: "Deck not found" });
+    }
+    // Delete the word from the deck
+    responseDeck.words = responseDeck.words.filter((word) => word._id.toString() !== id);
+    await responseDeck.save();
+    // return the updated deck
+    return res.status(200).json({ message: "Word deleted successfully!", responseDeck });
+  } catch (error) {
+    console.log("Backend: Error deleting word:", error);
+    res.status(500).json({ error: "Failed to delete word" });
+  }
+};
+
+export { createWord, deleteWordByID };

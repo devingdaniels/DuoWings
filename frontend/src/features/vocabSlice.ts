@@ -3,7 +3,6 @@ import { VocabService } from "./vocabService";
 import { ICreateNewDeck, IWordDeck } from "../interfaces/index";
 import { ICreateNewVocabWord } from "../interfaces/index";
 
-// Set var for this namespace
 const NAMESPACE = "vocabSlice.ts";
 
 interface VocabState {
@@ -110,6 +109,20 @@ const createWord = createAsyncThunk(
       return await VocabService.createWord(word);
     } catch (error: any) {
       const errorMessage = error.message || "Failed to create word.";
+      console.log(NAMESPACE, "Failed to create word.");
+      return rejectWithValue(errorMessage);
+    }
+  }
+);
+
+const deleteWordByID = createAsyncThunk(
+  "vocab/deleteWordByID",
+  async (wordID: string, { rejectWithValue }) => {
+    try {
+      return await VocabService.deleteWordByID(wordID);
+    } catch (error: any) {
+      const errorMessage = error.message || "Failed to delete word.";
+      console.log(NAMESPACE, "Failed to delete word.");
       return rejectWithValue(errorMessage);
     }
   }
@@ -219,6 +232,26 @@ const vocabSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = false;
         state.message = action.payload as string;
+      })
+
+      .addCase(deleteWordByID.pending, (state) => {
+        state.isLoading = true;
+        state.isSuccess = false;
+        state.isError = false;
+      })
+
+      .addCase(deleteWordByID.fulfilled, (state, action) => {
+        // state.currentDeck = action.payload.responseDeck;
+        state.isSuccess = true;
+        state.isLoading = false;
+        state.isError = false;
+      })
+
+      .addCase(deleteWordByID.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.message = action.payload as string;
       });
   },
 });
@@ -233,6 +266,7 @@ const VocabSliceService = {
   getDeckByID,
   deleteDeckByID,
   createWord,
+  deleteWordByID,
   clearUserDeckState,
   setCurrentDeck,
   resetErrorState,
