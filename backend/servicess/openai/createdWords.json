@@ -1,0 +1,40 @@
+{
+  "word": "Adios",
+  "definition": "used to express farewell or goodbye",
+  "wordType": "interjection",
+  "exampleSentence": "Adios! Nos vemos pronto.",
+  "conjugations": {
+    "present": {
+      "yo": "adigo",
+      "tu": "adigas",
+      "el": "adiga",
+      "nosotros": "adigamos",
+      "vosotros": "adigáis",
+      "ellos": "adigan"
+    },
+    "preterite": {
+      "yo": "adí",
+      "tu": "adiste",
+      "el": "adió",
+      "nosotros": "adimos",
+      "vosotros": "adisteis",
+      "ellos": "adieron"
+    },
+    "future": {
+      "yo": "adios",
+      "tu": "adios",
+      "el": "adios",
+      "nosotros": "adios",
+      "vosotros": "adios",
+      "ellos": "adios"
+    },
+    "imperfect": {
+      "yo": "adiaba",
+      "tu": "adiabas",
+      "el": "adiaba",
+      "nosotros": "adiábamos",
+      "vosotros": "adiabais",
+      "ellos": "adiaban"
+    }
+  }
+}

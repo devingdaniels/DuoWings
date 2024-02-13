@@ -1,44 +1,27 @@
 import { Request, Response } from "express";
 import { WordModel } from "../database/models/wordModel";
 import { DeckModel } from "../database/models/deckModel";
-import { IWordDeck, IWord } from "../interfaces";
-import fs from "fs";
-const path = require("path");
-
+import { IWordDeck } from "../interfaces";
 import { openAIService } from "../services/openai/openaiService";
+import { logNewWordToFile } from "../utils/wordCreationLog";
 
 const createWord = async (req: Request, res: Response) => {
-  // return res.status(201).json({ error: "Word created successfully!" });
-  // return res.status(500).json({ error: "Failed to create word FROM BACKEND" });
-
   // Get the word and deckID from the request body
   const { word, deckID } = req.body;
   // Get the user from the request object (Middleware)
   const user = req.user;
 
   try {
+    // Get the deck from MongoDB
     const deck = await DeckModel.findById(deckID);
+
+    // Build a new word using the OpenAI API
     if (deck) {
       // Build a new word using the OpenAI API
       const newWord = await openAIService.buildWord(word, user);
 
-      // // Let's save the new word to a file and ensure it does not overwrite the existing file
-      // try {
-      //   // Construct the path to the target directory
-      //   const targetDir = path.join(__dirname, "..", "..", "services", "openai");
-      //   // Ensure the target directory exists
-      //   if (!fs.existsSync(targetDir)) {
-      //     fs.mkdirSync(targetDir, { recursive: true });
-      //   }
-      //   // Construct the full path to the file
-      //   const filePath = path.join(targetDir, "createdWords.json");
-      //   // Append the data to the file, creating the file if it doesn't exist
-      //   fs.appendFileSync(filePath, JSON.stringify(newWord, null, 2) + "\n", { encoding: "utf8" });
-      // } finally {
-      //   // Handle any errors that occur during the file append operation
-      //   console.error("Error appending to file!!!");
-      //   // Additional error handling logic here, such as sending an alert or retrying the operation
-      // }
+      // Asynchronously log the new word to a file, don't wait for it to finish
+      logNewWordToFile(newWord).catch((error) => console.error("Failed to log new word:", error));
 
       // Create the word in MongoDB
       const createdWord = new WordModel(newWord);
