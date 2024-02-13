@@ -3,6 +3,9 @@ import { VocabService } from "./vocabService";
 import { ICreateNewDeck, IWordDeck } from "../interfaces/index";
 import { ICreateNewVocabWord } from "../interfaces/index";
 
+// Set var for this namespace
+const NAMESPACE = "vocabSlice.ts";
+
 interface VocabState {
   decks: IWordDeck[] | [];
   currentDeck: IWordDeck | null;
@@ -106,11 +109,8 @@ const createWord = createAsyncThunk(
     try {
       return await VocabService.createWord(word);
     } catch (error: any) {
-      const message =
-        (error.response && error.response.data && error.response.data.message) ||
-        error.message ||
-        error.toString();
-      return rejectWithValue(message);
+      const errorMessage = error.message || "Failed to create word.";
+      return rejectWithValue(errorMessage);
     }
   }
 );
@@ -122,6 +122,10 @@ const vocabSlice = createSlice({
   reducers: {
     setCurrentDeck: (state, action) => {
       state.currentDeck = action.payload;
+    },
+    resetErrorState: (state) => {
+      state.isError = false;
+      state.message = "";
     },
   },
   extraReducers: (builder) => {
@@ -144,6 +148,7 @@ const vocabSlice = createSlice({
         state.isLoading = false;
         state.isError = false;
         state.decks = action.payload;
+        state.message = "";
       })
       .addCase(fetchAllUserDecks.rejected, (state, action) => {
         state.isError = true;
@@ -198,6 +203,8 @@ const vocabSlice = createSlice({
       /* WORD CASES */
       .addCase(createWord.pending, (state) => {
         state.isLoading = true;
+        state.isSuccess = false;
+        state.isError = false;
       })
 
       .addCase(createWord.fulfilled, (state, action) => {
@@ -211,13 +218,14 @@ const vocabSlice = createSlice({
         state.isError = true;
         state.isLoading = false;
         state.isSuccess = false;
-        state.message = action.error.message as string;
+        state.message = action.payload as string;
       });
   },
 });
 
 const clearUserDeckState = createAction("vocab/clearDeckState");
 const { setCurrentDeck } = vocabSlice.actions;
+const { resetErrorState } = vocabSlice.actions;
 
 const VocabSliceService = {
   createDeck,
@@ -227,6 +235,7 @@ const VocabSliceService = {
   createWord,
   clearUserDeckState,
   setCurrentDeck,
+  resetErrorState,
 };
 
 export { VocabSliceService };

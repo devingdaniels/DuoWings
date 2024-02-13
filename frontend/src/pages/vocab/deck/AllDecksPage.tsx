@@ -67,6 +67,7 @@ const AllDecksPage: React.FC = () => {
   };
 
   if (isError) {
+    console.log("Error toast triggered from AllDecksPage.tsx.");
     ToastError(message);
   }
 
@@ -109,7 +110,6 @@ const AllDecksPage: React.FC = () => {
       )}
       {isModal && (
         <CreateDeckModalForm
-          isModal={isModal}
           handleCreateNewDeck={handleCreateNewDeck}
           toggleModal={toggleModal}
           decks={decks}

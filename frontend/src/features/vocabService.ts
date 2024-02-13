@@ -3,6 +3,8 @@ import { ICreateNewDeck, ICreateNewVocabWord } from "../interfaces/index";
 
 Axios.defaults.withCredentials = true;
 
+const NAMESPACE = "vocabService.ts";
+
 // Backend server URL
 const URL = import.meta.env.VITE_BACKEND_API_DECK;
 
@@ -67,18 +69,13 @@ const deleteDeckByID = async (deckID: string) => {
 };
 
 const createWord = async (word: ICreateNewVocabWord) => {
-  const URL = import.meta.env.VITE_BACKEND_API_WORD + "/create-word";
+  const URL = `${import.meta.env.VITE_BACKEND_API_WORD}/create-word`;
   try {
     const response = await Axios.post(URL, word);
     return response.data;
   } catch (err: any) {
-    if (err.response && err.response.data) {
-      console.error(err.response.data);
-      throw new Error(err.response.data);
-    } else {
-      console.error("Error:", err);
-      throw new Error(`Failed to create word.`);
-    }
+    console.error(NAMESPACE, err);
+    throw new Error(err.response?.data?.error || "Failed to create word");
   }
 };
 

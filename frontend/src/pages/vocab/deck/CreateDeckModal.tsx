@@ -1,17 +1,14 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { ToastWarning } from "../../../utils/Toastify";
-import { ICreateNewDeck } from "../../../interfaces/index";
-// import { useEffect } from "react";
+import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
 
 interface Props {
-  isModal: boolean;
   handleCreateNewDeck: (deck: ICreateNewDeck) => void;
   toggleModal: (val: boolean) => void;
-  decks: ICreateNewDeck[];
+  decks: IWordDeck[];
 }
 
 const CreateDeckModalForm: React.FC<Props> = ({
-  isModal,
   handleCreateNewDeck,
   toggleModal,
   decks,
