@@ -20,6 +20,7 @@ const DeckPage = () => {
     const response = await dispatch(VocabSliceService.createWord(word));
     if (response.type === "vocab/createWord/fulfilled") {
       toast.success("Word created successfully!");
+      dispatch(VocabSliceService.resetDeckStateFlags());
     } else {
       toast.error(response.payload);
       dispatch(VocabSliceService.resetErrorState());

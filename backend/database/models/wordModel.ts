@@ -1,6 +1,16 @@
 const mongoose = require("mongoose");
 
 const WordSchema = new mongoose.Schema({
+  deckID: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "Deck",
+  },
+  userID: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
+  },
   word: {
     type: String,
     required: true,
@@ -17,6 +27,7 @@ const WordSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  // Conjugations for the word are not required, as not all words have conjugations
   conjugations: {
     present: {
       yo: String,
@@ -66,10 +77,12 @@ const WordSchema = new mongoose.Schema({
     correctCount: {
       type: Number,
       default: 0,
+      min: 0,
     },
     incorrectCount: {
       type: Number,
       default: 0,
+      min: 0,
     },
   },
   tags: [String],
@@ -93,6 +106,34 @@ WordSchema.methods.incrementIncorrectCount = async function () {
   await WordModel.updateOne({ _id: this._id }, { $inc: { incorrectCount: 1 } });
 };
 
+// Parameters: (modelName, schema, collectionName)
 const WordModel = mongoose.model("Word", WordSchema, "words");
 
 export { WordModel, WordSchema };
+
+// Other fields to consider:
+/*
+
+pronunciation: {
+  phoneticSpelling: String,
+  audioFile: String, // URL to pronunciation audio
+},
+
+synonyms: [String],
+antonyms: [String],
+
+
+frequency: {
+  type: Number,
+  default: 0, // Higher numbers indicate more frequent usage
+},
+
+
+origin: String,
+
+
+relatedWords: [String],
+
+
+
+*/

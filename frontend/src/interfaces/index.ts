@@ -71,6 +71,8 @@ interface Stats {
 
 export interface IWord {
   _id: string;
+  userID: string;
+  deckID: string;
   word: string;
   definition: string;
   exampleSentence: string;
@@ -84,7 +86,6 @@ export interface IWord {
   stats: Stats;
   tags: string[];
 }
-
 export interface IWordDeck {
   _id: string;
   userID: string;

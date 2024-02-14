@@ -18,6 +18,7 @@ interface Stats {
 
 export interface IWord {
   _id: mongoose.Types.ObjectId;
+  userID: mongoose.Types.ObjectId;
   word: string;
   definition: string;
   exampleSentence: string;
@@ -30,8 +31,8 @@ export interface IWord {
   };
   stats: Stats;
   tags: string[];
+  deckID: mongoose.Types.ObjectId;
 }
-
 export interface IWordDeck {
   _id: mongoose.Types.ObjectId;
   userID: mongoose.Types.ObjectId;
@@ -40,5 +41,5 @@ export interface IWordDeck {
   tags?: string[];
   creationDate: Date;
   favorited?: boolean;
-  words: IWord[];
+  words: mongoose.Types.ObjectId[];
 }

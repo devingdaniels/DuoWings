@@ -22,6 +22,7 @@ const AllDecksPage: React.FC = () => {
 
   useEffect(() => {
     dispatch(VocabSliceService.fetchAllUserDecks());
+    dispatch(VocabSliceService.resetCurrentDeck());
   }, [dispatch]);
 
   // Update filteredDecks whenever decks or searchTerm changes

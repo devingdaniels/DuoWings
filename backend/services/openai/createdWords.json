@@ -678,5 +678,1119 @@
         "ellos": "Vivían"
       }
     }
+  },
+  {
+    "word": "Hacer",
+    "definition": "Realizar una acción o actividad",
+    "wordType": "verbo",
+    "exampleSentence": "Voy a hacer la cena para la familia esta noche.",
+    "conjugations": {
+      "present": {
+        "yo": "hago",
+        "tu": "haces",
+        "el": "hace",
+        "nosotros": "hacemos",
+        "vosotros": "hacéis",
+        "ellos": "hacen"
+      },
+      "preterite": {
+        "yo": "hice",
+        "tu": "hiciste",
+        "el": "hizo",
+        "nosotros": "hicimos",
+        "vosotros": "hicisteis",
+        "ellos": "hicieron"
+      },
+      "future": {
+        "yo": "haré",
+        "tu": "harás",
+        "el": "hará",
+        "nosotros": "haremos",
+        "vosotros": "haréis",
+        "ellos": "harán"
+      },
+      "imperfect": {
+        "yo": "hacía",
+        "tu": "hacías",
+        "el": "hacía",
+        "nosotros": "hacíamos",
+        "vosotros": "hacíais",
+        "ellos": "hacían"
+      }
+    }
+  },
+  {
+    "word": "Limpiar",
+    "definition": "remover suciedad o impurezas de algo",
+    "wordType": "verbo",
+    "exampleSentence": "Voy a limpiar la casa este fin de semana.",
+    "conjugations": {
+      "present": {
+        "yo": "limpio",
+        "tu": "limpias",
+        "el": "limpia",
+        "nosotros": "limpiamos",
+        "vosotros": "limpiáis",
+        "ellos": "limpian"
+      },
+      "preterite": {
+        "yo": "limpié",
+        "tu": "limpiaste",
+        "el": "limpió",
+        "nosotros": "limpiamos",
+        "vosotros": "limpiasteis",
+        "ellos": "limpiaron"
+      },
+      "future": {
+        "yo": "limpiaré",
+        "tu": "limpiarás",
+        "el": "limpiará",
+        "nosotros": "limpiaremos",
+        "vosotros": "limpiaréis",
+        "ellos": "limpiarán"
+      },
+      "imperfect": {
+        "yo": "limpiaba",
+        "tu": "limpiabas",
+        "el": "limpiaba",
+        "nosotros": "limpiábamos",
+        "vosotros": "limpiabais",
+        "ellos": "limpiaban"
+      }
+    }
+  },
+  {
+    "word": "Empezar",
+    "definition": "Iniciar algo o comenzar a hacer algo.",
+    "wordType": "verbo",
+    "exampleSentence": "Voy a empezar a estudiar para el examen.",
+    "conjugations": {
+      "present": {
+        "yo": "empiezo",
+        "tu": "empiezas",
+        "el": "empieza",
+        "nosotros": "empezamos",
+        "vosotros": "empezáis",
+        "ellos": "empiezan"
+      },
+      "preterite": {
+        "yo": "empecé",
+        "tu": "empezaste",
+        "el": "empezó",
+        "nosotros": "empezamos",
+        "vosotros": "empezasteis",
+        "ellos": "empezaron"
+      },
+      "future": {
+        "yo": "empezaré",
+        "tu": "empezarás",
+        "el": "empezará",
+        "nosotros": "empezaremos",
+        "vosotros": "empezaréis",
+        "ellos": "empezarán"
+      },
+      "imperfect": {
+        "yo": "empezaba",
+        "tu": "empezabas",
+        "el": "empezaba",
+        "nosotros": "empezábamos",
+        "vosotros": "empezabais",
+        "ellos": "empezaban"
+      }
+    }
+  },
+  {
+    "word": "Hacer",
+    "definition": "to do, to make",
+    "wordType": "verb",
+    "exampleSentence": "Voy a hacer la cena esta noche. (I am going to make dinner tonight.)",
+    "conjugations": {
+      "present": {
+        "yo": "hago",
+        "tu": "haces",
+        "el": "hace",
+        "nosotros": "hacemos",
+        "vosotros": "hacéis",
+        "ellos": "hacen"
+      },
+      "preterite": {
+        "yo": "hice",
+        "tu": "hiciste",
+        "el": "hizo",
+        "nosotros": "hicimos",
+        "vosotros": "hicisteis",
+        "ellos": "hicieron"
+      },
+      "future": {
+        "yo": "haré",
+        "tu": "harás",
+        "el": "hará",
+        "nosotros": "haremos",
+        "vosotros": "haréis",
+        "ellos": "harán"
+      },
+      "imperfect": {
+        "yo": "hacía",
+        "tu": "hacías",
+        "el": "hacía",
+        "nosotros": "hacíamos",
+        "vosotros": "hacíais",
+        "ellos": "hacían"
+      }
+    },
+    "deck": "65cb5ab19e041414a23fb93e"
+  },
+  {
+    "word": "Hacer",
+    "definition": "to do/make",
+    "wordType": "verb",
+    "exampleSentence": "Voy a hacer la comida para la fiesta.",
+    "conjugations": {
+      "present": {
+        "yo": "hago",
+        "tu": "haces",
+        "el": "hace",
+        "nosotros": "hacemos",
+        "vosotros": "hacéis",
+        "ellos": "hacen"
+      },
+      "preterite": {
+        "yo": "hice",
+        "tu": "hiciste",
+        "el": "hizo",
+        "nosotros": "hicimos",
+        "vosotros": "hicisteis",
+        "ellos": "hicieron"
+      },
+      "future": {
+        "yo": "haré",
+        "tu": "harás",
+        "el": "hará",
+        "nosotros": "haremos",
+        "vosotros": "haréis",
+        "ellos": "harán"
+      },
+      "imperfect": {
+        "yo": "hacía",
+        "tu": "hacías",
+        "el": "hacía",
+        "nosotros": "hacíamos",
+        "vosotros": "hacíais",
+        "ellos": "hacían"
+      }
+    },
+    "deckID": "65cb5ab19e041414a23fb93e"
+  },
+  {
+    "word": "Hacer",
+    "definition": "Realizar una acción o actividad",
+    "wordType": "Verbo",
+    "exampleSentence": "Voy a hacer la cena esta noche.",
+    "conjugations": {
+      "present": {
+        "yo": "hago",
+        "tu": "haces",
+        "el": "hace",
+        "nosotros": "hacemos",
+        "vosotros": "hacéis",
+        "ellos": "hacen"
+      },
+      "preterite": {
+        "yo": "hice",
+        "tu": "hiciste",
+        "el": "hizo",
+        "nosotros": "hicimos",
+        "vosotros": "hicisteis",
+        "ellos": "hicieron"
+      },
+      "future": {
+        "yo": "haré",
+        "tu": "harás",
+        "el": "hará",
+        "nosotros": "haremos",
+        "vosotros": "haréis",
+        "ellos": "harán"
+      },
+      "imperfect": {
+        "yo": "hacía",
+        "tu": "hacías",
+        "el": "hacía",
+        "nosotros": "hacíamos",
+        "vosotros": "hacíais",
+        "ellos": "hacían"
+      }
+    },
+    "deckID": "65cb5ab19e041414a23fb93e"
+  },
+  {
+    "word": "Hacer",
+    "definition": "to do or to make",
+    "wordType": "verb",
+    "exampleSentence": "Voy a hacer la cena esta noche. (I am going to make dinner tonight.)",
+    "conjugations": {
+      "present": {
+        "yo": "hago",
+        "tu": "haces",
+        "el": "hace",
+        "nosotros": "hacemos",
+        "vosotros": "hacéis",
+        "ellos": "hacen"
+      },
+      "preterite": {
+        "yo": "hice",
+        "tu": "hiciste",
+        "el": "hizo",
+        "nosotros": "hicimos",
+        "vosotros": "hicisteis",
+        "ellos": "hicieron"
+      },
+      "future": {
+        "yo": "haré",
+        "tu": "harás",
+        "el": "hará",
+        "nosotros": "haremos",
+        "vosotros": "haréis",
+        "ellos": "harán"
+      },
+      "imperfect": {
+        "yo": "hacía",
+        "tu": "hacías",
+        "el": "hacía",
+        "nosotros": "hacíamos",
+        "vosotros": "hacíais",
+        "ellos": "hacían"
+      }
+    },
+    "deckID": "65cb5ab19e041414a23fb93e"
+  },
+  {
+    "word": "Limpiar",
+    "definition": "Eliminar la suciedad o impurezas de algo",
+    "wordType": "verbo",
+    "exampleSentence": "Voy a limpiar la casa esta tarde.",
+    "conjugations": {
+      "present": {
+        "yo": "limpio",
+        "tu": "limpias",
+        "el": "limpia",
+        "nosotros": "limpiamos",
+        "vosotros": "limpiáis",
+        "ellos": "limpian"
+      },
+      "preterite": {
+        "yo": "limpié",
+        "tu": "limpiaste",
+        "el": "limpió",
+        "nosotros": "limpiamos",
+        "vosotros": "limpiasteis",
+        "ellos": "limpiaron"
+      },
+      "future": {
+        "yo": "limpiaré",
+        "tu": "limpiarás",
+        "el": "limpiará",
+        "nosotros": "limpiaremos",
+        "vosotros": "limpiaréis",
+        "ellos": "limpiarán"
+      },
+      "imperfect": {
+        "yo": "limpiaba",
+        "tu": "limpiabas",
+        "el": "limpiaba",
+        "nosotros": "limpiábamos",
+        "vosotros": "limpiabais",
+        "ellos": "limpiaban"
+      }
+    },
+    "deckID": "65cb5ab19e041414a23fb93e",
+    "userID": "undefined"
+  },
+  {
+    "word": "Limpiar",
+    "definition": "To clean",
+    "wordType": "Verb",
+    "exampleSentence": "Voy a limpiar mi habitación antes de que lleguen los invitados.",
+    "conjugations": {
+      "present": {
+        "yo": "limpio",
+        "tu": "limpias",
+        "el": "limpia",
+        "nosotros": "limpiamos",
+        "vosotros": "limpiáis",
+        "ellos": "limpian"
+      },
+      "preterite": {
+        "yo": "limpié",
+        "tu": "limpiaste",
+        "el": "limpió",
+        "nosotros": "limpiamos",
+        "vosotros": "limpiasteis",
+        "ellos": "limpiaron"
+      },
+      "future": {
+        "yo": "limpiaré",
+        "tu": "limpiarás",
+        "el": "limpiará",
+        "nosotros": "limpiaremos",
+        "vosotros": "limpiaréis",
+        "ellos": "limpiarán"
+      },
+      "imperfect": {
+        "yo": "limpiaba",
+        "tu": "limpiabas",
+        "el": "limpiaba",
+        "nosotros": "limpiábamos",
+        "vosotros": "limpiabais",
+        "ellos": "limpiaban"
+      }
+    },
+    "deckID": "65cb5ab19e041414a23fb93e",
+    "userID": "undefined"
+  },
+  {
+    "word": "Limpiar",
+    "definition": "to clean",
+    "wordType": "verb",
+    "exampleSentence": "Voy a limpiar mi habitación hoy.",
+    "conjugations": {
+      "present": {
+        "yo": "limpio",
+        "tu": "limpias",
+        "el": "limpia",
+        "nosotros": "limpiamos",
+        "vosotros": "limpiáis",
+        "ellos": "limpian"
+      },
+      "preterite": {
+        "yo": "limpié",
+        "tu": "limpiaste",
+        "el": "limpió",
+        "nosotros": "limpiamos",
+        "vosotros": "limpiasteis",
+        "ellos": "limpiaron"
+      },
+      "future": {
+        "yo": "limpiaré",
+        "tu": "limpiarás",
+        "el": "limpiará",
+        "nosotros": "limpiaremos",
+        "vosotros": "limpiaréis",
+        "ellos": "limpiarán"
+      },
+      "imperfect": {
+        "yo": "limpiaba",
+        "tu": "limpiabas",
+        "el": "limpiaba",
+        "nosotros": "limpiábamos",
+        "vosotros": "limpiabais",
+        "ellos": "limpiaban"
+      }
+    },
+    "deckID": "65cb5ab19e041414a23fb93e",
+    "userID": "undefined"
+  },
+  {
+    "word": {
+      "word": "Hacer",
+      "definition": "Realizar una acción o actividad",
+      "wordType": "verbo",
+      "exampleSentence": "Voy a hacer las compras esta tarde.",
+      "conjugations": {
+        "present": {
+          "yo": "hago",
+          "tu": "haces",
+          "el": "hace",
+          "nosotros": "hacemos",
+          "vosotros": "hacéis",
+          "ellos": "hacen"
+        },
+        "preterite": {
+          "yo": "hice",
+          "tu": "hiciste",
+          "el": "hizo",
+          "nosotros": "hicimos",
+          "vosotros": "hicisteis",
+          "ellos": "hicieron"
+        },
+        "future": {
+          "yo": "haré",
+          "tu": "harás",
+          "el": "hará",
+          "nosotros": "haremos",
+          "vosotros": "haréis",
+          "ellos": "harán"
+        },
+        "imperfect": {
+          "yo": "hacía",
+          "tu": "hacías",
+          "el": "hacía",
+          "nosotros": "hacíamos",
+          "vosotros": "hacíais",
+          "ellos": "hacían"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Luchar",
+      "definition": "Combatir, pelear o enfrentar por conseguir algo.",
+      "wordType": "verbo",
+      "exampleSentence": "Tenemos que luchar por nuestros derechos.",
+      "conjugations": {
+        "present": {
+          "yo": "lucho",
+          "tu": "luchas",
+          "el": "lucha",
+          "nosotros": "luchamos",
+          "vosotros": "lucháis",
+          "ellos": "luchan"
+        },
+        "preterite": {
+          "yo": "luché",
+          "tu": "luchaste",
+          "el": "luchó",
+          "nosotros": "luchamos",
+          "vosotros": "luchasteis",
+          "ellos": "lucharon"
+        },
+        "future": {
+          "yo": "lucharé",
+          "tu": "lucharás",
+          "el": "luchará",
+          "nosotros": "lucharemos",
+          "vosotros": "lucharéis",
+          "ellos": "lucharán"
+        },
+        "imperfect": {
+          "yo": "luchaba",
+          "tu": "luchabas",
+          "el": "luchaba",
+          "nosotros": "luchábamos",
+          "vosotros": "luchabais",
+          "ellos": "luchaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Luchar",
+      "definition": "combatir física o moralmente, pelear, disputar algo",
+      "wordType": "verbo",
+      "exampleSentence": "Tenemos que luchar por nuestros derechos.",
+      "conjugations": {
+        "present": {
+          "yo": "lucho",
+          "tu": "luchas",
+          "el": "lucha",
+          "nosotros": "luchamos",
+          "vosotros": "lucháis",
+          "ellos": "luchan"
+        },
+        "preterite": {
+          "yo": "luché",
+          "tu": "luchaste",
+          "el": "luchó",
+          "nosotros": "luchamos",
+          "vosotros": "luchasteis",
+          "ellos": "lucharon"
+        },
+        "future": {
+          "yo": "lucharé",
+          "tu": "lucharás",
+          "el": "luchará",
+          "nosotros": "lucharemos",
+          "vosotros": "lucharéis",
+          "ellos": "lucharán"
+        },
+        "imperfect": {
+          "yo": "luchaba",
+          "tu": "luchabas",
+          "el": "luchaba",
+          "nosotros": "luchábamos",
+          "vosotros": "luchabais",
+          "ellos": "luchaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Hablar",
+      "definition": "Articular palabras para expresar lo que se piensa o siente",
+      "wordType": "Verbo",
+      "exampleSentence": "Me gusta hablar con mi familia por teléfono.",
+      "conjugations": {
+        "present": {
+          "yo": "hablo",
+          "tu": "hablas",
+          "el": "habla",
+          "nosotros": "hablamos",
+          "vosotros": "habláis",
+          "ellos": "hablan"
+        },
+        "preterite": {
+          "yo": "hablé",
+          "tu": "hablaste",
+          "el": "habló",
+          "nosotros": "hablamos",
+          "vosotros": "hablasteis",
+          "ellos": "hablaron"
+        },
+        "future": {
+          "yo": "hablaré",
+          "tu": "hablarás",
+          "el": "hablará",
+          "nosotros": "hablaremos",
+          "vosotros": "hablaréis",
+          "ellos": "hablarán"
+        },
+        "imperfect": {
+          "yo": "hablaba",
+          "tu": "hablabas",
+          "el": "hablaba",
+          "nosotros": "hablábamos",
+          "vosotros": "hablabais",
+          "ellos": "hablaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Mostrar",
+      "definition": "presentar algo para que sea visto por otros",
+      "wordType": "verbo",
+      "exampleSentence": "Voy a mostrar mi nueva pintura en la galería.",
+      "conjugations": {
+        "present": {
+          "yo": "muestro",
+          "tu": "muestras",
+          "el": "muestra",
+          "nosotros": "mostramos",
+          "vosotros": "mostráis",
+          "ellos": "muestran"
+        },
+        "preterite": {
+          "yo": "mostré",
+          "tu": "mostraste",
+          "el": "mostró",
+          "nosotros": "mostramos",
+          "vosotros": "mostrasteis",
+          "ellos": "mostraron"
+        },
+        "future": {
+          "yo": "mostraré",
+          "tu": "mostrarás",
+          "el": "mostrará",
+          "nosotros": "mostraremos",
+          "vosotros": "mostraréis",
+          "ellos": "mostrarán"
+        },
+        "imperfect": {
+          "yo": "mostraba",
+          "tu": "mostrabas",
+          "el": "mostraba",
+          "nosotros": "mostrábamos",
+          "vosotros": "mostrabais",
+          "ellos": "mostraban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Mostrar",
+      "definition": "hacer ver o poner a la vista algo",
+      "wordType": "verbo",
+      "exampleSentence": "Voy a mostrarle mi nuevo proyecto a mi jefe.",
+      "conjugations": {
+        "present": {
+          "yo": "muestro",
+          "tu": "muestras",
+          "el": "muestra",
+          "nosotros": "mostramos",
+          "vosotros": "mostráis",
+          "ellos": "muestran"
+        },
+        "preterite": {
+          "yo": "mostré",
+          "tu": "mostraste",
+          "el": "mostró",
+          "nosotros": "mostramos",
+          "vosotros": "mostrasteis",
+          "ellos": "mostraron"
+        },
+        "future": {
+          "yo": "mostraré",
+          "tu": "mostrarás",
+          "el": "mostrará",
+          "nosotros": "mostraremos",
+          "vosotros": "mostraréis",
+          "ellos": "mostrarán"
+        },
+        "imperfect": {
+          "yo": "mostraba",
+          "tu": "mostrabas",
+          "el": "mostraba",
+          "nosotros": "mostrábamos",
+          "vosotros": "mostrabais",
+          "ellos": "mostraban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Limpiar",
+      "definition": "Quitar la suciedad o el polvo de algo, dejándolo limpio.",
+      "wordType": "verbo",
+      "exampleSentence": "Voy a limpiar la casa hoy.",
+      "conjugations": {
+        "present": {
+          "yo": "limpio",
+          "tu": "limpias",
+          "el": "limpia",
+          "nosotros": "limpiamos",
+          "vosotros": "limpiáis",
+          "ellos": "limpian"
+        },
+        "preterite": {
+          "yo": "limpié",
+          "tu": "limpiaste",
+          "el": "limpió",
+          "nosotros": "limpiamos",
+          "vosotros": "limpiasteis",
+          "ellos": "limpiaron"
+        },
+        "future": {
+          "yo": "limpiaré",
+          "tu": "limpiarás",
+          "el": "limpiará",
+          "nosotros": "limpiaremos",
+          "vosotros": "limpiaréis",
+          "ellos": "limpiarán"
+        },
+        "imperfect": {
+          "yo": "limpiaba",
+          "tu": "limpiabas",
+          "el": "limpiaba",
+          "nosotros": "limpiábamos",
+          "vosotros": "limpiabais",
+          "ellos": "limpiaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Mover",
+      "definition": "Causar cambio de posición en algo o alguien.",
+      "wordType": "verbo",
+      "exampleSentence": "Voy a mover el sofá para limpiar debajo.",
+      "conjugations": {
+        "present": {
+          "yo": "muevo",
+          "tu": "mueves",
+          "el": "mueve",
+          "nosotros": "movemos",
+          "vosotros": "movéis",
+          "ellos": "mueven"
+        },
+        "preterite": {
+          "yo": "moví",
+          "tu": "moviste",
+          "el": "movió",
+          "nosotros": "movimos",
+          "vosotros": "movisteis",
+          "ellos": "movieron"
+        },
+        "future": {
+          "yo": "moveré",
+          "tu": "moverás",
+          "el": "moverá",
+          "nosotros": "moveremos",
+          "vosotros": "moveréis",
+          "ellos": "moverán"
+        },
+        "imperfect": {
+          "yo": "movía",
+          "tu": "movías",
+          "el": "movía",
+          "nosotros": "movíamos",
+          "vosotros": "movíais",
+          "ellos": "movían"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Limpiar",
+      "definition": "Eliminar suciedad, polvo o impurezas de algo, dejándolo en un estado limpio y ordenado.",
+      "wordType": "Verbo",
+      "exampleSentence": "Debes limpiar tu habitación antes de salir.",
+      "conjugations": {
+        "present": {
+          "yo": "limpio",
+          "tu": "limpias",
+          "el": "limpia",
+          "nosotros": "limpiamos",
+          "vosotros": "limpiáis",
+          "ellos": "limpian"
+        },
+        "preterite": {
+          "yo": "limpié",
+          "tu": "limpiaste",
+          "el": "limpió",
+          "nosotros": "limpiamos",
+          "vosotros": "limpiasteis",
+          "ellos": "limpiaron"
+        },
+        "future": {
+          "yo": "limpiaré",
+          "tu": "limpiarás",
+          "el": "limpiará",
+          "nosotros": "limpiaremos",
+          "vosotros": "limpiaréis",
+          "ellos": "limpiarán"
+        },
+        "imperfect": {
+          "yo": "limpiaba",
+          "tu": "limpiabas",
+          "el": "limpiaba",
+          "nosotros": "limpiábamos",
+          "vosotros": "limpiabais",
+          "ellos": "limpiaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Nevar",
+      "definition": "caer nieve",
+      "wordType": "verbo",
+      "exampleSentence": "Hoy va a nevar en la montaña.",
+      "conjugations": {
+        "present": {
+          "yo": "nievo",
+          "tu": "nievas",
+          "el": "nieva",
+          "nosotros": "nevamos",
+          "vosotros": "neváis",
+          "ellos": "nievan"
+        },
+        "preterite": {
+          "yo": "nevé",
+          "tu": "nevaste",
+          "el": "nevó",
+          "nosotros": "nevamos",
+          "vosotros": "nevasteis",
+          "ellos": "nevaron"
+        },
+        "future": {
+          "yo": "nevaré",
+          "tu": "nevarás",
+          "el": "nevará",
+          "nosotros": "nevarmos",
+          "vosotros": "nevaréis",
+          "ellos": "nevarán"
+        },
+        "imperfect": {
+          "yo": "nevaba",
+          "tu": "nevabas",
+          "el": "nevaba",
+          "nosotros": "nevábamos",
+          "vosotros": "nevabais",
+          "ellos": "nevaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Hablar",
+      "definition": "to speak",
+      "wordType": "verb",
+      "exampleSentence": "Me encanta hablar con mis amigos.",
+      "conjugations": {
+        "present": {
+          "yo": "hablo",
+          "tu": "hablas",
+          "el": "habla",
+          "nosotros": "hablamos",
+          "vosotros": "habláis",
+          "ellos": "hablan"
+        },
+        "preterite": {
+          "yo": "hablé",
+          "tu": "hablaste",
+          "el": "habló",
+          "nosotros": "hablamos",
+          "vosotros": "hablasteis",
+          "ellos": "hablaron"
+        },
+        "future": {
+          "yo": "hablaré",
+          "tu": "hablarás",
+          "el": "hablará",
+          "nosotros": "hablaremos",
+          "vosotros": "hablaréis",
+          "ellos": "hablarán"
+        },
+        "imperfect": {
+          "yo": "hablaba",
+          "tu": "hablabas",
+          "el": "hablaba",
+          "nosotros": "hablábamos",
+          "vosotros": "hablabais",
+          "ellos": "hablaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Ofrecer",
+      "definition": "Presentar algo a alguien para que lo acepte o lo rechace",
+      "wordType": "verbo",
+      "exampleSentence": "Ella me ofrece su ayuda cuando lo necesito.",
+      "conjugations": {
+        "present": {
+          "yo": "ofrezco",
+          "tu": "ofreces",
+          "el": "ofrece",
+          "nosotros": "ofrecemos",
+          "vosotros": "ofrecéis",
+          "ellos": "ofrecen"
+        },
+        "preterite": {
+          "yo": "ofrecí",
+          "tu": "ofreciste",
+          "el": "ofreció",
+          "nosotros": "ofrecimos",
+          "vosotros": "ofrecisteis",
+          "ellos": "ofrecieron"
+        },
+        "future": {
+          "yo": "ofreceré",
+          "tu": "ofrecerás",
+          "el": "ofrecerá",
+          "nosotros": "ofreceremos",
+          "vosotros": "ofreceréis",
+          "ellos": "ofrecerán"
+        },
+        "imperfect": {
+          "yo": "ofrecía",
+          "tu": "ofrecías",
+          "el": "ofrecía",
+          "nosotros": "ofrecíamos",
+          "vosotros": "ofrecíais",
+          "ellos": "ofrecían"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Pertenecer",
+      "definition": "Estar bajo la propiedad, la posesión, la pertenencia o la subordinación de alguien o algo.",
+      "wordType": "verbo",
+      "exampleSentence": "El libro pertenece a la biblioteca.",
+      "conjugations": {
+        "present": {
+          "yo": "pertenezco",
+          "tu": "perteneces",
+          "el": "pertenece",
+          "nosotros": "pertenecemos",
+          "vosotros": "pertenecéis",
+          "ellos": "pertenecen"
+        },
+        "preterite": {
+          "yo": "pertenecí",
+          "tu": "perteneciste",
+          "el": "perteneció",
+          "nosotros": "pertenecimos",
+          "vosotros": "pertenecisteis",
+          "ellos": "pertenecieron"
+        },
+        "future": {
+          "yo": "perteneceré",
+          "tu": "pertenecerás",
+          "el": "pertenecerá",
+          "nosotros": "perteneceremos",
+          "vosotros": "perteneceréis",
+          "ellos": "pertenecerán"
+        },
+        "imperfect": {
+          "yo": "pertenecía",
+          "tu": "pertenecías",
+          "el": "pertenecía",
+          "nosotros": "pertenecíamos",
+          "vosotros": "pertenecíais",
+          "ellos": "pertenecían"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Poner",
+      "definition": "Colocar algo en algún lugar o posición.",
+      "wordType": "verbo",
+      "exampleSentence": "Voy a poner la mesa para la cena.",
+      "conjugations": {
+        "present": {
+          "yo": "pongo",
+          "tu": "pones",
+          "el": "pone",
+          "nosotros": "ponemos",
+          "vosotros": "ponéis",
+          "ellos": "ponen"
+        },
+        "preterite": {
+          "yo": "puse",
+          "tu": "pusiste",
+          "el": "puso",
+          "nosotros": "pusimos",
+          "vosotros": "pusisteis",
+          "ellos": "pusieron"
+        },
+        "future": {
+          "yo": "pondré",
+          "tu": "pondrás",
+          "el": "pondrá",
+          "nosotros": "pondremos",
+          "vosotros": "pondréis",
+          "ellos": "pondrán"
+        },
+        "imperfect": {
+          "yo": "ponía",
+          "tu": "ponías",
+          "el": "ponía",
+          "nosotros": "poníamos",
+          "vosotros": "poníais",
+          "ellos": "ponían"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65ccfc13e3c6654048f99b05"
+  },
+  {
+    "word": {
+      "word": "Colocar",
+      "definition": "Poner algo en un lugar determinado",
+      "wordType": "verbo",
+      "exampleSentence": "Voy a colocar los libros en la estantería.",
+      "conjugations": {
+        "present": {
+          "yo": "coloco",
+          "tu": "colocas",
+          "el": "coloca",
+          "nosotros": "colocamos",
+          "vosotros": "colocáis",
+          "ellos": "colocan"
+        },
+        "preterite": {
+          "yo": "coloqué",
+          "tu": "colocaste",
+          "el": "colocó",
+          "nosotros": "colocamos",
+          "vosotros": "colocasteis",
+          "ellos": "colocaron"
+        },
+        "future": {
+          "yo": "colocaré",
+          "tu": "colocarás",
+          "el": "colocará",
+          "nosotros": "colocaremos",
+          "vosotros": "colocaréis",
+          "ellos": "colocarán"
+        },
+        "imperfect": {
+          "yo": "colocaba",
+          "tu": "colocabas",
+          "el": "colocaba",
+          "nosotros": "colocábamos",
+          "vosotros": "colocabais",
+          "ellos": "colocaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65ccfc13e3c6654048f99b05"
+  },
+  {
+    "word": {
+      "word": "Predecir",
+      "definition": "Decir lo que ha de suceder con anticipación",
+      "wordType": "verbo",
+      "exampleSentence": "Los astrólogos intentan predecir el futuro con base en la posición de los astros.",
+      "conjugations": {
+        "present": {
+          "yo": "predigo",
+          "tu": "predices",
+          "el": "predice",
+          "nosotros": "predecimos",
+          "vosotros": "predecís",
+          "ellos": "predicen"
+        },
+        "preterite": {
+          "yo": "predije",
+          "tu": "predijiste",
+          "el": "predijo",
+          "nosotros": "predijimos",
+          "vosotros": "predijisteis",
+          "ellos": "predijeron"
+        },
+        "future": {
+          "yo": "predeciré",
+          "tu": "predecirás",
+          "el": "predecirá",
+          "nosotros": "predeciremos",
+          "vosotros": "predeciréis",
+          "ellos": "predecirán"
+        },
+        "imperfect": {
+          "yo": "predecía",
+          "tu": "predecías",
+          "el": "predecía",
+          "nosotros": "predecíamos",
+          "vosotros": "predecíais",
+          "ellos": "predecían"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65ccfc13e3c6654048f99b05"
   }
 ]

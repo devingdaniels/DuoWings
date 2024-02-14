@@ -1,7 +1,13 @@
 const fs = require("fs").promises;
 const path = require("path");
 
-export async function logNewWordToFile(newWord: string) {
+interface NewWord {
+  word: Object;
+  userID: string;
+  deckID: string;
+}
+
+export async function logNewWordToFile(newWord: NewWord) {
   try {
     const targetDir = path.join(__dirname, "..", "..", "services", "openai");
     await fs.mkdir(targetDir, { recursive: true });

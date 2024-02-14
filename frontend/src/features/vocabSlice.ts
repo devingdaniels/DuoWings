@@ -140,7 +140,17 @@ const vocabSlice = createSlice({
       state.isError = false;
       state.message = "";
     },
+    resetDeckStateFlags: (state) => {
+      state.isError = false;
+      state.isSuccess = false;
+      state.isLoading = false;
+      state.message = "";
+    },
+    resetCurrentDeck: (state) => {
+      state.currentDeck = null;
+    },
   },
+
   extraReducers: (builder) => {
     builder
       // Handle the logout action to reset deckSlice
@@ -221,7 +231,8 @@ const vocabSlice = createSlice({
       })
 
       .addCase(createWord.fulfilled, (state, action) => {
-        state.currentDeck = action.payload.responseDeck;
+        state.currentDeck = action.payload.deck;
+        state.message = action.payload.message;
         state.isSuccess = true;
         state.isLoading = false;
         state.isError = false;
@@ -241,7 +252,8 @@ const vocabSlice = createSlice({
       })
 
       .addCase(deleteWordByID.fulfilled, (state, action) => {
-        // state.currentDeck = action.payload.responseDeck;
+        console.log(action.payload.deck);
+        state.currentDeck = action.payload.deck;
         state.isSuccess = true;
         state.isLoading = false;
         state.isError = false;
@@ -259,6 +271,8 @@ const vocabSlice = createSlice({
 const clearUserDeckState = createAction("vocab/clearDeckState");
 const { setCurrentDeck } = vocabSlice.actions;
 const { resetErrorState } = vocabSlice.actions;
+const { resetDeckStateFlags } = vocabSlice.actions;
+const { resetCurrentDeck } = vocabSlice.actions;
 
 const VocabSliceService = {
   createDeck,
@@ -270,8 +284,12 @@ const VocabSliceService = {
   clearUserDeckState,
   setCurrentDeck,
   resetErrorState,
+  resetDeckStateFlags,
+  resetCurrentDeck,
 };
 
+// Export the service
 export { VocabSliceService };
+
 // Reducer
 export default vocabSlice.reducer;

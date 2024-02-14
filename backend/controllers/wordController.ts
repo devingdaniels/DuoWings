@@ -2,67 +2,86 @@ import { Request, Response } from "express";
 import { WordModel } from "../database/models/wordModel";
 import { DeckModel } from "../database/models/deckModel";
 import { IWordDeck } from "../interfaces";
+import mongoose from "mongoose";
 import { openAIService } from "../services/openai/openaiService";
 import { logNewWordToFile } from "../utils/wordCreationLog";
 
+const NAMESPACE = "wordController";
+
 const createWord = async (req: Request, res: Response) => {
-  // Get the word and deckID from the request body
   const { word, deckID } = req.body;
-  // Get the user from the request object (Middleware)
   const user = req.user;
 
   try {
-    // Get the deck from MongoDB
-    const deck = await DeckModel.findById(deckID);
-
-    // Build a new word using the OpenAI API
-    if (deck) {
-      // Build a new word using the OpenAI API
-      const newWord = await openAIService.buildWord(word, user);
-
-      // Asynchronously log the new word to a file, don't wait for it to finish
-      logNewWordToFile(newWord).catch((error) => console.error("Failed to log new word:", error));
-
-      // Create the word in MongoDB
-      const createdWord = new WordModel(newWord);
-      // Save the word to the database
-      await createdWord.save();
-      // Add the word to the deck
-      deck.words.push(createdWord);
-      // Save the deck to the database
-      await deck.save();
-      // Transform the deck document to match the WordDeck interface
-      const responseDeck: IWordDeck = {
-        _id: deck._id,
-        userID: deck.userID,
-        name: deck.name,
-        description: deck.description,
-        tags: deck.tags,
-        creationDate: deck.creationDate,
-        favorited: deck.favorited,
-        words: JSON.parse(JSON.stringify(deck.words)), //! This is 30x slower than .map, fix later
-      };
-
-      // Return the deck with the new word added
-      return res.status(201).json({ message: "Word created successfully!", responseDeck });
+    const deckFromDB = await DeckModel.findById(deckID);
+    if (!deckFromDB) {
+      return res.status(404).json({ error: `${deckID} bad deckID or deck does not exist.` });
     }
-    // If the deck does not exist or bad deckID
-    return res.status(404).json({ error: `${deckID} bad deckID or deck does not exist.` });
+    // Use the openAI API and user word to add definition, example sentence, and word type | and user for context
+    const createdWord = await openAIService.buildWord(word, user);
+
+    // Save the output from openAI to a log file
+    logNewWordToFile({
+      word: createdWord,
+      userID: user._id,
+      deckID: deckID,
+    }).catch((error) => console.error(NAMESPACE, error));
+
+    // Create a new word document
+    const newWord = new WordModel({
+      _id: new mongoose.Types.ObjectId(),
+      deckID: deckID,
+      userID: user._id,
+      word: word,
+      definition: createdWord.definition,
+      wordType: createdWord.wordType,
+      exampleSentence: createdWord.exampleSentence,
+      conjugations: createdWord.conjugations,
+    });
+
+    // Save the word to the database
+    const savedWord = await newWord.save();
+
+    // Add the word to the deck
+    deckFromDB.words.push(savedWord);
+    await deckFromDB.save();
+
+    // Populate the words array to replace ObjectIds with actual word documents
+    const populatedDeck = await DeckModel.findById(deckID).populate("words");
+
+    if (!populatedDeck) {
+      return res.status(404).json({ error: "Deck not found" });
+    }
+
+    // Return the updated deck
+    const deck: IWordDeck = {
+      _id: populatedDeck._id,
+      userID: populatedDeck.userID,
+      name: populatedDeck.name,
+      description: populatedDeck.description,
+      tags: populatedDeck.tags,
+      creationDate: populatedDeck.creationDate,
+      favorited: populatedDeck.favorited,
+      words: populatedDeck.words,
+    };
+
+    return res.status(201).json({ message: "Word created successfully!", deck });
   } catch (error) {
     console.error("Backend: Error creating word:", error);
     res.status(500).json({ error: "Failed to create word" });
   }
 };
 
+/* ---------------------------------------------------------------------------------------------------------------------------- */
+
 const deleteWordByID = async (req: Request, res: Response) => {
   // Get the wordID from the request body
   const { id } = req.params;
-  console.log("Backend: Deleting word with ID:", req.params);
 
   try {
     // Find the word by ID and delete it
     const deletedWord = await WordModel.findByIdAndDelete(id);
-    console.log(deletedWord);
+    console.log(NAMESPACE, deletedWord);
 
     // Ensure word was found
     if (!deletedWord) {
@@ -79,7 +98,7 @@ const deleteWordByID = async (req: Request, res: Response) => {
     // return the updated deck
     return res.status(200).json({ message: "Word deleted successfully!", responseDeck });
   } catch (error) {
-    console.log("Backend: Error deleting word:", error);
+    console.log(NAMESPACE, error);
     res.status(500).json({ error: "Failed to delete word" });
   }
 };
