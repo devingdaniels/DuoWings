@@ -1884,5 +1884,49 @@
     },
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Emerger",
+      "definition": "Surgir o salir a la superficie, aparecer",
+      "wordType": "verbo",
+      "exampleSentence": "Las flores emergen en primavera.",
+      "conjugations": {
+        "present": {
+          "yo": "emerjo",
+          "tu": "emerges",
+          "el": "emerge",
+          "nosotros": "emergemos",
+          "vosotros": "emergéis",
+          "ellos": "emergen"
+        },
+        "preterite": {
+          "yo": "emergí",
+          "tu": "emergiste",
+          "el": "emergió",
+          "nosotros": "emergimos",
+          "vosotros": "emergisteis",
+          "ellos": "emergeron"
+        },
+        "future": {
+          "yo": "emergeré",
+          "tu": "emergerás",
+          "el": "emergerá",
+          "nosotros": "emergeremos",
+          "vosotros": "emergeréis",
+          "ellos": "emergerán"
+        },
+        "imperfect": {
+          "yo": "emergía",
+          "tu": "emergías",
+          "el": "emergía",
+          "nosotros": "emergíamos",
+          "vosotros": "emergíais",
+          "ellos": "emergían"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
   }
 ]
