@@ -5,7 +5,7 @@ import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
 import React from "react";
 import SearchAppBar from "./DeckSearchBar";
 import Spinner from "../../../utils/Spinner";
-import { ToastError } from "../../../utils/Toastify";
+// import { ToastError } from "../../../utils/Toastify";
 import { useAppDispatch } from "../../../app/hooks";
 import { useAppSelector } from "../../../app/hooks";
 import { useEffect } from "react";
@@ -66,11 +66,6 @@ const AllDecksPage: React.FC = () => {
       ></AiOutlinePlus>
     );
   };
-
-  if (isError) {
-    console.log("Error toast triggered from AllDecksPage.tsx.");
-    ToastError(message);
-  }
 
   if (isLoading) {
     return (

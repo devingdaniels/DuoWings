@@ -1928,5 +1928,93 @@
     },
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Votar",
+      "definition": "Expresar preferencia o elección en una decisión o elección, especialmente en un proceso electoral.",
+      "wordType": "verbo",
+      "exampleSentence": "Mañana voy a votar por el candidato de mi partido.",
+      "conjugations": {
+        "present": {
+          "yo": "voto",
+          "tu": "votas",
+          "el": "vota",
+          "nosotros": "votamos",
+          "vosotros": "votáis",
+          "ellos": "votan"
+        },
+        "preterite": {
+          "yo": "voté",
+          "tu": "votaste",
+          "el": "votó",
+          "nosotros": "votamos",
+          "vosotros": "votasteis",
+          "ellos": "votaron"
+        },
+        "future": {
+          "yo": "votaré",
+          "tu": "votarás",
+          "el": "votará",
+          "nosotros": "votaremos",
+          "vosotros": "votaréis",
+          "ellos": "votarán"
+        },
+        "imperfect": {
+          "yo": "votaba",
+          "tu": "votabas",
+          "el": "votaba",
+          "nosotros": "votábamos",
+          "vosotros": "votabais",
+          "ellos": "votaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
+  },
+  {
+    "word": {
+      "word": "Vender",
+      "definition": "Ofrecer algo a cambio de dinero u otro bien",
+      "wordType": "verbo",
+      "exampleSentence": "Él quiere vender su coche para comprar una bicicleta nueva.",
+      "conjugations": {
+        "present": {
+          "yo": "vendo",
+          "tu": "vendes",
+          "el": "vende",
+          "nosotros": "vendemos",
+          "vosotros": "vendéis",
+          "ellos": "venden"
+        },
+        "preterite": {
+          "yo": "vendí",
+          "tu": "vendiste",
+          "el": "vendió",
+          "nosotros": "vendimos",
+          "vosotros": "vendisteis",
+          "ellos": "vendieron"
+        },
+        "future": {
+          "yo": "venderé",
+          "tu": "venderás",
+          "el": "venderá",
+          "nosotros": "venderemos",
+          "vosotros": "venderéis",
+          "ellos": "venderán"
+        },
+        "imperfect": {
+          "yo": "vendía",
+          "tu": "vendías",
+          "el": "vendía",
+          "nosotros": "vendíamos",
+          "vosotros": "vendíais",
+          "ellos": "vendían"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65cd03a940ad02ab8747fdb1"
   }
 ]

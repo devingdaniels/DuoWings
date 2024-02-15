@@ -22,6 +22,7 @@ const DeckPage = () => {
       toast.success("Word created successfully!");
       dispatch(VocabSliceService.resetDeckStateFlags());
     } else {
+      console.log("toast triggered from DeckPage.tsx");
       toast.error(response.payload);
       dispatch(VocabSliceService.resetErrorState());
     }
@@ -35,11 +36,13 @@ const DeckPage = () => {
             <h1>{currentDeck.name}</h1>
             <p>{currentDeck.description}</p>
           </div>
-          {isLoading ? (
-            <RingLoader size={53} color="rgba(59, 172, 57, 0.66)" />
-          ) : (
-            <CreateWordForm handleCreateNewWord={handleCreateNewWord} deckID={currentDeck._id} />
-          )}
+          <div style={{ minHeight: "100px", display: "flex", alignContent: "center" }}>
+            {isLoading ? (
+              <RingLoader size={53} color="rgba(59, 172, 57, 0.66)" />
+            ) : (
+              <CreateWordForm handleCreateNewWord={handleCreateNewWord} deckID={currentDeck._id} />
+            )}
+          </div>
           <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button>
           <FaPlay onClick={() => navigate("/vocab/decks/flashcards")} />
           <DeckPageTable words={currentDeck.words} />

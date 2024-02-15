@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useAppDispatch } from "../../../app/hooks";
 import { VocabSliceService } from "../../../features/vocabSlice";
+import { toast } from "react-toastify";
 
 interface DeckProps {
   deck: IWordDeck;
@@ -17,7 +18,17 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
     // Delete button is inside deck card which also has onClick
     // stopPropagation prevents the onClick from firing that would result in going to that deck's page under the delete button
     e.stopPropagation();
-    await dispatch(VocabSliceService.deleteDeckByID(deck._id));
+
+    const response = await dispatch(VocabSliceService.deleteDeckByID(deck._id));
+    if (response.type === "vocab/deleteDeckByID/fulfilled") {
+      toast.success(`Successfuly deleted ${deck.name}!`);
+      dispatch(VocabSliceService.resetDeckStateFlags());
+    } else {
+      console.log("toast triggered from DeckCardOverviewPage.tsx");
+      toast.error(response.payload);
+      dispatch(VocabSliceService.resetErrorState());
+    }
+
     fetchUserDecks();
   };
 

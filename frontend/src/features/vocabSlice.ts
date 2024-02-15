@@ -5,6 +5,8 @@ import { ICreateNewVocabWord } from "../interfaces/index";
 
 const NAMESPACE = "vocabSlice.ts";
 
+const DEBUGGING = true;
+
 interface VocabState {
   decks: IWordDeck[] | [];
   currentDeck: IWordDeck | null;
@@ -37,6 +39,7 @@ const fetchAllUserDecks = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await VocabService.fetchAllDecks();
+      if (DEBUGGING) console.log(NAMESPACE, "fetchAllUserDecks response:", response);
       return response;
     } catch (error: any) {
       const message =
@@ -53,6 +56,7 @@ const getDeckByID = createAsyncThunk(
   async (deckId: string, { rejectWithValue }) => {
     try {
       const response = await VocabService.fetchDeckByID(deckId);
+      if (DEBUGGING) console.log(NAMESPACE, "getDeckByID response:", response);
       return response;
     } catch (error: any) {
       const message =
@@ -69,6 +73,7 @@ const createDeck = createAsyncThunk(
   async (deck: ICreateNewDeck, { rejectWithValue }) => {
     try {
       const response = await VocabService.createDeck(deck);
+      if (DEBUGGING) console.log(NAMESPACE, "createDeck response:", response);
       return response;
     } catch (error: any) {
       const message =
@@ -85,6 +90,7 @@ const deleteDeckByID = createAsyncThunk(
   async (deckID: string, { rejectWithValue }) => {
     try {
       const response = await VocabService.deleteDeckByID(deckID);
+      if (DEBUGGING) console.log(NAMESPACE, "deleteDeckByID response:", response);
       return response;
     } catch (error: any) {
       const message =
@@ -106,7 +112,9 @@ const createWord = createAsyncThunk(
   "vocab/createWord",
   async (word: ICreateNewVocabWord, { rejectWithValue }) => {
     try {
-      return await VocabService.createWord(word);
+      const response = await VocabService.createWord(word);
+      if (DEBUGGING) console.log(NAMESPACE, "createWord response:", response);
+      return response;
     } catch (error: any) {
       const errorMessage = error.message || "Failed to create word.";
       console.log(NAMESPACE, "Failed to create word.");
@@ -119,7 +127,9 @@ const deleteWordByID = createAsyncThunk(
   "vocab/deleteWordByID",
   async (wordID: string, { rejectWithValue }) => {
     try {
-      return await VocabService.deleteWordByID(wordID);
+      const response = await VocabService.deleteWordByID(wordID);
+      if (DEBUGGING) console.log(NAMESPACE, "deleteWordByID response:", response);
+      return response;
     } catch (error: any) {
       const errorMessage = error.message || "Failed to delete word.";
       console.log(NAMESPACE, "Failed to delete word.");
@@ -220,6 +230,7 @@ const vocabSlice = createSlice({
         state.isError = true;
         state.isLoading = false;
         state.isSuccess = false;
+        console.log(action.error);
         state.message = action.error.message as string;
       })
 

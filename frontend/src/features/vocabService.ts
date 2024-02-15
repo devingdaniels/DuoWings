@@ -61,13 +61,11 @@ const deleteDeckByID = async (deckID: string) => {
     const response = await Axios.delete(URL + `/${deckID}`);
     return response.data;
   } catch (err: any) {
-    if (err.response && err.response.data) {
-      console.error(err.response.data);
-      throw new Error(err.response.data);
-    } else {
-      console.error("Error:", err);
-      throw new Error(`Error: Failed to delete deck with ID: ${deckID}`);
-    }
+    console.error(NAMESPACE, err);
+    console.log(err);
+    throw new Error(
+      err.response?.data?.message || `Error: Failed to delete deck with ID: ${deckID}`
+    );
   }
 };
 
@@ -86,7 +84,6 @@ const deleteWordByID = async (id: string) => {
   const URL = `${import.meta.env.VITE_BACKEND_API_WORD}/delete-word`;
   try {
     const response = await Axios.delete(URL + `/${id}`);
-    console.log(response);
     return response.data;
   } catch (err: any) {
     console.error(NAMESPACE, err);

@@ -63,7 +63,7 @@ const fetchAllDecks = async (req: Request, res: Response): Promise<void> => {
 
 const fetchDeckByID = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const deck = await DeckModel.findOne({ userID: req.user._id, _id: req.params.id });
+    const deck = await DeckModel.findOne({ userID: req.user._id, _id: req.params });
     res.status(200).json(deck);
   } catch (error) {
     console.error(`${NAMESPACE}: Error fetching deck by ID:`, error);
@@ -73,7 +73,7 @@ const fetchDeckByID = async (req: Request, res: Response, next: NextFunction): P
 
 const deleteDeckByID = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const result = await DeckModel.findOneAndDelete({ userID: req.user._id, _id: req.params.id });
+    const result = await DeckModel.findOneAndDelete({ userID: req.user._id, _id: req.params.id.rewrew }); //! failure on purpose
 
     // Deck not found
     if (!result) {
