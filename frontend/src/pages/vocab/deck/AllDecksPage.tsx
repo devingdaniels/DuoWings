@@ -5,16 +5,16 @@ import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
 import React from "react";
 import SearchAppBar from "./DeckSearchBar";
 import Spinner from "../../../utils/Spinner";
-// import { ToastError } from "../../../utils/Toastify";
 import { useAppDispatch } from "../../../app/hooks";
 import { useAppSelector } from "../../../app/hooks";
 import { useEffect } from "react";
 import { useState } from "react";
 import { VocabSliceService } from "../../../features/vocabSlice";
+import { toast } from "react-toastify";
 
 const AllDecksPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { decks, isLoading, isError, message } = useAppSelector((state) => state.vocab);
+  const { decks, isLoading, isError } = useAppSelector((state) => state.vocab);
 
   const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(decks || []);
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -40,7 +40,17 @@ const AllDecksPage: React.FC = () => {
     // First close the modal
     setIsModal(false);
     // Dispatch creation of new deck, should set loading to true
-    await dispatch(VocabSliceService.createDeck(deck));
+    const response = await dispatch(VocabSliceService.createDeck(deck));
+
+    if (response.type === "vocab/createDeck/fulfilled") {
+      toast.success(`Deck saved`);
+      dispatch(VocabSliceService.resetDeckStateFlags());
+    } else {
+      toast.error(response.payload);
+      dispatch(VocabSliceService.resetErrorState());
+    }
+
+    console.log(response);
     // Get updated decks
     fetchUserDecks();
   };

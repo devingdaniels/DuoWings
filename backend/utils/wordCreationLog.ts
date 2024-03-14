@@ -5,6 +5,7 @@ interface NewWord {
   word: Object;
   userID: string;
   deckID: string;
+  timestamp: string;
 }
 
 export async function logNewWordToFile(newWord: NewWord) {

@@ -29,11 +29,12 @@ const LoginInForm: React.FC = () => {
     }));
   };
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     // Stop page reload
     e.preventDefault();
     // Dispatch login action
-    dispatch(login(userData));
+    const response = await dispatch(login(userData));
+    console.log(response);
   };
 
   useEffect(() => {

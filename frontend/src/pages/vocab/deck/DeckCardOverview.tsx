@@ -21,7 +21,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
 
     const response = await dispatch(VocabSliceService.deleteDeckByID(deck._id));
     if (response.type === "vocab/deleteDeckByID/fulfilled") {
-      toast.success(`Successfuly deleted ${deck.name}!`);
+      toast.success(`Deleted ${deck.name}`);
       dispatch(VocabSliceService.resetDeckStateFlags());
     } else {
       console.log("toast triggered from DeckCardOverviewPage.tsx");

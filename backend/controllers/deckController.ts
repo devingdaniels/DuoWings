@@ -73,7 +73,7 @@ const fetchDeckByID = async (req: Request, res: Response, next: NextFunction): P
 
 const deleteDeckByID = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const result = await DeckModel.findOneAndDelete({ userID: req.user._id, _id: req.params.id.rewrew }); //! failure on purpose
+    const result = await DeckModel.findOneAndDelete({ userID: req.user._id, _id: req.params.id }); //! failure on purpose
 
     // Deck not found
     if (!result) {

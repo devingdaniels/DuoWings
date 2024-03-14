@@ -1,9 +1,9 @@
-import FlashCard from "./FlashCard";
+// import FlashCard from "./FlashCard";
 
-import { useAppSelector, useAppDispatch } from "../../../app/hooks";
+import { useAppSelector } from "../../../app/hooks";
 
 const FlashCardsPage = () => {
-  const { currentDeck, isLoading, isError, message } = useAppSelector((state) => state.vocab);
+  const { currentDeck } = useAppSelector((state) => state.vocab);
 
   return (
     <>

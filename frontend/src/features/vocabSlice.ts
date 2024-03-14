@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { VocabService } from "./vocabService";
 import { ICreateNewDeck, IWordDeck } from "../interfaces/index";
 import { ICreateNewVocabWord } from "../interfaces/index";
@@ -117,7 +117,7 @@ const createWord = createAsyncThunk(
       return response;
     } catch (error: any) {
       const errorMessage = error.message || "Failed to create word.";
-      console.log(NAMESPACE, "Failed to create word.");
+      console.log(NAMESPACE, error);
       return rejectWithValue(errorMessage);
     }
   }
@@ -146,32 +146,34 @@ const vocabSlice = createSlice({
     setCurrentDeck: (state, action) => {
       state.currentDeck = action.payload;
     },
+
     resetErrorState: (state) => {
       state.isError = false;
       state.message = "";
     },
+
     resetDeckStateFlags: (state) => {
       state.isError = false;
       state.isSuccess = false;
       state.isLoading = false;
       state.message = "";
     },
+
     resetCurrentDeck: (state) => {
       state.currentDeck = null;
     },
+    purgeUserAndStoreData: (state) => {
+      state.decks = [];
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = false;
+      state.message = "";
+      state.currentDeck = null;
+    },
   },
-
+  // Extra reducers
   extraReducers: (builder) => {
     builder
-      // Handle the logout action to reset deckSlice
-      .addCase(clearUserDeckState, (state) => {
-        state.decks = [];
-        state.isLoading = false;
-        state.isSuccess = false;
-        state.isError = false;
-        state.message = "";
-        state.currentDeck = null;
-      })
       // Handle the fetchAllUserDecks async thunk
       .addCase(fetchAllUserDecks.pending, (state) => {
         state.isLoading = true;
@@ -279,7 +281,7 @@ const vocabSlice = createSlice({
   },
 });
 
-const clearUserDeckState = createAction("vocab/clearDeckState");
+const { purgeUserAndStoreData } = vocabSlice.actions;
 const { setCurrentDeck } = vocabSlice.actions;
 const { resetErrorState } = vocabSlice.actions;
 const { resetDeckStateFlags } = vocabSlice.actions;
@@ -292,7 +294,7 @@ const VocabSliceService = {
   deleteDeckByID,
   createWord,
   deleteWordByID,
-  clearUserDeckState,
+  purgeUserAndStoreData,
   setCurrentDeck,
   resetErrorState,
   resetDeckStateFlags,

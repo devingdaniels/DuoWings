@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { WordModel } from "../database/models/wordModel";
 import { DeckModel } from "../database/models/deckModel";
 import { IWordDeck } from "../interfaces";
@@ -8,7 +8,7 @@ import { logNewWordToFile } from "../utils/wordCreationLog";
 
 const NAMESPACE = "wordController";
 
-const createWord = async (req: Request, res: Response) => {
+const createWord = async (req: Request, res: Response, next: NextFunction) => {
   const { word, deckID } = req.body;
   const user = req.user;
 
@@ -21,29 +21,33 @@ const createWord = async (req: Request, res: Response) => {
     const createdWord = await openAIService.buildWord(word, user);
 
     // Save the output from openAI to a log file
-    logNewWordToFile({
-      word: createdWord,
-      userID: user._id,
-      deckID: deckID,
-    }).catch((error) => console.error(NAMESPACE, error));
+    //! This seems to be causing the word creation to fail
+    // try {
+    //   logNewWordToFile({
+    //     word: createdWord,
+    //     userID: user._id,
+    //     deckID: deckID,
+    //     timestamp: new Date().toISOString(),
+    //   });
+    // } catch (error) {
+    //   console.log("Failed to log new word to file.");
+    //   console.error(NAMESPACE, error);
+    // }
 
-    // Create a new word document
-    const newWord = new WordModel({
+    const newWord = await new WordModel({
       _id: new mongoose.Types.ObjectId(),
-      deckID: deckID,
-      userID: user._id,
+      deckID: new mongoose.Types.ObjectId(deckID),
+      userID: new mongoose.Types.ObjectId(user._id),
       word: word,
       definition: createdWord.definition,
       wordType: createdWord.wordType,
       exampleSentence: createdWord.exampleSentence,
       conjugations: createdWord.conjugations,
-    });
+    }).save();
 
-    // Save the word to the database
-    const savedWord = await newWord.save();
+    deckFromDB.words.push(newWord);
 
     // Add the word to the deck
-    deckFromDB.words.push(savedWord);
     await deckFromDB.save();
 
     // Populate the words array to replace ObjectIds with actual word documents
@@ -68,7 +72,7 @@ const createWord = async (req: Request, res: Response) => {
     return res.status(201).json({ message: "Word created successfully!", deck });
   } catch (error) {
     console.error("Backend: Error creating word:", error);
-    res.status(500).json({ error: "Failed to create word" });
+    next(error);
   }
 };
 

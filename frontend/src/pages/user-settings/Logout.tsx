@@ -12,8 +12,8 @@ function Logout() {
 
   const { isLoading } = useAppSelector((state) => state.auth);
 
-  const handleLogout = () => {
-    dispatch(VocabSliceService.clearUserDeckState());
+  const handleLogout = async () => {
+    dispatch(VocabSliceService.purgeUserAndStoreData());
     dispatch(clearUserAuthState());
     dispatch(logout());
     // Purge local storage and wait for it to complete
@@ -24,7 +24,7 @@ function Logout() {
   };
 
   const handleDeleteAccount = async () => {
-    // dispatch(VocabSliceService.clearUserDeckState());
+    // dispatch(VocabSliceService.purgeUserAndStoreData());
     // dispatch(clearUserAuthState());
     await dispatch(deleteAccount());
     console.log("Delete account logic to be implemented");

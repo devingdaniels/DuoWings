@@ -14,6 +14,8 @@ const DeckPage = () => {
   const navigate = useNavigate();
   // Redux
   const dispatch = useAppDispatch();
+
+  // Current deck from redux store
   const { currentDeck, isLoading } = useAppSelector((state) => state.vocab);
 
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
@@ -48,7 +50,7 @@ const DeckPage = () => {
           <DeckPageTable words={currentDeck.words} />
         </>
       ) : (
-        <p>Deck not found or loading...</p>
+        <p>Deck not found, please return home to resolve...</p>
       )}
     </div>
   );

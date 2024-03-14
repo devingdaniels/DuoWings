@@ -25,7 +25,7 @@ connectMongDB();
 app.use(
   cors({
     origin: "http://localhost:5173",
-    methods: ["POST", "PUT", "GET", "DELETE", "HEAD"],
+    methods: ["POST", "PUT", "GET", "DELETE"],
     credentials: true, // allow session cookie from browser to pass through
   })
 );
