@@ -152,7 +152,7 @@ const vocabSlice = createSlice({
       state.message = "";
     },
 
-    resetDeckStateFlags: (state) => {
+    resetDeckStatusFlagsToDefault: (state) => {
       state.isError = false;
       state.isSuccess = false;
       state.isLoading = false;
@@ -162,7 +162,9 @@ const vocabSlice = createSlice({
     resetCurrentDeck: (state) => {
       state.currentDeck = null;
     },
-    purgeUserAndStoreData: (state) => {
+
+    //@ Reset the deck slice store
+    resetDeckSliceStore: (state) => {
       state.decks = [];
       state.isLoading = false;
       state.isSuccess = false;
@@ -177,6 +179,8 @@ const vocabSlice = createSlice({
       // Handle the fetchAllUserDecks async thunk
       .addCase(fetchAllUserDecks.pending, (state) => {
         state.isLoading = true;
+        state.isSuccess = false;
+        state.isError = false;
       })
       .addCase(fetchAllUserDecks.fulfilled, (state, action) => {
         state.isSuccess = true;
@@ -187,32 +191,38 @@ const vocabSlice = createSlice({
       })
       .addCase(fetchAllUserDecks.rejected, (state, action) => {
         state.isError = true;
-        state.message = action.error.message as string;
         state.isLoading = false;
         state.isSuccess = false;
+        state.message = action.error.message as string;
       })
       // Handle the getDeckByID async thunk
       .addCase(getDeckByID.pending, (state) => {
         state.isLoading = true;
+        state.isSuccess = false;
+        state.isError = false;
       })
       .addCase(getDeckByID.fulfilled, (state, action) => {
         state.isSuccess = true;
         state.isLoading = false;
+        state.isError = false;
         state.currentDeck = action.payload as IWordDeck;
       })
       .addCase(getDeckByID.rejected, (state, action) => {
         state.isError = true;
-        state.message = action.error.message as string;
         state.isLoading = false;
         state.isSuccess = false;
+        state.message = action.error.message as string;
       })
       // Handle the createDeck async thunk
       .addCase(createDeck.pending, (state) => {
         state.isLoading = true;
+        state.isSuccess = false;
+        state.isError = false;
       })
       .addCase(createDeck.fulfilled, (state) => {
         state.isSuccess = true;
         state.isLoading = false;
+        state.isError = false;
       })
       .addCase(createDeck.rejected, (state, action) => {
         state.isError = true;
@@ -281,10 +291,10 @@ const vocabSlice = createSlice({
   },
 });
 
-const { purgeUserAndStoreData } = vocabSlice.actions;
+const { resetDeckSliceStore } = vocabSlice.actions;
 const { setCurrentDeck } = vocabSlice.actions;
 const { resetErrorState } = vocabSlice.actions;
-const { resetDeckStateFlags } = vocabSlice.actions;
+const { resetDeckStatusFlagsToDefault } = vocabSlice.actions;
 const { resetCurrentDeck } = vocabSlice.actions;
 
 const VocabSliceService = {
@@ -294,15 +304,15 @@ const VocabSliceService = {
   deleteDeckByID,
   createWord,
   deleteWordFromDeckByID,
-  purgeUserAndStoreData,
   setCurrentDeck,
+  resetDeckSliceStore,
   resetErrorState,
-  resetDeckStateFlags,
+  resetDeckStatusFlagsToDefault,
   resetCurrentDeck,
 };
 
 // Export the service
 export { VocabSliceService };
 
-// Reducer
+// Export the reducer, which is used in the store
 export default vocabSlice.reducer;

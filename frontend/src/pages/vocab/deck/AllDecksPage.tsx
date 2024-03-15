@@ -13,9 +13,10 @@ import { VocabSliceService } from "../../../features/vocabSlice";
 import { toast } from "react-toastify";
 
 const AllDecksPage: React.FC = () => {
+  // Hooks
   const dispatch = useAppDispatch();
   const { decks, isLoading, isError } = useAppSelector((state) => state.vocab);
-
+  // Local state
   const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(decks || []);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [isModal, setIsModal] = useState<boolean>(false);
@@ -39,18 +40,19 @@ const AllDecksPage: React.FC = () => {
   const handleCreateNewDeck = async (deck: ICreateNewDeck) => {
     // First close the modal
     setIsModal(false);
+
     // Dispatch creation of new deck, should set loading to true
     const response = await dispatch(VocabSliceService.createDeck(deck));
 
     if (response.type === "vocab/createDeck/fulfilled") {
-      toast.success(`Deck saved`);
-      dispatch(VocabSliceService.resetDeckStateFlags());
+      toast.success(`Created ${response.payload.deck.name}`);
+      // Reset flags
+      dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
     } else {
       toast.error(response.payload);
+      //
       dispatch(VocabSliceService.resetErrorState());
     }
-
-    console.log(response);
     // Get updated decks
     fetchUserDecks();
   };

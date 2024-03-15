@@ -22,7 +22,7 @@ const DeckPage = () => {
     const response = await dispatch(VocabSliceService.createWord(word));
     if (response.type === "vocab/createWord/fulfilled") {
       toast.success("Word created successfully!");
-      dispatch(VocabSliceService.resetDeckStateFlags());
+      dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
     } else {
       console.log("toast triggered from DeckPage.tsx");
       toast.error(response.payload);

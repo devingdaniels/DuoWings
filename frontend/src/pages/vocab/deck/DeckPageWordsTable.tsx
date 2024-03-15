@@ -17,8 +17,9 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
 
     if (response.type === "vocab/deleteWordFromDeckByID/fulfilled") {
       toast.success("Delete successful!");
-      dispatch(VocabSliceService.resetDeckStateFlags());
+      dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
     } else {
+      console.log("toast triggered from DeckPageWordsTable.tsx");
       toast.error(response.payload);
       dispatch(VocabSliceService.resetErrorState());
     }

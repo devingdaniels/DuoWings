@@ -22,7 +22,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
     const response = await dispatch(VocabSliceService.deleteDeckByID(deck._id));
     if (response.type === "vocab/deleteDeckByID/fulfilled") {
       toast.success(`Deleted ${deck.name}`);
-      dispatch(VocabSliceService.resetDeckStateFlags());
+      dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
     } else {
       console.log("toast triggered from DeckCardOverviewPage.tsx");
       toast.error(response.payload);
@@ -40,7 +40,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
   return (
     <div className="deck-card-overview-container" onClick={() => goToDeckPage(deck)}>
       <div className="deck-card-overview-header">
-        <span className="deck-header-item deck-header-level-container">Level FIX{deck.level}</span>
+        <span className="deck-header-item deck-header-level-container">FIX ME{deck.level}</span>
         <h2 className="deck-header-item">{deck.name}</h2>
         <div className="deck-header-item delete-container">
           <AiOutlineDelete onClick={handleDeleteDeck} size={30} />
