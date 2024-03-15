@@ -13,14 +13,12 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
   const dispatch = useAppDispatch();
 
   const handleClick = async (wordID: string) => {
-    const response = await dispatch(VocabSliceService.deleteWordByID(wordID));
+    const response = await dispatch(VocabSliceService.deleteWordFromDeckByID(wordID));
 
-    if (response.type === "vocab/deleteWord/fulfilled") {
+    if (response.type === "vocab/deleteWordFromDeckByID/fulfilled") {
       toast.success("Delete successful!");
       dispatch(VocabSliceService.resetDeckStateFlags());
     } else {
-      console.log("toast triggered from DeckPageWordsTable.tsx");
-      console.log(response.payload);
       toast.error(response.payload);
       dispatch(VocabSliceService.resetErrorState());
     }

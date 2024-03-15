@@ -123,8 +123,8 @@ const createWord = createAsyncThunk(
   }
 );
 
-const deleteWordByID = createAsyncThunk(
-  "vocab/deleteWordByID",
+const deleteWordFromDeckByID = createAsyncThunk(
+  "vocab/deleteWordFromDeckByID",
   async (wordID: string, { rejectWithValue }) => {
     try {
       const response = await VocabService.deleteWordByID(wordID);
@@ -258,13 +258,13 @@ const vocabSlice = createSlice({
         state.message = action.payload as string;
       })
 
-      .addCase(deleteWordByID.pending, (state) => {
+      .addCase(deleteWordFromDeckByID.pending, (state) => {
         state.isLoading = true;
         state.isSuccess = false;
         state.isError = false;
       })
 
-      .addCase(deleteWordByID.fulfilled, (state, action) => {
+      .addCase(deleteWordFromDeckByID.fulfilled, (state, action) => {
         console.log(action.payload.deck);
         state.currentDeck = action.payload.deck;
         state.isSuccess = true;
@@ -272,7 +272,7 @@ const vocabSlice = createSlice({
         state.isError = false;
       })
 
-      .addCase(deleteWordByID.rejected, (state, action) => {
+      .addCase(deleteWordFromDeckByID.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
         state.isSuccess = false;
@@ -293,7 +293,7 @@ const VocabSliceService = {
   getDeckByID,
   deleteDeckByID,
   createWord,
-  deleteWordByID,
+  deleteWordFromDeckByID,
   purgeUserAndStoreData,
   setCurrentDeck,
   resetErrorState,

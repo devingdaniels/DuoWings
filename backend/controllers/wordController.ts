@@ -77,34 +77,39 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 /* ---------------------------------------------------------------------------------------------------------------------------- */
-
-const deleteWordByID = async (req: Request, res: Response) => {
-  // Get the wordID from the request body
+// This function is used to delete a word from a deck by its ID
+// It does NOT delete the word from the database, only from the deck
+const deleteWordFromDeckByID = async (req: Request, res: Response) => {
+  // Get the wordID from the request parameters
   const { id } = req.params;
 
   try {
-    // Find the word by ID and delete it
-    const deletedWord = await WordModel.findByIdAndDelete(id);
-    console.log(NAMESPACE, deletedWord);
-
-    // Ensure word was found
-    if (!deletedWord) {
+    // Find the word by ID to ensure it exists
+    const word = await WordModel.findById(id);
+    if (!word) {
       return res.status(404).json({ error: "Word not found" });
     }
-    // Ensure deck was found
-    const responseDeck = await DeckModel.findById(deletedWord);
-    if (!responseDeck) {
-      return res.status(404).json({ error: "Deck not found" });
+
+    // Find the deck associated with the word and update it by removing the word reference
+    const deck = await DeckModel.findOneAndUpdate(
+      { words: id }, // Criteria to find the deck containing the word
+      { $pull: { words: id } }, // MongoDB operation to remove the word from the deck's words array
+      { new: true } // Return the updated deck
+    ).populate("words"); // Populate to get detailed word info, if needed
+
+    // Ensure the deck was found and updated
+    if (!deck) {
+      return res.status(404).json({ error: "Deck not found or word reference not removed" });
     }
-    // Delete the word from the deck
-    responseDeck.words = responseDeck.words.filter((word) => word._id.toString() !== id);
-    await responseDeck.save();
-    // return the updated deck
-    return res.status(200).json({ message: "Word deleted successfully!", responseDeck });
+
+    console.log(deck);
+
+    // Return the updated deck
+    return res.status(200).json({ message: "Word reference removed from deck successfully!", deck });
   } catch (error) {
-    console.log(NAMESPACE, error);
-    res.status(500).json({ error: "Failed to delete word" });
+    console.error(error);
+    res.status(500).json({ error: "Failed to remove word reference from deck" });
   }
 };
 
-export { createWord, deleteWordByID };
+export { createWord, deleteWordFromDeckByID };
