@@ -1,0 +1,139 @@
+Business Plan
+Devin Daniels
+Name of Company
+
+
+1.	Executive Summary
+•	Brief Overview of the Business: What your SaaS product is about.
+•	Mission Statement: Your core purpose and what you aim to achieve.
+•	Vision Statement: The future you aspire to create with your product.
+•	Key Objectives: Short-term and long-term goals.
+2.	Company Description
+•	Business Model: How your SaaS operates, makes money.
+•	Unique Value Proposition: What sets your product apart.
+•	Founding Story: The inspiration and journey behind your startup.
+•	Location and Structure: Where your company is based and its legal structure.
+3.	Market Analysis
+•	Industry Overview: Current trends in language learning technology.
+•	Target Market: Who your product is designed for (demographics, behaviors).
+•	Competitor Analysis: Direct and indirect competitors, your competitive edge.
+•	Market Needs: Identifying gaps in the market your product fills.
+4.	Product and Services
+•	Detailed Description: Features and functionalities of your product.
+•	Development: Current stage of your product, future development plans.
+•	Intellectual Property: Any patents, trademarks, or unique tech involved.
+•	User Experience: How users interact with your product.
+5.	Marketing and Sales Strategy
+•	Marketing Plan: Strategies to attract and retain customers.
+•	Sales Strategy: Sales funnel, pricing model, and sales goals.
+•	Distribution Channels: How your product will be delivered to users.
+•	Customer Engagement: Communication, feedback, and support strategies.
+6.	Operational Plan
+•	Day-to-Day Operations: How your business will run operationally.
+•	Technology and Tools: Software and tools required for your product.
+•	Team and Management: Roles, responsibilities, and structure of your team.
+•	Partnerships and Suppliers: Any external partnerships or suppliers.
+7.	Financial Plan
+•	Startup Costs: Initial costs to start your SaaS business.
+•	Revenue Projections: Forecasted earnings and financial milestones.
+•	Funding: Current and future funding requirements, investment plans.
+•	Break-Even Analysis: When your business will become profitable.
+8.	Risk Management
+•	Identifying Potential Risks: Market, financial, operational risks.
+•	Mitigation Strategies: How you plan to manage or reduce these risks.
+9.	Appendices
+•	Supporting Documents: Any additional documents, e.g., market research data, resumes of key personnel, technical specifications, etc.
+
+
+
+
+POSSIBLE NAMES:
+LinguaLeap
+LexiLeap
+LogosLaunch
+LingoLeap
+LingoLaunch
+LexiLingoLab
+
+
+
+
+
+
+
+
+Narrative:
+A student who uses LinguaLeap to excel academically and socially.
+A business professional who expands their career opportunities globally.
+A traveler who connects deeply with every culture they visit, thanks to their language skills.
+
+
+
+Onboarding Data:
+
+Basic Demographics: Age, gender, and location. This helps in tailoring content culturally and age-appropriately.
+Native Language: Knowing the user's native language can help in providing comparisons and contrasts with the target language.
+Target Language and Proficiency Level: Identify which language they want to learn and their current level in that language (beginner, intermediate, advanced).
+Learning Goals: Understand why they are learning the language (travel, business, education, heritage, etc.) to tailor the content accordingly.
+Learning Style Preferences: Some users prefer visual learning, others auditory or kinesthetic. Knowing this can help in customizing the teaching methods.
+Interests and Hobbies: Incorporating topics of interest can make learning more engaging. For instance, a user interested in cooking might enjoy learning vocabulary related to food and recipes.
+Previous Language Learning Experience: Knowledge of what methods or tools they have used before can help in understanding what works best for them.
+Time Availability: How much time they can dedicate daily or weekly to language learning. This helps in setting realistic goals and pacing.
+Technical Proficiency: Understanding their comfort level with technology can assist in designing a user-friendly interface.
+Feedback on Preferred Gamification Elements: Some users might enjoy competitive elements like leaderboards, while others might prefer earning badges or unlocking levels.
+Attention Span and Learning Pace: Short attention spans might require bite-sized learning sessions, while others might prefer longer, in-depth sessions.
+Social Learning Preferences: Whether they prefer solo learning or interacting with a community or having a language partner.
+Accessibility Needs: Ensuring the app is inclusive for users with disabilities (e.g., visual, auditory impairments).
+Device Preferences: Knowing if they will use the app primarily on a mobile phone, tablet, or computer can impact the design and functionality.
+Preferred Communication Style: Some might prefer formal instruction, while others might like a more conversational approach.
+Cultural Interests: Interest in specific cultures related to the language can be used to make content more relevant and engaging.
+Motivation Triggers: Understanding what motivates them (e.g., rewards, social recognition, personal achievement) can help in keeping them engaged.
+Barriers and Challenges: Knowing what has hindered their language learning in the past (e.g., time constraints, lack of motivation, difficulty in understanding certain concepts).
+Feedback and Adjustment Preferences: How often they would like to receive feedback and whether they prefer a structured plan or a flexible learning path.
+
+
+
+
+Post-onboarding: 
+Free version will create 5 decks, each with 10 words. Only one game mode will be available. The data from the onboarding process will be used in a context prompt to build a user_story. 
+
+
+
+
+
+
+
+PRICING
+
+Model: gpt-3.5-turbo-1106	
+Context tokens: $0.0010 / 1K tokens
+Generated tokens: $0.0020/1k tokens
+
+Example for 1 word: 
+ 
+
+($0.0010/1000 tokens) * 449 = $0.000449
+
+($0.0020/1000 tokens) * 302 = $0.000604
+
+$0.000449 + $0.000604 = $0.001053
+
+= $0.001053 * 1000(words) 
+
+= $1.053/1k words —> round up to $1.10 per 1000 words
+
+
+
+Sources and Ideas:
+
+
+https://www.npmjs.com/package/an-array-of-spanish-words
+
+https://www.npmjs.com/package/redux-persist#basic-usage
+
+https://www.npmjs.com/package/framer-motion
+
+https://www.chartjs.org/docs/latest/getting-started/
+
+https://www.npmjs.com/package/@nivo/line
+

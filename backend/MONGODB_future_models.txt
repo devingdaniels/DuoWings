@@ -141,3 +141,105 @@ const userPreferencesSchema = new mongoose.Schema({
   notifications: Boolean,
   difficultyLevel: String,
 });
+
+const WordDeckSchema = newmongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+
+    required: true,
+
+    ref: "User",
+  },
+
+  name: {
+    type: String,
+
+    required: true,
+  },
+
+  description: String,
+
+  tags: [String],
+
+  creationDate: {
+    type: Date,
+
+    default: Date.now,
+
+    immutable: false,
+  },
+
+  preferences: {
+    insertOrder: [String],
+
+    favorited: Boolean,
+
+    // color: String,
+  },
+
+  words: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+
+      ref: "Word",
+    },
+  ],
+
+  lastStudied: {
+    type: Date,
+
+    default: newDate(4),
+  },
+
+  // Gaamification Fields (This needs to be implemented in the frontend )
+
+  experiencePoints: {
+    type: Number,
+
+    default: 0,
+  },
+
+  level: {
+    type: Number,
+
+    default: 1,
+  },
+
+  completedChallenges: [String], // IDs or names of completed challenges
+
+  badges: [String], // IDs or names of earned badges
+
+  streak: {
+    type: Number,
+
+    default: 0,
+  },
+
+  lastStreakDate: {
+    type: Date,
+  },
+});
+
+const DeckModel = mongoose.model("Decks", WordDeckSchema, "decks");
+
+export { DeckModel };
+
+export interface IWordDeck {
+  _id: string;
+  name: string;
+  description: string;
+  tags?: string[];
+  creationDate: Date;
+  lastStudied: Date;
+  preferences: {
+    insertOrder: number[];
+    favorited: boolean;
+  };
+  words: IVocabWord[];
+  experiencePoints: number;
+  level: number;
+  completedChallenges: string[];
+  badges: string[];
+  streak: number;
+  lastStreakDate?: Date;
+}

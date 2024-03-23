@@ -1,22 +1,26 @@
+// Third-party library imports
+import bodyParser from "body-parser";
+import compression from "compression";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import dotenv from "dotenv";
 import express from "express";
 import http from "http";
+
+// Local file imports
 import connectMongDB from "./database/configDB";
-import bodyParser from "body-parser";
-import cookieParser from "cookie-parser";
-import compression from "compression";
-import cors from "cors";
 import logging from "./config/logging";
-import dotenv from "dotenv";
+import errorHandler from "./middleware/errorHandler";
+
 // Routes
 import deckRoutes from "./routes/deckRoutes";
 import userAuthRoutes from "./routes/userRoutes";
 import wordRoutes from "./routes/wordRoutes";
-import errorHandler from "./middleware/errorHandler";
-dotenv.config();
 
 const NAMESPACE = "backend/index.ts";
 const PORT = process.env.SERVER_PORT || 8000;
 
+const config = dotenv.config();
 const app = express();
 const server = http.createServer(app);
 
@@ -30,9 +34,9 @@ app.use(
   })
 );
 
-app.use(compression());
-app.use(cookieParser());
-app.use(bodyParser.json());
+app.use(compression()); // compress all responses which helps to reduce the size of the response body and increase the speed of a web application
+app.use(cookieParser()); // parse Cookie header and populate req.cookies with an object keyed by the cookie names
+app.use(bodyParser.json()); // parse incoming request bodies in a middleware before your handlers, available under the req.body property
 
 app.use("/api/users/auth", userAuthRoutes);
 app.use("/api/decks", deckRoutes);

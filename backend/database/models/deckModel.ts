@@ -24,6 +24,7 @@ const WordDeckSchema = new mongoose.Schema({
     immutable: true,
   },
   favorited: {
+    //! This should be renamed to 'isFavorite'
     type: Boolean,
     default: false,
   },
@@ -56,6 +57,5 @@ Progress Tracking: Include fields to track the learner's progress with the deck,
 Difficulty Level: Consider adding an overall difficulty level for the deck based on the aggregated difficulty of the words it contains.
 
 Access Control: Add fields to manage permissions, such as whether a deck can be edited or only viewed by others.
-
 
 */

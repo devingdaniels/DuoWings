@@ -28,7 +28,6 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
       toast.error(response.payload);
       dispatch(VocabSliceService.resetErrorState());
     }
-
     fetchUserDecks();
   };
 
