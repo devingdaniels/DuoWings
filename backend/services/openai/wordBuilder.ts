@@ -6,12 +6,35 @@ import { IWord } from "../../interfaces";
 const NAMESPACE = "openai word builder";
 const openAI = new OpenAI();
 
-// Returns a stringified JSON object
-//! TODO: Create TypeScript interface for the user object
-// The user will have a learning context, like the language they are learning, native language, etc.
-// This will then be used to tailor the prompt to the user's learning context
-
+/**
+ * Builds a word object using the OpenAI API
+ * @param word - The word to build
+ * @param user - The user object
+ * @returns A word object
+ * TODO: Create a TypeScript interface for the user object: onboarding learning context, etc
+ */
 const buildWord = async (word: string, user: any): Promise<IWord> => {
+  try {
+    const response = await openAI.chat.completions.create({
+      messages: [{ role: "system", content: createPrompt(word) }],
+      model: "gpt-3.5-turbo-1106", //! TODO: This should be an environment variable so premium users can use the Davinci (premium) model
+      response_format: { type: "json_object" },
+    });
+
+    if (response.choices[0].message.content == null) {
+      throw new Error(`${NAMESPACE}: No choices returned`);
+    }
+    // Deserialize the JSON object and return it
+    return JSON.parse(response.choices[0].message.content);
+  } catch (error) {
+    console.error(NAMESPACE, error);
+    throw new Error(`${NAMESPACE}: ${error}`);
+  }
+};
+
+export { buildWord };
+
+function createPrompt(word: string) {
   const prompt = `Given the word "${word}", complete the following object with appropriate values in Spanish and return a JSON object. Provide only the specific category information requested without additional explanations or examples in other languages.\n\n:   \n\n:
   {
     word: "${word}",
@@ -53,23 +76,5 @@ const buildWord = async (word: string, user: any): Promise<IWord> => {
         },
     },
 }`;
-
-  try {
-    const response = await openAI.chat.completions.create({
-      messages: [{ role: "system", content: prompt }],
-      model: "gpt-3.5-turbo-1106", //! TODO: This should be an environment variable so premium users can use the Davinci model
-      response_format: { type: "json_object" },
-    });
-
-    if (response.choices[0].message.content == null) {
-      throw new Error(`${NAMESPACE}: No choices returned`);
-    }
-    // Deserialize the JSON object and return it
-    return JSON.parse(response.choices[0].message.content);
-  } catch (error) {
-    console.error(NAMESPACE, error);
-    throw new Error(`${NAMESPACE}: ${error}`);
-  }
-};
-
-export { buildWord };
+  return prompt;
+}

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { comparePassword, hashPassword } from "../helpers";
 import { UserModel as User } from "../database/models/userModel";
-import { signJWT } from "../middleware/authMiddleware";
+import { signJWT } from "../middleware/auth";
 import mongoose from "mongoose";
 import config from "../config/config";
 

@@ -3903,5 +3903,410 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "65d22d650fef6fd1e3780cae",
     "timestamp": "2024-03-14T03:47:35.415Z"
+  },
+  {
+    "word": {
+      "word": "Comida",
+      "definition": "Alimento que se ingiere para satisfacer el hambre y nutrir el cuerpo.",
+      "wordType": "Sustantivo",
+      "exampleSentence": "Voy a preparar una deliciosa comida para la cena.",
+      "conjugations": {
+        "present": {
+          "yo": "como",
+          "tu": "comes",
+          "el": "come",
+          "nosotros": "comemos",
+          "vosotros": "coméis",
+          "ellos": "comen"
+        },
+        "preterite": {
+          "yo": "comí",
+          "tu": "comiste",
+          "el": "comió",
+          "nosotros": "comimos",
+          "vosotros": "comisteis",
+          "ellos": "comieron"
+        },
+        "future": {
+          "yo": "comeré",
+          "tu": "comerás",
+          "el": "comerá",
+          "nosotros": "comeremos",
+          "vosotros": "comeréis",
+          "ellos": "comerán"
+        },
+        "imperfect": {
+          "yo": "comía",
+          "tu": "comías",
+          "el": "comía",
+          "nosotros": "comíamos",
+          "vosotros": "comíais",
+          "ellos": "comían"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-23T20:40:14.367Z"
+  },
+  {
+    "word": {
+      "word": "Ladrón",
+      "definition": "Persona que comete robo o hurto",
+      "wordType": "Sustantivo",
+      "exampleSentence": "El ladrón entró por la ventana y se llevó el televisor.",
+      "conjugations": {
+        "present": {
+          "yo": "robo",
+          "tu": "robas",
+          "el": "roba",
+          "nosotros": "robamos",
+          "vosotros": "robáis",
+          "ellos": "roban"
+        },
+        "preterite": {
+          "yo": "robé",
+          "tu": "robaste",
+          "el": "robó",
+          "nosotros": "robamos",
+          "vosotros": "robasteis",
+          "ellos": "robaron"
+        },
+        "future": {
+          "yo": "robaré",
+          "tu": "robarás",
+          "el": "robará",
+          "nosotros": "robaremos",
+          "vosotros": "robaréis",
+          "ellos": "robarán"
+        },
+        "imperfect": {
+          "yo": "robaba",
+          "tu": "robabas",
+          "el": "robaba",
+          "nosotros": "robábamos",
+          "vosotros": "robabais",
+          "ellos": "robaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-23T20:41:59.817Z"
+  },
+  {
+    "word": {
+      "word": "Aspiración",
+      "definition": "Acción de aspirar o inhalar algo, o deseo intenso de lograr algo.",
+      "wordType": "Sustantivo",
+      "exampleSentence": "La aspiración de Juan es convertirse en un gran científico.",
+      "conjugations": {
+        "present": {
+          "yo": "aspiro",
+          "tu": "aspiras",
+          "el": "aspira",
+          "nosotros": "aspiramos",
+          "vosotros": "aspiráis",
+          "ellos": "aspiran"
+        },
+        "preterite": {
+          "yo": "aspiré",
+          "tu": "aspiraste",
+          "el": "aspiró",
+          "nosotros": "aspiramos",
+          "vosotros": "aspirasteis",
+          "ellos": "aspiraron"
+        },
+        "future": {
+          "yo": "aspiraré",
+          "tu": "aspirarás",
+          "el": "aspirará",
+          "nosotros": "aspiraremos",
+          "vosotros": "aspiraréis",
+          "ellos": "aspirarán"
+        },
+        "imperfect": {
+          "yo": "aspiraba",
+          "tu": "aspirabas",
+          "el": "aspiraba",
+          "nosotros": "aspirábamos",
+          "vosotros": "aspirabais",
+          "ellos": "aspiraban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-23T20:45:16.723Z"
+  },
+  {
+    "word": {
+      "word": "Sobrevalorado",
+      "definition": "Que se valora o considera de forma excesiva o desproporcionada.",
+      "wordType": "adjetivo",
+      "exampleSentence": "Ese restaurante está sobrevalorado, la comida no es tan buena como dicen.",
+      "conjugations": {
+        "present": {
+          "yo": "sobrevaloro",
+          "tu": "sobrevaloras",
+          "el": "sobrevalora",
+          "nosotros": "sobrevaloramos",
+          "vosotros": "sobrevaloráis",
+          "ellos": "sobrevaloran"
+        },
+        "preterite": {
+          "yo": "sobrevaloré",
+          "tu": "sobrevaloraste",
+          "el": "sobrevaloró",
+          "nosotros": "sobrevaloramos",
+          "vosotros": "sobrevalorasteis",
+          "ellos": "sobrevaloraron"
+        },
+        "future": {
+          "yo": "sobrevaloraré",
+          "tu": "sobrevalorarás",
+          "el": "sobrevalorará",
+          "nosotros": "sobrevaloraremos",
+          "vosotros": "sobrevaloraréis",
+          "ellos": "sobrevalorarán"
+        },
+        "imperfect": {
+          "yo": "sobrevaloraba",
+          "tu": "sobrevalorabas",
+          "el": "sobrevaloraba",
+          "nosotros": "sobrevalorábamos",
+          "vosotros": "sobrevalorabais",
+          "ellos": "sobrevaloraban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-23T20:50:26.719Z"
+  },
+  {
+    "word": {
+      "word": "Adivinar",
+      "definition": "to guess or to predict",
+      "wordType": "verb",
+      "exampleSentence": "Él puede adivinar el número que estás pensando.",
+      "conjugations": {
+        "present": {
+          "yo": "adivino",
+          "tu": "adivinas",
+          "el": "adivina",
+          "nosotros": "adivinamos",
+          "vosotros": "adivináis",
+          "ellos": "adivinan"
+        },
+        "preterite": {
+          "yo": "adiviné",
+          "tu": "adivinaste",
+          "el": "adivinó",
+          "nosotros": "adivinamos",
+          "vosotros": "adivinasteis",
+          "ellos": "adivinaron"
+        },
+        "future": {
+          "yo": "adivinaré",
+          "tu": "adivinarás",
+          "el": "adivinará",
+          "nosotros": "adivinaremos",
+          "vosotros": "adivinaréis",
+          "ellos": "adivinarán"
+        },
+        "imperfect": {
+          "yo": "adivinaba",
+          "tu": "adivinabas",
+          "el": "adivinaba",
+          "nosotros": "adivinábamos",
+          "vosotros": "adivinabais",
+          "ellos": "adivinaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-23T21:17:02.659Z"
+  },
+  {
+    "word": {
+      "word": "Concertar",
+      "definition": "Llegar a un acuerdo entre dos o más personas para llevar a cabo algo",
+      "wordType": "verbo",
+      "exampleSentence": "Vamos a concertar una reunión para discutir los detalles del proyecto.",
+      "conjugations": {
+        "present": {
+          "yo": "concierto",
+          "tu": "conciertas",
+          "el": "concierta",
+          "nosotros": "concertamos",
+          "vosotros": "concertáis",
+          "ellos": "conciertan"
+        },
+        "preterite": {
+          "yo": "concerté",
+          "tu": "concertaste",
+          "el": "concertó",
+          "nosotros": "concretamos",
+          "vosotros": "concretasteis",
+          "ellos": "concertaron"
+        },
+        "future": {
+          "yo": "concertaré",
+          "tu": "concertarás",
+          "el": "concertará",
+          "nosotros": "concertaremos",
+          "vosotros": "concertaréis",
+          "ellos": "concertarán"
+        },
+        "imperfect": {
+          "yo": "concertaba",
+          "tu": "concertabas",
+          "el": "concertaba",
+          "nosotros": "concertábamos",
+          "vosotros": "concertabais",
+          "ellos": "concertaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-23T21:22:18.251Z"
+  },
+  {
+    "word": {
+      "word": "Superar",
+      "definition": "sobrepasar un obstáculo o dificultad",
+      "wordType": "verbo",
+      "exampleSentence": "Ella logró superar sus miedos y enfrentar sus problemas con valentía.",
+      "conjugations": {
+        "present": {
+          "yo": "supero",
+          "tu": "superas",
+          "el": "supera",
+          "nosotros": "superamos",
+          "vosotros": "superáis",
+          "ellos": "superan"
+        },
+        "preterite": {
+          "yo": "superé",
+          "tu": "superaste",
+          "el": "superó",
+          "nosotros": "superamos",
+          "vosotros": "superasteis",
+          "ellos": "superaron"
+        },
+        "future": {
+          "yo": "superaré",
+          "tu": "superarás",
+          "el": "superará",
+          "nosotros": "superaremos",
+          "vosotros": "superaréis",
+          "ellos": "superarán"
+        },
+        "imperfect": {
+          "yo": "superaba",
+          "tu": "superabas",
+          "el": "superaba",
+          "nosotros": "superábamos",
+          "vosotros": "superabais",
+          "ellos": "superaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-23T21:24:12.246Z"
+  },
+  {
+    "word": {
+      "word": "Atrevido",
+      "definition": "Que tiene valor o audacia para hacer algo arriesgado o desafiante.",
+      "wordType": "Adjetivo",
+      "exampleSentence": "Pedro es muy atrevido, siempre está dispuesto a probar cosas nuevas.",
+      "conjugations": {
+        "present": {
+          "yo": "atrevido",
+          "tu": "atrevido",
+          "el": "atrevido",
+          "nosotros": "atrevidos",
+          "vosotros": "atrevidos",
+          "ellos": "atrevidos"
+        },
+        "preterite": {
+          "yo": "atreveí",
+          "tu": "atrevido",
+          "el": "atrevido",
+          "nosotros": "atrevidamos",
+          "vosotros": "atrevidasteis",
+          "ellos": "atrevidaron"
+        },
+        "future": {
+          "yo": "atreveré",
+          "tu": "atreverás",
+          "el": "atreverá",
+          "nosotros": "atreveremos",
+          "vosotros": "atreveréis",
+          "ellos": "atreverán"
+        },
+        "imperfect": {
+          "yo": "atrevida",
+          "tu": "atrevidas",
+          "el": "atrevida",
+          "nosotros": "atrevidos",
+          "vosotros": "atrevidos",
+          "ellos": "atrevidos"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-24T00:13:00.470Z"
+  },
+  {
+    "word": {
+      "word": "Roncar",
+      "definition": "Producir ruido al respirar mientras se duerme, generalmente debido a la vibración de los tejidos en la garganta",
+      "wordType": "verbo",
+      "exampleSentence": "Mi padre ronca muy fuerte todas las noches.",
+      "conjugations": {
+        "present": {
+          "yo": "ronco",
+          "tu": "roncas",
+          "el": "ronca",
+          "nosotros": "roncamos",
+          "vosotros": "roncáis",
+          "ellos": "roncan"
+        },
+        "preterite": {
+          "yo": "ronqué",
+          "tu": "roncaste",
+          "el": "roncó",
+          "nosotros": "roncamos",
+          "vosotros": "roncasteis",
+          "ellos": "roncaron"
+        },
+        "future": {
+          "yo": "roncaré",
+          "tu": "roncarás",
+          "el": "roncará",
+          "nosotros": "roncaremos",
+          "vosotros": "roncaréis",
+          "ellos": "roncarán"
+        },
+        "imperfect": {
+          "yo": "roncaba",
+          "tu": "roncabas",
+          "el": "roncaba",
+          "nosotros": "roncábamos",
+          "vosotros": "roncabais",
+          "ellos": "roncaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-24T00:18:59.121Z"
   }
 ]

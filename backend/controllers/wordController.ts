@@ -5,34 +5,24 @@ import { IWordDeck } from "../interfaces";
 import mongoose from "mongoose";
 import { openAIService } from "../services/openai/openaiService";
 import { logNewWordToFile } from "../utils/wordCreationLog";
+import { error, log } from "console";
 
 const NAMESPACE = "wordController";
 
 const createWord = async (req: Request, res: Response, next: NextFunction) => {
   const { word, deckID } = req.body;
+  // User is added to the request object by the auth middleware if the token is valid (backend/middleware/auth.ts)
   const user = req.user;
 
   try {
+    // Check if the deck exists
     const deckFromDB = await DeckModel.findById(deckID);
+
     if (!deckFromDB) {
       return res.status(404).json({ error: `${deckID} bad deckID or deck does not exist.` });
     }
     // Use the openAI API and user word to add definition, example sentence, and word type | and user for context
     const createdWord = await openAIService.buildWord(word, user);
-
-    // Save the output from openAI to a log file
-    //! This seems to be causing the word creation to fail
-    // try {
-    //   logNewWordToFile({
-    //     word: createdWord,
-    //     userID: user._id,
-    //     deckID: deckID,
-    //     timestamp: new Date().toISOString(),
-    //   });
-    // } catch (error) {
-    //   console.log("Failed to log new word to file.");
-    //   console.error(NAMESPACE, error);
-    // }
 
     const newWord = await new WordModel({
       _id: new mongoose.Types.ObjectId(),
@@ -45,9 +35,9 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
       conjugations: createdWord.conjugations,
     }).save();
 
+    // Add the word to the deck's words array
     deckFromDB.words.push(newWord);
-
-    // Add the word to the deck
+    // Update the deck in the database
     await deckFromDB.save();
 
     // Populate the words array to replace ObjectIds with actual word documents
@@ -69,6 +59,23 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
       words: populatedDeck.words,
     };
 
+    await logNewWordToFile({
+      word: createdWord,
+      userID: user._id,
+      deckID: deckID,
+      timestamp: new Date().toISOString(),
+    })
+      .then((result) => {
+        if (result === 1) {
+          console.log("Word added to log file");
+        } else {
+          console.log("Error adding word not added to log file");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
     return res.status(201).json({ message: "Word created successfully!", deck });
   } catch (error) {
     console.error("Backend: Error creating word:", error);
@@ -76,39 +83,37 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-/* ---------------------------------------------------------------------------------------------------------------------------- */
-// This function is used to delete a word from a deck by its ID
-// It does NOT delete the word from the database, only from the deck
-const deleteWordFromDeckByID = async (req: Request, res: Response) => {
-  // Get the wordID from the request parameters
+/*
+ * ********************************************************************************************************************
+ * This function is used to delete a word from a deck by its ID
+ * It does NOT delete the word from the database, only from the deck
+ * //! Should the userID be removed as a reference from the word???
+ * ********************************************************************************************************************
+ */
+const deleteWordFromDeckByID = async (req: Request, res: Response, next: NextFunction) => {
   const { id } = req.params;
 
   try {
     // Find the word by ID to ensure it exists
-    const word = await WordModel.findById(id);
-    if (!word) {
+    if (!(await WordModel.findById(id))) {
       return res.status(404).json({ error: "Word not found" });
     }
-
     // Find the deck associated with the word and update it by removing the word reference
     const deck = await DeckModel.findOneAndUpdate(
-      { words: id }, // Criteria to find the deck containing the word
+      { words: id },
       { $pull: { words: id } }, // MongoDB operation to remove the word from the deck's words array
       { new: true } // Return the updated deck
-    ).populate("words"); // Populate to get detailed word info, if needed
+    ).populate("words"); // Populate to get detailed word info
 
     // Ensure the deck was found and updated
     if (!deck) {
       return res.status(404).json({ error: "Deck not found or word reference not removed" });
     }
 
-    console.log(deck);
-
-    // Return the updated deck
     return res.status(200).json({ message: "Word reference removed from deck successfully!", deck });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Failed to remove word reference from deck" });
+    next(error);
   }
 };
 

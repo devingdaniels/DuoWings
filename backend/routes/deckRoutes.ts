@@ -1,6 +1,6 @@
 import express from "express";
 import { createDeck, fetchAllDecks, fetchDeckByID, deleteDeckByID } from "../controllers/deckController";
-import { verifyJWT } from "../middleware/authMiddleware";
+import { verifyJWT } from "../middleware/auth";
 
 const router = express.Router();
 

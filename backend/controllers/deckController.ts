@@ -71,9 +71,10 @@ const fetchDeckByID = async (req: Request, res: Response, next: NextFunction): P
   }
 };
 
+/* -------------------------------------------------------------------------------------------------- */
 const deleteDeckByID = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const result = await DeckModel.findOneAndDelete({ userID: req.user._id, _id: req.params.id }); //! failure on purpose
+    const result = await DeckModel.findOneAndDelete({ userID: req.user._id, _id: req.params.id });
 
     // Deck not found
     if (!result) {
@@ -82,7 +83,6 @@ const deleteDeckByID = async (req: Request, res: Response, next: NextFunction): 
     }
     res.status(200).json({ message: "Deck deleted successfully" });
   } catch (error: any) {
-    // Internal server error, return 500 status
     console.error(`${NAMESPACE}: Error deleting deck:`, error);
     res.status(500).json({ message: "Internal Server Error" });
     next(error);

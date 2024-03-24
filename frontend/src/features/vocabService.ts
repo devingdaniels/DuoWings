@@ -1,6 +1,7 @@
 import Axios from "axios";
 import { ICreateNewDeck, ICreateNewVocabWord } from "../interfaces/index";
 
+// Axios configuration for cookies
 Axios.defaults.withCredentials = true;
 
 const NAMESPACE = "vocabService.ts";

@@ -1,6 +1,6 @@
 import express from "express";
 import { createWord, deleteWordFromDeckByID } from "../controllers/wordController";
-import { verifyJWT } from "../middleware/authMiddleware";
+import { verifyJWT } from "../middleware/auth";
 
 const router = express.Router();
 
