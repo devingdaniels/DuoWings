@@ -36,29 +36,26 @@ const initialState: VocabState = {
   *****************************
 */
 
-const fetchAllUserDecks = createAsyncThunk(
-  "vocab/fetchAllUserDecks",
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await VocabService.fetchAllDecks();
-      if (DEBUGGING) console.log(NAMESPACE, "fetchAllUserDecks response:", response);
-      return response;
-    } catch (error: any) {
-      const message =
-        (error.response && error.response.data && error.response.data.message) ||
-        error.message ||
-        error.toString();
-      return rejectWithValue(message);
-    }
+const fetchAllDecks = createAsyncThunk("vocab/fetchAllDecks", async (_, { rejectWithValue }) => {
+  try {
+    const response = await VocabService.fetchAllDecks();
+    if (DEBUGGING) console.log(NAMESPACE, "fetchAllDecks response:", response);
+    return response;
+  } catch (error: any) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString();
+    return rejectWithValue(message);
   }
-);
+});
 
-const getDeckByID = createAsyncThunk(
-  "vocab/getDeckByID",
+const fetchDeckByID = createAsyncThunk(
+  "vocab/fetchDeckByID",
   async (deckId: string, { rejectWithValue }) => {
     try {
       const response = await VocabService.fetchDeckByID(deckId);
-      if (DEBUGGING) console.log(NAMESPACE, "getDeckByID response:", response);
+      if (DEBUGGING) console.log(NAMESPACE, "fetchDeckByID response:", response);
       return response;
     } catch (error: any) {
       const message =
@@ -152,24 +149,19 @@ const vocabSlice = createSlice({
     setCurrentDeck: (state, action) => {
       state.currentDeck = action.payload;
     },
-
     resetErrorState: (state) => {
       state.isError = false;
       state.message = "";
     },
-
     resetDeckStatusFlagsToDefault: (state) => {
       state.isError = false;
       state.isSuccess = false;
       state.isLoading = false;
       state.message = "";
     },
-
     resetCurrentDeck: (state) => {
       state.currentDeck = null;
     },
-
-    //@ Reset the deck slice store
     resetDeckSliceStore: (state) => {
       state.decks = [];
       state.isLoading = false;
@@ -179,7 +171,6 @@ const vocabSlice = createSlice({
       state.currentDeck = null;
     },
   },
-  // Extra reducers
   extraReducers: (builder) => {
     builder
       .addCase(createDeck.pending, (state) => {
@@ -198,36 +189,36 @@ const vocabSlice = createSlice({
         state.isSuccess = false;
         state.message = action.error.message as string;
       })
-      .addCase(fetchAllUserDecks.pending, (state) => {
+      .addCase(fetchAllDecks.pending, (state) => {
         state.isLoading = true;
         state.isSuccess = false;
         state.isError = false;
       })
-      .addCase(fetchAllUserDecks.fulfilled, (state, action) => {
+      .addCase(fetchAllDecks.fulfilled, (state, action) => {
         state.isSuccess = true;
         state.isLoading = false;
         state.isError = false;
         state.decks = action.payload;
         state.message = "";
       })
-      .addCase(fetchAllUserDecks.rejected, (state, action) => {
+      .addCase(fetchAllDecks.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
         state.isSuccess = false;
         state.message = action.error.message as string;
       })
-      .addCase(getDeckByID.pending, (state) => {
+      .addCase(fetchDeckByID.pending, (state) => {
         state.isLoading = true;
         state.isSuccess = false;
         state.isError = false;
       })
-      .addCase(getDeckByID.fulfilled, (state, action) => {
+      .addCase(fetchDeckByID.fulfilled, (state, action) => {
         state.isSuccess = true;
         state.isLoading = false;
         state.isError = false;
         state.currentDeck = action.payload as IWordDeck;
       })
-      .addCase(getDeckByID.rejected, (state, action) => {
+      .addCase(fetchDeckByID.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
         state.isSuccess = false;
@@ -294,8 +285,8 @@ const { resetCurrentDeck } = vocabSlice.actions;
 
 const VocabSliceService = {
   createDeck,
-  fetchAllUserDecks,
-  getDeckByID,
+  fetchAllDecks,
+  fetchDeckByID,
   deleteDeckByID,
   createWord,
   deleteWordFromDeckByID,

@@ -4398,5 +4398,50 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "6600dc795291d890da603abd",
     "timestamp": "2024-03-25T02:08:12.135Z"
+  },
+  {
+    "word": {
+      "word": "Desafiante",
+      "definition": "Que desafía o reta a alguien, provocando su resistencia o desobediencia. Que presenta dificultades o retos.",
+      "wordType": "Adjetivo",
+      "exampleSentence": "El juego de ajedrez es desafiante para la mente.",
+      "conjugations": {
+        "present": {
+          "yo": "desafío",
+          "tu": "desafías",
+          "el": "desafía",
+          "nosotros": "desafiamos",
+          "vosotros": "desafiáis",
+          "ellos": "desafían"
+        },
+        "preterite": {
+          "yo": "desafié",
+          "tu": "desafiaste",
+          "el": "desafió",
+          "nosotros": "desafiamos",
+          "vosotros": "desafiasteis",
+          "ellos": "desafiaron"
+        },
+        "future": {
+          "yo": "desafiaré",
+          "tu": "desafiarás",
+          "el": "desafiará",
+          "nosotros": "desafiaremos",
+          "vosotros": "desafiaréis",
+          "ellos": "desafiarán"
+        },
+        "imperfect": {
+          "yo": "desafiaba",
+          "tu": "desafiabas",
+          "el": "desafiaba",
+          "nosotros": "desafiábamos",
+          "vosotros": "desafiabais",
+          "ellos": "desafiaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T16:27:45.269Z"
   }
 ]
