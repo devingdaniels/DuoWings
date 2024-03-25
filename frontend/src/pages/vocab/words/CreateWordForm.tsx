@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
 import { Button } from "@mui/material";
+import { toastService } from "../../../utils/Toastify";
 
 interface CreateWordForm {
   handleCreateNewWord: (formData: ICreateNewVocabWord) => void;
@@ -20,6 +21,11 @@ const CreateWordForm: React.FC<CreateWordForm> = ({ handleCreateNewWord, deckID 
     formData.word = formData.word.trim();
     // Capitalize the first letter of the word
     formData.word = formData.word.charAt(0).toUpperCase() + formData.word.slice(1).toLowerCase();
+    // Ensure the word only contains letters from English and spanish alphabet
+    if (!/^[a-zA-Z]+$/.test(formData.word)) {
+      toastService.warning("Word must contain only letters!");
+      return;
+    }
     // Call the parent function
     handleCreateNewWord(formData);
     // Reset the state

@@ -10,7 +10,7 @@ import { useAppSelector } from "../../../app/hooks";
 import { useEffect } from "react";
 import { useState } from "react";
 import { VocabSliceService } from "../../../features/vocabSlice";
-import { toast } from "react-toastify";
+import { toastService } from "../../../utils/Toastify";
 
 const AllDecksPage: React.FC = () => {
   // Hooks
@@ -20,19 +20,6 @@ const AllDecksPage: React.FC = () => {
   const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(decks || []);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [isModal, setIsModal] = useState<boolean>(false);
-
-  useEffect(() => {
-    dispatch(VocabSliceService.fetchAllDecks());
-    dispatch(VocabSliceService.resetCurrentDeck());
-  }, [dispatch]);
-
-  // Update filteredDecks whenever decks or searchTerm changes
-  useEffect(() => {
-    const filtered = decks.filter((deck) =>
-      deck.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredDecks(filtered);
-  }, [decks, searchTerm]);
 
   const toggleModal = (val: boolean) => setIsModal(val);
   const fetchUserDecks = async () => await dispatch(VocabSliceService.fetchAllDecks());
@@ -45,11 +32,11 @@ const AllDecksPage: React.FC = () => {
     const response = await dispatch(VocabSliceService.createDeck(deck));
 
     if (response.type === "vocab/createDeck/fulfilled") {
-      toast.success(`Created ${response.payload.deck.name}`);
+      toastService.success(`Created ${response.payload.deck.name}`);
       // Reset flags
       dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
     } else {
-      toast.error(response.payload);
+      toastService.error(response.payload);
       //
       dispatch(VocabSliceService.resetErrorState());
     }
@@ -65,6 +52,19 @@ const AllDecksPage: React.FC = () => {
     );
     setFilteredDecks(filtered);
   };
+
+  useEffect(() => {
+    dispatch(VocabSliceService.fetchAllDecks());
+    dispatch(VocabSliceService.resetCurrentDeck());
+  }, [dispatch]);
+
+  // Update filteredDecks whenever decks or searchTerm changes
+  useEffect(() => {
+    const filtered = decks.filter((deck) =>
+      deck.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredDecks(filtered);
+  }, [decks, searchTerm]);
 
   const NewDeckButton = () => {
     return (

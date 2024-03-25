@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { IUserRegister } from "../../../interfaces";
 import { SwalSuccess } from "../../../utils/SweetAlertModule";
 import BarLoader from "react-spinners/BarLoader";
-import { ToastError } from "../../../utils/Toastify";
+import { toastService } from "../../../utils/Toastify";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { register, resetUserStatus } from "../../../features/userAuthSlice";
 import Button from "@mui/material/Button";
@@ -32,7 +32,7 @@ const SignUpForm = () => {
     e.preventDefault();
     // Ensure username does not include spaces or @
     if (userData.username.includes(" ") || userData.username.includes("@")) {
-      ToastError("Username cannot include spaces or @");
+      toastService.error("Username cannot include spaces or @");
       return;
     }
     await dispatch(register(userData));
@@ -65,7 +65,7 @@ const SignUpForm = () => {
       navigate("/home");
     }
     if (isError) {
-      ToastError(message);
+      toastService.error(message);
     }
     return () => {
       // Without the timeout, isLoading is set to false too fast to be seen by user

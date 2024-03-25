@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { ToastWarning } from "../../../utils/Toastify";
+import { toastService } from "../../../utils/Toastify";
 import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
 
 interface Props {
@@ -33,7 +33,7 @@ const CreateDeckModalForm: React.FC<Props> = ({
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (isDuplicateDeck(deckFormData.name)) {
-      ToastWarning(`Deck ${deckFormData.name} already exists!`);
+      toastService.warning(`Deck ${deckFormData.name} already exists!`);
       return;
     }
     handleCreateNewDeck(deckFormData);

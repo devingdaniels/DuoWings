@@ -4757,5 +4757,61 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "6601ad2f7f9116e192d86e60",
     "timestamp": "2024-03-25T17:19:25.350Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Superar",
+      "definition": "Sobrepasar un obstáculo o dificultad, vencer una situación adversa o un problema",
+      "exampleSentence": "Ella logró superar sus miedos y enfrentar la situación con valentía.",
+      "wordType": "verbo",
+      "conjugations": {
+        "present": {
+          "yo": "supero",
+          "tu": "superas",
+          "el": "supera",
+          "nosotros": "superamos",
+          "vosotros": "superáis",
+          "ellos": "superan"
+        },
+        "preterite": {
+          "yo": "superé",
+          "tu": "superaste",
+          "el": "superó",
+          "nosotros": "superamos",
+          "vosotros": "superasteis",
+          "ellos": "superaron"
+        },
+        "future": {
+          "yo": "superaré",
+          "tu": "superarás",
+          "el": "superará",
+          "nosotros": "superaremos",
+          "vosotros": "superaréis",
+          "ellos": "superarán"
+        },
+        "imperfect": {
+          "yo": "superaba",
+          "tu": "superabas",
+          "el": "superaba",
+          "nosotros": "superábamos",
+          "vosotros": "superabais",
+          "ellos": "superaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T17:43:23.528Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6601b8d8719cd1b0229d354c",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-25T17:48:09.631Z"
   }
 ]

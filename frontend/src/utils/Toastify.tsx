@@ -1,35 +1,38 @@
 import { toast } from "react-toastify";
 
-const ToastSuccess = (message: string) => {
+// Time in milliseconds
+const AUTO_CLOSE = 2500;
+
+const success = (message: string) => {
   toast.success(message, {
     position: "top-right",
-    autoClose: 2500,
+    autoClose: AUTO_CLOSE,
     hideProgressBar: false,
     closeOnClick: true,
     draggable: true,
   });
 };
 
-const ToastWarning = (message: string) => {
+const warning = (message: string) => {
   toast.warning(message, {
     position: "top-right",
-    autoClose: 2500,
+    autoClose: AUTO_CLOSE,
     hideProgressBar: false,
     closeOnClick: true,
     draggable: true,
   });
 };
 
-const ToastInfo = (message: string) => {
+const info = (message: string) => {
   toast.info(message, {
-    autoClose: 2500,
+    autoClose: AUTO_CLOSE,
   });
 };
 
-const ToastError = (message: string) => {
+const error = (message: string) => {
   toast.error(message, {
     position: "top-right",
-    autoClose: 2500,
+    autoClose: AUTO_CLOSE,
     hideProgressBar: false,
     closeOnClick: true,
     draggable: true,
@@ -37,4 +40,11 @@ const ToastError = (message: string) => {
   });
 };
 
-export { ToastSuccess, ToastError, ToastWarning, ToastInfo };
+const toastService = {
+  success,
+  warning,
+  info,
+  error,
+};
+
+export { toastService };

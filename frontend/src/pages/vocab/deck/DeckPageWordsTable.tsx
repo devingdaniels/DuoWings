@@ -3,7 +3,7 @@ import { IWord } from "../../../interfaces";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useAppDispatch } from "../../../app/hooks";
 import { VocabSliceService } from "../../../features/vocabSlice";
-import { toast } from "react-toastify";
+import { toastService } from "../../../utils/Toastify";
 
 interface DeckPageTableProps {
   words: IWord[];
@@ -16,11 +16,11 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
     const response = await dispatch(VocabSliceService.deleteWordFromDeckByID(wordID));
 
     if (response.type === "vocab/deleteWordFromDeckByID/fulfilled") {
-      toast.success("Delete successful!");
+      toastService.success("Delete successful!");
       dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
     } else {
       console.log("toast triggered from DeckPageWordsTable.tsx");
-      toast.error(response.payload);
+      toastService.error(response.payload);
       dispatch(VocabSliceService.resetErrorState());
     }
   };
