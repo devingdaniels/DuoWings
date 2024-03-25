@@ -8,7 +8,26 @@ interface NewWord {
   timestamp: string;
 }
 
-export async function logNewWordToFile(newWord: NewWord) {
+export async function writeWordToFile(obj: NewWord) {
+  let res;
+  await writeWordToFileHelper({
+    word: obj.word,
+    userID: obj.userID,
+    deckID: obj.deckID,
+    timestamp: obj.timestamp,
+  })
+    .then((result) => {
+      if (result === 1) res = 1;
+      else res = 0;
+    })
+    .catch((error) => {
+      res = error;
+    });
+
+  return res;
+}
+
+async function writeWordToFileHelper(newWord: NewWord) {
   try {
     // Dirname: /Users/dev/Desktop/DevMacPro/coding/duoWings/backend/dist/utils
     const targetDir = path.join(__dirname, "..", "..", "services", "openai"); // Users/dev/Desktop/DevMacPro/coding/duoWings/backend/services/openai

@@ -4533,5 +4533,229 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "6601ad2f7f9116e192d86e60",
     "timestamp": "2024-03-25T17:01:17.793Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Adivinar",
+      "definition": "Descubrir o dar con algo, generalmente mediante conjeturas, indicios o señales.",
+      "exampleSentence": "Voy a adivinar tu edad con este juego.",
+      "wordType": "Verbo",
+      "conjugations": {
+        "present": {
+          "yo": "adivino",
+          "tu": "adivinas",
+          "el": "adivina",
+          "nosotros": "adivinamos",
+          "vosotros": "adivináis",
+          "ellos": "adivinan"
+        },
+        "preterite": {
+          "yo": "adiviné",
+          "tu": "adivinaste",
+          "el": "adivinó",
+          "nosotros": "adivinamos",
+          "vosotros": "adivinasteis",
+          "ellos": "adivinaron"
+        },
+        "future": {
+          "yo": "adivinaré",
+          "tu": "adivinarás",
+          "el": "adivinará",
+          "nosotros": "adivinaremos",
+          "vosotros": "adivinaréis",
+          "ellos": "adivinarán"
+        },
+        "imperfect": {
+          "yo": "adivinaba",
+          "tu": "adivinabas",
+          "el": "adivinaba",
+          "nosotros": "adivinábamos",
+          "vosotros": "adivinabais",
+          "ellos": "adivinaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T17:11:51.656Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6601b0660e393242a739108f",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-25T17:12:06.981Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Atrevido",
+      "definition": "Que muestra audacia, valor o desenfado excesivo.",
+      "exampleSentence": "El atrevido saltó desde el acantilado sin pensarlo dos veces.",
+      "wordType": "adjetivo",
+      "conjugations": {
+        "present": {
+          "yo": "me atrevo",
+          "tu": "te atreves",
+          "el": "se atreve",
+          "nosotros": "nos atrevemos",
+          "vosotros": "os atrevéis",
+          "ellos": "se atreven"
+        },
+        "preterite": {
+          "yo": "me atreví",
+          "tu": "te atreviste",
+          "el": "se atrevió",
+          "nosotros": "nos atrevimos",
+          "vosotros": "os atrevisteis",
+          "ellos": "se atrevieron"
+        },
+        "future": {
+          "yo": "me atreveré",
+          "tu": "te atreverás",
+          "el": "se atreverá",
+          "nosotros": "nos atreveremos",
+          "vosotros": "os atreveréis",
+          "ellos": "se atreverán"
+        },
+        "imperfect": {
+          "yo": "me atrevía",
+          "tu": "te atrevías",
+          "el": "se atrevía",
+          "nosotros": "nos atrevíamos",
+          "vosotros": "os atrevíais",
+          "ellos": "se atrevían"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T17:13:02.905Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6601b0b951652bca67e2d732",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-25T17:13:30.148Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Asqueroso",
+      "definition": "Que causa repugnancia o aversión, desagradable",
+      "exampleSentence": "El olor de la basura es asqueroso.",
+      "wordType": "Adjective",
+      "conjugations": {
+        "present": {
+          "yo": "asqueroso",
+          "tu": "asqueroso",
+          "el": "asqueroso",
+          "nosotros": "asquerosos",
+          "vosotros": "asquerosos",
+          "ellos": "asquerosos"
+        },
+        "preterite": {
+          "yo": "asquerosé",
+          "tu": "asquerosaste",
+          "el": "asquerosó",
+          "nosotros": "asquerosamos",
+          "vosotros": "asquerosasteis",
+          "ellos": "asquerosaron"
+        },
+        "future": {
+          "yo": "asquerosaré",
+          "tu": "asquerosarás",
+          "el": "asquerosará",
+          "nosotros": "asquerosaremos",
+          "vosotros": "asquerosaréis",
+          "ellos": "asquerosarán"
+        },
+        "imperfect": {
+          "yo": "asquerosaba",
+          "tu": "asquerosabas",
+          "el": "asquerosaba",
+          "nosotros": "asquerosábamos",
+          "vosotros": "asquerosabais",
+          "ellos": "asquerosaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T17:15:26.994Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6601b1e251703770d8da9bd1",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-25T17:18:27.249Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Roncar",
+      "definition": "Producir ruido al respirar mientras se duerme, como consecuencia de la vibración de los tejidos blandos de la garganta.",
+      "exampleSentence": "Mi hermano siempre ronca muy fuerte durante la noche.",
+      "wordType": "verbo",
+      "conjugations": {
+        "present": {
+          "yo": "ronco",
+          "tu": "roncas",
+          "el": "ronca",
+          "nosotros": "roncamos",
+          "vosotros": "roncáis",
+          "ellos": "roncan"
+        },
+        "preterite": {
+          "yo": "ronqué",
+          "tu": "roncaste",
+          "el": "roncó",
+          "nosotros": "roncamos",
+          "vosotros": "roncasteis",
+          "ellos": "roncaron"
+        },
+        "future": {
+          "yo": "roncaré",
+          "tu": "roncarás",
+          "el": "roncará",
+          "nosotros": "roncaremos",
+          "vosotros": "roncaréis",
+          "ellos": "roncarán"
+        },
+        "imperfect": {
+          "yo": "roncaba",
+          "tu": "roncabas",
+          "el": "roncaba",
+          "nosotros": "roncábamos",
+          "vosotros": "roncabais",
+          "ellos": "roncaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T17:19:01.822Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6601b21c4dc8c49a96d06188",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-25T17:19:25.350Z"
   }
 ]
