@@ -4308,5 +4308,95 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "65d22d650fef6fd1e3780cae",
     "timestamp": "2024-03-24T00:18:59.121Z"
+  },
+  {
+    "word": {
+      "word": "Agradecer",
+      "definition": "manifestar gratitud o reconocimiento hacia alguien por algo que ha hecho",
+      "wordType": "verbo",
+      "exampleSentence": "Quiero agradecer a mis amigos por su apoyo incondicional.",
+      "conjugations": {
+        "present": {
+          "yo": "agradezco",
+          "tu": "agradeces",
+          "el": "agradece",
+          "nosotros": "agradecemos",
+          "vosotros": "agradecéis",
+          "ellos": "agradecen"
+        },
+        "preterite": {
+          "yo": "agradecí",
+          "tu": "agradeciste",
+          "el": "agradeció",
+          "nosotros": "agradecimos",
+          "vosotros": "agradecisteis",
+          "ellos": "agradecieron"
+        },
+        "future": {
+          "yo": "agradeceré",
+          "tu": "agradecerás",
+          "el": "agradecerá",
+          "nosotros": "agradeceremos",
+          "vosotros": "agradeceréis",
+          "ellos": "agradecerán"
+        },
+        "imperfect": {
+          "yo": "agradecía",
+          "tu": "agradecías",
+          "el": "agradecía",
+          "nosotros": "agradecíamos",
+          "vosotros": "agradecíais",
+          "ellos": "agradecían"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T02:07:15.665Z"
+  },
+  {
+    "word": {
+      "word": "Vagina",
+      "definition": "órgano sexual femenino que conecta el útero con el exterior del cuerpo",
+      "wordType": "sustantivo femenino",
+      "exampleSentence": "El médico examinó la vagina en busca de anomalías.",
+      "conjugations": {
+        "present": {
+          "yo": "vagino",
+          "tu": "vaginas",
+          "el": "vagina",
+          "nosotros": "vaginamos",
+          "vosotros": "vagináis",
+          "ellos": "vaginan"
+        },
+        "preterite": {
+          "yo": "vaguiné",
+          "tu": "vaginaste",
+          "el": "vaginó",
+          "nosotros": "vaginamos",
+          "vosotros": "vaginasteis",
+          "ellos": "vaginaron"
+        },
+        "future": {
+          "yo": "vaginaré",
+          "tu": "vaginarás",
+          "el": "vaginará",
+          "nosotros": "vaginaremos",
+          "vosotros": "vaginaréis",
+          "ellos": "vaginarán"
+        },
+        "imperfect": {
+          "yo": "vaginaba",
+          "tu": "vaginabas",
+          "el": "vaginaba",
+          "nosotros": "vaginábamos",
+          "vosotros": "vaginabais",
+          "ellos": "vaginaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6600dc795291d890da603abd",
+    "timestamp": "2024-03-25T02:08:12.135Z"
   }
 ]

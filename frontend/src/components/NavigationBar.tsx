@@ -15,16 +15,16 @@ const NavigationBar = () => {
 
   return (
     <div className="home-nav-container">
-      <div className="home-nav-title" onClick={() => navigate("/home")}>
+      <div className="home-nav-title" onClick={() => navigate("/vocab/decks")}>
         DuoWings
       </div>
       <nav>
         <ul className="home-nav-link-container">
-          <li>
+          {/* <li>
             <NavLink to="/home" className={() => getNavLinkClass("/home")}>
               Home
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink to="/vocab/decks" className={() => getNavLinkClass("/vocab/")}>
               Vocab
