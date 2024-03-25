@@ -10,12 +10,8 @@ interface Props {
   onClose: () => void;
 }
 
-const CreateDeckModalForm: React.FC<Props> = ({
-  handleCreateNewDeck,
-  decks,
-  isModalOpen,
-  onClose,
-}: Props) => {
+const CreateDeckModalForm: React.FC<Props> = ({ ...props }: Props) => {
+  const { handleCreateNewDeck, decks, isModalOpen, onClose } = props;
   // Component state
   const [deckFormData, setDeckData] = useState<ICreateNewDeck>({
     name: "",
@@ -46,23 +42,21 @@ const CreateDeckModalForm: React.FC<Props> = ({
   };
 
   useEffect(() => {
-    // Function to handle the key press event
     const handleKeyDown = (event: KeyboardEvent) => {
-      // Check if the 'Esc' key was pressed
       if (event.key === "Escape") {
-        onClose(); // Call the onClose function passed as a prop
+        onClose();
       }
     };
 
-    // Function to handle the mouse click event
     const handleClickOutside = (event: MouseEvent) => {
       // Assuming your modal container has a ref called modalRef;
+      // Check if the click is outside the modal content
+      // This is done by checking if the click target is not within the modal content, i.e., the modalRef
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-        onClose(); // Call the onClose function if the click is outside the modal content
+        onClose();
       }
     };
 
-    // Add event listeners when the component mounts
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("click", handleClickOutside);
 
@@ -71,7 +65,7 @@ const CreateDeckModalForm: React.FC<Props> = ({
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [onClose]); // The effect depends on the onClose function
+  }, [onClose]); // If the parent component changes the onClose function, the effect will run again. This is to ensure that the effect always uses the latest onClose function.
 
   // If modal is not open, return null
   if (!isModalOpen) return null;

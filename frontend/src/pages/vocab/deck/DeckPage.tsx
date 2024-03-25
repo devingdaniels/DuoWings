@@ -37,15 +37,21 @@ const DeckPage = () => {
             <h1>{currentDeck.name}</h1>
             <p>{currentDeck.description}</p>
           </div>
-          <div style={{ minHeight: "100px", display: "flex", alignContent: "center" }}>
-            {isLoading ? (
-              <RingLoader size={53} color="rgba(59, 172, 57, 0.66)" />
-            ) : (
-              <CreateWordForm handleCreateNewWord={handleCreateNewWord} deckID={currentDeck._id} />
-            )}
-          </div>
-          <Button onClick={() => navigate("/vocab/decks/upload-words")}>Upload words</Button>
-          <FaPlay onClick={() => navigate("/vocab/decks/flashcards")} />
+
+          {isLoading ? (
+            <RingLoader
+              className="create-word-loading-spinner-container"
+              size={60}
+              color="rgba(59, 172, 57, 0.66)"
+            />
+          ) : (
+            <CreateWordForm handleCreateNewWord={handleCreateNewWord} deckID={currentDeck._id} />
+          )}
+
+          {/* <Button onClick={() => navigate("/vocab/decks/upload-words")} variant="contained">
+            Upload words
+          </Button>
+          <FaPlay onClick={() => navigate("/vocab/decks/flashcards")} /> */}
           <DeckPageTable words={currentDeck.words} />
         </>
       ) : (

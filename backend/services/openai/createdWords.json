@@ -4869,5 +4869,621 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "65d22d650fef6fd1e3780cae",
     "timestamp": "2024-03-25T21:51:51.888Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Decente",
+      "definition": "que cumple con las normas de moral, respeto y educación",
+      "exampleSentence": "Es importante vestirse de forma decente para la entrevista de trabajo.",
+      "wordType": "adjetivo",
+      "conjugations": {
+        "present": {
+          "yo": "decento",
+          "tu": "decientes",
+          "el": "decente",
+          "nosotros": "decentamos",
+          "vosotros": "decentáis",
+          "ellos": "decenten"
+        },
+        "preterite": {
+          "yo": "decenté",
+          "tu": "decentaste",
+          "el": "decentó",
+          "nosotros": "decentamos",
+          "vosotros": "decentasteis",
+          "ellos": "decentaron"
+        },
+        "future": {
+          "yo": "decentaré",
+          "tu": "decentarás",
+          "el": "decentará",
+          "nosotros": "decentaremos",
+          "vosotros": "decentaréis",
+          "ellos": "decentarán"
+        },
+        "imperfect": {
+          "yo": "decentaba",
+          "tu": "decentabas",
+          "el": "decentaba",
+          "nosotros": "decentábamos",
+          "vosotros": "decentabais",
+          "ellos": "decentaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T21:51:52.342Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6601fb7fba15ac4762df2990",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T22:32:31.999Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Cobrar",
+      "definition": "Recibir el pago de una deuda o salario",
+      "exampleSentence": "Ella cobra su sueldo cada viernes.",
+      "wordType": "Verbo",
+      "conjugations": {
+        "present": {
+          "yo": "cobro",
+          "tu": "cobras",
+          "el": "cobra",
+          "nosotros": "cobramos",
+          "vosotros": "cobráis",
+          "ellos": "cobran"
+        },
+        "preterite": {
+          "yo": "cobré",
+          "tu": "cobraste",
+          "el": "cobró",
+          "nosotros": "cobramos",
+          "vosotros": "cobrasteis",
+          "ellos": "cobraron"
+        },
+        "future": {
+          "yo": "cobraré",
+          "tu": "cobrarás",
+          "el": "cobrará",
+          "nosotros": "cobraremos",
+          "vosotros": "cobraréis",
+          "ellos": "cobrarán"
+        },
+        "imperfect": {
+          "yo": "cobraba",
+          "tu": "cobrabas",
+          "el": "cobraba",
+          "nosotros": "cobrábamos",
+          "vosotros": "cobrabais",
+          "ellos": "cobraban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T22:56:22.919Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "660203b4c712fb94a1c77230",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T23:07:32.829Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Rewq",
+      "definition": "No se encuentra en el diccionario",
+      "exampleSentence": "No hay oraciones disponibles",
+      "wordType": "No disponible",
+      "conjugations": {
+        "present": {
+          "yo": "No disponible",
+          "tu": "No disponible",
+          "el": "No disponible",
+          "nosotros": "No disponible",
+          "vosotros": "No disponible",
+          "ellos": "No disponible"
+        },
+        "preterite": {
+          "yo": "No disponible",
+          "tu": "No disponible",
+          "el": "No disponible",
+          "nosotros": "No disponible",
+          "vosotros": "No disponible",
+          "ellos": "No disponible"
+        },
+        "future": {
+          "yo": "No disponible",
+          "tu": "No disponible",
+          "el": "No disponible",
+          "nosotros": "No disponible",
+          "vosotros": "No disponible",
+          "ellos": "No disponible"
+        },
+        "imperfect": {
+          "yo": "No disponible",
+          "tu": "No disponible",
+          "el": "No disponible",
+          "nosotros": "No disponible",
+          "vosotros": "No disponible",
+          "ellos": "No disponible"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T23:07:33.333Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "66020408c4a7104413973f64",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T23:08:57.577Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Rewq",
+      "definition": "No se encuentra en el diccionario",
+      "exampleSentence": "No hay una oración de ejemplo disponible para la palabra 'Rewq'",
+      "wordType": "No aplicable",
+      "conjugations": {
+        "present": {
+          "yo": "No aplicable",
+          "tu": "No aplicable",
+          "el": "No aplicable",
+          "nosotros": "No aplicable",
+          "vosotros": "No aplicable",
+          "ellos": "No aplicable"
+        },
+        "preterite": {
+          "yo": "No aplicable",
+          "tu": "No aplicable",
+          "el": "No aplicable",
+          "nosotros": "No aplicable",
+          "vosotros": "No aplicable",
+          "ellos": "No aplicable"
+        },
+        "future": {
+          "yo": "No aplicable",
+          "tu": "No aplicable",
+          "el": "No aplicable",
+          "nosotros": "No aplicable",
+          "vosotros": "No aplicable",
+          "ellos": "No aplicable"
+        },
+        "imperfect": {
+          "yo": "No aplicable",
+          "tu": "No aplicable",
+          "el": "No aplicable",
+          "nosotros": "No aplicable",
+          "vosotros": "No aplicable",
+          "ellos": "No aplicable"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T23:08:58.086Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "660204b92b422f08599ed241",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T23:11:54.116Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Rewq",
+      "definition": "No se encontró la definición",
+      "exampleSentence": "No se encontró una oración de ejemplo",
+      "wordType": "No se encontró el tipo de palabra",
+      "conjugations": {
+        "present": {
+          "yo": "No se encontró la conjugación",
+          "tu": "No se encontró la conjugación",
+          "el": "No se encontró la conjugación",
+          "nosotros": "No se encontró la conjugación",
+          "vosotros": "No se encontró la conjugación",
+          "ellos": "No se encontró la conjugación"
+        },
+        "preterite": {
+          "yo": "No se encontró la conjugación en pretérito",
+          "tu": "No se encontró la conjugación en pretérito",
+          "el": "No se encontró la conjugación en pretérito",
+          "nosotros": "No se encontró la conjugación en pretérito",
+          "vosotros": "No se encontró la conjugación en pretérito",
+          "ellos": "No se encontró la conjugación en pretérito"
+        },
+        "future": {
+          "yo": "No se encontró la conjugación en futuro",
+          "tu": "No se encontró la conjugación en futuro",
+          "el": "No se encontró la conjugación en futuro",
+          "nosotros": "No se encontró la conjugación en futuro",
+          "vosotros": "No se encontró la conjugación en futuro",
+          "ellos": "No se encontró la conjugación en futuro"
+        },
+        "imperfect": {
+          "yo": "No se encontró la conjugación en imperfecto",
+          "tu": "No se encontró la conjugación en imperfecto",
+          "el": "No se encontró la conjugación en imperfecto",
+          "nosotros": "No se encontró la conjugación en imperfecto",
+          "vosotros": "No se encontró la conjugación en imperfecto",
+          "ellos": "No se encontró la conjugación en imperfecto"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T23:11:54.617Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "660204ce4da3ad13cc7ecf9d",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T23:12:18.099Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Rewq",
+      "definition": "No se encontró definición",
+      "exampleSentence": "No se encontró una oración de ejemplo",
+      "wordType": "Palabra desconocida",
+      "conjugations": {
+        "present": {
+          "yo": "No se encontró conjugación",
+          "tu": "No se encontró conjugación",
+          "el": "No se encontró conjugación",
+          "nosotros": "No se encontró conjugación",
+          "vosotros": "No se encontró conjugación",
+          "ellos": "No se encontró conjugación"
+        },
+        "preterite": {
+          "yo": "No se encontró conjugación",
+          "tu": "No se encontró conjugación",
+          "el": "No se encontró conjugación",
+          "nosotros": "No se encontró conjugación",
+          "vosotros": "No se encontró conjugación",
+          "ellos": "No se encontró conjugación"
+        },
+        "future": {
+          "yo": "No se encontró conjugación",
+          "tu": "No se encontró conjugación",
+          "el": "No se encontró conjugación",
+          "nosotros": "No se encontró conjugación",
+          "vosotros": "No se encontró conjugación",
+          "ellos": "No se encontró conjugación"
+        },
+        "imperfect": {
+          "yo": "No se encontró conjugación",
+          "tu": "No se encontró conjugación",
+          "el": "No se encontró conjugación",
+          "nosotros": "No se encontró conjugación",
+          "vosotros": "No se encontró conjugación",
+          "ellos": "No se encontró conjugación"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T23:12:18.567Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "660204e989f55b9e45cb300c",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T23:12:44.837Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Rewq",
+      "definition": "No se encontró la definición",
+      "exampleSentence": "No se encontró una oración de ejemplo",
+      "wordType": "No se encontró el tipo de palabra",
+      "conjugations": {
+        "present": {
+          "yo": "No se encontró",
+          "tu": "No se encontró",
+          "el": "No se encontró",
+          "nosotros": "No se encontró",
+          "vosotros": "No se encontró",
+          "ellos": "No se encontró"
+        },
+        "preterite": {
+          "yo": "No se encontró",
+          "tu": "No se encontró",
+          "el": "No se encontró",
+          "nosotros": "No se encontró",
+          "vosotros": "No se encontró",
+          "ellos": "No se encontró"
+        },
+        "future": {
+          "yo": "No se encontró",
+          "tu": "No se encontró",
+          "el": "No se encontró",
+          "nosotros": "No se encontró",
+          "vosotros": "No se encontró",
+          "ellos": "No se encontró"
+        },
+        "imperfect": {
+          "yo": "No se encontró",
+          "tu": "No se encontró",
+          "el": "No se encontró",
+          "nosotros": "No se encontró",
+          "vosotros": "No se encontró",
+          "ellos": "No se encontró"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T23:12:45.340Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "660205113a07205a358c44e0",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T23:13:24.853Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Rewq",
+      "definition": "No se encontró una definición para la palabra Rewq",
+      "exampleSentence": "No se encontró una oración de ejemplo para la palabra Rewq",
+      "wordType": "No se encontró el tipo de palabra para Rewq",
+      "conjugations": {
+        "present": {
+          "yo": "No se encontró la conjugación para 'yo' en presente",
+          "tu": "No se encontró la conjugación para 'tu' en presente",
+          "el": "No se encontró la conjugación para 'él' en presente",
+          "nosotros": "No se encontró la conjugación para 'nosotros' en presente",
+          "vosotros": "No se encontró la conjugación para 'vosotros' en presente",
+          "ellos": "No se encontró la conjugación para 'ellos' en presente"
+        },
+        "preterite": {
+          "yo": "No se encontró la conjugación para 'yo' en pretérito",
+          "tu": "No se encontró la conjugación para 'tu' en pretérito",
+          "el": "No se encontró la conjugación para 'él' en pretérito",
+          "nosotros": "No se encontró la conjugación para 'nosotros' en pretérito",
+          "vosotros": "No se encontró la conjugación para 'vosotros' en pretérito",
+          "ellos": "No se encontró la conjugación para 'ellos' en pretérito"
+        },
+        "future": {
+          "yo": "No se encontró la conjugación para 'yo' en futuro",
+          "tu": "No se encontró la conjugación para 'tu' en futuro",
+          "el": "No se encontró la conjugación para 'él' en futuro",
+          "nosotros": "No se encontró la conjugación para 'nosotros' en futuro",
+          "vosotros": "No se encontró la conjugación para 'vosotros' en futuro",
+          "ellos": "No se encontró la conjugación para 'ellos' en futuro"
+        },
+        "imperfect": {
+          "yo": "No se encontró la conjugación para 'yo' en imperfecto",
+          "tu": "No se encontró la conjugación para 'tu' en imperfecto",
+          "el": "No se encontró la conjugación para 'él' en imperfecto",
+          "nosotros": "No se encontró la conjugación para 'nosotros' en imperfecto",
+          "vosotros": "No se encontró la conjugación para 'vosotros' en imperfecto",
+          "ellos": "No se encontró la conjugación para 'ellos' en imperfecto"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T23:13:25.238Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6602052a8954c974a5be1470",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T23:13:49.767Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Rewq",
+      "definition": "No se encontró la definición en español",
+      "exampleSentence": "No se encontró una oración de ejemplo en español",
+      "wordType": "No se encontró el tipo de palabra en español",
+      "conjugations": {
+        "present": {
+          "yo": "No se encontró la conjugación en presente para 'yo'",
+          "tu": "No se encontró la conjugación en presente para 'tu'",
+          "el": "No se encontró la conjugación en presente para 'él'",
+          "nosotros": "No se encontró la conjugación en presente para 'nosotros'",
+          "vosotros": "No se encontró la conjugación en presente para 'vosotros'",
+          "ellos": "No se encontró la conjugación en presente para 'ellos'"
+        },
+        "preterite": {
+          "yo": "No se encontró la conjugación en pretérito para 'yo'",
+          "tu": "No se encontró la conjugación en pretérito para 'tu'",
+          "el": "No se encontró la conjugación en pretérito para 'él'",
+          "nosotros": "No se encontró la conjugación en pretérito para 'nosotros'",
+          "vosotros": "No se encontró la conjugación en pretérito para 'vosotros'",
+          "ellos": "No se encontró la conjugación en pretérito para 'ellos'"
+        },
+        "future": {
+          "yo": "No se encontró la conjugación en futuro para 'yo'",
+          "tu": "No se encontró la conjugación en futuro para 'tu'",
+          "el": "No se encontró la conjugación en futuro para 'él'",
+          "nosotros": "No se encontró la conjugación en futuro para 'nosotros'",
+          "vosotros": "No se encontró la conjugación en futuro para 'vosotros'",
+          "ellos": "No se encontró la conjugación en futuro para 'ellos'"
+        },
+        "imperfect": {
+          "yo": "No se encontró la conjugación en imperfecto para 'yo'",
+          "tu": "No se encontró la conjugación en imperfecto para 'tu'",
+          "el": "No se encontró la conjugación en imperfecto para 'él'",
+          "nosotros": "No se encontró la conjugación en imperfecto para 'nosotros'",
+          "vosotros": "No se encontró la conjugación en imperfecto para 'vosotros'",
+          "ellos": "No se encontró la conjugación en imperfecto para 'ellos'"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T23:13:50.200Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6602057241cadd9a1a1f51bb",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T23:15:01.465Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Coleccionar",
+      "definition": "Reunir y guardar un conjunto de objetos de la misma clase por afición o interés",
+      "exampleSentence": "Me gusta coleccionar sellos de diferentes países.",
+      "wordType": "verbo",
+      "conjugations": {
+        "present": {
+          "yo": "colecciono",
+          "tu": "coleccioas",
+          "el": "colecciona",
+          "nosotros": "coleccionamos",
+          "vosotros": "coleccionáis",
+          "ellos": "coleccionan"
+        },
+        "preterite": {
+          "yo": "coleccione",
+          "tu": "coleccionaste",
+          "el": "coleccionó",
+          "nosotros": "coleccionamos",
+          "vosotros": "coleccionasteis",
+          "ellos": "coleccionaron"
+        },
+        "future": {
+          "yo": "coleccionaré",
+          "tu": "coleccionarás",
+          "el": "coleccionará",
+          "nosotros": "coleccionaremos",
+          "vosotros": "coleccionaréis",
+          "ellos": "coleccionarán"
+        },
+        "imperfect": {
+          "yo": "coleccionaba",
+          "tu": "coleccionabas",
+          "el": "coleccionaba",
+          "nosotros": "coleccionábamos",
+          "vosotros": "coleccionabais",
+          "ellos": "coleccionaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T23:15:01.941Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "66020594f7f12d65b6ab7a3d",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T23:15:32.783Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Adquirir",
+      "definition": "Obtener algo, hacerlo propio, tomar posesión de ello.",
+      "exampleSentence": "Voy a adquirir una nueva casa en el campo.",
+      "wordType": "Verbo",
+      "conjugations": {
+        "present": {
+          "yo": "adquiero",
+          "tu": "adquieres",
+          "el": "adquiere",
+          "nosotros": "adquirimos",
+          "vosotros": "adquirís",
+          "ellos": "adquieren"
+        },
+        "preterite": {
+          "yo": "adquirí",
+          "tu": "adquiriste",
+          "el": "adquirió",
+          "nosotros": "adquirimos",
+          "vosotros": "adquiristeis",
+          "ellos": "adquirieron"
+        },
+        "future": {
+          "yo": "adquiriré",
+          "tu": "adquirirás",
+          "el": "adquirirá",
+          "nosotros": "adquiriremos",
+          "vosotros": "adquiriréis",
+          "ellos": "adquirirán"
+        },
+        "imperfect": {
+          "yo": "adquiría",
+          "tu": "adquirías",
+          "el": "adquiría",
+          "nosotros": "adquiríamos",
+          "vosotros": "adquiríais",
+          "ellos": "adquirían"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T23:15:33.237Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "660205bf818d0034201e14d6",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T23:16:15.981Z"
   }
 ]

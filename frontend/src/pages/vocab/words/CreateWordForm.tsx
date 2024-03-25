@@ -38,11 +38,11 @@ const CreateWordForm: React.FC<CreateWordForm> = ({ handleCreateNewWord, deckID 
   return (
     <form className="create-new-word-container" onSubmit={handleSubmit}>
       <input
+        className="create-new-word-input"
         type="text"
-        id="word"
         value={formData.word}
         required
-        placeholder="Enter a new word..."
+        placeholder="New word..."
         onChange={(e) =>
           setFormData({
             ...formData,
@@ -50,7 +50,7 @@ const CreateWordForm: React.FC<CreateWordForm> = ({ handleCreateNewWord, deckID 
           })
         }
       />
-      <Button className="create-new-word-button" type="submit">
+      <Button className="create-new-word-button" variant="contained" type="submit">
         Create
       </Button>
     </form>

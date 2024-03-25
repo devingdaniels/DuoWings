@@ -318,7 +318,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -330,9 +330,10 @@ a {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 1px 1px 12px 10px rgba(116, 116, 116, 0.8);
-  width: 350px;
+  width: 450px;
   max-width: 90%;
   margin: 0 auto;
+  padding: 1%;
   position: relative;
 }
 
@@ -361,7 +362,7 @@ a {
   justify-content: space-around
 }
 
-/* ------------------------ DECK PAGE (single deck) ------------------------  */
+/* ------------------------ DECK PAGE (single deck with all the words) ------------------------  */
 
 .deck-page-container {
   display: flex;
@@ -371,33 +372,45 @@ a {
   width: 100%;
 }
 
-.return-to-decks-icon {
-  cursor: pointer;
-}
 
 .deck-page-deck-header {
-  text-align: center;
+  
 }
 
 /* ------------------------ CREATE NEW WORD PAGE W/FORM ------------------------  */
 
 .create-new-word-container {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
+  margin: 2%;
 }
 
-.create-new-word-container input {
+.create-new-word-input {
+  background: #08051f;
   display: block;
-  padding: 4%;
   height: 40px;
-  border-radius: 5px;
-  border: none;
+  width: 250px;
   font-size: inherit;
+  border: none ;
+  padding: 10%;
+  color: white;;
 }
 
-/* Base Table Styles */
+.create-word-loading-spinner-container{
+  height: 40px;
+  margin: 2%;;
+}
+
+
+.create-new-word-container button {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  height: 38px;
+  background: #08051f;
+  border-radius: 0;
+}
+
 .word-table-container table {
   text-align: center;
   border-collapse: collapse;
@@ -418,7 +431,6 @@ a {
   text-align: center;
 }
 
-/* Body of the Table */
 .word-table-container tbody tr {
   border-bottom: 1px solid #ffffff;
 }
@@ -427,23 +439,18 @@ a {
   background-color: rgb(12, 43, 80);
 }
 
-/* .word-table-container tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
-} */
 
 .word-table-container tbody tr.active-row {
   font-weight: bold;
   color: #009879;
 }
 
-/* Hover Effect */
 .word-table-container tbody tr:hover {
   background-color: #49e88b;
   cursor: pointer;
   color: black;
 }
 
-/* Word Type Specific Styling */
 .word-table-container td.wordType {
   text-transform: capitalize;
 }
