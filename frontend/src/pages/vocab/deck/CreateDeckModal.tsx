@@ -1,24 +1,28 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, useEffect, ChangeEvent, FormEvent, useRef } from "react";
 import { toastService } from "../../../utils/Toastify";
 import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
 import Button from "@mui/material/Button";
 
 interface Props {
   handleCreateNewDeck: (deck: ICreateNewDeck) => void;
-  toggleModal: (val: boolean) => void;
   decks: IWordDeck[];
+  isModalOpen: boolean;
+  onClose: () => void;
 }
 
 const CreateDeckModalForm: React.FC<Props> = ({
   handleCreateNewDeck,
-  toggleModal,
   decks,
+  isModalOpen,
+  onClose,
 }: Props) => {
   // Component state
   const [deckFormData, setDeckData] = useState<ICreateNewDeck>({
     name: "",
     description: "",
   });
+  // Ref to the modal container
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -41,15 +45,40 @@ const CreateDeckModalForm: React.FC<Props> = ({
     handleCreateNewDeck(deckFormData);
   };
 
-  const closeModal = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    toggleModal(false);
-  };
+  useEffect(() => {
+    // Function to handle the key press event
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Check if the 'Esc' key was pressed
+      if (event.key === "Escape") {
+        onClose(); // Call the onClose function passed as a prop
+      }
+    };
+
+    // Function to handle the mouse click event
+    const handleClickOutside = (event: MouseEvent) => {
+      // Assuming your modal container has a ref called modalRef;
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        onClose(); // Call the onClose function if the click is outside the modal content
+      }
+    };
+
+    // Add event listeners when the component mounts
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("click", handleClickOutside);
+
+    // Remove event listeners when the component unmounts
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [onClose]); // The effect depends on the onClose function
+
+  // If modal is not open, return null
+  if (!isModalOpen) return null;
 
   return (
     <div className="modal-container">
-      <div className="modal-content">
+      <div ref={modalRef} className="modal-content">
         <form onSubmit={handleSubmit} className="modal-form-container">
           <h2>Create Deck</h2>
           <div>
@@ -72,7 +101,7 @@ const CreateDeckModalForm: React.FC<Props> = ({
             <br />
           </div>
           <div className="create-deck-modal-button-container">
-            <Button onClick={closeModal} color="error" variant="contained">
+            <Button onClick={() => onClose()} color="error" variant="contained">
               ESC
             </Button>
             <Button type="submit" onClick={() => handleSubmit} variant="contained">
@@ -86,27 +115,3 @@ const CreateDeckModalForm: React.FC<Props> = ({
 };
 
 export default CreateDeckModalForm;
-
-//! The code below wille be used to allow for keyboard and mouse event listeners to close the modal
-// useEffect(() => {
-//   const handleModalInteraction = (e: KeyboardEvent | MouseEvent) => {
-//     // Clicked outside of modal container
-//     if (
-//       (e instanceof KeyboardEvent && e.key === "Escape") ||
-//       (e instanceof MouseEvent &&
-//         isModal &&
-//         (e.target as Element).closest(".modal-content") === null)
-//     ) {
-//       console.log("closing modal");
-//       // toggleModal(false);
-//     }
-//   };
-//   // Add event listeners
-//   document.addEventListener("click", handleModalInteraction);
-//   document.addEventListener("keydown", handleModalInteraction);
-//   // Cleanup
-//   return () => {
-//     document.removeEventListener("click", handleModalInteraction);
-//     document.removeEventListener("keydown", handleModalInteraction);
-//   };
-// }, [isModal, toggleModal]);

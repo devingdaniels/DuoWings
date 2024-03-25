@@ -4813,5 +4813,61 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "6601ad2f7f9116e192d86e60",
     "timestamp": "2024-03-25T17:48:09.631Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Limpiar",
+      "definition": "Eliminar la suciedad o impurezas de algo",
+      "exampleSentence": "Voy a limpiar mi habitación antes de que lleguen los invitados.",
+      "wordType": "verbo",
+      "conjugations": {
+        "present": {
+          "yo": "limpio",
+          "tu": "limpias",
+          "el": "limpia",
+          "nosotros": "limpiamos",
+          "vosotros": "limpiáis",
+          "ellos": "limpian"
+        },
+        "preterite": {
+          "yo": "limpié",
+          "tu": "limpiaste",
+          "el": "limpió",
+          "nosotros": "limpiamos",
+          "vosotros": "limpiasteis",
+          "ellos": "limpiaron"
+        },
+        "future": {
+          "yo": "limpiaré",
+          "tu": "limpiarás",
+          "el": "limpiará",
+          "nosotros": "limpiaremos",
+          "vosotros": "limpiaréis",
+          "ellos": "limpiarán"
+        },
+        "imperfect": {
+          "yo": "limpiaba",
+          "tu": "limpiabas",
+          "el": "limpiaba",
+          "nosotros": "limpiábamos",
+          "vosotros": "limpiabais",
+          "ellos": "limpiaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T20:39:17.853Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6601f1f72cde30ca15fb3522",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-25T21:51:51.888Z"
   }
 ]

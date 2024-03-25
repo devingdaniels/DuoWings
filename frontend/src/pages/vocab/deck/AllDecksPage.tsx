@@ -19,15 +19,13 @@ const AllDecksPage: React.FC = () => {
   // Local state
   const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(decks || []);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [isModal, setIsModal] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const toggleModal = (val: boolean) => setIsModal(val);
-  const fetchUserDecks = async () => await dispatch(VocabSliceService.fetchAllDecks());
+  const closeModal = () => setIsModalOpen(false);
 
   const handleCreateNewDeck = async (deck: ICreateNewDeck) => {
-    // First close the modal
-    setIsModal(false);
-
+    // Close modal
+    closeModal();
     // Dispatch creation of new deck, should set loading to true
     const response = await dispatch(VocabSliceService.createDeck(deck));
 
@@ -53,6 +51,8 @@ const AllDecksPage: React.FC = () => {
     setFilteredDecks(filtered);
   };
 
+  const fetchUserDecks = async () => await dispatch(VocabSliceService.fetchAllDecks());
+
   useEffect(() => {
     dispatch(VocabSliceService.fetchAllDecks());
     dispatch(VocabSliceService.resetCurrentDeck());
@@ -70,8 +70,10 @@ const AllDecksPage: React.FC = () => {
     return (
       <Button
         variant="contained"
-        onClick={() => {
-          setIsModal(true);
+        onClick={(event) => {
+          // Prevent the event from bubbling up the DOM tree and triggering the parent click event, which would close the modal
+          event.stopPropagation();
+          setIsModalOpen(true);
         }}
       >
         Create Deck
@@ -88,7 +90,7 @@ const AllDecksPage: React.FC = () => {
   }
 
   // No decks and no state-changing functionality in progress
-  if (decks.length === 0 && !isModal && !isLoading && !isError) {
+  if (decks.length === 0 && !isModalOpen && !isLoading && !isError) {
     return (
       <div className="all-decks-page-container-empty">
         <h2>No Decks ☹️</h2>
@@ -110,11 +112,12 @@ const AllDecksPage: React.FC = () => {
           return <DeckCardOverview key={deck._id} deck={deck} fetchUserDecks={fetchUserDecks} />;
         })}
       </div>
-      {isModal && (
+      {isModalOpen && (
         <CreateDeckModalForm
           handleCreateNewDeck={handleCreateNewDeck}
-          toggleModal={toggleModal}
           decks={decks}
+          isModalOpen={isModalOpen}
+          onClose={closeModal}
         />
       )}
     </div>
