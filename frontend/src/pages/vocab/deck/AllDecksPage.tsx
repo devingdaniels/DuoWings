@@ -1,4 +1,3 @@
-import { AiOutlinePlus } from "react-icons/ai";
 import CreateDeckModalForm from "./CreateDeckModal";
 import DeckCardOverview from "./DeckCardOverview";
 import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
@@ -11,6 +10,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { VocabSliceService } from "../../../features/vocabSlice";
 import { toastService } from "../../../utils/Toastify";
+import Button from "@mui/material/Button";
 
 const AllDecksPage: React.FC = () => {
   // Hooks
@@ -68,14 +68,14 @@ const AllDecksPage: React.FC = () => {
 
   const NewDeckButton = () => {
     return (
-      <AiOutlinePlus
-        className="create-new-deck-button"
-        size={80}
-        style={{ color: "red" }}
+      <Button
+        variant="contained"
         onClick={() => {
           setIsModal(true);
         }}
-      ></AiOutlinePlus>
+      >
+        Create Deck
+      </Button>
     );
   };
 
@@ -99,23 +99,17 @@ const AllDecksPage: React.FC = () => {
 
   return (
     <div className="all-decks-page-container">
-      {!isModal && (
-        <>
-          <div className="all-deck-page-search-wrapper">
-            <div className="all-deck-page-search-container">
-              <SearchAppBar filterDecks={filterDecks} value={searchTerm} />
-            </div>
-          </div>
-          <div className="all-decks-grid-container">
-            {filteredDecks.map((deck: IWordDeck) => {
-              return (
-                <DeckCardOverview key={deck._id} deck={deck} fetchUserDecks={fetchUserDecks} />
-              );
-            })}
-          </div>
-          <NewDeckButton />
-        </>
-      )}
+      <div className="all-deck-page-search-and-create-wrapper">
+        <div className="all-deck-page-search-container">
+          <SearchAppBar filterDecks={filterDecks} value={searchTerm} />
+        </div>
+        {!searchTerm && <NewDeckButton />}
+      </div>
+      <div className="all-decks-grid-container">
+        {filteredDecks.map((deck: IWordDeck) => {
+          return <DeckCardOverview key={deck._id} deck={deck} fetchUserDecks={fetchUserDecks} />;
+        })}
+      </div>
       {isModal && (
         <CreateDeckModalForm
           handleCreateNewDeck={handleCreateNewDeck}

@@ -24,7 +24,6 @@ const DeckPage = () => {
       toast.success("Word created successfully!");
       dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
     } else {
-      console.log("toast triggered from DeckPage.tsx");
       toast.error(response.payload);
       dispatch(VocabSliceService.resetErrorState());
     }

@@ -244,9 +244,17 @@ a {
   margin: 3%;
 }
 
-.all-deck-page-search-wrapper {
+.all-deck-page-search-and-create-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.all-deck-page-search-container{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1%;
 }
 
 .all-decks-page-container-empty {
@@ -310,7 +318,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(43, 43, 43, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -318,23 +326,20 @@ a {
   transition: opacity 0.3s ease;
 }
 
-/* Styles for the modal container */
 .modal-content {
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 2px 2px 10px 2px rgba(154, 141, 141, 0.2);
-  width: 400px;
+  box-shadow: 1px 1px 12px 10px rgba(116, 116, 116, 0.8);
+  width: 350px;
   max-width: 90%;
   margin: 0 auto;
   position: relative;
 }
 
-/* Styles for the form container within the modal */
 .modal-form-container {
   display: flex;
   flex-direction: column;
 }
-
 /* Styles for the form title */
 .modal-form-container h2 {
   font-size: 2rem;
@@ -342,9 +347,7 @@ a {
   text-align: center;
 }
 
-/* Styles for input fields and textarea */
-.modal-form-container input[type="text"],
-.modal-form-container textarea {
+.modal-form-container input {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -353,61 +356,9 @@ a {
   font-size: 16px;
 }
 
-/* Styles for the button to add tags */
-.modal-form-container button[type="button"] {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* Styles for the list of tags */
-.modal-form-container ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.modal-form-container ul li {
-  margin-bottom: 5px;
-  font-size: 16px;
-}
-
-/* Styles for the select element */
-.modal-form-container select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.create-deck-modal-container {
+.create-deck-modal-button-container {
   display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: auto;
-}
-
-/* ------------------------ CREATE NEW DECK BUTTON (FIXED BOTTOM RIGHT) ------------------------  */
-.create-new-deck-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.create-new-deck-button:hover {
-  transform: scale(2.5);
+  justify-content: space-around
 }
 
 /* ------------------------ DECK PAGE (single deck) ------------------------  */

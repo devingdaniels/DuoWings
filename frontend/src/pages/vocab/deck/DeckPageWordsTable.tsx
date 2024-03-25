@@ -12,7 +12,7 @@ interface DeckPageTableProps {
 const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
   const dispatch = useAppDispatch();
 
-  const handleClick = async (wordID: string) => {
+  const handleDeleteWord = async (wordID: string) => {
     const response = await dispatch(VocabSliceService.deleteWordFromDeckByID(wordID));
 
     if (response.type === "vocab/deleteWordFromDeckByID/fulfilled") {
@@ -47,13 +47,13 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
               <td>{word.word}</td>
               <td>{word.definition}</td>
               <td>{word.exampleSentence}</td>
-              <td className="wordType">{word.wordType}</td>
+              <td className="wordType">{word.wordType.split(" ")[0]}</td>
               <td>{word.stats.correctCount}</td>
               <td>{word.stats.incorrectCount}</td>
               <td>
                 <AiOutlineDelete
                   className="delete-container"
-                  onClick={() => handleClick(word._id)}
+                  onClick={() => handleDeleteWord(word._id)}
                   size={30}
                 />
               </td>

@@ -40,7 +40,7 @@ const LoginInForm: React.FC = () => {
   useEffect(() => {
     if (isSuccess && user) {
       SwalSuccess("Success", `Welcome ${user.fname}!`);
-      navigate("/home");
+      navigate("/vocab/decks");
     }
 
     if (isError) {

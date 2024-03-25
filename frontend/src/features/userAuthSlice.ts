@@ -19,7 +19,6 @@ const initialState: UserState = {
   message: "",
 };
 
-// Create an async thunk for user login
 export const login = createAsyncThunk<IUser, IUserLogin>(
   "auth/login",
   async (user, { rejectWithValue }) => {

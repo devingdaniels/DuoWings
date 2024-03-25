@@ -93,6 +93,6 @@ export interface IWordDeck {
   description?: string;
   tags?: string[];
   creationDate: Date;
-  favorited?: boolean;
+  isFavorite: boolean;
   words: IWord[];
 }

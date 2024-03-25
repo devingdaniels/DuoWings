@@ -64,7 +64,7 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
         description: deckFromDB.description,
         tags: deckFromDB.tags,
         creationDate: deckFromDB.creationDate,
-        favorited: deckFromDB.favorited,
+        isFavorite: deckFromDB.isFavorite,
         words: deckFromDB.words,
       },
     });

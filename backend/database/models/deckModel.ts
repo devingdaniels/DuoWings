@@ -23,8 +23,7 @@ const WordDeckSchema = new mongoose.Schema({
     default: new Date(),
     immutable: true,
   },
-  favorited: {
-    //! This should be renamed to 'isFavorite'
+  isFavorite: {
     type: Boolean,
     default: false,
   },
