@@ -4443,5 +4443,95 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "65d22d650fef6fd1e3780cae",
     "timestamp": "2024-03-25T16:27:45.269Z"
+  },
+  {
+    "word": {
+      "word": "Apuntar",
+      "definition": "Tomar nota de algo",
+      "wordType": "verbo",
+      "exampleSentence": "Voy a apuntar las tareas en mi agenda.",
+      "conjugations": {
+        "present": {
+          "yo": "apunto",
+          "tu": "apuntas",
+          "el": "apunta",
+          "nosotros": "apuntamos",
+          "vosotros": "apuntáis",
+          "ellos": "apuntan"
+        },
+        "preterite": {
+          "yo": "apunté",
+          "tu": "apuntaste",
+          "el": "apuntó",
+          "nosotros": "apuntamos",
+          "vosotros": "apuntasteis",
+          "ellos": "apuntaron"
+        },
+        "future": {
+          "yo": "apuntaré",
+          "tu": "apuntarás",
+          "el": "apuntará",
+          "nosotros": "apuntaremos",
+          "vosotros": "apuntaréis",
+          "ellos": "apuntarán"
+        },
+        "imperfect": {
+          "yo": "apuntaba",
+          "tu": "apuntabas",
+          "el": "apuntaba",
+          "nosotros": "apuntábamos",
+          "vosotros": "apuntabais",
+          "ellos": "apuntaban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-25T16:59:00.249Z"
+  },
+  {
+    "word": {
+      "word": "Inspiración",
+      "definition": "estímulo o idea que surge de la creatividad o imaginación",
+      "wordType": "sustantivo",
+      "exampleSentence": "La naturaleza siempre ha sido su principal fuente de inspiración para pintar.",
+      "conjugations": {
+        "present": {
+          "yo": "inspiro",
+          "tu": "inspiras",
+          "el": "inspira",
+          "nosotros": "inspiramos",
+          "vosotros": "inspiráis",
+          "ellos": "inspiran"
+        },
+        "preterite": {
+          "yo": "inspiré",
+          "tu": "inspiraste",
+          "el": "inspiró",
+          "nosotros": "inspiramos",
+          "vosotros": "inspirasteis",
+          "ellos": "inspiraron"
+        },
+        "future": {
+          "yo": "inspiraré",
+          "tu": "inspirarás",
+          "el": "inspirará",
+          "nosotros": "inspiraremos",
+          "vosotros": "inspiraréis",
+          "ellos": "inspirarán"
+        },
+        "imperfect": {
+          "yo": "inspiraba",
+          "tu": "inspirabas",
+          "el": "inspiraba",
+          "nosotros": "inspirábamos",
+          "vosotros": "inspirabais",
+          "ellos": "inspiraban"
+        }
+      }
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-25T17:01:17.793Z"
   }
 ]

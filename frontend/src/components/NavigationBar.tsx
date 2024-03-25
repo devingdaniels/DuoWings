@@ -6,8 +6,8 @@ import { useLocation } from "react-router-dom";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
-  const user = useAppSelector((state) => state.auth.user);
   const location = useLocation();
+  const user = useAppSelector((state) => state.auth.user);
 
   const getNavLinkClass = (path: string) => {
     return location.pathname.startsWith(path) ? "active nav-link" : "nav-link";

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { VocabService } from "./vocabService";
 import { ICreateNewDeck, IWordDeck } from "../interfaces/index";
 import { ICreateNewVocabWord } from "../interfaces/index";
+import { VocabService } from "./vocabService";
 
 // Constants
 const NAMESPACE = "vocabSlice.ts";
@@ -149,6 +149,7 @@ const vocabSlice = createSlice({
     setCurrentDeck: (state, action) => {
       state.currentDeck = action.payload;
     },
+
     resetErrorState: (state) => {
       state.isError = false;
       state.message = "";
@@ -159,10 +160,12 @@ const vocabSlice = createSlice({
       state.isLoading = false;
       state.message = "";
     },
+
     resetCurrentDeck: (state) => {
       state.currentDeck = null;
     },
-    resetDeckSliceStore: (state) => {
+
+    setVocabSliceToInitialState: (state) => {
       state.decks = [];
       state.isLoading = false;
       state.isSuccess = false;
@@ -277,7 +280,7 @@ const vocabSlice = createSlice({
   },
 });
 
-const { resetDeckSliceStore } = vocabSlice.actions;
+const { setVocabSliceToInitialState } = vocabSlice.actions;
 const { setCurrentDeck } = vocabSlice.actions;
 const { resetErrorState } = vocabSlice.actions;
 const { resetDeckStatusFlagsToDefault } = vocabSlice.actions;
@@ -291,14 +294,14 @@ const VocabSliceService = {
   createWord,
   deleteWordFromDeckByID,
   setCurrentDeck,
-  resetDeckSliceStore,
+  setVocabSliceToInitialState,
   resetErrorState,
   resetDeckStatusFlagsToDefault,
   resetCurrentDeck,
 };
 
-// Export the service
+// Export and expose the service functions to the components
 export { VocabSliceService };
 
-// Export the reducer, which is used in the store
+// Export the reducer, which is used in the app/store.ts file
 export default vocabSlice.reducer;

@@ -13,7 +13,7 @@ function Logout() {
   const { isLoading } = useAppSelector((state) => state.auth);
 
   const handleLogout = async () => {
-    dispatch(VocabSliceService.resetDeckSliceStore());
+    dispatch(VocabSliceService.setVocabSliceToInitialState());
     dispatch(clearUserAuthState());
     dispatch(logout());
     // Purge local storage and wait for it to complete

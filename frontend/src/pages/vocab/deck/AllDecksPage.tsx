@@ -22,7 +22,7 @@ const AllDecksPage: React.FC = () => {
   const [isModal, setIsModal] = useState<boolean>(false);
 
   useEffect(() => {
-    dispatch(VocabSliceService.fetchAllUserDecks());
+    dispatch(VocabSliceService.fetchAllDecks());
     dispatch(VocabSliceService.resetCurrentDeck());
   }, [dispatch]);
 
@@ -35,7 +35,7 @@ const AllDecksPage: React.FC = () => {
   }, [decks, searchTerm]);
 
   const toggleModal = (val: boolean) => setIsModal(val);
-  const fetchUserDecks = async () => await dispatch(VocabSliceService.fetchAllUserDecks());
+  const fetchUserDecks = async () => await dispatch(VocabSliceService.fetchAllDecks());
 
   const handleCreateNewDeck = async (deck: ICreateNewDeck) => {
     // First close the modal

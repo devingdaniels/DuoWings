@@ -1,12 +1,10 @@
 import Axios from "axios";
 import { ICreateNewDeck, ICreateNewVocabWord } from "../interfaces/index";
 
-// Axios configuration for cookies
+//! Axios configuration for cookies (this should be done in a separate file via Axios.create() and interceptor and then imported)
 Axios.defaults.withCredentials = true;
 
 const NAMESPACE = "vocabService.ts";
-
-// Backend server URL
 
 const createDeck = async (deck: ICreateNewDeck) => {
   const URL = import.meta.env.VITE_BACKEND_API_DECK;
