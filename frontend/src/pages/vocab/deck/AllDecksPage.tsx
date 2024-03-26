@@ -8,7 +8,7 @@ import { useAppSelector } from "../../../app/hooks";
 import { useEffect } from "react";
 import { useState } from "react";
 import { VocabSliceService } from "../../../features/vocabSlice";
-import Button from "@mui/material/Button";
+import { FcPlus } from "react-icons/fc";
 
 const AllDecksPage: React.FC = () => {
   // Hooks
@@ -30,8 +30,6 @@ const AllDecksPage: React.FC = () => {
     setFilteredDecks(filtered);
   };
 
-  const fetchUserDecks = async () => await dispatch(VocabSliceService.fetchAllDecks());
-
   useEffect(() => {
     dispatch(VocabSliceService.fetchAllDecks());
     dispatch(VocabSliceService.resetCurrentDeck());
@@ -47,22 +45,19 @@ const AllDecksPage: React.FC = () => {
 
   const NewDeckButton = () => {
     return (
-      <Button
-        variant="contained"
-        onClick={(event) => {
+      <span
+        className="deck-page-create-deck-button"
+        onClick={(event: any) => {
           // Prevent the event from bubbling up the DOM tree and triggering the parent click event, which would close the modal
           event.stopPropagation();
           setIsModalOpen(true);
         }}
       >
+        <FcPlus size={35} />
         Create Deck
-      </Button>
+      </span>
     );
   };
-
-  // if (isLoading) {
-  //   toastService.info("Loading decks...");
-  // }
 
   // No decks and no state-changing functionality in progress
   if (decks.length === 0 && !isModalOpen && !isLoading && !isError) {
@@ -84,7 +79,7 @@ const AllDecksPage: React.FC = () => {
       </div>
       <div className="all-decks-grid-container">
         {filteredDecks.map((deck: IWordDeck) => {
-          return <DeckCardOverview key={deck._id} deck={deck} fetchUserDecks={fetchUserDecks} />;
+          return <DeckCardOverview key={deck._id} deck={deck} />;
         })}
       </div>
       {isModalOpen && (

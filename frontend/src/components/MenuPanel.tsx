@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { BsStack } from "react-icons/bs";
-import { ImStatsBars } from "react-icons/im";
+import { FcBarChart } from "react-icons/fc";
 
 const MenuPanel = () => {
   return (
@@ -8,7 +8,7 @@ const MenuPanel = () => {
       <div className="menu-item-wrapper">
         <NavLink to="/vocab/decks" className={({ isActive }) => (isActive ? "active" : "")}>
           <div className="menu-panel-item">
-            <BsStack size={25} />
+            <BsStack color="purple" size={25} />
             <h4 className="item-title">Decks</h4>
           </div>
         </NavLink>
@@ -16,7 +16,7 @@ const MenuPanel = () => {
       <div className="menu-item-wrapper">
         <NavLink to="/vocab/stats" className={({ isActive }) => (isActive ? "active" : "")}>
           <div className="menu-panel-item">
-            <ImStatsBars size={25} />
+            <FcBarChart size={25} />
             <h4 className="item-title">Stats</h4>
           </div>
         </NavLink>

@@ -1,6 +1,7 @@
 import React from "react";
 import { IWord } from "../../../interfaces";
-import { AiOutlineDelete } from "react-icons/ai";
+import { FcEmptyTrash } from "react-icons/fc";
+import { FcEditImage } from "react-icons/fc";
 import { useAppDispatch } from "../../../app/hooks";
 import { VocabSliceService } from "../../../features/vocabSlice";
 import { toastService } from "../../../utils/Toastify";
@@ -34,9 +35,10 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
             <th>Word</th>
             <th>Definition</th>
             <th>Example Sentence</th>
-            <th>Word Type</th>
-            <th>Correct Count</th>
-            <th>Incorrect Count</th>
+            <th>Type</th>
+            <th>Correct</th>
+            <th>Incorrect</th>
+            <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -51,10 +53,17 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
               <td>{word.stats.correctCount}</td>
               <td>{word.stats.incorrectCount}</td>
               <td>
-                <AiOutlineDelete
-                  className="delete-container"
+                <FcEditImage
+                  className="update-word-icon"
                   onClick={() => handleDeleteWord(word._id)}
-                  size={30}
+                  size={36}
+                />
+              </td>
+              <td>
+                <FcEmptyTrash
+                  className="delete-word-icon"
+                  onClick={() => handleDeleteWord(word._id)}
+                  size={36}
                 />
               </td>
             </tr>

@@ -5709,5 +5709,117 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "6602457860b0cf768fe853ed",
     "timestamp": "2024-03-26T03:48:25.648Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "To test",
+      "definition": "probar",
+      "exampleSentence": "Voy a probar el nuevo restaurante esta noche.",
+      "wordType": "verb",
+      "conjugations": {
+        "present": {
+          "yo": "pruebo",
+          "tu": "pruebas",
+          "el": "prueba",
+          "nosotros": "probamos",
+          "vosotros": "probáis",
+          "ellos": "prueban"
+        },
+        "preterite": {
+          "yo": "probé",
+          "tu": "probaste",
+          "el": "probó",
+          "nosotros": "probamos",
+          "vosotros": "probasteis",
+          "ellos": "probaron"
+        },
+        "future": {
+          "yo": "probaré",
+          "tu": "probarás",
+          "el": "probará",
+          "nosotros": "probaremos",
+          "vosotros": "probaréis",
+          "ellos": "probarán"
+        },
+        "imperfect": {
+          "yo": "probaba",
+          "tu": "probabas",
+          "el": "probaba",
+          "nosotros": "probábamos",
+          "vosotros": "probabais",
+          "ellos": "probaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-26T03:48:33.147Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6602ba4b6244f724452a410e",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-26T12:06:37.693Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Test",
+      "definition": "prueba",
+      "exampleSentence": "El maestro va a aplicar un test de matemáticas mañana.",
+      "wordType": "sustantivo",
+      "conjugations": {
+        "present": {
+          "yo": "testeo",
+          "tu": "testeas",
+          "el": "testea",
+          "nosotros": "testeamos",
+          "vosotros": "testeáis",
+          "ellos": "testean"
+        },
+        "preterite": {
+          "yo": "testeé",
+          "tu": "testeaste",
+          "el": "testeó",
+          "nosotros": "testeamos",
+          "vosotros": "testeasteis",
+          "ellos": "testearon"
+        },
+        "future": {
+          "yo": "testearé",
+          "tu": "testearás",
+          "el": "testeará",
+          "nosotros": "testearemos",
+          "vosotros": "testearéis",
+          "ellos": "testearán"
+        },
+        "imperfect": {
+          "yo": "testeaba",
+          "tu": "testeabas",
+          "el": "testeaba",
+          "nosotros": "testeábamos",
+          "vosotros": "testeabais",
+          "ellos": "testeaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-26T12:06:38.245Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6602bdab7b1160ca84f0789f",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-26T12:21:00.550Z"
   }
 ]

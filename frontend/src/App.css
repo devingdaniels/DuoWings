@@ -230,7 +230,7 @@ a {
   margin-left: 1rem;
 }
 
-/* ------------------------ DECK PAGE  ------------------------  */
+/* ----------------------- ALL DECKS DECK PAGE DECK CARD OVERVIEWS  ------------------------  */
 
 .all-decks-page-container {
   width: 100%;
@@ -290,25 +290,35 @@ a {
   align-items: center;
 }
 
-.delete-container {
+.delete-word-icon, .update-word-icon {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.delete-container:hover {
-  color: red;
+.delete-word-icon:hover, .update-word-icon:hover {
   transform: scale(1.4);
 }
 
 .deck-header-level-container {
   background-color: blue;
-  padding: 0 2%;
+  padding: 1%;
 }
 
-.add-new-deck-button {
-  position: absolute;
-  bottom: 2%;
-  right: 2%;
+.deck-page-create-deck-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 1%;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
+
+.deck-page-create-deck-button:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-6px);
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    cursor: pointer;
+}
+
 
 /* ------------------------ STATS PAGE CONTAINER ------------------------  */
 .stats-page-container {
@@ -377,78 +387,19 @@ a {
 }
 
 
-/* .deck-page-deck-header {
-  
-} */
-
-/* ------------------------ CREATE NEW WORD PAGE W/FORM ------------------------  */
-
-.create-new-word-container {
-  position: relative;
-  display: flex;
-  margin: 2%;
-}
-
-.create-new-word-input {
-  background: #08051f;
-  display: block;
-  height: 40px;
-  width: 250px;
-  font-size: inherit;
-  border: none ;
-  padding: 10%;
-  color: white;;
-}
-
-.create-word-loading-spinner-container{
-  height: 40px;
-  margin: 2%;;
+.deck-page-deck-header {
+  padding: 1%;
 }
 
 
-.create-new-word-container button {
-  position: absolute;
-  right: 0;
-  top: 5px;
-  height: 38px;
-  background: #08051f;
-  border-radius: 0;
-  border: none;
-  &:hover {
-    background: #08051f;
-  }
-}
+/* ------------------------ DECK PAGE WORDS TABLE  ------------------------  */
 
 .word-table-container table {
   text-align: center;
   border-collapse: collapse;
-  margin: 20px 0;
   font-size: 0.9em;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.deck-button-options-panel{
-  display: flex;
-  width: 35%;
-  padding: 2%;
-  justify-content: space-around;
-}
-
-.deck-page-action-button{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  padding: .5%;
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.deck-page-action-button:hover{
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-6px);
-    /* offset-x | offset-y | blur-radius | spread-radius | color */
-    cursor: pointer;
 }
 
 .word-table-container thead tr {
@@ -485,6 +436,71 @@ a {
 .word-table-container td.wordType {
   text-transform: capitalize;
 }
+
+
+/* ------------------------ DECK PAGE CREATE NEW WORD FORM AND ACTION BUTTONS ------------------------  */
+
+.create-new-word-container {
+  position: relative;
+  display: flex;
+}
+
+.create-new-word-input {
+  background: #08051f;
+  display: block;
+  height: 40px;
+  width: 250px;
+  font-size: inherit;
+  border: none ;
+  padding: 25px; 
+  color: white;;
+  transition: width 0.3s ease-in-out;
+}
+
+.create-new-word-input:focus{
+  width: 350px;
+}
+
+.create-word-loading-spinner-container{
+  height: 40px;
+}
+
+.create-new-word-container button {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  height: 38px;
+  background: #08051f;
+  border-radius: 0;
+  border: none;
+  &:hover {
+    background: #08051f;
+  }
+}
+
+.deck-button-options-panel{
+  display: flex;
+  width: 35%;
+  padding: 1%;
+  justify-content: space-around;
+}
+
+.deck-page-action-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: .5%;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.deck-page-action-button:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-6px);
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    cursor: pointer;
+}
+
 
 /* ------------------------ NOT FOUND PAGE ------------------------  */
 

@@ -7,10 +7,9 @@ import { toast } from "react-toastify";
 
 interface DeckProps {
   deck: IWordDeck;
-  fetchUserDecks: () => void;
 }
 
-const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
+const DeckCardOverview: React.FC<DeckProps> = ({ deck }) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -18,17 +17,16 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
     // Delete button is inside deck card which also has onClick
     // stopPropagation prevents the onClick from firing that would result in going to that deck's page under the delete button
     e.stopPropagation();
-
+    toast.info(`Deleting ${deck.name}...`);
     const response = await dispatch(VocabSliceService.deleteDeckByID(deck._id));
     if (response.type === "vocab/deleteDeckByID/fulfilled") {
-      toast.success(`Deleted ${deck.name}`);
       dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
+      await dispatch(VocabSliceService.fetchAllDecks());
+      toast.success(`Deleted ${deck.name}`);
     } else {
-      console.log("toast triggered from DeckCardOverviewPage.tsx");
       toast.error(response.payload);
       dispatch(VocabSliceService.resetErrorState());
     }
-    fetchUserDecks();
   };
 
   const goToDeckPage = (deck: IWordDeck) => {

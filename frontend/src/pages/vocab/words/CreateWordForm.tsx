@@ -29,7 +29,6 @@ const CreateWordForm: React.FC<CreateWordForm> = ({ handleCreateNewWord, deckID 
       toastService.warning("Invalid word format!");
       return;
     }
-
     // Call the parent function
     handleCreateNewWord(formData);
     // Reset the state

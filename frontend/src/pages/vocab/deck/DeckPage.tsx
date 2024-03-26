@@ -51,7 +51,7 @@ const DeckPage = () => {
           <div className="deck-button-options-panel">
             <div
               className="deck-page-action-button"
-              onClick={() => navigate("/vocab/decks/flashcards")}
+              onClick={() => navigate("/vocab/decks/upload-words")}
             >
               <FcUpload size={35} />
               Upload
