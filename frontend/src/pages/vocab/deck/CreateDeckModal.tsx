@@ -2,16 +2,23 @@ import React, { useState, useEffect, ChangeEvent, FormEvent, useRef } from "reac
 import { toastService } from "../../../utils/Toastify";
 import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
 import Button from "@mui/material/Button";
+import { useAppDispatch } from "../../../app/hooks";
+import { VocabSliceService } from "../../../features/vocabSlice";
+import Spinner from "../../../utils/Spinner";
+import { useAppSelector } from "../../../app/hooks";
 
 interface Props {
-  handleCreateNewDeck: (deck: ICreateNewDeck) => void;
   decks: IWordDeck[];
   isModalOpen: boolean;
   onClose: () => void;
 }
 
 const CreateDeckModalForm: React.FC<Props> = ({ ...props }: Props) => {
-  const { handleCreateNewDeck, decks, isModalOpen, onClose } = props;
+  // Props
+  const { decks, isModalOpen, onClose } = props;
+  // Redux
+  const { isLoading } = useAppSelector((state) => state.vocab);
+  const dispatch = useAppDispatch();
   // Component state
   const [deckFormData, setDeckData] = useState<ICreateNewDeck>({
     name: "",
@@ -31,16 +38,34 @@ const CreateDeckModalForm: React.FC<Props> = ({ ...props }: Props) => {
     return decks.some((deck) => deck.name === name);
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleCreateNewDeck = async (e: FormEvent) => {
     e.preventDefault();
+
     // Check if deck already exists
     if (isDuplicateDeck(deckFormData.name)) {
       toastService.warning(`Deck ${deckFormData.name} already exists!`);
       return;
     }
-    handleCreateNewDeck(deckFormData);
+
+    // Dispatch creation of new deck, should set loading to true
+    const response = await dispatch(VocabSliceService.createDeck(deckFormData));
+
+    if (response.type === "vocab/createDeck/fulfilled") {
+      // Reset flags
+      dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
+      // Fetch the user decks
+      await dispatch(VocabSliceService.fetchAllDecks());
+      // Signal to parent component to close the modal and fetch user decks
+      onClose();
+      // Show success toast
+      toastService.success(`Created ${response.payload.deck.name}`);
+    } else {
+      toastService.error(response.payload);
+      dispatch(VocabSliceService.resetErrorState());
+    }
   };
 
+  // Handle user pressing ESC key or clicking outside the modal
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -73,7 +98,7 @@ const CreateDeckModalForm: React.FC<Props> = ({ ...props }: Props) => {
   return (
     <div className="modal-container">
       <div ref={modalRef} className="modal-content">
-        <form onSubmit={handleSubmit} className="modal-form-container">
+        <form onSubmit={handleCreateNewDeck} className="modal-form-container">
           <h2>Create Deck</h2>
           <div>
             <input
@@ -94,13 +119,20 @@ const CreateDeckModalForm: React.FC<Props> = ({ ...props }: Props) => {
             />
             <br />
           </div>
+
           <div className="create-deck-modal-button-container">
-            <Button onClick={() => onClose()} color="error" variant="contained">
-              ESC
-            </Button>
-            <Button type="submit" onClick={() => handleSubmit} variant="contained">
-              Create
-            </Button>
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              <>
+                <Button onClick={() => onClose()} color="error" variant="contained">
+                  ESC
+                </Button>
+                <Button type="submit" onClick={() => handleCreateNewDeck} variant="contained">
+                  Create
+                </Button>
+              </>
+            )}
           </div>
         </form>
       </div>

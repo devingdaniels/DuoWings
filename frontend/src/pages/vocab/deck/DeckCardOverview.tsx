@@ -39,7 +39,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
   return (
     <div className="deck-card-overview-container" onClick={() => goToDeckPage(deck)}>
       <div className="deck-card-overview-header">
-        <span className="deck-header-item deck-header-level-container">FIX ME{deck.level}</span>
+        <span className="deck-header-item deck-header-level-container">Level {deck.level}</span>
         <h2 className="deck-header-item">{deck.name}</h2>
         <div className="deck-header-item delete-container">
           <AiOutlineDelete onClick={handleDeleteDeck} size={30} />
@@ -47,6 +47,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck, fetchUserDecks }) => {
       </div>
       <div className="deck-details">
         <p>Created: {new Date(deck.creationDate).toLocaleDateString()}</p>
+        <p>Words: {deck.words.length}</p>
       </div>
     </div>
   );

@@ -41,5 +41,6 @@ export interface IWordDeck {
   tags?: string[];
   creationDate: Date;
   isFavorite: boolean;
+  level: number;
   words: mongoose.Types.ObjectId[];
 }

@@ -1,15 +1,13 @@
 import CreateDeckModalForm from "./CreateDeckModal";
 import DeckCardOverview from "./DeckCardOverview";
-import { ICreateNewDeck, IWordDeck } from "../../../interfaces/index";
+import { IWordDeck } from "../../../interfaces/index";
 import React from "react";
 import SearchAppBar from "./DeckSearchBar";
-import Spinner from "../../../utils/Spinner";
 import { useAppDispatch } from "../../../app/hooks";
 import { useAppSelector } from "../../../app/hooks";
 import { useEffect } from "react";
 import { useState } from "react";
 import { VocabSliceService } from "../../../features/vocabSlice";
-import { toastService } from "../../../utils/Toastify";
 import Button from "@mui/material/Button";
 
 const AllDecksPage: React.FC = () => {
@@ -22,25 +20,6 @@ const AllDecksPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const closeModal = () => setIsModalOpen(false);
-
-  const handleCreateNewDeck = async (deck: ICreateNewDeck) => {
-    // Close modal
-    closeModal();
-    // Dispatch creation of new deck, should set loading to true
-    const response = await dispatch(VocabSliceService.createDeck(deck));
-
-    if (response.type === "vocab/createDeck/fulfilled") {
-      toastService.success(`Created ${response.payload.deck.name}`);
-      // Reset flags
-      dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
-    } else {
-      toastService.error(response.payload);
-      //
-      dispatch(VocabSliceService.resetErrorState());
-    }
-    // Get updated decks
-    fetchUserDecks();
-  };
 
   const filterDecks = (value: string) => {
     const searchText = value.toLowerCase();
@@ -81,13 +60,9 @@ const AllDecksPage: React.FC = () => {
     );
   };
 
-  if (isLoading) {
-    return (
-      <div className="all-decks-page-container">
-        <Spinner />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   toastService.info("Loading decks...");
+  // }
 
   // No decks and no state-changing functionality in progress
   if (decks.length === 0 && !isModalOpen && !isLoading && !isError) {
@@ -113,12 +88,7 @@ const AllDecksPage: React.FC = () => {
         })}
       </div>
       {isModalOpen && (
-        <CreateDeckModalForm
-          handleCreateNewDeck={handleCreateNewDeck}
-          decks={decks}
-          isModalOpen={isModalOpen}
-          onClose={closeModal}
-        />
+        <CreateDeckModalForm decks={decks} isModalOpen={isModalOpen} onClose={closeModal} />
       )}
     </div>
   );

@@ -4,7 +4,7 @@ import StatsPage from "../vocab/stats/StatsPage";
 import NavigationBar from "../../components/NavigationBar";
 import MenuPanel from "../../components/MenuPanel";
 import DeckPage from "../vocab/deck/DeckPage";
-import UploadWordsPage from "./deck/UploadWordsModal";
+import UploadWordsPage from "./deck/UploadWords";
 import FlashCardsPage from "./flashcards/FlashCardsPage";
 
 const VocabPage = () => {

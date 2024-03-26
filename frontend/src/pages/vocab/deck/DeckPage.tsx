@@ -2,11 +2,11 @@ import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { VocabSliceService } from "../../../features/vocabSlice";
 import CreateWordForm from "../words/CreateWordForm";
 import { ICreateNewVocabWord } from "../../../interfaces/index";
-import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import DeckPageTable from "./DeckPageWordsTable";
 import RingLoader from "react-spinners/RingLoader";
-import { FaPlay } from "react-icons/fa";
+import { FcPositiveDynamic } from "react-icons/fc";
+import { FcUpload } from "react-icons/fc";
 import { toast } from "react-toastify";
 
 const DeckPage = () => {
@@ -21,7 +21,7 @@ const DeckPage = () => {
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
     const response = await dispatch(VocabSliceService.createWord(word));
     if (response.type === "vocab/createWord/fulfilled") {
-      toast.success("Word created successfully!");
+      toast.success("Word created!");
       dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
     } else {
       toast.error(response.payload);
@@ -48,10 +48,23 @@ const DeckPage = () => {
             <CreateWordForm handleCreateNewWord={handleCreateNewWord} deckID={currentDeck._id} />
           )}
 
-          {/* <Button onClick={() => navigate("/vocab/decks/upload-words")} variant="contained">
-            Upload words
-          </Button>
-          <FaPlay onClick={() => navigate("/vocab/decks/flashcards")} /> */}
+          <div className="deck-button-options-panel">
+            <div
+              className="deck-page-action-button"
+              onClick={() => navigate("/vocab/decks/flashcards")}
+            >
+              <FcUpload size={35} />
+              Upload
+            </div>
+            <div
+              className="deck-page-action-button"
+              onClick={() => navigate("/vocab/decks/flashcards")}
+            >
+              <FcPositiveDynamic size={35} />
+              Flashcards
+            </div>
+          </div>
+
           <DeckPageTable words={currentDeck.words} />
         </>
       ) : (

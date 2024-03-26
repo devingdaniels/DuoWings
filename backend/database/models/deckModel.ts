@@ -27,6 +27,10 @@ const WordDeckSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  level: {
+    type: Number,
+    default: 1,
+  },
 });
 
 /*

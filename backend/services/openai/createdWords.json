@@ -5485,5 +5485,229 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "65d22d650fef6fd1e3780cae",
     "timestamp": "2024-03-25T23:16:15.981Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "To collect",
+      "definition": "Recoger",
+      "exampleSentence": "Voy a coleccionar sellos para mi álbum.",
+      "wordType": "verb",
+      "conjugations": {
+        "present": {
+          "yo": "recojo",
+          "tu": "recoges",
+          "el": "recoge",
+          "nosotros": "recogemos",
+          "vosotros": "recogéis",
+          "ellos": "recogen"
+        },
+        "preterite": {
+          "yo": "recogí",
+          "tu": "recogiste",
+          "el": "recogió",
+          "nosotros": "recogimos",
+          "vosotros": "recogisteis",
+          "ellos": "recogieron"
+        },
+        "future": {
+          "yo": "recogeré",
+          "tu": "recogerás",
+          "el": "recogerá",
+          "nosotros": "recogeremos",
+          "vosotros": "recogeréis",
+          "ellos": "recogerán"
+        },
+        "imperfect": {
+          "yo": "recogía",
+          "tu": "recogías",
+          "el": "recogía",
+          "nosotros": "recogíamos",
+          "vosotros": "recogíais",
+          "ellos": "recogían"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-25T23:36:09.373Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "66021ee539f7807877246aea",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-26T01:03:33.815Z"
+  },
+  {
+    "word": {
+      "deckID": "65d22d650fef6fd1e3780cae",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "To find",
+      "definition": "Encontrar",
+      "exampleSentence": "Voy a encontrar las llaves perdidas.",
+      "wordType": "verb",
+      "conjugations": {
+        "present": {
+          "yo": "encuentro",
+          "tu": "encuentras",
+          "el": "encuentra",
+          "nosotros": "encontramos",
+          "vosotros": "encontráis",
+          "ellos": "encuentran"
+        },
+        "preterite": {
+          "yo": "encontré",
+          "tu": "encontraste",
+          "el": "encontró",
+          "nosotros": "encontramos",
+          "vosotros": "encontrasteis",
+          "ellos": "encontraron"
+        },
+        "future": {
+          "yo": "encontraré",
+          "tu": "encontrarás",
+          "el": "encontrará",
+          "nosotros": "encontraremos",
+          "vosotros": "encontraréis",
+          "ellos": "encontrarán"
+        },
+        "imperfect": {
+          "yo": "encontraba",
+          "tu": "encontrabas",
+          "el": "encontraba",
+          "nosotros": "encontrábamos",
+          "vosotros": "encontrabais",
+          "ellos": "encontraban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-26T01:03:34.333Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "66021f5925b82aa33d9f0820",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "65d22d650fef6fd1e3780cae",
+    "timestamp": "2024-03-26T01:05:29.880Z"
+  },
+  {
+    "word": {
+      "deckID": "6602322ba176d7e8bbb65e1b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Hacer",
+      "definition": "Realizar una acción o actividad",
+      "exampleSentence": "Voy a hacer la cena esta noche.",
+      "wordType": "verbo",
+      "conjugations": {
+        "present": {
+          "yo": "hago",
+          "tu": "haces",
+          "el": "hace",
+          "nosotros": "hacemos",
+          "vosotros": "hacéis",
+          "ellos": "hacen"
+        },
+        "preterite": {
+          "yo": "hice",
+          "tu": "hiciste",
+          "el": "hizo",
+          "nosotros": "hicimos",
+          "vosotros": "hicisteis",
+          "ellos": "hicieron"
+        },
+        "future": {
+          "yo": "haré",
+          "tu": "harás",
+          "el": "hará",
+          "nosotros": "haremos",
+          "vosotros": "haréis",
+          "ellos": "harán"
+        },
+        "imperfect": {
+          "yo": "hacía",
+          "tu": "hacías",
+          "el": "hacía",
+          "nosotros": "hacíamos",
+          "vosotros": "hacíais",
+          "ellos": "hacían"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-26T02:02:02.326Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "660234b1a176d7e8bbb65eae",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6602322ba176d7e8bbb65e1b",
+    "timestamp": "2024-03-26T02:36:33.905Z"
+  },
+  {
+    "word": {
+      "deckID": "6602457860b0cf768fe853ed",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Coger",
+      "definition": "to take or grab",
+      "exampleSentence": "Voy a coger el lápiz del escritorio.",
+      "wordType": "verb",
+      "conjugations": {
+        "present": {
+          "yo": "cojo",
+          "tu": "coges",
+          "el": "coge",
+          "nosotros": "cogemos",
+          "vosotros": "cogéis",
+          "ellos": "cogen"
+        },
+        "preterite": {
+          "yo": "cogí",
+          "tu": "cogiste",
+          "el": "cogió",
+          "nosotros": "cogimos",
+          "vosotros": "cogisteis",
+          "ellos": "cogieron"
+        },
+        "future": {
+          "yo": "cogeré",
+          "tu": "cogerás",
+          "el": "cogerá",
+          "nosotros": "cogeremos",
+          "vosotros": "cogeréis",
+          "ellos": "cogerán"
+        },
+        "imperfect": {
+          "yo": "cogía",
+          "tu": "cogías",
+          "el": "cogía",
+          "nosotros": "cogíamos",
+          "vosotros": "cogíais",
+          "ellos": "cogían"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-26T03:47:38.944Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6602458860b0cf768fe853f5",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6602457860b0cf768fe853ed",
+    "timestamp": "2024-03-26T03:48:25.648Z"
   }
 ]

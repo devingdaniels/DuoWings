@@ -22,10 +22,14 @@ const CreateWordForm: React.FC<CreateWordForm> = ({ handleCreateNewWord, deckID 
     // Capitalize the first letter of the word
     formData.word = formData.word.charAt(0).toUpperCase() + formData.word.slice(1).toLowerCase();
     // Ensure the word only contains letters from English and spanish alphabet
-    if (!/^[a-zA-Z]+$/.test(formData.word)) {
+    // It can contain spaces, hyphens, and apostrophes
+    const regex = /^[A-Za-záéíóúüñÁÉÍÓÚÜÑ\s'-]+$/;
+    if (!regex.test(formData.word)) {
       toastService.warning("Word must contain only letters!");
+      toastService.warning("Invalid word format!");
       return;
     }
+
     // Call the parent function
     handleCreateNewWord(formData);
     // Reset the state

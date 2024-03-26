@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 
-// If you had props, they would be defined like this:
-// interface FlashCardProps {
-//   // define your props here
-// }
-
-type FlashCardProps = {
+interface FlashCardProps {
   word: string;
   definition: string;
-};
+}
 
 const FlashCard: React.FC<FlashCardProps> = ({ word, definition }) => {
   const [isFlipped, setIsFlipped] = useState(false);

@@ -139,3 +139,10 @@ https://www.npmjs.com/package/@nivo/line
 
 https://mui.com/material-ui/react-progress/
 
+
+
+ICONS:
+
+https://react-icons.github.io/react-icons/search/#q=study
+
+https://react-icons.github.io/react-icons/icons/fc/
