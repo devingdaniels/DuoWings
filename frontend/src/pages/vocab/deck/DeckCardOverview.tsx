@@ -39,7 +39,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck }) => {
       <div className="deck-card-overview-header">
         <span className="deck-header-item deck-header-level-container">Level {deck.level}</span>
         <h2 className="deck-header-item">{deck.name}</h2>
-        <div className="deck-header-item delete-container">
+        <div className="deck-header-item deck-card-overview-delete-icon">
           <AiOutlineDelete onClick={handleDeleteDeck} size={30} />
         </div>
       </div>

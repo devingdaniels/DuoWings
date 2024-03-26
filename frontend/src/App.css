@@ -290,13 +290,16 @@ a {
   align-items: center;
 }
 
-.delete-word-icon, .update-word-icon {
+
+.deck-card-overview-delete-icon {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.delete-word-icon:hover, .update-word-icon:hover {
+.deck-card-overview-delete-icon:hover {
+  color: red;
   transform: scale(1.4);
 }
+
 
 .deck-header-level-container {
   background-color: blue;
@@ -435,6 +438,15 @@ a {
 
 .word-table-container td.wordType {
   text-transform: capitalize;
+}
+
+
+.delete-word-icon, .update-word-icon {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.delete-word-icon:hover, .update-word-icon:hover {
+  transform: scale(1.4);
 }
 
 

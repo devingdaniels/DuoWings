@@ -5821,5 +5821,61 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "65d22d650fef6fd1e3780cae",
     "timestamp": "2024-03-26T12:21:00.550Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "To catch",
+      "definition": "agarrar/ atrapar",
+      "exampleSentence": "Ella logró atrapar el balón antes de que cayera al suelo.",
+      "wordType": "verb",
+      "conjugations": {
+        "present": {
+          "yo": "atrapo",
+          "tu": "atrapas",
+          "el": "atrapa",
+          "nosotros": "atrapamos",
+          "vosotros": "atrapáis",
+          "ellos": "atrapan"
+        },
+        "preterite": {
+          "yo": "atrapé",
+          "tu": "atrapaste",
+          "el": "atrapó",
+          "nosotros": "atrapamos",
+          "vosotros": "atrapasteis",
+          "ellos": "atraparon"
+        },
+        "future": {
+          "yo": "atraparé",
+          "tu": "atraparás",
+          "el": "atrapará",
+          "nosotros": "atraparemos",
+          "vosotros": "atraparéis",
+          "ellos": "atraparán"
+        },
+        "imperfect": {
+          "yo": "atrapaba",
+          "tu": "atrabas",
+          "el": "atrapaba",
+          "nosotros": "atrapábamos",
+          "vosotros": "atrapabais",
+          "ellos": "atrapaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-26T12:21:06.231Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6602cb8a8db1c224f2aae355",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-26T13:20:10.961Z"
   }
 ]

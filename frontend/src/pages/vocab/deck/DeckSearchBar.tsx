@@ -7,7 +7,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-// Define a custom MUI theme with black background
 const theme = createTheme({
   palette: {
     primary: {

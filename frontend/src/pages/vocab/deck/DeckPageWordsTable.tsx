@@ -26,6 +26,10 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
     }
   };
 
+  const handleUpdateWord = (wordID: string) => {
+    alert(`Update word with ID: ${wordID}`);
+  };
+
   return (
     <div className="word-table-container">
       <table>
@@ -55,7 +59,7 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
               <td>
                 <FcEditImage
                   className="update-word-icon"
-                  onClick={() => handleDeleteWord(word._id)}
+                  onClick={() => handleUpdateWord(word._id)}
                   size={36}
                 />
               </td>

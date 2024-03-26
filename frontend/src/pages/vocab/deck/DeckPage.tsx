@@ -68,7 +68,7 @@ const DeckPage = () => {
           <DeckPageTable words={currentDeck.words} />
         </>
       ) : (
-        <p>Deck not found, please return home to resolve...</p>
+        <p>Application error, please navigate to "decks" resolve...</p>
       )}
     </div>
   );
