@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { ICreateNewDeck, IWordDeck } from "../interfaces/index";
+import { ICreateNewDeck, IWord, IWordDeck } from "../interfaces/index";
 import { ICreateNewVocabWord } from "../interfaces/index";
 import { VocabService } from "./vocabService";
 
@@ -132,6 +132,21 @@ const deleteWordFromDeckByID = createAsyncThunk(
     } catch (error: any) {
       const errorMessage = error.message || "Failed to delete word.";
       console.log(NAMESPACE, "Failed to delete word.");
+      return rejectWithValue(errorMessage);
+    }
+  }
+);
+
+const updateWordInDeckByID = createAsyncThunk(
+  "vocab/updateWordInDeckByID",
+  async (word: IWord, { rejectWithValue }) => {
+    try {
+      const response = await VocabService.updateWordInDeckByID(word);
+      if (DEBUGGING) console.log(NAMESPACE, "deleteWordByID response:", response);
+      return response;
+    } catch (error: any) {
+      const errorMessage = error.message || "Failed to update word.";
+      if (DEBUGGING) console.log(NAMESPACE, error);
       return rejectWithValue(errorMessage);
     }
   }
@@ -274,6 +289,27 @@ const vocabSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = false;
         state.message = action.payload as string;
+      })
+      .addCase(updateWordInDeckByID.pending, (state) => {
+        state.isLoading = true;
+        state.isSuccess = false;
+        state.isError = false;
+        state.message = "Updating word in deck...";
+      })
+      .addCase(updateWordInDeckByID.fulfilled, (state, action) => {
+        state.currentDeck = action.payload.deck;
+        state.isSuccess = true;
+        state.isLoading = false;
+        state.isError = false;
+        console.log(action.payload);
+        state.currentDeck = action.payload.deck;
+        state.message = action.payload.message;
+      })
+      .addCase(updateWordInDeckByID.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.message = action.payload as string;
       });
   },
 });
@@ -291,6 +327,7 @@ const VocabSliceService = {
   deleteDeckByID,
   createWord,
   deleteWordFromDeckByID,
+  updateWordInDeckByID,
   setCurrentDeck,
   setVocabSliceToInitialState,
   resetErrorState,

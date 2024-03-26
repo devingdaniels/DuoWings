@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 const DeckPage = () => {
   // Hooks
   const navigate = useNavigate();
+
   // Redux
   const dispatch = useAppDispatch();
 

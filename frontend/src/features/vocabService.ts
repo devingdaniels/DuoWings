@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { ICreateNewDeck, ICreateNewVocabWord } from "../interfaces/index";
+import { ICreateNewDeck, ICreateNewVocabWord, IWord } from "../interfaces/index";
 
 //! Axios configuration for cookies (this should be done in a separate file via Axios.create() and interceptor and then imported)
 Axios.defaults.withCredentials = true;
@@ -90,6 +90,17 @@ const deleteWordByID = async (id: string) => {
   }
 };
 
+const updateWordInDeckByID = async (word: IWord) => {
+  const URL = `${import.meta.env.VITE_BACKEND_API_WORD}/update-word`;
+  try {
+    const response = await Axios.put(URL + `/${word._id}`, word);
+    return response.data;
+  } catch (err: any) {
+    console.error(NAMESPACE, err);
+    throw new Error(err.response?.data?.error || "Failed to update word");
+  }
+};
+
 const VocabService = {
   createDeck,
   createWord,
@@ -97,6 +108,7 @@ const VocabService = {
   fetchAllDecks,
   deleteDeckByID,
   deleteWordByID,
+  updateWordInDeckByID,
 };
 
 export { VocabService };

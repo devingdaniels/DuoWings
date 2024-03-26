@@ -14,8 +14,47 @@ interface DeckPageTableProps {
 const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
   const dispatch = useAppDispatch();
   const [editableWordId, setEditableWordId] = useState<string | null>(null);
-  const [editableValues, setEditableValues] = useState<IWord | null>(null);
+  const [updateDeck, setUpateDeck] = useState<IWord | null>(null);
   const initialValuesRef = useRef<IWord | null>(null);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
+    fieldName: string
+  ) => {
+    if (!updateDeck) return;
+    setUpateDeck({ ...updateDeck, [fieldName]: e.target.value });
+  };
+
+  const toggleEdit = (wordID: string, word: IWord) => {
+    if (editableWordId === wordID) {
+      // Exiting edit mode, check for changes
+      if (JSON.stringify(initialValuesRef.current) !== JSON.stringify(updateDeck)) {
+        handleUpdateWord();
+      }
+      setEditableWordId(null);
+      setUpateDeck(null);
+      initialValuesRef.current = null;
+    } else {
+      // Entering edit mode, store initial values
+      setEditableWordId(wordID);
+      setUpateDeck(word);
+      initialValuesRef.current = word;
+    }
+  };
+
+  const handleUpdateWord = async () => {
+    if (!updateDeck) return;
+
+    const response = await dispatch(VocabSliceService.updateWordInDeckByID(updateDeck));
+    console.log(response);
+    if (response.type === "vocab/updateWordInDeckByID/fulfilled") {
+      toastService.success(response.payload.message);
+      await dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
+    } else {
+      toastService.error(response.payload);
+      dispatch(VocabSliceService.resetErrorState());
+    }
+  };
 
   const handleDeleteWord = async (wordID: string) => {
     const response = await dispatch(VocabSliceService.deleteWordFromDeckByID(wordID));
@@ -28,32 +67,6 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
       toastService.error(response.payload);
       dispatch(VocabSliceService.resetErrorState());
     }
-  };
-
-  const toggleEdit = (wordID: string, word: IWord) => {
-    if (editableWordId === wordID) {
-      // Exiting edit mode, check for changes
-      if (JSON.stringify(initialValuesRef.current) !== JSON.stringify(editableValues)) {
-        console.log("Updated data:", editableValues);
-        // Place your API logic here to update the word
-      }
-      setEditableWordId(null);
-      setEditableValues(null);
-      initialValuesRef.current = null;
-    } else {
-      // Entering edit mode, store initial values
-      setEditableWordId(wordID);
-      setEditableValues(word);
-      initialValuesRef.current = word;
-    }
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
-    fieldName: string
-  ) => {
-    if (!editableValues) return;
-    setEditableValues({ ...editableValues, [fieldName]: e.target.value });
   };
 
   return (

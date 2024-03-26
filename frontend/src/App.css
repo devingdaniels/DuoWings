@@ -415,9 +415,8 @@ a {
   box-sizing: border-box;
 }
 
-/* Adjust input focus styling to maintain table aesthetics */
 .word-table-container input:focus {
-  outline: none; /* Remove default focus outline */
+  outline: none; 
 }
 
 .word-table-container thead tr {
@@ -446,7 +445,7 @@ a {
 }
 
 .word-table-container tbody tr:hover {
-  background-color: #a5a5a5;
+  background-color: rgb(159, 199, 247);
   cursor: pointer;
   color: black;
 }
@@ -458,7 +457,6 @@ a {
 .delete-word-icon:hover, .update-word-icon:hover {
   transform: scale(1.4);
 }
-
 
 /* ------------------------ DECK PAGE CREATE NEW WORD FORM AND ACTION BUTTONS ------------------------  */
 

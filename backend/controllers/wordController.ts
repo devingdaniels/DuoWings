@@ -77,7 +77,7 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
 /*
  * ********************************************************************************************************************
  * This function is used to delete a word from a deck by its ID
- * It does NOT delete the word from the database, only from the deck
+ * It does NOT delete the word from the Words document portion of the database, only from the deck it is associated with
  * //! After removing the word from the deck, should the userID reference also be removed from the word object???
  * ********************************************************************************************************************
  */
@@ -111,4 +111,54 @@ const deleteWordFromDeckByID = async (req: Request, res: Response, next: NextFun
   }
 };
 
-export { createWord, deleteWordFromDeckByID };
+/*
+ * ********************************************************************************************************************
+ * Input: word object, word ID
+ * This function is used to update a word in a deck by its ID
+ * It updates the word's properties (e.g., word, definition, example sentence, word type, etc.)
+ * It returns a 201 status code and the updated deck with the updated word
+ * ********************************************************************************************************************
+ */
+const updateWordInDeckByID = async (req: Request, res: Response, next: NextFunction) => {
+  const word = req.body;
+  const { id } = req.params;
+
+  try {
+    // Find the word
+    const wordFromDB = await WordModel.findById(id);
+
+    if (!wordFromDB) {
+      logging.error(NAMESPACE, `Word with ID ${id} not found`);
+      return res.status(404).json({ error: "Word not found" });
+    }
+
+    // Update the word
+    const updatedWord = await WordModel.updateOne(
+      { _id: id },
+      {
+        $set: {
+          word: word.word,
+          definition: word.definition,
+          exampleSentence: word.exampleSentence,
+          wordType: word.wordType,
+          conjugations: word.conjugations,
+        },
+      }
+    );
+
+    if (updatedWord.nModified === 0) {
+      logging.error(NAMESPACE, `Failed to update word with ID ${id}`);
+      return res.status(400).json({ error: "Failed to update word" });
+    }
+
+    // Update the deck with the updated word
+    const deck = await DeckModel.findById(word.deckID).populate("words");
+
+    return res.status(201).json({ message: "Update successful", deck });
+  } catch (error) {
+    logging.error(NAMESPACE, "Error updating word:", error);
+    next(error);
+  }
+};
+
+export { createWord, deleteWordFromDeckByID, updateWordInDeckByID };

@@ -11,6 +11,28 @@ const WordSchema = new mongoose.Schema({
     required: true,
     ref: "User",
   },
+  word: {
+    type: String,
+    required: true,
+  },
+  definition: {
+    type: String,
+    required: true,
+  },
+  exampleSentence: {
+    type: String,
+    required: true,
+  },
+  wordType: {
+    type: String,
+    required: true,
+  },
+  creationDate: {
+    type: Date,
+    default: new Date(),
+    immutable: false,
+  },
+  tags: [String],
   stats: {
     level: {
       min: 0,
@@ -28,22 +50,6 @@ const WordSchema = new mongoose.Schema({
       default: 0,
       min: 0,
     },
-  },
-  word: {
-    type: String,
-    required: true,
-  },
-  definition: {
-    type: String,
-    required: true,
-  },
-  exampleSentence: {
-    type: String,
-    required: true,
-  },
-  wordType: {
-    type: String,
-    required: true,
   },
   // Conjugations for the word are not required, as not all words have conjugations
   conjugations: {
@@ -80,12 +86,6 @@ const WordSchema = new mongoose.Schema({
       ellos: String,
     },
   },
-  creationDate: {
-    type: Date,
-    default: new Date(),
-    immutable: false,
-  },
-  tags: [String],
 });
 
 /* 
