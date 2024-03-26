@@ -5877,5 +5877,225 @@
     "userID": "6596feaa054b37685f9ba4a8",
     "deckID": "6601ad2f7f9116e192d86e60",
     "timestamp": "2024-03-26T13:20:10.961Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "To work",
+      "definition": "trabajar",
+      "exampleSentence": "Me gusta trabajar en equipo.",
+      "wordType": "verb",
+      "conjugations": {
+        "present": {
+          "yo": "trabajo",
+          "tu": "trabajas",
+          "el": "trabaja",
+          "nosotros": "trabajamos",
+          "vosotros": "trabajáis",
+          "ellos": "trabajan"
+        },
+        "preterite": {
+          "yo": "trabajé",
+          "tu": "trabajaste",
+          "el": "trabajó",
+          "nosotros": "trabajamos",
+          "vosotros": "trabajasteis",
+          "ellos": "trabajaron"
+        },
+        "future": {
+          "yo": "trabajaré",
+          "tu": "trabajarás",
+          "el": "trabajará",
+          "nosotros": "trabajaremos",
+          "vosotros": "trabajaréis",
+          "ellos": "trabajarán"
+        },
+        "imperfect": {
+          "yo": "trabajaba",
+          "tu": "trabajabas",
+          "el": "trabajaba",
+          "nosotros": "trabajábamos",
+          "vosotros": "trabajabais",
+          "ellos": "trabajaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-26T13:20:11.578Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6602d15b9e8e0071d4194de3",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-26T13:44:59.896Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Consecuencia",
+      "definition": "Resultado de un hecho o acción que se deriva de este",
+      "exampleSentence": "La consecuencia de no estudiar es suspender el examen.",
+      "wordType": "Sustantivo",
+      "conjugations": {
+        "present": {
+          "yo": "consecuencia",
+          "tu": "consecuencia",
+          "el": "consecuencia",
+          "nosotros": "consecuencia",
+          "vosotros": "consecuencia",
+          "ellos": "consecuencia"
+        },
+        "preterite": {
+          "yo": "consecuencié",
+          "tu": "consecuenciaste",
+          "el": "consecuenció",
+          "nosotros": "consecuenciamos",
+          "vosotros": "consecuenciasteis",
+          "ellos": "consecuenciaron"
+        },
+        "future": {
+          "yo": "consecuenciaré",
+          "tu": "consecuenciarás",
+          "el": "consecuenciará",
+          "nosotros": "consecuenciaremos",
+          "vosotros": "consecuenciaréis",
+          "ellos": "consecuenciarán"
+        },
+        "imperfect": {
+          "yo": "consecuenciaba",
+          "tu": "consecuenciabas",
+          "el": "consecuenciaba",
+          "nosotros": "consecuenciábamos",
+          "vosotros": "consecuenciabais",
+          "ellos": "consecuenciaban"
+        }
+      },
+      "stats": {
+        "difficulty": 0,
+        "creationDate": "2024-03-26T13:45:00.393Z",
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "tags": [],
+      "_id": "6602dda72556c19c08685169",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-26T14:37:31.410Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "wordStatID": "66030de9a5c6ea954682b57e",
+      "word": "To grab",
+      "definition": "to take hold of something suddenly and roughly",
+      "exampleSentence": "He grabbed the book from the shelf.",
+      "wordType": "verb",
+      "conjugations": {
+        "present": {
+          "yo": "agarro",
+          "tu": "agarras",
+          "el": "agarra",
+          "nosotros": "agarramos",
+          "vosotros": "agarráis",
+          "ellos": "agarran"
+        },
+        "preterite": {
+          "yo": "agarré",
+          "tu": "agarraste",
+          "el": "agarró",
+          "nosotros": "agarramos",
+          "vosotros": "agarrasteis",
+          "ellos": "agarraron"
+        },
+        "future": {
+          "yo": "agarraré",
+          "tu": "agarrarás",
+          "el": "agarrará",
+          "nosotros": "agarraremos",
+          "vosotros": "agarraréis",
+          "ellos": "agarrarán"
+        },
+        "imperfect": {
+          "yo": "agarraba",
+          "tu": "agarrabas",
+          "el": "agarraba",
+          "nosotros": "agarrábamos",
+          "vosotros": "agarrabais",
+          "ellos": "agarraban"
+        }
+      },
+      "creationDate": "2024-03-26T18:02:32.786Z",
+      "tags": [],
+      "_id": "66030de9a5c6ea954682b57d",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-26T18:03:22.697Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "stats": {
+        "difficulty": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "word": "Grabar",
+      "definition": "To record or to engrave",
+      "exampleSentence": "Voy a grabar el concierto para poder verlo más tarde.",
+      "wordType": "Verb",
+      "conjugations": {
+        "present": {
+          "yo": "grabo",
+          "tu": "grabas",
+          "el": "graba",
+          "nosotros": "grabamos",
+          "vosotros": "grabáis",
+          "ellos": "graban"
+        },
+        "preterite": {
+          "yo": "grabé",
+          "tu": "grabaste",
+          "el": "grabó",
+          "nosotros": "grabamos",
+          "vosotros": "grabasteis",
+          "ellos": "grabaron"
+        },
+        "future": {
+          "yo": "grabaré",
+          "tu": "grabarás",
+          "el": "grabará",
+          "nosotros": "grabaremos",
+          "vosotros": "grabaréis",
+          "ellos": "grabarán"
+        },
+        "imperfect": {
+          "yo": "grababa",
+          "tu": "grababas",
+          "el": "grababa",
+          "nosotros": "grabábamos",
+          "vosotros": "grababais",
+          "ellos": "grababan"
+        }
+      },
+      "creationDate": "2024-03-26T18:27:50.687Z",
+      "tags": [],
+      "_id": "660313d69c47f09a973d2f04",
+      "__v": 0
+    },
+    "userID": "6596feaa054b37685f9ba4a8",
+    "deckID": "6601ad2f7f9116e192d86e60",
+    "timestamp": "2024-03-26T18:28:39.623Z"
   }
 ]

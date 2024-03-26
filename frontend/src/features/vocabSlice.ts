@@ -238,7 +238,6 @@ const vocabSlice = createSlice({
         state.isError = true;
         state.isLoading = false;
         state.isSuccess = false;
-        console.log(action.error);
         state.message = action.error.message as string;
       })
       .addCase(createWord.pending, (state) => {
@@ -265,7 +264,6 @@ const vocabSlice = createSlice({
         state.isError = false;
       })
       .addCase(deleteWordFromDeckByID.fulfilled, (state, action) => {
-        console.log(action.payload.deck);
         state.currentDeck = action.payload.deck;
         state.isSuccess = true;
         state.isLoading = false;

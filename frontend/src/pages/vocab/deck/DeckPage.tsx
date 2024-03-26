@@ -38,15 +38,17 @@ const DeckPage = () => {
             <p>{currentDeck.description}</p>
           </div>
 
-          {isLoading ? (
-            <RingLoader
-              className="create-word-loading-spinner-container"
-              size={60}
-              color="rgba(59, 172, 57, 0.66)"
-            />
-          ) : (
-            <CreateWordForm handleCreateNewWord={handleCreateNewWord} deckID={currentDeck._id} />
-          )}
+          <div className="deck-page-loading-create-word-form-container">
+            {isLoading ? (
+              <RingLoader
+                className="create-word-loading-spinner-container"
+                size={60}
+                color="rgba(245, 58, 58 , 0.66)"
+              />
+            ) : (
+              <CreateWordForm handleCreateNewWord={handleCreateNewWord} deckID={currentDeck._id} />
+            )}
+          </div>
 
           <div className="deck-button-options-panel">
             <div

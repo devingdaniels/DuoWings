@@ -63,8 +63,7 @@ interface IConjugation {
 }
 
 interface Stats {
-  difficulty: number;
-  creationDate: Date;
+  level: number;
   correctCount: number;
   incorrectCount: number;
 }
@@ -83,6 +82,7 @@ export interface IWord {
     future?: IConjugation;
     imperfect?: IConjugation;
   };
+  creationDate: Date;
   stats: Stats;
   tags: string[];
 }

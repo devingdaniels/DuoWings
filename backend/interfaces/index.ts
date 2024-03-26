@@ -11,7 +11,6 @@ interface IConjugation {
 
 interface Stats {
   difficulty: number;
-  creationDate: Date;
   correctCount: number;
   incorrectCount: number;
 }
@@ -19,6 +18,7 @@ interface Stats {
 export interface IWord {
   _id: mongoose.Types.ObjectId;
   userID: mongoose.Types.ObjectId;
+  deckID: mongoose.Types.ObjectId;
   word: string;
   definition: string;
   exampleSentence: string;
@@ -31,7 +31,7 @@ export interface IWord {
   };
   stats: Stats;
   tags: string[];
-  deckID: mongoose.Types.ObjectId;
+  creationDate: Date;
 }
 export interface IWordDeck {
   _id: mongoose.Types.ObjectId;

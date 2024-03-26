@@ -44,8 +44,10 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck }) => {
         </div>
       </div>
       <div className="deck-details">
-        <p>Created: {new Date(deck.creationDate).toLocaleDateString()}</p>
-        <p>Words: {deck.words.length}</p>
+        <div>
+          <p>Created: {new Date(deck.creationDate).toLocaleDateString()}</p>
+          <p>Words: {deck.words.length}</p>
+        </div>
       </div>
     </div>
   );

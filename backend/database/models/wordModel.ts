@@ -11,6 +11,24 @@ const WordSchema = new mongoose.Schema({
     required: true,
     ref: "User",
   },
+  stats: {
+    level: {
+      min: 0,
+      max: 5,
+      type: Number,
+      default: 0,
+    },
+    correctCount: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+    incorrectCount: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+  },
   word: {
     type: String,
     required: true,
@@ -62,28 +80,10 @@ const WordSchema = new mongoose.Schema({
       ellos: String,
     },
   },
-  stats: {
-    difficulty: {
-      min: 0,
-      max: 10,
-      type: Number,
-      default: 0,
-    },
-    creationDate: {
-      type: Date,
-      default: new Date(),
-      immutable: false,
-    },
-    correctCount: {
-      type: Number,
-      default: 0,
-      min: 0,
-    },
-    incorrectCount: {
-      type: Number,
-      default: 0,
-      min: 0,
-    },
+  creationDate: {
+    type: Date,
+    default: new Date(),
+    immutable: false,
   },
   tags: [String],
 });
@@ -132,8 +132,6 @@ frequency: {
 origin: String,
 
 
-relatedWords: [String],
-
-
+relatedWords: [String], // Related words or phrases 
 
 */
