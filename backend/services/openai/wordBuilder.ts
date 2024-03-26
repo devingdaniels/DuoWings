@@ -35,12 +35,13 @@ const buildWord = async (word: string, user: any): Promise<IWord> => {
 export { buildWord };
 
 function createPrompt(word: string) {
-  const prompt = `Given the word "${word}", complete the following object with appropriate values in Spanish and return a JSON object. Provide only the specific category information requested without additional explanations or examples in other languages.\n\n:   \n\n:
+  const prompt = `Given the word "${word}", complete the following object with appropriate values in Spanish and return a JSON object. Provide only the specific category information requested without additional explanations or examples in other languages. Lastly, if the 
+  the wordType is not a Verb, then return an empty {} on the conjugations attribute.\n\n:   \n\n:
   {
     word: "${word}",
-    definition: [definition of the word],
-    wordType: [type of word],
-    exampleSentence: [1 example sentence using the word],
+    definition: "definition of the word: Example: 'Perro = Dog, Hacer = To do'",
+    wordType: "type of word. Ex: 'Noun', 'Verb', 'Adjective'",
+    exampleSentence: "1 example sentence using the word",
     conjugations: {
         present: {
             yo: [conjugation for 'yo'],

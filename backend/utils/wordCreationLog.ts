@@ -3,8 +3,6 @@ const path = require("path");
 
 interface NewWord {
   word: Object;
-  userID: string;
-  deckID: string;
   timestamp: string;
 }
 
@@ -12,8 +10,6 @@ export async function writeWordToFile(obj: NewWord) {
   let res;
   await writeWordToFileHelper({
     word: obj.word,
-    userID: obj.userID,
-    deckID: obj.deckID,
     timestamp: obj.timestamp,
   })
     .then((result) => {

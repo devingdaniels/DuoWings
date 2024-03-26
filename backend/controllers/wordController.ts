@@ -23,6 +23,8 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
     // Use the openAI API and user word to add definition, example sentence, and word type | and user for context
     const createdWord = await openAIService.buildWord(word, user);
 
+    console.log("createdWord:", createdWord);
+
     // Check if the deck exists
     const deckFromDB = await DeckModel.findById(deckID).populate("words");
 
@@ -50,8 +52,6 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
     // Log the word to a file
     writeWordToFile({
       word: newWord,
-      userID: user._id,
-      deckID: deckID,
       timestamp: new Date().toISOString(),
     });
 
