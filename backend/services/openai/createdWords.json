@@ -6340,5 +6340,423 @@
       "__v": 0
     },
     "timestamp": "2024-03-26T22:30:44.969Z"
+  },
+  {
+    "word": {
+      "deckID": "6603830320b087d0a91a71de",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Hacer",
+      "definition": "Hacer = To do",
+      "exampleSentence": "Ella hace la tarea todas las tardes.",
+      "wordType": "Verbo",
+      "creationDate": "2024-03-26T22:35:09.743Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "hago",
+          "tu": "haces",
+          "el": "hace",
+          "nosotros": "hacemos",
+          "vosotros": "hacéis",
+          "ellos": "hacen"
+        },
+        "preterite": {
+          "yo": "hice",
+          "tu": "hiciste",
+          "el": "hizo",
+          "nosotros": "hicimos",
+          "vosotros": "hicisteis",
+          "ellos": "hicieron"
+        },
+        "future": {
+          "yo": "haré",
+          "tu": "harás",
+          "el": "hará",
+          "nosotros": "haremos",
+          "vosotros": "haréis",
+          "ellos": "harán"
+        },
+        "imperfect": {
+          "yo": "hacía",
+          "tu": "hacías",
+          "el": "hacía",
+          "nosotros": "hacíamos",
+          "vosotros": "hacíais",
+          "ellos": "hacían"
+        }
+      },
+      "_id": "6603830f20b087d0a91a71e6",
+      "__v": 0
+    },
+    "timestamp": "2024-03-27T02:23:12.220Z"
+  },
+  {
+    "word": {
+      "deckID": "6603830320b087d0a91a71de",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Hacer",
+      "definition": "To do, to make",
+      "exampleSentence": "Voy a hacer la cena esta noche. (I am going to make dinner tonight.)",
+      "wordType": "Verb",
+      "creationDate": "2024-03-27T02:24:30.819Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "hago",
+          "tu": "haces",
+          "el": "hace",
+          "nosotros": "hacemos",
+          "vosotros": "hacéis",
+          "ellos": "hacen"
+        },
+        "preterite": {
+          "yo": "hice",
+          "tu": "hiciste",
+          "el": "hizo",
+          "nosotros": "hicimos",
+          "vosotros": "hicisteis",
+          "ellos": "hicieron"
+        },
+        "future": {
+          "yo": "haré",
+          "tu": "harás",
+          "el": "hará",
+          "nosotros": "haremos",
+          "vosotros": "haréis",
+          "ellos": "harán"
+        },
+        "imperfect": {
+          "yo": "hacía",
+          "tu": "hacías",
+          "el": "hacía",
+          "nosotros": "hacíamos",
+          "vosotros": "hacíais",
+          "ellos": "hacían"
+        }
+      },
+      "_id": "6603836f1ab411b96a522713",
+      "__v": 0
+    },
+    "timestamp": "2024-03-27T02:24:48.255Z"
+  },
+  {
+    "word": {
+      "deckID": "6603830320b087d0a91a71de",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Hacer",
+      "definition": "To do, to make",
+      "exampleSentence": "Yo hago mi tarea todos los días",
+      "wordType": "Verb",
+      "creationDate": "2024-03-27T02:25:29.476Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "hago",
+          "tu": "haces",
+          "el": "hace",
+          "nosotros": "hacemos",
+          "vosotros": "hacéis",
+          "ellos": "hacen"
+        },
+        "preterite": {
+          "yo": "hice",
+          "tu": "hiciste",
+          "el": "hizo",
+          "nosotros": "hicimos",
+          "vosotros": "hicisteis",
+          "ellos": "hicieron"
+        },
+        "future": {
+          "yo": "haré",
+          "tu": "harás",
+          "el": "hará",
+          "nosotros": "haremos",
+          "vosotros": "haréis",
+          "ellos": "harán"
+        },
+        "imperfect": {
+          "yo": "hacía",
+          "tu": "hacías",
+          "el": "hacía",
+          "nosotros": "hacíamos",
+          "vosotros": "hacíais",
+          "ellos": "hacían"
+        }
+      },
+      "_id": "660383a43b79a9f5428a9d7c",
+      "__v": 0
+    },
+    "timestamp": "2024-03-27T02:25:40.624Z"
+  },
+  {
+    "word": {
+      "deckID": "6603830320b087d0a91a71de",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Cantar",
+      "definition": "to sing",
+      "exampleSentence": "Yo canto en la ducha todas las mañanas",
+      "wordType": "Verb",
+      "creationDate": "2024-03-27T02:25:41.037Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "canto",
+          "tu": "cantas",
+          "el": "canta",
+          "nosotros": "cantamos",
+          "vosotros": "cantáis",
+          "ellos": "cantan"
+        },
+        "preterite": {
+          "yo": "canté",
+          "tu": "cantaste",
+          "el": "cantó",
+          "nosotros": "cantamos",
+          "vosotros": "cantasteis",
+          "ellos": "cantaron"
+        },
+        "future": {
+          "yo": "cantaré",
+          "tu": "cantarás",
+          "el": "cantará",
+          "nosotros": "cantaremos",
+          "vosotros": "cantaréis",
+          "ellos": "cantarán"
+        },
+        "imperfect": {
+          "yo": "cantaba",
+          "tu": "cantabas",
+          "el": "cantaba",
+          "nosotros": "cantábamos",
+          "vosotros": "cantabais",
+          "ellos": "cantaban"
+        }
+      },
+      "_id": "660383ae690c27ccb6a60eac",
+      "__v": 0
+    },
+    "timestamp": "2024-03-27T02:25:51.429Z"
+  },
+  {
+    "word": {
+      "deckID": "6603830320b087d0a91a71de",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Manzana",
+      "definition": "definition of the word: Example: word is Hacer, definition is 'To do, to make'",
+      "exampleSentence": "1 example sentence using the word. Ex: 'Me gusta comer manzanas todos los días'",
+      "wordType": "Noun",
+      "creationDate": "2024-03-27T02:25:51.828Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "_id": "660383b864e2d22d49621c8e",
+      "__v": 0
+    },
+    "timestamp": "2024-03-27T02:26:00.927Z"
+  },
+  {
+    "word": {
+      "deckID": "6603830320b087d0a91a71de",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Mirar",
+      "definition": "To look at, to watch",
+      "exampleSentence": "Ella mira la televisión todas las noches.",
+      "wordType": "Verb",
+      "creationDate": "2024-03-27T02:32:49.593Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "miro",
+          "tu": "miras",
+          "el": "mira",
+          "nosotros": "miramos",
+          "vosotros": "miráis",
+          "ellos": "miran"
+        },
+        "preterite": {
+          "yo": "miré",
+          "tu": "miraste",
+          "el": "miró",
+          "nosotros": "miramos",
+          "vosotros": "mirasteis",
+          "ellos": "miraron"
+        },
+        "future": {
+          "yo": "miraré",
+          "tu": "mirarás",
+          "el": "mirará",
+          "nosotros": "miraremos",
+          "vosotros": "miraréis",
+          "ellos": "mirarán"
+        },
+        "imperfect": {
+          "yo": "miraba",
+          "tu": "mirabas",
+          "el": "miraba",
+          "nosotros": "mirábamos",
+          "vosotros": "mirabais",
+          "ellos": "miraban"
+        }
+      },
+      "_id": "660385708c70dd69063fdb2d",
+      "__v": 0
+    },
+    "timestamp": "2024-03-27T02:33:21.109Z"
+  },
+  {
+    "word": {
+      "deckID": "6603830320b087d0a91a71de",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Manzana",
+      "definition": "Apple",
+      "exampleSentence": "Me gusta comer una manzana después del almuerzo.",
+      "wordType": "Noun",
+      "creationDate": "2024-03-27T02:33:21.564Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "_id": "6603857e5dd6cec61072a1c8",
+      "__v": 0
+    },
+    "timestamp": "2024-03-27T02:33:34.935Z"
+  },
+  {
+    "word": {
+      "deckID": "6603830320b087d0a91a71de",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Derramar",
+      "definition": "To spill, to pour out, to scatter",
+      "exampleSentence": "Ella derramó agua sobre la mesa.",
+      "wordType": "Verb",
+      "creationDate": "2024-03-27T02:33:35.328Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "derramo",
+          "tu": "derramas",
+          "el": "derrama",
+          "nosotros": "derramamos",
+          "vosotros": "derramáis",
+          "ellos": "derraman"
+        },
+        "preterite": {
+          "yo": "derramé",
+          "tu": "derramaste",
+          "el": "derramó",
+          "nosotros": "derramamos",
+          "vosotros": "derramasteis",
+          "ellos": "derramaron"
+        },
+        "future": {
+          "yo": "derramaré",
+          "tu": "derramarás",
+          "el": "derramará",
+          "nosotros": "derramaremos",
+          "vosotros": "derramaréis",
+          "ellos": "derramarán"
+        },
+        "imperfect": {
+          "yo": "derramaba",
+          "tu": "derramabas",
+          "el": "derramaba",
+          "nosotros": "derramábamos",
+          "vosotros": "derramabais",
+          "ellos": "derramaban"
+        }
+      },
+      "_id": "660385946269906056baac42",
+      "__v": 0
+    },
+    "timestamp": "2024-03-27T02:33:56.697Z"
+  },
+  {
+    "word": {
+      "deckID": "6603830320b087d0a91a71de",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Aprovechar",
+      "definition": "To take advantage of, to make the most of",
+      "exampleSentence": "Ella aprovecha su tiempo al máximo para lograr sus metas.",
+      "wordType": "Verb",
+      "creationDate": "2024-03-27T02:34:12.141Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "aprovecho",
+          "tu": "aprovechas",
+          "el": "aprovecha",
+          "nosotros": "aprovechamos",
+          "vosotros": "aprovecháis",
+          "ellos": "aprovechan"
+        },
+        "preterite": {
+          "yo": "aproveché",
+          "tu": "aprovechaste",
+          "el": "aprovechó",
+          "nosotros": "aprovechamos",
+          "vosotros": "aprovechasteis",
+          "ellos": "aprovecharon"
+        },
+        "future": {
+          "yo": "aprovecharé",
+          "tu": "aprovecharás",
+          "el": "aprovechará",
+          "nosotros": "aprovecharemos",
+          "vosotros": "aprovecharéis",
+          "ellos": "aprovecharán"
+        },
+        "imperfect": {
+          "yo": "aprovechaba",
+          "tu": "aprovechabas",
+          "el": "aprovechaba",
+          "nosotros": "aprovechábamos",
+          "vosotros": "aprovechabais",
+          "ellos": "aprovechaban"
+        }
+      },
+      "_id": "660385c01d2522a26327408c",
+      "__v": 0
+    },
+    "timestamp": "2024-03-27T02:34:41.302Z"
   }
 ]
