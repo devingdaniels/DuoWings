@@ -7074,5 +7074,60 @@
       "__v": 0
     },
     "timestamp": "2024-03-29T04:20:48.229Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Exponer",
+      "definition": "To expose, to exhibit, to present",
+      "exampleSentence": "Los estudiantes exponen sus proyectos en la feria de ciencias.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ehks-poh-nehrr",
+      "creationDate": "2024-03-29T04:27:11.355Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "expongo",
+          "tu": "expones",
+          "el": "expone",
+          "nosotros": "exponemos",
+          "vosotros": "exponéis",
+          "ellos": "exponen"
+        },
+        "preterite": {
+          "yo": "expuse",
+          "tu": "expusiste",
+          "el": "expuso",
+          "nosotros": "expusimos",
+          "vosotros": "expusisteis",
+          "ellos": "expusieron"
+        },
+        "future": {
+          "yo": "expondré",
+          "tu": "expondrás",
+          "el": "expondrá",
+          "nosotros": "expondremos",
+          "vosotros": "expondréis",
+          "ellos": "expondrán"
+        },
+        "imperfect": {
+          "yo": "exponía",
+          "tu": "exponías",
+          "el": "exponía",
+          "nosotros": "exponíamos",
+          "vosotros": "exponíais",
+          "ellos": "exponían"
+        }
+      },
+      "_id": "6606438406997707b4311ba4",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T04:28:53.637Z"
   }
 ]

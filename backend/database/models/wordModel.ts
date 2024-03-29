@@ -27,6 +27,10 @@ const WordSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  phoneticSpelling: {
+    type: String,
+    required: true,
+  },
   creationDate: {
     type: Date,
     default: new Date(),

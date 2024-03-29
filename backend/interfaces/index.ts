@@ -21,8 +21,9 @@ export interface IWord {
   deckID: mongoose.Types.ObjectId;
   word: string;
   definition: string;
-  exampleSentence: string;
   wordType: string;
+  exampleSentence: string;
+  phoneticSpelling: string;
   conjugations: {
     present?: IConjugation;
     preterite?: IConjugation;
