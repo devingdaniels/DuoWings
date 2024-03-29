@@ -90,14 +90,19 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
               <td>{index + 1}</td>
               <td>
                 {editableWordId === word._id ? (
-                  <input defaultValue={word.word} onChange={(e) => handleInputChange(e, "word")} />
+                  <textarea
+                    rows={5}
+                    defaultValue={word.word}
+                    onChange={(e) => handleInputChange(e, "word")}
+                  />
                 ) : (
                   word.word
                 )}
               </td>
               <td>
                 {editableWordId === word._id ? (
-                  <input
+                  <textarea
+                    rows={5}
                     defaultValue={word.definition}
                     onChange={(e) => handleInputChange(e, "definition")}
                   />
@@ -108,6 +113,7 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
               <td>
                 {editableWordId === word._id ? (
                   <textarea
+                    rows={5}
                     defaultValue={word.exampleSentence}
                     onChange={(e) => handleInputChange(e, "exampleSentence")}
                   />
@@ -117,7 +123,8 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
               </td>
               <td>
                 {editableWordId === word._id ? (
-                  <input
+                  <textarea
+                    rows={5}
                     defaultValue={word.wordType}
                     onChange={(e) => handleInputChange(e, "wordType")}
                   />

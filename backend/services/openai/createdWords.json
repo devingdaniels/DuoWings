@@ -6758,5 +6758,321 @@
       "__v": 0
     },
     "timestamp": "2024-03-27T02:34:41.302Z"
+  },
+  {
+    "word": {
+      "deckID": "6603aaf0dd830d169a9a8c2b",
+      "userID": "6603aae4dd830d169a9a8c24",
+      "word": "Atacar",
+      "definition": "To attack",
+      "exampleSentence": "El ejército ataca al enemigo.",
+      "wordType": "Verb",
+      "creationDate": "2024-03-27T05:12:30.658Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "ataco",
+          "tu": "atacas",
+          "el": "ataca",
+          "nosotros": "atacamos",
+          "vosotros": "atacáis",
+          "ellos": "atacan"
+        },
+        "preterite": {
+          "yo": "ataqué",
+          "tu": "atacaste",
+          "el": "atacó",
+          "nosotros": "atacamos",
+          "vosotros": "atacasteis",
+          "ellos": "atacaron"
+        },
+        "future": {
+          "yo": "atacaré",
+          "tu": "atacarás",
+          "el": "atacará",
+          "nosotros": "atacaremos",
+          "vosotros": "atacaréis",
+          "ellos": "atacarán"
+        },
+        "imperfect": {
+          "yo": "atacaba",
+          "tu": "atacabas",
+          "el": "atacaba",
+          "nosotros": "atacábamos",
+          "vosotros": "atacabais",
+          "ellos": "atacaban"
+        }
+      },
+      "_id": "6603ab0add830d169a9a8c32",
+      "__v": 0
+    },
+    "timestamp": "2024-03-27T05:13:47.109Z"
+  },
+  {
+    "word": {
+      "deckID": "6603aaf0dd830d169a9a8c2b",
+      "userID": "6603aae4dd830d169a9a8c24",
+      "word": "Inquebrantable",
+      "definition": "Unbreakable, unwavering, steadfast.",
+      "exampleSentence": "La determinación de María es inquebrantable.",
+      "wordType": "Adjective",
+      "creationDate": "2024-03-27T05:13:47.602Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "_id": "6603ab390f861009d7747dcf",
+      "__v": 0
+    },
+    "timestamp": "2024-03-27T05:14:34.062Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Antojo",
+      "definition": "A sudden and unpredictable desire or craving, especially for food.",
+      "exampleSentence": "Tengo un antojo de helado en este momento.",
+      "wordType": "Noun",
+      "creationDate": "2024-03-28T19:02:35.406Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "_id": "66063c489365f5a1138853be",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T03:58:01.074Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "El capricho",
+      "definition": "The whim, the caprice",
+      "exampleSentence": "Su decisión de renunciar a su trabajo fue solo un capricho.",
+      "wordType": "Noun",
+      "creationDate": "2024-03-29T03:58:16.451Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "_id": "66063cd726b3be587ee4d771",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T04:00:24.328Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Adquirir",
+      "definition": "To acquire, to obtain",
+      "exampleSentence": "Yo adquiero conocimiento en la universidad.",
+      "wordType": "Verb",
+      "creationDate": "2024-03-29T04:00:24.851Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "adquiero",
+          "tu": "adquieres",
+          "el": "adquiere",
+          "nosotros": "adquirimos",
+          "vosotros": "adquirís",
+          "ellos": "adquieren"
+        },
+        "preterite": {
+          "yo": "adquirí",
+          "tu": "adquiriste",
+          "el": "adquirió",
+          "nosotros": "adquirimos",
+          "vosotros": "adquiristeis",
+          "ellos": "adquirieron"
+        },
+        "future": {
+          "yo": "adquiriré",
+          "tu": "adquirirás",
+          "el": "adquirirá",
+          "nosotros": "adquiriremos",
+          "vosotros": "adquiriréis",
+          "ellos": "adquirirán"
+        },
+        "imperfect": {
+          "yo": "adquiría",
+          "tu": "adquirías",
+          "el": "adquiría",
+          "nosotros": "adquiríamos",
+          "vosotros": "adquiríais",
+          "ellos": "adquirían"
+        }
+      },
+      "_id": "66063e45e67654e073e1d85b",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T04:06:30.883Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Conocimiento",
+      "definition": "Knowledge or understanding of a subject, situation, or fact.",
+      "exampleSentence": "El conocimiento es fundamental para el éxito en la vida.",
+      "wordType": "Noun",
+      "creationDate": "2024-03-29T04:06:41.035Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "_id": "66063e5e4d05e06939514ff6",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T04:06:55.675Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Descubrir",
+      "definition": "To discover",
+      "exampleSentence": "Ella descubre un tesoro escondido en la playa.",
+      "wordType": "Verb",
+      "creationDate": "2024-03-29T04:06:56.192Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "descubro",
+          "tu": "descubres",
+          "el": "descubre",
+          "nosotros": "descubrimos",
+          "vosotros": "descubrís",
+          "ellos": "descubren"
+        },
+        "preterite": {
+          "yo": "descubrí",
+          "tu": "descubriste",
+          "el": "descubrió",
+          "nosotros": "descubrimos",
+          "vosotros": "descubristeis",
+          "ellos": "descubrieron"
+        },
+        "future": {
+          "yo": "descubriré",
+          "tu": "descubrirás",
+          "el": "descubrirá",
+          "nosotros": "descubriremos",
+          "vosotros": "descubriréis",
+          "ellos": "descubrirán"
+        },
+        "imperfect": {
+          "yo": "descubría",
+          "tu": "descubrías",
+          "el": "descubría",
+          "nosotros": "descubríamos",
+          "vosotros": "descubríais",
+          "ellos": "descubrían"
+        }
+      },
+      "_id": "66063f685adc8ec65dde6350",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T04:11:21.856Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Derramar",
+      "definition": "To spill, to pour",
+      "exampleSentence": "Ella derramó el agua en el suelo.",
+      "wordType": "Verb",
+      "creationDate": "2024-03-29T04:12:16.435Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "derramo",
+          "tu": "derramas",
+          "el": "derrama",
+          "nosotros": "derramamos",
+          "vosotros": "derramáis",
+          "ellos": "derraman"
+        },
+        "preterite": {
+          "yo": "derramé",
+          "tu": "derramaste",
+          "el": "derramó",
+          "nosotros": "derramamos",
+          "vosotros": "derramasteis",
+          "ellos": "derramaron"
+        },
+        "future": {
+          "yo": "derramaré",
+          "tu": "derramarás",
+          "el": "derramará",
+          "nosotros": "derramaremos",
+          "vosotros": "derramaréis",
+          "ellos": "derramarán"
+        },
+        "imperfect": {
+          "yo": "derramaba",
+          "tu": "derramabas",
+          "el": "derramaba",
+          "nosotros": "derramábamos",
+          "vosotros": "derramabais",
+          "ellos": "derramaban"
+        }
+      },
+      "_id": "6606402246cd5d2436bbe122",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T04:14:27.746Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Sobrevalorado",
+      "definition": "Overvalued, overrated.",
+      "exampleSentence": "El cuadro fue sobrevalorado por los críticos de arte.",
+      "wordType": "Adjective",
+      "creationDate": "2024-03-29T04:20:21.608Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "_id": "6606419fd5370a33ffe313de",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T04:20:48.229Z"
   }
 ]

@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Syne+Mono&display=swap");
 
-
 *{
   font-family: 'Courier New', Courier, monospace;
 }
@@ -57,7 +56,6 @@ a {
 }
 
 /* ------------------------ LOGIN AND REGISTER PAGE ------------------------ */
-
 .auth-site-title {
   padding: 1%;
   cursor: pointer;
@@ -403,12 +401,13 @@ a {
   font-size: 0.65em; 
   font-family: 'Courier New', Courier, monospace;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin: 3%;
 }
 
 .word-table-container input {
   font-family: 'Courier New', Courier, monospace;
   border: 1px solid #000000;
-  font-size: 2em;
+  font-size: 1em;
   background-color: transparent;
   color: inherit; 
   width: calc(100% - 40px);
@@ -453,7 +452,7 @@ a {
 }
 
 .word-table-container tbody tr:hover {
-  background-color: rgb(248, 131, 131);
+  background-color: rgb(91, 122, 234);
   cursor: pointer;
   color: black;
 }
@@ -612,9 +611,6 @@ a {
 .navigation button:hover {
   background-color: #0056b3;
 }
-
-
-
 
 /* ------------------------ NOT FOUND PAGE ------------------------  */
 

@@ -41,6 +41,7 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
       definition: createdWord.definition,
       wordType: createdWord.wordType,
       exampleSentence: createdWord.exampleSentence,
+      phoneticSpelling: createdWord.phoneticSpelling
       conjugations: createdWord.conjugations,
     }).save();
 

@@ -1,12 +1,15 @@
 import dotenv from "dotenv";
 dotenv.config();
-import OpenAI from "openai";
 import { IWord } from "../../interfaces";
+import OpenAI from "openai";
 
-const NAMESPACE = "openai word builder";
-const openAI = new OpenAI();
+const NAMESPACE = "openai/wordBuilder.ts";
+const DEBUGGING = true;
 
-function createPrompt(word: string) {
+function createPrompt(word: string, user: object) {
+  if (DEBUGGING) console.log("word", word, "user", user);
+
+  // Create a prompt for the user to fill in the word object
   const prompt = `Construct a detailed JSON object for the Spanish word "${word}". Ensure the definition is concise and in English. If "${word}" is a verb, include its conjugations in the present, preterite, future, and imperfect tenses. For non-verbs, the conjugations attribute should be an empty object {}. Use complete sentences for examples, starting with a capital letter and ending with a period.
 
 Example Format:
@@ -15,6 +18,7 @@ Example Format:
   "definition": "To do, to make",
   "wordType": "Verb",
   "exampleSentence": "Yo hago mi tarea todos los días.",
+  "phoneticSpelling": "deh-rrah-mahr",
   "conjugations": {
     "present": {
       "yo": "hago",
@@ -31,6 +35,7 @@ For the given word "${word}", fill in the following:
   "definition": "[Enter the definition in English]",
   "wordType": "[Enter 'Noun', 'Verb', 'Adjective', etc.]",
   "exampleSentence": "[Enter an example sentence using '${word}' in Spanish]",
+  "phoneticSpelling": "[Provide the phonetic spelling using English phonetic cues]",
   "conjugations": ${
     '"wordType" === "Verb"'
       ? `{
@@ -81,10 +86,11 @@ For the given word "${word}", fill in the following:
  * @param user - The user object //!TODO: Create a TypeScript interface for the user object: onboarding learning context, etc
  * @returns A word object as a JS object
  */
-const buildWord = async (word: string, user: any): Promise<IWord> => {
+const buildWord = async (word: string, user: object): Promise<IWord> => {
+  const openAI = new OpenAI();
   try {
     const response = await openAI.chat.completions.create({
-      messages: [{ role: "system", content: createPrompt(word) }],
+      messages: [{ role: "system", content: createPrompt(word, user) }],
       model: "gpt-3.5-turbo-1106", //! TODO: This should be an environment variable so premium users can use the Davinci (premium) model
       response_format: { type: "json_object" },
     });
