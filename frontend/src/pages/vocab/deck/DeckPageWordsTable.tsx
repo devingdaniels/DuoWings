@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import { IWord } from "../../../interfaces";
-import { FcEmptyTrash } from "react-icons/fc";
-import { AiTwotoneEdit } from "react-icons/ai";
 import { VocabSliceService } from "../../../features/vocabSlice";
 import { toastService } from "../../../utils/Toastify";
 import { useAppDispatch } from "../../../app/hooks";
-import { GiSaveArrow } from "react-icons/gi";
+import { FaCheck } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 
 interface DeckPageTableProps {
   words: IWord[];
@@ -91,7 +91,7 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
               <td>
                 {editableWordId === word._id ? (
                   <textarea
-                    rows={5}
+                    className="edit-word-textarea"
                     defaultValue={word.word}
                     onChange={(e) => handleInputChange(e, "word")}
                   />
@@ -102,7 +102,7 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
               <td>
                 {editableWordId === word._id ? (
                   <textarea
-                    rows={5}
+                    className="edit-word-textarea"
                     defaultValue={word.definition}
                     onChange={(e) => handleInputChange(e, "definition")}
                   />
@@ -113,7 +113,7 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
               <td>
                 {editableWordId === word._id ? (
                   <textarea
-                    rows={5}
+                    className="edit-word-textarea"
                     defaultValue={word.exampleSentence}
                     onChange={(e) => handleInputChange(e, "exampleSentence")}
                   />
@@ -124,7 +124,7 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
               <td>
                 {editableWordId === word._id ? (
                   <textarea
-                    rows={5}
+                    className="edit-word-textarea"
                     defaultValue={word.wordType}
                     onChange={(e) => handleInputChange(e, "wordType")}
                   />
@@ -135,23 +135,21 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
               <td>{word.stats.level}</td>
               <td>
                 {editableWordId === word._id ? (
-                  <GiSaveArrow
+                  <FaCheck
                     className="save-word-icon"
                     onClick={() => toggleEdit(word._id, word)}
-                    size={36}
-                    color="#27ae60"
+                    size={25}
                   />
                 ) : (
-                  <AiTwotoneEdit
+                  <FaEdit
                     className="update-word-icon"
                     onClick={() => toggleEdit(word._id, word)}
                     size={25}
-                    color="#f39c12"
                   />
                 )}
               </td>
               <td>
-                <FcEmptyTrash
+                <FaRegTrashAlt
                   className="delete-word-icon"
                   onClick={() => handleDeleteWord(word._id)}
                   size={25}

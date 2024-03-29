@@ -1,5 +1,6 @@
 import React from "react";
 import { IWord } from "../../../interfaces";
+import { FaShuffle } from "react-icons/fa6";
 
 interface FlashCardProps {
   word: IWord;
@@ -15,12 +16,19 @@ const FlashCard: React.FC<FlashCardProps> = ({ index, length, word, isFlipped, s
   };
 
   return (
-    <div className="flashcard-container" onClick={handleClick}>
-      <div className={`flashcard ${isFlipped ? "flipped" : ""}`}>
-        <div className="front">{word.word}</div>
-        <div className="back">{word.definition}</div>
+    <div className="flashcard-page-container">
+      <div className="flashcard-container" onClick={handleClick}>
+        <div className={`flashcard ${isFlipped ? "flipped" : ""}`}>
+          <div className="front">{word.word}</div>
+          <div className="back">
+            <p>{word.definition}</p>
+            <p>{word.exampleSentence}</p>
+            <p>{word.phoneticSpelling}</p>
+          </div>
+        </div>
       </div>
       {index}/{length}
+      <FaShuffle />
     </div>
   );
 };

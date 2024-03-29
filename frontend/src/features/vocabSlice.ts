@@ -294,14 +294,12 @@ const vocabSlice = createSlice({
         state.isLoading = true;
         state.isSuccess = false;
         state.isError = false;
-        state.message = "Updating word in deck...";
+        state.message = "Updating word...";
       })
       .addCase(updateWordInDeckByID.fulfilled, (state, action) => {
-        state.currentDeck = action.payload.deck;
         state.isSuccess = true;
         state.isLoading = false;
         state.isError = false;
-        console.log(action.payload);
         state.currentDeck = action.payload.deck;
         state.message = action.payload.message;
       })

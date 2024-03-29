@@ -32,7 +32,8 @@ const AllDecksPage: React.FC = () => {
 
   useEffect(() => {
     dispatch(VocabSliceService.fetchAllDecks());
-    dispatch(VocabSliceService.resetCurrentDeck());
+    // Reset the current deck when the component unmounts causes a bug
+    //dispatch(VocabSliceService.resetCurrentDeck());
   }, [dispatch]);
 
   // Update filteredDecks whenever decks or searchTerm changes

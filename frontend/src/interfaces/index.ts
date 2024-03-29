@@ -76,6 +76,7 @@ export interface IWord {
   definition: string;
   exampleSentence: string;
   wordType: string;
+  phoneticSpelling: string;
   conjugations: {
     present?: IConjugation;
     preterite?: IConjugation;
