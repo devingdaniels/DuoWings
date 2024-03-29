@@ -4,8 +4,8 @@ import { VocabSliceService } from "../../../features/vocabSlice";
 import { toastService } from "../../../utils/Toastify";
 import { useAppDispatch } from "../../../app/hooks";
 import { FaCheck } from "react-icons/fa";
-import { FaRegTrashAlt } from "react-icons/fa";
-import { FaEdit } from "react-icons/fa";
+import { AiOutlineDelete } from "react-icons/ai";
+import { MdOutlineModeEditOutline as EditButton } from "react-icons/md";
 
 interface DeckPageTableProps {
   words: IWord[];
@@ -14,7 +14,7 @@ interface DeckPageTableProps {
 const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
   const dispatch = useAppDispatch();
   const [editableWordId, setEditableWordId] = useState<string | null>(null);
-  const [updateDeck, setUpateDeck] = useState<IWord | null>(null);
+  const [updateDeck, setUpdateDeck] = useState<IWord | null>(null);
   const initialValuesRef = useRef<IWord | null>(null);
 
   const handleInputChange = (
@@ -22,7 +22,7 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
     fieldName: string
   ) => {
     if (!updateDeck) return;
-    setUpateDeck({ ...updateDeck, [fieldName]: e.target.value });
+    setUpdateDeck({ ...updateDeck, [fieldName]: e.target.value });
   };
 
   const toggleEdit = (wordID: string, word: IWord) => {
@@ -32,12 +32,12 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
         handleUpdateWord();
       }
       setEditableWordId(null);
-      setUpateDeck(null);
+      setUpdateDeck(null);
       initialValuesRef.current = null;
     } else {
       // Entering edit mode, store initial values
       setEditableWordId(wordID);
-      setUpateDeck(word);
+      setUpdateDeck(word);
       initialValuesRef.current = word;
     }
   };
@@ -141,7 +141,7 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
                     size={25}
                   />
                 ) : (
-                  <FaEdit
+                  <EditButton
                     className="update-word-icon"
                     onClick={() => toggleEdit(word._id, word)}
                     size={25}
@@ -149,7 +149,7 @@ const DeckPageWordsTable: React.FC<DeckPageTableProps> = ({ words }) => {
                 )}
               </td>
               <td>
-                <FaRegTrashAlt
+                <AiOutlineDelete
                   className="delete-word-icon"
                   onClick={() => handleDeleteWord(word._id)}
                   size={25}

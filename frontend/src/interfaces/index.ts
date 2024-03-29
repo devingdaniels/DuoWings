@@ -53,7 +53,7 @@ export interface ICreateNewDeck {
   name: string;
   description: string;
 }
-interface IConjugation {
+export interface IConjugation {
   yo?: string;
   tu?: string;
   el?: string;
@@ -77,6 +77,7 @@ export interface IWord {
   exampleSentence: string;
   wordType: string;
   phoneticSpelling: string;
+  isFavorite: boolean;
   conjugations: {
     present?: IConjugation;
     preterite?: IConjugation;

@@ -7129,5 +7129,116 @@
       "__v": 0
     },
     "timestamp": "2024-03-29T04:28:53.637Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Golpear",
+      "definition": "To hit or strike",
+      "exampleSentence": "Él golpeó la pelota con fuerza.",
+      "wordType": "Verb",
+      "phoneticSpelling": "gohl-peh-ar",
+      "creationDate": "2024-03-29T04:29:41.442Z",
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "golpeo",
+          "tu": "golpeas",
+          "el": "golpea",
+          "nosotros": "golpeamos",
+          "vosotros": "golpeáis",
+          "ellos": "golpean"
+        },
+        "preterite": {
+          "yo": "golpeé",
+          "tu": "golpeaste",
+          "el": "golpeó",
+          "nosotros": "golpeamos",
+          "vosotros": "golpeasteis",
+          "ellos": "golpearon"
+        },
+        "future": {
+          "yo": "golpearé",
+          "tu": "golpearás",
+          "el": "golpeará",
+          "nosotros": "golpearemos",
+          "vosotros": "golpearéis",
+          "ellos": "golpearán"
+        },
+        "imperfect": {
+          "yo": "golpeaba",
+          "tu": "golpeabas",
+          "el": "golpeaba",
+          "nosotros": "golpeábamos",
+          "vosotros": "golpeabais",
+          "ellos": "golpeaban"
+        }
+      },
+      "_id": "6606e6b3c469a4ba725d9537",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T16:05:07.486Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Fundar",
+      "definition": "To found, to establish",
+      "exampleSentence": "Ellos deciden fundar una nueva empresa en la ciudad.",
+      "wordType": "Verb",
+      "phoneticSpelling": "foon-dahr",
+      "creationDate": "2024-03-29T16:32:00.225Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "fundo",
+          "tu": "fundas",
+          "el": "funda",
+          "nosotros": "fundamos",
+          "vosotros": "fundáis",
+          "ellos": "fundan"
+        },
+        "preterite": {
+          "yo": "fundé",
+          "tu": "fundaste",
+          "el": "fundó",
+          "nosotros": "fundamos",
+          "vosotros": "fundasteis",
+          "ellos": "fundaron"
+        },
+        "future": {
+          "yo": "fundaré",
+          "tu": "fundarás",
+          "el": "fundará",
+          "nosotros": "fundaremos",
+          "vosotros": "fundaréis",
+          "ellos": "fundarán"
+        },
+        "imperfect": {
+          "yo": "fundaba",
+          "tu": "fundabas",
+          "el": "fundaba",
+          "nosotros": "fundábamos",
+          "vosotros": "fundabais",
+          "ellos": "fundaban"
+        }
+      },
+      "_id": "6606ed596c69d5962c65b2b9",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T16:33:30.806Z"
   }
 ]

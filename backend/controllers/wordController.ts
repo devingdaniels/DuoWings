@@ -33,6 +33,7 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
       return res.status(400).json({ error: `${deckID} bad deckID or deck does not exist.` });
     }
 
+    // Create the new word and save it to the database
     const newWord = await new WordModel({
       _id: new mongoose.Types.ObjectId(),
       deckID: new mongoose.Types.ObjectId(deckID),
@@ -42,6 +43,7 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
       wordType: createdWord.wordType,
       exampleSentence: createdWord.exampleSentence,
       phoneticSpelling: createdWord.phoneticSpelling,
+      isFavorite: false,
       conjugations: createdWord.conjugations,
     }).save();
 
@@ -56,6 +58,7 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
       timestamp: new Date().toISOString(),
     });
 
+    // Return the updated deck with the new word
     return res.status(201).json({
       message: "Word created successfully!",
       deck: {

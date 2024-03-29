@@ -552,17 +552,13 @@ a {
   align-items: center;
   justify-content: center;
   margin: auto;
+  user-select: none;
 }
 
 .flashcard-container {
-  perspective: 1000px;
-  width: 600px; 
+  perspective: 2000px;
+  width: 800px; 
   height: 400px;
-  margin-bottom: 20px;
-}
-
-.navigation {
-  margin-top: 20px;
 }
 
 .flashcard {
@@ -571,6 +567,7 @@ a {
   transition: transform 0.6s;
   transform-style: preserve-3d;
   cursor: pointer;
+  
 }
 
 .flashcard.flipped {
@@ -584,31 +581,43 @@ a {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  padding: 5%;
 }
 
 .front {
-  background-color: #007bff;
+  background-color: #08051f;
+  font-size: 2rem;
 }
 
 .back {
-  background-color: #28a745;
+  background-color: #08051f;
   transform: rotateX(180deg);
 }
 
-.navigation button {
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.navigation-container {
+  display: flex;
+  gap: 2%;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2%;
 }
 
-.navigation button:hover {
-  background-color: #0056b3;
+
+.navigation-container .navigation-button {
+  cursor: pointer; 
+  transition: transform 0.1s ease-in-out;
 }
+
+.navigation-container .navigation-button:hover {
+  transform: scale(1.1);
+  opacity: 0.8; 
+}
+
+.navigation-container .navigation-button:active {
+  transform: scale(0.9);
+  opacity: 0.6;
+}
+
 
 /* ------------------------ NOT FOUND PAGE ------------------------  */
 

@@ -36,6 +36,10 @@ const WordSchema = new mongoose.Schema({
     default: new Date(),
     immutable: false,
   },
+  isFavorite: {
+    type: Boolean,
+    default: false,
+  },
   tags: [String],
   stats: {
     level: {
