@@ -37,7 +37,7 @@ const DeckCardOverview: React.FC<DeckProps> = ({ deck }) => {
   return (
     <div className="deck-card-overview-container" onClick={() => goToDeckPage(deck)}>
       <div className="deck-card-overview-header">
-        <span className="deck-header-item deck-header-level-container">Level {deck.level}</span>
+        <span className="deck-header-item deck-header-level-container">lvl. {deck.level}</span>
         <h2 className="deck-header-item">{deck.name}</h2>
         <div className="deck-header-item deck-card-overview-delete-icon">
           <AiOutlineDelete onClick={handleDeleteDeck} size={30} />

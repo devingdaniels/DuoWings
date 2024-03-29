@@ -32,7 +32,7 @@ const FlashCardsPage = () => {
 
   return (
     <div className="flashcards-container">
-      {words.length > 0 && (
+      {words.length > 0 && currentDeck && (
         <FlashCard
           deck={currentDeck}
           length={words.length}

@@ -1,50 +1,5 @@
 import mongoose from "mongoose";
 
-const WordSchema = new mongoose.Schema({
-  word: {
-    type: String,
-    required: true,
-  },
-  englishDefinition: {
-    type: String,
-    required: true,
-  },
-  wordType: {
-    // noun, verb, adjective, etc.
-    type: String,
-    required: true,
-  },
-  conjugation: {
-    // present, past, future, etc.
-    type: String,
-    required: true,
-  },
-  correctCount: {
-    type: Number,
-    default: 0,
-  },
-  incorrectCount: {
-    type: Number,
-    default: 0,
-  },
-  lastCorrectDate: {
-    type: [Date],
-  },
-  lastIncorrectDate: {
-    type: [Date],
-  },
-  creationDate: {
-    type: Date,
-    required: true,
-  },
-  difficulty: {
-    type: Number,
-    default: 0,
-  },
-  tags: [String], // This field will store user-selected tags
-  exampleSentence: String,
-});
-
 const WordDeckSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -56,8 +11,7 @@ const WordDeckSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  insertOrder: [Number],
-  words: [WordSchema],
+  wordInsertOrder: [Number],
   // Gamification Fields
   experiencePoints: {
     type: Number,
@@ -67,33 +21,14 @@ const WordDeckSchema = new mongoose.Schema({
     type: Number,
     default: 1,
   },
-  completedChallenges: [String], // IDs or names of completed challenges
-  badges: [String], // IDs or names of earned badges
+  completedChallenges: [String],
+  badges: [String],
   streak: {
     type: Number,
     default: 0,
   },
   lastStreakDate: {
     type: Date,
-  },
-});
-
-// QuizResult Schema
-const quizResultSchema = new mongoose.Schema({
-  wordSet: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "WordSet",
-    required: true,
-  },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
-  score: Number,
-  date: {
-    type: Date,
-    default: Date.now,
   },
 });
 
@@ -142,7 +77,7 @@ const userPreferencesSchema = new mongoose.Schema({
   difficultyLevel: String,
 });
 
-const WordDeckSchema = newmongoose.Schema({
+const rewq = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
 
@@ -171,10 +106,7 @@ const WordDeckSchema = newmongoose.Schema({
 
   preferences: {
     insertOrder: [String],
-
     favorited: Boolean,
-
-    // color: String,
   },
 
   words: [
@@ -186,12 +118,8 @@ const WordDeckSchema = newmongoose.Schema({
   ],
 
   lastStudied: {
-    type: Date,
-
-    default: newDate(4),
+    type: Date.now,
   },
-
-  // Gaamification Fields (This needs to be implemented in the frontend )
 
   experiencePoints: {
     type: Number,
@@ -219,27 +147,3 @@ const WordDeckSchema = newmongoose.Schema({
     type: Date,
   },
 });
-
-const DeckModel = mongoose.model("Decks", WordDeckSchema, "decks");
-
-export { DeckModel };
-
-export interface IWordDeck {
-  _id: string;
-  name: string;
-  description: string;
-  tags?: string[];
-  creationDate: Date;
-  lastStudied: Date;
-  preferences: {
-    insertOrder: number[];
-    favorited: boolean;
-  };
-  words: IVocabWord[];
-  experiencePoints: number;
-  level: number;
-  completedChallenges: string[];
-  badges: string[];
-  streak: number;
-  lastStreakDate?: Date;
-}

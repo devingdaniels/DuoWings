@@ -25,32 +25,32 @@ const FlashCard: React.FC<FlashCardProps> = ({
     setIsFlipped(!isFlipped);
   };
 
-  const renderConjugation = (conjugation: IConjugation, tense: string) => {
-    return (
-      <div key={tense}>
-        <strong>{tense.charAt(0).toUpperCase() + tense.slice(1)}:</strong>
-        <p>
-          {conjugation.yo && <p>Yo: {conjugation.yo}</p>}
-          {conjugation.tu && <li>Tú: {conjugation.tu}</li>}
-          {conjugation.el && <li>Él/Ella: {conjugation.el}</li>}
-          {conjugation.nosotros && <li>Nosotros: {conjugation.nosotros}</li>}
-          {conjugation.vosotros && <li>Vosotros: {conjugation.vosotros}</li>}
-          {conjugation.ellos && <li>Ellos/Ellas: {conjugation.ellos}</li>}
-        </p>
-      </div>
-    );
-  };
+  // const renderConjugation = (conjugation: IConjugation, tense: string) => {
+  //   return (
+  //     <div key={tense}>
+  //       <strong>{tense.charAt(0).toUpperCase() + tense.slice(1)}:</strong>
+  //       <p>
+  //         {conjugation.yo && <p>Yo: {conjugation.yo}</p>}
+  //         {conjugation.tu && <li>Tú: {conjugation.tu}</li>}
+  //         {conjugation.el && <li>Él/Ella: {conjugation.el}</li>}
+  //         {conjugation.nosotros && <li>Nosotros: {conjugation.nosotros}</li>}
+  //         {conjugation.vosotros && <li>Vosotros: {conjugation.vosotros}</li>}
+  //         {conjugation.ellos && <li>Ellos/Ellas: {conjugation.ellos}</li>}
+  //       </p>
+  //     </div>
+  //   );
+  // };
 
-  const renderConjugations = (conjugations: {
-    present?: IConjugation;
-    preterite?: IConjugation;
-    future?: IConjugation;
-    imperfect?: IConjugation;
-  }) => {
-    return Object.entries(conjugations).map(([tense, conjugation]) =>
-      conjugation ? renderConjugation(conjugation, tense) : null
-    );
-  };
+  // const renderConjugations = (conjugations: {
+  //   present?: IConjugation;
+  //   preterite?: IConjugation;
+  //   future?: IConjugation;
+  //   imperfect?: IConjugation;
+  // }) => {
+  //   return Object.entries(conjugations).map(([tense, conjugation]) =>
+  //     conjugation ? renderConjugation(conjugation, tense) : null
+  //   );
+  // };
 
   function handleToggleFavorite(e: React.MouseEvent) {
     e.stopPropagation();
@@ -73,8 +73,9 @@ const FlashCard: React.FC<FlashCardProps> = ({
             <p onClick={handleToggleFavorite}>
               {word.isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
             </p>
-            <p>{word.word}</p>
-            <p>{word.phoneticSpelling}</p>
+            <strong>{word.word}</strong>
+            <br />
+            <i>{word.phoneticSpelling}</i>
           </div>
           <div className="back">
             <p>
