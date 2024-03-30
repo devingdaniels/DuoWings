@@ -72,10 +72,9 @@ const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
                 <strong>{word.word}</strong>
               </h2>
               <br />
-              <p>{word.phoneticSpelling}</p>
+              <i>{word.phoneticSpelling}</i>
               <br />
               <p>{word.wordType}</p>
-
               <br />
               <p>{word.definition}</p>
               <br />

@@ -7704,5 +7704,63 @@
       "__v": 0
     },
     "timestamp": "2024-03-30T03:55:10.805Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Volar",
+      "definition": "To fly",
+      "exampleSentence": "Los pájaros pueden volar muy alto en el cielo.",
+      "wordType": "Verb",
+      "phoneticSpelling": "boh-lahr",
+      "creationDate": "2024-03-30T03:55:11.309Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "vuelo",
+          "tu": "vuelas",
+          "el": "vuela",
+          "nosotros": "volamos",
+          "vosotros": "voláis",
+          "ellos": "vuelan"
+        },
+        "preterite": {
+          "yo": "volé",
+          "tu": "volaste",
+          "el": "voló",
+          "nosotros": "volamos",
+          "vosotros": "volasteis",
+          "ellos": "volaron"
+        },
+        "future": {
+          "yo": "volaré",
+          "tu": "volarás",
+          "el": "volara",
+          "nosotros": "volaremos",
+          "vosotros": "volaréis",
+          "ellos": "volarán"
+        },
+        "imperfect": {
+          "yo": "volaba",
+          "tu": "volabas",
+          "el": "volaba",
+          "nosotros": "volábamos",
+          "vosotros": "volabais",
+          "ellos": "volaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "660792ad2206958b27fb9135",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T04:18:54.253Z"
   }
 ]

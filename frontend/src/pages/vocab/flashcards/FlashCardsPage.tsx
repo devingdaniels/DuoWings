@@ -38,22 +38,26 @@ const FlashCardsPage = () => {
 
   return (
     <div className="flashcards-page-container">
-      {words.length > 0 && currentDeck && (
-        <FlashCard
-          deck={currentDeck}
-          word={words[currentIndex]}
-          isFlipped={isFlipped}
-          setIsFlipped={setIsFlipped}
-        />
+      {words.length > 0 && currentDeck ? (
+        <>
+          <FlashCard
+            deck={currentDeck}
+            word={words[currentIndex]}
+            isFlipped={isFlipped}
+            setIsFlipped={setIsFlipped}
+          />
+          <div>{currentIndex + 1 + "/" + words.length}</div>
+          <div className="navigation-container">
+            <BiSkipPreviousCircle className="navigation-button" onClick={handlePrev} size={45} />
+            <BiSkipNextCircle className="navigation-button" onClick={handleNext} size={45} />
+          </div>
+          <div>
+            <FaShuffle size={35} onClick={handleShuffle} />
+          </div>
+        </>
+      ) : (
+        <div>No words found or deck is not selected.</div> // This is a simple fallback, customize as needed
       )}
-      {currentIndex + 1 + "/" + words.length}
-      <div className="navigation-container">
-        <BiSkipPreviousCircle className="navigation-button" onClick={handlePrev} size={45} />
-        <BiSkipNextCircle className="navigation-button" onClick={handleNext} size={45} />
-      </div>
-      <div>
-        <FaShuffle size={35} onClick={handleShuffle} />
-      </div>
     </div>
   );
 };
