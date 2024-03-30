@@ -8042,5 +8042,121 @@
       "__v": 0
     },
     "timestamp": "2024-03-30T16:01:27.328Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Superar",
+      "definition": "To overcome, to surpass",
+      "exampleSentence": "Ella logró superar sus miedos y hablar en público.",
+      "wordType": "Verb",
+      "phoneticSpelling": "soo-peh-rahr",
+      "creationDate": "2024-03-30T16:01:27.828Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "supero",
+          "tu": "superas",
+          "el": "supera",
+          "nosotros": "superamos",
+          "vosotros": "superáis",
+          "ellos": "superan"
+        },
+        "preterite": {
+          "yo": "superé",
+          "tu": "superaste",
+          "el": "superó",
+          "nosotros": "superamos",
+          "vosotros": "superasteis",
+          "ellos": "superaron"
+        },
+        "future": {
+          "yo": "superaré",
+          "tu": "superarás",
+          "el": "superará",
+          "nosotros": "superaremos",
+          "vosotros": "superaréis",
+          "ellos": "superarán"
+        },
+        "imperfect": {
+          "yo": "superaba",
+          "tu": "superabas",
+          "el": "superaba",
+          "nosotros": "superábamos",
+          "vosotros": "superabais",
+          "ellos": "superaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "66083a213b63412dc0552c6e",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T16:13:22.060Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Adquirir",
+      "definition": "To acquire, to obtain, to purchase",
+      "exampleSentence": "Ella adquiere una nueva casa este mes.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ahd-kee-reer",
+      "creationDate": "2024-03-30T16:13:22.545Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "adquiero",
+          "tu": "adquieres",
+          "el": "adquiere",
+          "nosotros": "adquirimos",
+          "vosotros": "adquirís",
+          "ellos": "adquieren"
+        },
+        "preterite": {
+          "yo": "adquirí",
+          "tu": "adquiriste",
+          "el": "adquirió",
+          "nosotros": "adquirimos",
+          "vosotros": "adquiristeis",
+          "ellos": "adquirieron"
+        },
+        "future": {
+          "yo": "adquiriré",
+          "tu": "adquirirás",
+          "el": "adquirirá",
+          "nosotros": "adquiriremos",
+          "vosotros": "adquiriréis",
+          "ellos": "adquirirán"
+        },
+        "imperfect": {
+          "yo": "adquiría",
+          "tu": "adquirías",
+          "el": "adquiría",
+          "nosotros": "adquiríamos",
+          "vosotros": "adquiríais",
+          "ellos": "adquirían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "66084de29c93d13193b59a5a",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T17:37:39.170Z"
   }
 ]

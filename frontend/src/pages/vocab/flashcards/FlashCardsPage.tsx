@@ -1,25 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import FlashCard from "./FlashCard";
 import { useAppSelector } from "../../../app/hooks";
 import { BiSkipNextCircle } from "react-icons/bi";
 import { BiSkipPreviousCircle } from "react-icons/bi";
 import { FaShuffle } from "react-icons/fa6";
+import { delay } from "../../../utils/UtilityFunctions";
+import { MdInfoOutline } from "react-icons/md";
 
 const FlashCardsPage = () => {
   const { currentDeck } = useAppSelector((state) => state.vocab);
-  const words = currentDeck?.words || [];
+  const words = useMemo(() => {
+    return currentDeck?.words || [];
+  }, [currentDeck?.words]);
+  const [isShuffled, setIsShuffled] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [shuffledWords, setShuffledWords] = useState(words);
 
-  const delay = (duration: number) => new Promise((resolve) => setTimeout(resolve, duration));
-
-  const handleChangeCard = async (newIndex: number) => {
-    if (isFlipped) {
-      setIsFlipped(false); // Flip back to the word side
-      await delay(200); // Wait for the flip animation to complete
+  useEffect(() => {
+    if (isShuffled) {
+      const shuffled = [...words].sort(() => 0.5 - Math.random());
+      setShuffledWords(shuffled);
+    } else {
+      setShuffledWords(words);
     }
-    setCurrentIndex(newIndex);
-  };
+  }, [isShuffled, words]);
 
   const handleNext = () => {
     const newIndex = currentIndex < words.length - 1 ? currentIndex + 1 : 0;
@@ -31,50 +36,53 @@ const FlashCardsPage = () => {
     handleChangeCard(newIndex);
   };
 
-  const handleShuffle = async (e: React.MouseEvent) => {
-    e.stopPropagation();
-    alert("Shuffle");
+  const handleChangeCard = async (newIndex: number) => {
+    if (isFlipped) {
+      setIsFlipped(false); // Flip back to the word side
+      await delay(200); // Wait for the flip animation to complete
+    }
+
+    setCurrentIndex(newIndex);
   };
 
-  // Use effect to handle clicking the space bar to flip the card
-  // Right arrow key to go to the next card
+  const toggleShuffle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsShuffled(!isShuffled);
+  };
+
   useEffect(() => {
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.code === "Space") {
-        setIsFlipped(!isFlipped);
-      }
-    };
-
-    const handleRightArrow = (e: KeyboardEvent) => {
-      if (e.code === "ArrowRight") {
-        handleNext();
-      }
-    };
-
-    const leftArrow = (e: KeyboardEvent) => {
-      if (e.code === "ArrowLeft") {
-        handlePrev();
-      }
-    };
+    const handleKeyPress = (e: KeyboardEvent) =>
+      e.code === "Space" ? setIsFlipped(!isFlipped) : null;
+    const handleRightArrow = (e: KeyboardEvent) => (e.code === "ArrowRight" ? handleNext() : null);
+    const leftArrow = (e: KeyboardEvent) => (e.code === "ArrowLeft" ? handlePrev() : null);
+    const toggleShuffle = (e: KeyboardEvent) =>
+      e.code === "KeyS" ? setIsShuffled(!isShuffled) : null;
 
     document.addEventListener("keydown", handleKeyPress);
     document.addEventListener("keydown", handleRightArrow);
     document.addEventListener("keydown", leftArrow);
+    document.addEventListener("keydown", toggleShuffle);
 
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
       document.removeEventListener("keydown", handleRightArrow);
       document.removeEventListener("keydown", leftArrow);
+      document.removeEventListener("keydown", toggleShuffle);
     };
   });
 
   return (
     <div className="flashcards-page-container">
+      <div title="Shortcuts: 's' ==> shuffle, 'space' ==> flip, 'right' ==> prev, 'left'===> next">
+        <MdInfoOutline />
+        Hover Me
+      </div>
+
       {words.length > 0 && currentDeck ? (
         <>
           <FlashCard
             deck={currentDeck}
-            word={words[currentIndex]}
+            word={isShuffled ? shuffledWords[currentIndex] : words[currentIndex]}
             isFlipped={isFlipped}
             setIsFlipped={setIsFlipped}
           />
@@ -84,11 +92,15 @@ const FlashCardsPage = () => {
             <BiSkipNextCircle className="navigation-button" onClick={handleNext} size={45} />
           </div>
           <div>
-            <FaShuffle size={35} onClick={handleShuffle} />
+            <FaShuffle
+              className={`flashcard-shuffle-button ${isShuffled ? "shuffled" : ""}`}
+              size={35}
+              onClick={toggleShuffle}
+            />
           </div>
         </>
       ) : (
-        <div>No words found or deck is not selected.</div> // This is a simple fallback, customize as needed
+        <div>No words found or deck is not selected.</div>
       )}
     </div>
   );

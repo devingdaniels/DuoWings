@@ -60,7 +60,7 @@ const DeckPage = () => {
             <div
               className="deck-page-action-button"
               onClick={() => navigate("/vocab/decks/flashcards")}
-              title="Navigate Flashcards game"
+              title="Flashcards game"
             >
               <FcPositiveDynamic size={35} />
               Flashcards
@@ -68,7 +68,7 @@ const DeckPage = () => {
             <div
               className="deck-page-action-button"
               onClick={() => navigate("/vocab/decks/upload-words")}
-              title="Navigate to upload words page"
+              title="Upload words to deck"
             >
               <FcUpload size={35} />
               Upload

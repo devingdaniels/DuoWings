@@ -417,7 +417,7 @@ a {
   border: none ;
   padding: 25px; 
   color: white;;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, padding 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .create-new-word-input:focus{
@@ -593,7 +593,6 @@ a {
   
 }
 
-
 .front-word-container{
   display: flex;
   flex-direction: column;
@@ -661,6 +660,22 @@ a {
 .navigation-container .navigation-button:active {
   transform: scale(0.9);
   opacity: 0.6;
+}
+
+
+.flashcard-shuffle-button{
+  transition: transform 0.2s, color 0.2s; 
+}
+
+.flashcard-shuffle-button.shuffled{
+  transition: transform 0.2s, color 0.2s; 
+  color: rgb(255, 0, 0);
+
+}
+
+.flashcard-shuffle-button.shuffled:hover, .flashcard-shuffle-button:hover {
+  transform: scale(1.5);
+  opacity: 0.8; 
 }
 
 
