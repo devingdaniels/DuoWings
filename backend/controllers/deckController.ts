@@ -14,18 +14,17 @@ const createDeck = async (req: Request, res: Response): Promise<void> => {
       res.status(409).json({ error: `Deck ${name} already exists` });
       return;
     }
-    // Create and save new deck
+
     const deck = await new DeckModel({
       _id: new mongoose.Types.ObjectId(),
       userID: req.user._id,
       name,
+      words: [],
       description,
       tags: [],
-      preferences: {
-        insertOrder: ["newest"],
-        isFavorite: false,
-      },
-      words: [],
+      creationDate: new Date(),
+      isFavorite: false,
+      level: 1,
     }).save();
 
     // Send the deck back to the client

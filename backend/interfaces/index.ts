@@ -39,10 +39,10 @@ export interface IWordDeck {
   _id: mongoose.Types.ObjectId;
   userID: mongoose.Types.ObjectId;
   name: string;
+  words: mongoose.Types.ObjectId[];
   description?: string;
   tags?: string[];
   creationDate: Date;
   isFavorite: boolean;
   level: number;
-  words: mongoose.Types.ObjectId[];
 }

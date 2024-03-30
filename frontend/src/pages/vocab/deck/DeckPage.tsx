@@ -17,7 +17,7 @@ const DeckPage = () => {
   const dispatch = useAppDispatch();
 
   // Current deck from redux store
-  const { currentDeck, isLoading } = useAppSelector((state) => state.vocab);
+  const { currentDeck, isWordLoading } = useAppSelector((state) => state.vocab);
 
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
     if (currentDeck?.words.some((w) => w.word === word.word)) {
@@ -45,7 +45,7 @@ const DeckPage = () => {
           </div>
 
           <div className="deck-page-loading-create-word-form-container">
-            {isLoading ? (
+            {isWordLoading ? (
               <RingLoader
                 className="create-word-loading-spinner-container"
                 size={60}

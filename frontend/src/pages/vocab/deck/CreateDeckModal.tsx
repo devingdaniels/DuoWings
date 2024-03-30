@@ -17,7 +17,7 @@ const CreateDeckModalForm: React.FC<Props> = ({ ...props }: Props) => {
   // Props
   const { decks, isModalOpen, onClose } = props;
   // Redux
-  const { isLoading } = useAppSelector((state) => state.vocab);
+  const { isDeckLoading } = useAppSelector((state) => state.vocab);
   const dispatch = useAppDispatch();
   // Component state
   const [deckFormData, setDeckData] = useState<ICreateNewDeck>({
@@ -121,7 +121,7 @@ const CreateDeckModalForm: React.FC<Props> = ({ ...props }: Props) => {
           </div>
 
           <div className="create-deck-modal-button-container">
-            {isLoading ? (
+            {isDeckLoading ? (
               <Spinner />
             ) : (
               <>

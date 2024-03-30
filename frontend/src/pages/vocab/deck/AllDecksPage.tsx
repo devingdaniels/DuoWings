@@ -9,11 +9,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { VocabSliceService } from "../../../features/vocabSlice";
 import { FcPlus } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const AllDecksPage: React.FC = () => {
   // Hooks
   const dispatch = useAppDispatch();
-  const { decks, isLoading, isError } = useAppSelector((state) => state.vocab);
+  const { decks, isDeckLoading, isError } = useAppSelector((state) => state.vocab);
   // Local state
   const [filteredDecks, setFilteredDecks] = useState<IWordDeck[]>(decks || []);
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -60,8 +61,14 @@ const AllDecksPage: React.FC = () => {
     );
   };
 
+  useEffect(() => {
+    if (isDeckLoading) {
+      toast.info("Loading decks...");
+    }
+  }, [isDeckLoading]);
+
   // No decks and no state-changing functionality in progress
-  if (decks.length === 0 && !isModalOpen && !isLoading && !isError) {
+  if (decks.length === 0 && !isModalOpen && !isDeckLoading && !isError) {
     return (
       <div className="all-decks-page-container-empty">
         <h2>No Decks ☹️</h2>

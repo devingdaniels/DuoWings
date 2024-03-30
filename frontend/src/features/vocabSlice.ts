@@ -15,7 +15,8 @@ const DEBUGGING = false;
 interface VocabState {
   decks: IWordDeck[] | [];
   currentDeck: IWordDeck | null;
-  isLoading: boolean;
+  isDeckLoading: boolean;
+  isWordLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
   message: string;
@@ -24,7 +25,8 @@ interface VocabState {
 const initialState: VocabState = {
   decks: [],
   currentDeck: null,
-  isLoading: false,
+  isDeckLoading: false,
+  isWordLoading: false,
   isSuccess: false,
   isError: false,
   message: "",
@@ -187,7 +189,8 @@ const vocabSlice = createSlice({
     resetDeckStatusFlagsToDefault: (state) => {
       state.isError = false;
       state.isSuccess = false;
-      state.isLoading = false;
+      state.isDeckLoading = false;
+      state.isWordLoading = false;
       state.message = "";
     },
 
@@ -197,7 +200,8 @@ const vocabSlice = createSlice({
 
     setVocabSliceToInitialState: (state) => {
       state.decks = [];
-      state.isLoading = false;
+      state.isDeckLoading = false;
+      state.isWordLoading = false;
       state.isSuccess = false;
       state.isError = false;
       state.message = "";
@@ -207,71 +211,71 @@ const vocabSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(createDeck.pending, (state) => {
-        state.isLoading = true;
+        state.isDeckLoading = true;
         state.isSuccess = false;
         state.isError = false;
       })
       .addCase(createDeck.fulfilled, (state) => {
         state.isSuccess = true;
-        state.isLoading = false;
+        state.isDeckLoading = false;
         state.isError = false;
       })
       .addCase(createDeck.rejected, (state, action) => {
         state.isError = true;
-        state.isLoading = false;
+        state.isDeckLoading = false;
         state.isSuccess = false;
         state.message = action.error.message as string;
       })
       .addCase(fetchAllDecks.pending, (state) => {
-        state.isLoading = true;
+        state.isDeckLoading = true;
         state.isSuccess = false;
         state.isError = false;
       })
       .addCase(fetchAllDecks.fulfilled, (state, action) => {
         state.isSuccess = true;
-        state.isLoading = false;
+        state.isDeckLoading = false;
         state.isError = false;
         state.decks = action.payload;
         state.message = "";
       })
       .addCase(fetchAllDecks.rejected, (state, action) => {
         state.isError = true;
-        state.isLoading = false;
+        state.isDeckLoading = false;
         state.isSuccess = false;
         state.message = action.error.message as string;
       })
       .addCase(fetchDeckByID.pending, (state) => {
-        state.isLoading = true;
+        state.isDeckLoading = true;
         state.isSuccess = false;
         state.isError = false;
       })
       .addCase(fetchDeckByID.fulfilled, (state, action) => {
         state.isSuccess = true;
-        state.isLoading = false;
+        state.isDeckLoading = false;
         state.isError = false;
         state.currentDeck = action.payload as IWordDeck;
       })
       .addCase(fetchDeckByID.rejected, (state, action) => {
         state.isError = true;
-        state.isLoading = false;
+        state.isDeckLoading = false;
         state.isSuccess = false;
         state.message = action.error.message as string;
       })
       .addCase(deleteDeckByID.pending, (state) => {
-        state.isLoading = true;
+        state.isDeckLoading = true;
       })
       .addCase(deleteDeckByID.fulfilled, (state) => {
         state.isSuccess = true;
-        state.isLoading = false;
+        state.isDeckLoading = false;
       })
       .addCase(deleteDeckByID.rejected, (state, action) => {
         state.isError = true;
-        state.isLoading = false;
+        state.isDeckLoading = false;
         state.isSuccess = false;
         state.message = action.error.message as string;
       })
       .addCase(createWord.pending, (state) => {
-        state.isLoading = true;
+        state.isWordLoading = true;
         state.isSuccess = false;
         state.isError = false;
       })
@@ -279,67 +283,67 @@ const vocabSlice = createSlice({
         state.currentDeck = action.payload.deck;
         state.message = action.payload.message;
         state.isSuccess = true;
-        state.isLoading = false;
+        state.isWordLoading = false;
         state.isError = false;
       })
       .addCase(createWord.rejected, (state, action) => {
         state.isError = true;
-        state.isLoading = false;
+        state.isWordLoading = false;
         state.isSuccess = false;
         state.message = action.payload as string;
       })
       .addCase(deleteWordFromDeckByID.pending, (state) => {
-        state.isLoading = true;
+        state.isWordLoading = true;
         state.isSuccess = false;
         state.isError = false;
       })
       .addCase(deleteWordFromDeckByID.fulfilled, (state, action) => {
         state.currentDeck = action.payload.deck;
         state.isSuccess = true;
-        state.isLoading = false;
+        state.isWordLoading = false;
         state.isError = false;
       })
       .addCase(deleteWordFromDeckByID.rejected, (state, action) => {
         state.isError = true;
-        state.isLoading = false;
+        state.isWordLoading = false;
         state.isSuccess = false;
         state.message = action.payload as string;
       })
       .addCase(updateWordInDeckByID.pending, (state) => {
-        state.isLoading = true;
+        state.isWordLoading = true;
         state.isSuccess = false;
         state.isError = false;
         state.message = "Updating word...";
       })
       .addCase(updateWordInDeckByID.fulfilled, (state, action) => {
         state.isSuccess = true;
-        state.isLoading = false;
+        state.isWordLoading = false;
         state.isError = false;
         state.currentDeck = action.payload.deck;
         state.message = action.payload.message;
       })
       .addCase(updateWordInDeckByID.rejected, (state, action) => {
         state.isError = true;
-        state.isLoading = false;
+        state.isWordLoading = false;
         state.isSuccess = false;
         state.message = action.payload as string;
       })
       .addCase(toggleIsFavoriteOnWord.pending, (state) => {
-        state.isLoading = true;
+        state.isWordLoading = true;
         state.isSuccess = false;
         state.isError = false;
         state.message = "Updating word...";
       })
       .addCase(toggleIsFavoriteOnWord.fulfilled, (state, action) => {
         state.isSuccess = true;
-        state.isLoading = false;
+        state.isWordLoading = false;
         state.isError = false;
         state.currentDeck = action.payload.deck;
         state.message = action.payload.message;
       })
       .addCase(toggleIsFavoriteOnWord.rejected, (state, action) => {
         state.isError = true;
-        state.isLoading = false;
+        state.isWordLoading = false;
         state.isSuccess = false;
         state.message = action.payload as string;
         // Current deck state is not updated, ie remains the same

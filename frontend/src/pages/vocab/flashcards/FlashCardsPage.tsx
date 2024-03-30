@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FlashCard from "./FlashCard";
 import { useAppSelector } from "../../../app/hooks";
 import { BiSkipNextCircle } from "react-icons/bi";
@@ -35,6 +35,38 @@ const FlashCardsPage = () => {
     e.stopPropagation();
     alert("Shuffle");
   };
+
+  // Use effect to handle clicking the space bar to flip the card
+  // Right arrow key to go to the next card
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.code === "Space") {
+        setIsFlipped(!isFlipped);
+      }
+    };
+
+    const handleRightArrow = (e: KeyboardEvent) => {
+      if (e.code === "ArrowRight") {
+        handleNext();
+      }
+    };
+
+    const leftArrow = (e: KeyboardEvent) => {
+      if (e.code === "ArrowLeft") {
+        handlePrev();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+    document.addEventListener("keydown", handleRightArrow);
+    document.addEventListener("keydown", leftArrow);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+      document.removeEventListener("keydown", handleRightArrow);
+      document.removeEventListener("keydown", leftArrow);
+    };
+  });
 
   return (
     <div className="flashcards-page-container">

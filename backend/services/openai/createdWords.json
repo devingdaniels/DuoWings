@@ -7762,5 +7762,285 @@
       "__v": 0
     },
     "timestamp": "2024-03-30T04:18:54.253Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Traer",
+      "definition": "To bring",
+      "exampleSentence": "Yo traigo mi mochila a la escuela todos los días.",
+      "wordType": "Verb",
+      "phoneticSpelling": "trah-ehr",
+      "creationDate": "2024-03-30T04:18:54.792Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "traigo",
+          "tu": "traes",
+          "el": "trae",
+          "nosotros": "traemos",
+          "vosotros": "traéis",
+          "ellos": "traen"
+        },
+        "preterite": {
+          "yo": "traje",
+          "tu": "trajiste",
+          "el": "trajo",
+          "nosotros": "trajimos",
+          "vosotros": "trajisteis",
+          "ellos": "trajeron"
+        },
+        "future": {
+          "yo": "traeré",
+          "tu": "traerás",
+          "el": "traerá",
+          "nosotros": "traeremos",
+          "vosotros": "traeréis",
+          "ellos": "traerán"
+        },
+        "imperfect": {
+          "yo": "traía",
+          "tu": "traías",
+          "el": "traía",
+          "nosotros": "traíamos",
+          "vosotros": "traíais",
+          "ellos": "traían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "660794ab99d7ef5b4c96875a",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T04:27:23.882Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Traigar",
+      "definition": "To bring",
+      "exampleSentence": "Ella traigó la comida a la fiesta.",
+      "wordType": "Verb",
+      "phoneticSpelling": "trah-ee-gahr",
+      "creationDate": "2024-03-30T04:27:24.376Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "traigo",
+          "tu": "traes",
+          "el": "trae",
+          "nosotros": "traemos",
+          "vosotros": "traéis",
+          "ellos": "traen"
+        },
+        "preterite": {
+          "yo": "traje",
+          "tu": "trajiste",
+          "el": "trajo",
+          "nosotros": "traímos",
+          "vosotros": "trajisteis",
+          "ellos": "trajeron"
+        },
+        "future": {
+          "yo": "traeré",
+          "tu": "traerás",
+          "el": "traerá",
+          "nosotros": "traeremos",
+          "vosotros": "traeréis",
+          "ellos": "traerán"
+        },
+        "imperfect": {
+          "yo": "traía",
+          "tu": "traías",
+          "el": "traía",
+          "nosotros": "traíamos",
+          "vosotros": "traíais",
+          "ellos": "traían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "660829ef46825d500c149927",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T15:04:16.198Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Ladrón",
+      "definition": "Thief",
+      "exampleSentence": "El ladrón robó la joyería y huyó.",
+      "wordType": "Noun",
+      "phoneticSpelling": "lah-drohn",
+      "creationDate": "2024-03-30T15:24:19.400Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6608343c6c8e89d85f934ac1",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T15:48:13.542Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Aspiración",
+      "definition": "Aspiration, ambition, longing, or desire.",
+      "exampleSentence": "Su mayor aspiración es viajar por el mundo. (His greatest aspiration is to travel the world).",
+      "wordType": "Noun",
+      "phoneticSpelling": "ah-spee-rah-see-ohn",
+      "creationDate": "2024-03-30T15:48:23.551Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6608347edffe2fea704358cc",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T15:49:19.210Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Roncar",
+      "definition": "To snore",
+      "exampleSentence": "Mi papá siempre ronca cuando duerme.",
+      "wordType": "Verb",
+      "phoneticSpelling": "rohn-kahr",
+      "creationDate": "2024-03-30T15:49:19.718Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "ronco",
+          "tu": "roncas",
+          "el": "ronca",
+          "nosotros": "roncamos",
+          "vosotros": "roncáis",
+          "ellos": "roncan"
+        },
+        "preterite": {
+          "yo": "ronqué",
+          "tu": "roncaste",
+          "el": "roncó",
+          "nosotros": "roncamos",
+          "vosotros": "roncasteis",
+          "ellos": "roncaron"
+        },
+        "future": {
+          "yo": "roncaré",
+          "tu": "roncarás",
+          "el": "roncará",
+          "nosotros": "roncaremos",
+          "vosotros": "roncaréis",
+          "ellos": "roncarán"
+        },
+        "imperfect": {
+          "yo": "roncaba",
+          "tu": "roncabas",
+          "el": "roncaba",
+          "nosotros": "roncábamos",
+          "vosotros": "roncabais",
+          "ellos": "roncaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "660834aedfafaa0019e56b5f",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T15:50:07.477Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Concertar",
+      "definition": "To arrange, to agree, to schedule.",
+      "exampleSentence": "Vamos a concertar una reunión para la próxima semana. (We are going to schedule a meeting for next week).",
+      "wordType": "Verb",
+      "phoneticSpelling": "kohn-ser-tahr",
+      "creationDate": "2024-03-30T15:50:16.272Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "concierto",
+          "tu": "conciertas",
+          "el": "concierta",
+          "nosotros": "concertamos",
+          "vosotros": "concertáis",
+          "ellos": "conciertan"
+        },
+        "preterite": {
+          "yo": "concreté",
+          "tu": "concretaste",
+          "el": "concretó",
+          "nosotros": "concretamos",
+          "vosotros": "concretasteis",
+          "ellos": "concretaron"
+        },
+        "future": {
+          "yo": "concertaré",
+          "tu": "concertarás",
+          "el": "concertará",
+          "nosotros": "concertaremos",
+          "vosotros": "concertaréis",
+          "ellos": "concertarán"
+        },
+        "imperfect": {
+          "yo": "concertaba",
+          "tu": "concertabas",
+          "el": "concertaba",
+          "nosotros": "concertábamos",
+          "vosotros": "concertabais",
+          "ellos": "concertaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "66083756e20ac4a6e179da83",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T16:01:27.328Z"
   }
 ]
