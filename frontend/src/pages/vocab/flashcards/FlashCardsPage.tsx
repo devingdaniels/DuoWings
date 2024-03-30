@@ -3,6 +3,7 @@ import FlashCard from "./FlashCard";
 import { useAppSelector } from "../../../app/hooks";
 import { BiSkipNextCircle } from "react-icons/bi";
 import { BiSkipPreviousCircle } from "react-icons/bi";
+import { FaShuffle } from "react-icons/fa6";
 
 const FlashCardsPage = () => {
   const { currentDeck } = useAppSelector((state) => state.vocab);
@@ -30,22 +31,28 @@ const FlashCardsPage = () => {
     handleChangeCard(newIndex);
   };
 
+  const handleShuffle = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    alert("Shuffle");
+  };
+
   return (
-    <div className="flashcards-container">
+    <div className="flashcards-page-container">
       {words.length > 0 && currentDeck && (
         <FlashCard
           deck={currentDeck}
-          length={words.length}
-          index={currentIndex + 1}
           word={words[currentIndex]}
           isFlipped={isFlipped}
           setIsFlipped={setIsFlipped}
         />
       )}
-
+      {currentIndex + 1 + "/" + words.length}
       <div className="navigation-container">
         <BiSkipPreviousCircle className="navigation-button" onClick={handlePrev} size={45} />
         <BiSkipNextCircle className="navigation-button" onClick={handleNext} size={45} />
+      </div>
+      <div>
+        <FaShuffle size={35} onClick={handleShuffle} />
       </div>
     </div>
   );

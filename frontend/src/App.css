@@ -547,13 +547,19 @@ a {
 /* ------------------------------------ FLASHCARD PAGE ------------------------------------ */
 
 
-.flashcards-container {
+.flashcards-page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: auto;
   user-select: none;
+}
+
+.flashcard-page-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .flashcard-container {
@@ -577,22 +583,37 @@ a {
 
 .front,
 .back {
+  background-color: #08051f;
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  padding: 5%;
+  padding: 3%;
+  
 }
 
-.front {
-  background-color: #08051f;
-  font-size: 2rem;
+
+.front-word-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .back {
-  background-color: #08051f;
   transform: rotateX(180deg);
+}
+
+.back-content-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .navigation-container {
@@ -603,6 +624,29 @@ a {
   margin-top: 2%;
 }
 
+
+.favorite-icon {
+  cursor: pointer;
+  text-align: right;
+  position: absolute;
+  right: 5%;
+}
+
+.favorite-icon .heart-filled,
+.favorite-icon .heart-border {
+  transition: transform 0.2s, color 0.2s; 
+  color: rgb(255, 255, 255);
+}
+
+.favorite-icon .heart-filled {
+  color: rgb(255, 0, 0);
+}
+
+.favorite-icon:active .heart-filled,
+.favorite-icon:active .heart-border {
+  transform: scale(1.5); 
+  color: rgb(255, 0, 0); 
+}
 
 .navigation-container .navigation-button {
   cursor: pointer; 

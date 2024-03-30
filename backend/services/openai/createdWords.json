@@ -7588,5 +7588,121 @@
       "__v": 0
     },
     "timestamp": "2024-03-30T02:08:32.328Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Adivinar",
+      "definition": "To guess or to predict.",
+      "exampleSentence": "Ella puede adivinar el número que estoy pensando.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-dee-vee-nahr",
+      "creationDate": "2024-03-30T02:31:39.788Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "adivino",
+          "tu": "adivinas",
+          "el": "adivina",
+          "nosotros": "adivinamos",
+          "vosotros": "adivináis",
+          "ellos": "adivinan"
+        },
+        "preterite": {
+          "yo": "adiviné",
+          "tu": "adivinaste",
+          "el": "adivinó",
+          "nosotros": "adivinamos",
+          "vosotros": "adivinasteis",
+          "ellos": "adivinaron"
+        },
+        "future": {
+          "yo": "adivinaré",
+          "tu": "adivinarás",
+          "el": "adivinará",
+          "nosotros": "adivinaremos",
+          "vosotros": "adivinaréis",
+          "ellos": "adivinarán"
+        },
+        "imperfect": {
+          "yo": "adivinaba",
+          "tu": "adivinabas",
+          "el": "adivinaba",
+          "nosotros": "adivinábamos",
+          "vosotros": "adivinabais",
+          "ellos": "adivinaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "66078139494fcef588d31e09",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T03:04:25.893Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Golpear",
+      "definition": "To hit or to strike.",
+      "exampleSentence": "El boxeador golpeó a su oponente con fuerza.",
+      "wordType": "Verb",
+      "phoneticSpelling": "gol-peh-ahr",
+      "creationDate": "2024-03-30T03:04:26.375Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "golpeo",
+          "tu": "golpeas",
+          "el": "golpea",
+          "nosotros": "golpeamos",
+          "vosotros": "golpeáis",
+          "ellos": "golpean"
+        },
+        "preterite": {
+          "yo": "golpeé",
+          "tu": "golpeaste",
+          "el": "golpeó",
+          "nosotros": "golpeamos",
+          "vosotros": "golpeasteis",
+          "ellos": "golpearon"
+        },
+        "future": {
+          "yo": "golpearé",
+          "tu": "golpearás",
+          "el": "golpeará",
+          "nosotros": "golpearemos",
+          "vosotros": "golpearéis",
+          "ellos": "golpearán"
+        },
+        "imperfect": {
+          "yo": "golpeaba",
+          "tu": "golpeabas",
+          "el": "golpeaba",
+          "nosotros": "golpeábamos",
+          "vosotros": "golpeabais",
+          "ellos": "golpeaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "66078d1ddf1d951158f85b25",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T03:55:10.805Z"
   }
 ]
