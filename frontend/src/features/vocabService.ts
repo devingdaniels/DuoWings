@@ -101,6 +101,17 @@ const updateWordInDeckByID = async (word: IWord) => {
   }
 };
 
+const toggleIsFavoriteOnWord = async (id: string) => {
+  const URL = `${import.meta.env.VITE_BACKEND_API_WORD}/toggle-favorite`;
+  try {
+    const response = await Axios.put(URL + `/${id}`);
+    return response.data;
+  } catch (err: any) {
+    console.error(NAMESPACE, err);
+    throw new Error(err.response?.data?.error || "Failed update isFavorite on word");
+  }
+};
+
 const VocabService = {
   createDeck,
   createWord,
@@ -109,6 +120,7 @@ const VocabService = {
   deleteDeckByID,
   deleteWordByID,
   updateWordInDeckByID,
+  toggleIsFavoriteOnWord,
 };
 
 export { VocabService };

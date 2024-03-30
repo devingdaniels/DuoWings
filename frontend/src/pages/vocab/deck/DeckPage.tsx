@@ -20,6 +20,11 @@ const DeckPage = () => {
   const { currentDeck, isLoading } = useAppSelector((state) => state.vocab);
 
   const handleCreateNewWord = async (word: ICreateNewVocabWord) => {
+    if (currentDeck?.words.some((w) => w.word === word.word)) {
+      toast.warn("Word already exists in the deck");
+      return;
+    }
+
     const response = await dispatch(VocabSliceService.createWord(word));
     if (response.type === "vocab/createWord/fulfilled") {
       toast.success("Word created!");

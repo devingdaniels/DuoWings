@@ -94,6 +94,9 @@ const WordSchema = new mongoose.Schema({
       ellos: String,
     },
   },
+  //! Not yet on the frontend or backend interfaces or in the database or populated by the openAI API
+  synonyms: [String],
+  antonyms: [String],
 });
 
 /* 
@@ -118,28 +121,3 @@ WordSchema.methods.incrementIncorrectCount = async function () {
 const WordModel = mongoose.model("Word", WordSchema, "words");
 
 export { WordModel, WordSchema };
-
-// Other fields to consider:
-/*
-
-pronunciation: {
-  phoneticSpelling: String,
-  audioFile: String, // URL to pronunciation audio
-},
-
-synonyms: [String],
-antonyms: [String],
-
-
-frequency: {
-  type: Number,
-  default: 0, // Higher numbers indicate more frequent usage
-},
-
-
-origin: String,
-
-
-relatedWords: [String], // Related words or phrases 
-
-*/

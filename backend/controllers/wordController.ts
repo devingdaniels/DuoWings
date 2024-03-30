@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import { NextFunction, Request, Response } from "express";
 import { openAIService } from "../services/openai/openaiService";
 import { WordModel } from "../database/models/wordModel";
+import { IWord } from "../interfaces";
 
 const NAMESPACE = "wordController.ts";
 
@@ -20,10 +21,29 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
   const user = req.user; // User is added to the request object by the auth middleware if the token is valid (backend/middleware/auth.ts)
 
   try {
-    // Use the openAI API and user word to add definition, example sentence, and word type | and user for context
-    const createdWord = await openAIService.buildWord(word, user);
+    // If the word already exists, then we don't need to call the openAI API
+    // We can just copy copy the conjugations, definition, example sentence, and word type from the existing word
+    // This is useful for when a user adds a word to a deck that already exists in the database
 
-    console.log("createdWord:", createdWord);
+    let createdWord;
+
+    // Check if the word already exists in the database
+    const isWordInDB = await WordModel.findOne({ word: word });
+
+    if (!isWordInDB) {
+      // Use the openAI API and user word to add definition, example sentence
+      createdWord = await openAIService.buildWord(word);
+    } else {
+      // If the word already exists in the database, then we don't need to call the openAI API
+      // This will save us time and resources
+      createdWord = {
+        conjugations: isWordInDB.conjugations,
+        definition: isWordInDB.definition,
+        exampleSentence: isWordInDB.exampleSentence,
+        phoneticSpelling: isWordInDB.phoneticSpelling,
+        wordType: isWordInDB.wordType,
+      };
+    }
 
     // Check if the deck exists
     const deckFromDB = await DeckModel.findById(deckID).populate("words");
@@ -42,7 +62,7 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
       definition: createdWord.definition,
       wordType: createdWord.wordType,
       exampleSentence: createdWord.exampleSentence,
-      phoneticSpelling: createdWord.phoneticSpelling,
+      phoneticSpelling: createdWord.phoneticSpelling ? createdWord.phoneticSpelling : "broken",
       isFavorite: false,
       conjugations: createdWord.conjugations,
     }).save();
@@ -117,7 +137,7 @@ const deleteWordFromDeckByID = async (req: Request, res: Response, next: NextFun
 
 /*
  * ********************************************************************************************************************
- * Input: word object, word ID
+ * Input: word object with new values, word ID
  * This function is used to update a word in a deck by its ID
  * It updates the word's properties (e.g., word, definition, example sentence, word type, etc.)
  * It returns a 201 status code and the updated deck with the updated word
@@ -165,4 +185,50 @@ const updateWordInDeckByID = async (req: Request, res: Response, next: NextFunct
   }
 };
 
-export { createWord, deleteWordFromDeckByID, updateWordInDeckByID };
+/*
+ * ********************************************************************************************************************
+ * Input: wordID, deckID, !isFavorite
+ * This function is used to toggle a word's favorite status
+ * It returns a 201 status code and the updated deck with the updated word
+ * else it returns a 400 status code and an error message
+ * ********************************************************************************************************************
+ */
+const toggleFavorite = async (req: Request, res: Response, next: NextFunction) => {
+  const { id } = req.params;
+  const wordID = id;
+
+  try {
+    // Find the word
+    const word = await WordModel.findById(wordID);
+
+    if (!word) {
+      logging.error(NAMESPACE, `Word with ID ${wordID} not found`);
+      return res.status(404).json({ error: "Word not found" });
+    }
+
+    // Update the word's favorite status
+    const updatedWord = await WordModel.updateOne(
+      { _id: wordID },
+      {
+        $set: {
+          isFavorite: !word.isFavorite,
+        },
+      }
+    );
+
+    if (updatedWord.nModified === 0) {
+      logging.error(NAMESPACE, `Failed to update word with ID ${wordID}`);
+      return res.status(400).json({ error: "Failed to update word" });
+    }
+
+    // Update the deck with the updated word
+    const deck = await DeckModel.findById(word.deckID).populate("words");
+
+    return res.status(201).json({ message: "Update successful", deck });
+  } catch (error) {
+    logging.error(NAMESPACE, "Error updating word:", error);
+    next(error);
+  }
+};
+
+export { createWord, deleteWordFromDeckByID, updateWordInDeckByID, toggleFavorite };

@@ -152,6 +152,21 @@ const updateWordInDeckByID = createAsyncThunk(
   }
 );
 
+const toggleIsFavoriteOnWord = createAsyncThunk(
+  "vocab/toggleIsFavoriteOnWord",
+  async (id: string, { rejectWithValue }) => {
+    try {
+      const response = await VocabService.toggleIsFavoriteOnWord(id);
+      if (DEBUGGING) console.log(NAMESPACE, "toggleIsFavoriteOnWord response:", response);
+      return response;
+    } catch (error: any) {
+      const errorMessage = error.message || "Failed to update isFavorite.";
+      if (DEBUGGING) console.log(NAMESPACE, error);
+      return rejectWithValue(errorMessage);
+    }
+  }
+);
+
 /*
 ***************************** 
           SLICE               
@@ -308,6 +323,26 @@ const vocabSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = false;
         state.message = action.payload as string;
+      })
+      .addCase(toggleIsFavoriteOnWord.pending, (state) => {
+        state.isLoading = true;
+        state.isSuccess = false;
+        state.isError = false;
+        state.message = "Updating word...";
+      })
+      .addCase(toggleIsFavoriteOnWord.fulfilled, (state, action) => {
+        state.isSuccess = true;
+        state.isLoading = false;
+        state.isError = false;
+        state.currentDeck = action.payload.deck;
+        state.message = action.payload.message;
+      })
+      .addCase(toggleIsFavoriteOnWord.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.message = action.payload as string;
+        // Current deck state is not updated, ie remains the same
       });
   },
 });
@@ -331,6 +366,7 @@ const VocabSliceService = {
   resetErrorState,
   resetDeckStatusFlagsToDefault,
   resetCurrentDeck,
+  toggleIsFavoriteOnWord,
 };
 
 // Export and expose the service functions to the components

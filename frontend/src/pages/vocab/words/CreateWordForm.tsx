@@ -25,8 +25,7 @@ const CreateWordForm: React.FC<CreateWordForm> = ({ handleCreateNewWord, deckID 
     // It can contain spaces, hyphens, and apostrophes
     const regex = /^[A-Za-záéíóúüñÁÉÍÓÚÜÑ\s'-]+$/;
     if (!regex.test(formData.word)) {
-      toastService.warning("Word must contain only letters!");
-      toastService.warning("Invalid word format!");
+      toastService.warning("Cannot enter numbers or symbols");
       return;
     }
     // Call the parent function

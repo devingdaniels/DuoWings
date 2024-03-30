@@ -7240,5 +7240,353 @@
       "__v": 0
     },
     "timestamp": "2024-03-29T16:33:30.806Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Adivinar",
+      "definition": "To guess, to predict",
+      "exampleSentence": "Él adivina el número en mi mente.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-dee-vee-nahr",
+      "creationDate": "2024-03-29T19:09:39.710Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "adivino",
+          "tu": "adivinas",
+          "el": "adivina",
+          "nosotros": "adivinamos",
+          "vosotros": "adivináis",
+          "ellos": "adivinan"
+        },
+        "preterite": {
+          "yo": "adiviné",
+          "tu": "adivinaste",
+          "el": "adivinó",
+          "nosotros": "adivinamos",
+          "vosotros": "adivinasteis",
+          "ellos": "adivinaron"
+        },
+        "future": {
+          "yo": "adivinaré",
+          "tu": "adivinarás",
+          "el": "adivinará",
+          "nosotros": "adivinaremos",
+          "vosotros": "adivinaréis",
+          "ellos": "adivinarán"
+        },
+        "imperfect": {
+          "yo": "adivinaba",
+          "tu": "adivinabas",
+          "el": "adivinaba",
+          "nosotros": "adivinábamos",
+          "vosotros": "adivinabais",
+          "ellos": "adivinaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "66071209da40d4c8623f355c",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T19:10:01.782Z"
+  },
+  {
+    "word": {
+      "deckID": "6607141da391d171ab667992",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Adivinar",
+      "definition": "to guess or to predict",
+      "exampleSentence": "Él puede adivinar el número que estás pensando.",
+      "wordType": "verb",
+      "phoneticSpelling": "broken",
+      "creationDate": "2024-03-29T19:32:22.073Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "adivino",
+          "tu": "adivinas",
+          "el": "adivina",
+          "nosotros": "adivinamos",
+          "vosotros": "adivináis",
+          "ellos": "adivinan"
+        },
+        "preterite": {
+          "yo": "adiviné",
+          "tu": "adivinaste",
+          "el": "adivinó",
+          "nosotros": "adivinamos",
+          "vosotros": "adivinasteis",
+          "ellos": "adivinaron"
+        },
+        "future": {
+          "yo": "adivinaré",
+          "tu": "adivinarás",
+          "el": "adivinará",
+          "nosotros": "adivinaremos",
+          "vosotros": "adivinaréis",
+          "ellos": "adivinarán"
+        },
+        "imperfect": {
+          "yo": "adivinaba",
+          "tu": "adivinabas",
+          "el": "adivinaba",
+          "nosotros": "adivinábamos",
+          "vosotros": "adivinabais",
+          "ellos": "adivinaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6607174c8162378b166655dd",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T19:32:29.421Z"
+  },
+  {
+    "word": {
+      "deckID": "6607141da391d171ab667992",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Fascinar",
+      "definition": "To fascinate, to captivate",
+      "exampleSentence": "La película me fascina cada vez que la veo.",
+      "wordType": "Verb",
+      "phoneticSpelling": "fahs-ee-nahr",
+      "creationDate": "2024-03-29T19:32:30.791Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "fascino",
+          "tu": "fascinas",
+          "el": "fascina",
+          "nosotros": "fascinamos",
+          "vosotros": "fascináis",
+          "ellos": "fascinan"
+        },
+        "preterite": {
+          "yo": "fasciné",
+          "tu": "fascinaste",
+          "el": "fascinó",
+          "nosotros": "fascinamos",
+          "vosotros": "fascinasteis",
+          "ellos": "fascinaron"
+        },
+        "future": {
+          "yo": "fascinaré",
+          "tu": "fascinarás",
+          "el": "fascinará",
+          "nosotros": "fascinaremos",
+          "vosotros": "fascinaréis",
+          "ellos": "fascinarán"
+        },
+        "imperfect": {
+          "yo": "fascinaba",
+          "tu": "fascinabas",
+          "el": "fascinaba",
+          "nosotros": "fascinábamos",
+          "vosotros": "fascinabais",
+          "ellos": "fascinaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "660717715df005b12c989194",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T19:33:06.471Z"
+  },
+  {
+    "word": {
+      "deckID": "6601ad2f7f9116e192d86e60",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Fascinar",
+      "definition": "To fascinate, to captivate",
+      "exampleSentence": "La película me fascina cada vez que la veo.",
+      "wordType": "Verb",
+      "phoneticSpelling": "fahs-ee-nahr",
+      "creationDate": "2024-03-29T19:33:06.811Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "fascino",
+          "tu": "fascinas",
+          "el": "fascina",
+          "nosotros": "fascinamos",
+          "vosotros": "fascináis",
+          "ellos": "fascinan"
+        },
+        "preterite": {
+          "yo": "fasciné",
+          "tu": "fascinaste",
+          "el": "fascinó",
+          "nosotros": "fascinamos",
+          "vosotros": "fascinasteis",
+          "ellos": "fascinaron"
+        },
+        "future": {
+          "yo": "fascinaré",
+          "tu": "fascinarás",
+          "el": "fascinará",
+          "nosotros": "fascinaremos",
+          "vosotros": "fascinaréis",
+          "ellos": "fascinarán"
+        },
+        "imperfect": {
+          "yo": "fascinaba",
+          "tu": "fascinabas",
+          "el": "fascinaba",
+          "nosotros": "fascinábamos",
+          "vosotros": "fascinabais",
+          "ellos": "fascinaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "66071785a59f15b8cbffed73",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T19:33:26.680Z"
+  },
+  {
+    "word": {
+      "deckID": "66071bb7dcc568e1bb08a26c",
+      "userID": "66071b9ddcc568e1bb08a265",
+      "word": "Adivinar",
+      "definition": "to guess or to predict",
+      "exampleSentence": "Él puede adivinar el número que estás pensando.",
+      "wordType": "verb",
+      "phoneticSpelling": "broken",
+      "creationDate": "2024-03-29T19:35:41.399Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "adivino",
+          "tu": "adivinas",
+          "el": "adivina",
+          "nosotros": "adivinamos",
+          "vosotros": "adivináis",
+          "ellos": "adivinan"
+        },
+        "preterite": {
+          "yo": "adiviné",
+          "tu": "adivinaste",
+          "el": "adivinó",
+          "nosotros": "adivinamos",
+          "vosotros": "adivinasteis",
+          "ellos": "adivinaron"
+        },
+        "future": {
+          "yo": "adivinaré",
+          "tu": "adivinarás",
+          "el": "adivinará",
+          "nosotros": "adivinaremos",
+          "vosotros": "adivinaréis",
+          "ellos": "adivinarán"
+        },
+        "imperfect": {
+          "yo": "adivinaba",
+          "tu": "adivinabas",
+          "el": "adivinaba",
+          "nosotros": "adivinábamos",
+          "vosotros": "adivinabais",
+          "ellos": "adivinaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "66071bbddcc568e1bb08a274",
+      "__v": 0
+    },
+    "timestamp": "2024-03-29T19:51:26.880Z"
+  },
+  {
+    "word": {
+      "deckID": "66071bb7dcc568e1bb08a26c",
+      "userID": "66071b9ddcc568e1bb08a265",
+      "word": "Fascinar",
+      "definition": "To fascinate, to captivate",
+      "exampleSentence": "La película me fascina cada vez que la veo.",
+      "wordType": "Verb",
+      "phoneticSpelling": "fahs-ee-nahr",
+      "creationDate": "2024-03-30T02:05:51.269Z",
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "fascino",
+          "tu": "fascinas",
+          "el": "fascina",
+          "nosotros": "fascinamos",
+          "vosotros": "fascináis",
+          "ellos": "fascinan"
+        },
+        "preterite": {
+          "yo": "fasciné",
+          "tu": "fascinaste",
+          "el": "fascinó",
+          "nosotros": "fascinamos",
+          "vosotros": "fascinasteis",
+          "ellos": "fascinaron"
+        },
+        "future": {
+          "yo": "fascinaré",
+          "tu": "fascinarás",
+          "el": "fascinará",
+          "nosotros": "fascinaremos",
+          "vosotros": "fascinaréis",
+          "ellos": "fascinarán"
+        },
+        "imperfect": {
+          "yo": "fascinaba",
+          "tu": "fascinabas",
+          "el": "fascinaba",
+          "nosotros": "fascinábamos",
+          "vosotros": "fascinabais",
+          "ellos": "fascinaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6607741fb97cafeb4ad35dfd",
+      "__v": 0
+    },
+    "timestamp": "2024-03-30T02:08:32.328Z"
   }
 ]

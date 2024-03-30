@@ -3,6 +3,9 @@ import { IWord, IConjugation, IWordDeck } from "../../../interfaces";
 import { FaShuffle } from "react-icons/fa6";
 import { MdFavorite } from "react-icons/md";
 import { MdFavoriteBorder } from "react-icons/md";
+import { useAppDispatch } from "../../../app/hooks";
+import { VocabSliceService } from "../../../features/vocabSlice";
+import { toastService } from "../../../utils/Toastify";
 
 interface FlashCardProps {
   deck: IWordDeck;
@@ -13,17 +16,11 @@ interface FlashCardProps {
   setIsFlipped: (flipped: boolean) => void;
 }
 
-const FlashCard: React.FC<FlashCardProps> = ({
-  deck,
-  index,
-  length,
-  word,
-  isFlipped,
-  setIsFlipped,
-}) => {
-  const handleClick = () => {
-    setIsFlipped(!isFlipped);
-  };
+const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
+  // Component props
+  const { deck, index, length, word, isFlipped, setIsFlipped } = props;
+  // Redux
+  const dispatch = useAppDispatch();
 
   // const renderConjugation = (conjugation: IConjugation, tense: string) => {
   //   return (
@@ -52,15 +49,27 @@ const FlashCard: React.FC<FlashCardProps> = ({
   //   );
   // };
 
-  function handleToggleFavorite(e: React.MouseEvent) {
+  const handleToggleFavorite = async (word: IWord, e: React.MouseEvent) => {
+    // Prevent the click event from bubbling up to the parent div
     e.stopPropagation();
-    console.log("Toggle favorite");
-  }
 
-  function handleShuffle(e: React.MouseEvent) {
+    const response = await dispatch(VocabSliceService.toggleIsFavoriteOnWord(word._id));
+    if (response.type === "vocab/createWord/fulfilled") {
+      toastService.success("Word created!");
+      dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
+    } else {
+      toastService.error(response.payload);
+      dispatch(VocabSliceService.resetErrorState());
+    }
+  };
+
+  const handleShuffle = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    console.log("handle shuffle");
-  }
+  };
+
+  const handleClick = () => {
+    setIsFlipped(!isFlipped);
+  };
 
   return (
     <div className="flashcard-page-container">
@@ -70,7 +79,7 @@ const FlashCard: React.FC<FlashCardProps> = ({
       <div className="flashcard-container" onClick={handleClick}>
         <div className={`flashcard ${isFlipped ? "flipped" : ""}`}>
           <div className="front">
-            <p onClick={handleToggleFavorite}>
+            <p onClick={(e) => handleToggleFavorite(word, e)}>
               {word.isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
             </p>
             <strong>{word.word}</strong>
