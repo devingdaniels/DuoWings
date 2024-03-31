@@ -21,6 +21,7 @@ Example Format:
   "wordType": "Verb",
   "exampleSentence": "Yo hago mi tarea todos los días.",
   "phoneticSpelling": "deh-rrah-mahr",
+  "isIrregular": true,
   "conjugations": {
     "present": {
       "yo": "hago",
@@ -38,6 +39,7 @@ For the given word "${word}", fill in the following:
   "wordType": "[Enter 'Noun', 'Verb', 'Adjective', etc.]",
   "exampleSentence": "[Enter an example sentence using '${word}' in Spanish]",
   "phoneticSpelling": "[Provide the phonetic spelling using English phonetic cues]",
+  "isIrregular": [true/false],
   "conjugations": ${
     '"wordType" === "Verb"'
       ? `{

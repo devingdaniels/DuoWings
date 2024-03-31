@@ -5,7 +5,6 @@ import { BiSkipNextCircle } from "react-icons/bi";
 import { BiSkipPreviousCircle } from "react-icons/bi";
 import { FaShuffle } from "react-icons/fa6";
 import { delay } from "../../../utils/UtilityFunctions";
-import { MdInfoOutline } from "react-icons/md";
 
 const FlashCardsPage = () => {
   const { currentDeck } = useAppSelector((state) => state.vocab);
@@ -73,10 +72,23 @@ const FlashCardsPage = () => {
 
   return (
     <div className="flashcards-page-container">
-      <div title="Shortcuts: 's' ==> shuffle, 'space' ==> flip, 'right' ==> prev, 'left'===> next">
-        <MdInfoOutline />
-        Hover Me
-      </div>
+      {/* <div className="keyboard-shortcut-panel" title="Keyboard Shortcuts">
+        <span>Keyboard Shortcuts</span>
+        <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
+          <li>
+            <kbd>s</kbd> - Shuffle
+          </li>
+          <li>
+            <kbd>Space</kbd> - Flip card
+          </li>
+          <li>
+            <kbd>Right Arrow</kbd> - Next card
+          </li>
+          <li>
+            <kbd>Left Arrow</kbd> - Previous card
+          </li>
+        </ul>
+      </div> */}
 
       {words.length > 0 && currentDeck ? (
         <>

@@ -8158,5 +8158,64 @@
       "__v": 0
     },
     "timestamp": "2024-03-30T17:37:39.170Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Decir",
+      "definition": "To say, to tell",
+      "exampleSentence": "Ella dice la verdad.",
+      "wordType": "Verb",
+      "phoneticSpelling": "deh-theer",
+      "creationDate": "2024-03-31T00:55:55.452Z",
+      "isIrregular": true,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "digo",
+          "tu": "dices",
+          "el": "dice",
+          "nosotros": "decimos",
+          "vosotros": "decís",
+          "ellos": "dicen"
+        },
+        "preterite": {
+          "yo": "dije",
+          "tu": "dijiste",
+          "el": "dijo",
+          "nosotros": "dijimos",
+          "vosotros": "dijisteis",
+          "ellos": "dijeron"
+        },
+        "future": {
+          "yo": "diré",
+          "tu": "dirás",
+          "el": "dirá",
+          "nosotros": "diremos",
+          "vosotros": "diréis",
+          "ellos": "dirán"
+        },
+        "imperfect": {
+          "yo": "decía",
+          "tu": "decías",
+          "el": "decía",
+          "nosotros": "decíamos",
+          "vosotros": "decíais",
+          "ellos": "decían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6608b4d43582c5b4675f2809",
+      "__v": 0
+    },
+    "timestamp": "2024-03-31T00:56:53.572Z"
   }
 ]

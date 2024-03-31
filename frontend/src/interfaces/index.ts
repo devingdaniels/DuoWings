@@ -78,6 +78,7 @@ export interface IWord {
   wordType: string;
   phoneticSpelling: string;
   isFavorite: boolean;
+  isIrregular: boolean;
   conjugations: {
     present?: IConjugation;
     preterite?: IConjugation;

@@ -42,6 +42,7 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
         exampleSentence: isWordInDB.exampleSentence,
         phoneticSpelling: isWordInDB.phoneticSpelling,
         wordType: isWordInDB.wordType,
+        isIrregular: isWordInDB.isIrregular,
       };
     }
 
@@ -62,9 +63,10 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
       definition: createdWord.definition,
       wordType: createdWord.wordType,
       exampleSentence: createdWord.exampleSentence,
-      phoneticSpelling: createdWord.phoneticSpelling ? createdWord.phoneticSpelling : "broken",
-      isFavorite: false,
+      phoneticSpelling: createdWord.phoneticSpelling,
+      isIrregular: createdWord.isIrregular,
       conjugations: createdWord.conjugations,
+      isFavorite: false,
     }).save();
 
     // Add the word to the deck's words array

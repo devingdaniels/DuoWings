@@ -24,6 +24,7 @@ export interface IWord {
   wordType: string;
   exampleSentence: string;
   phoneticSpelling: string;
+  isIrregular: boolean;
   isFavorite: boolean;
   conjugations: {
     present?: IConjugation;
