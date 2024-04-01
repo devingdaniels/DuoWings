@@ -27,7 +27,7 @@ const DeckPage = () => {
 
     const response = await dispatch(VocabSliceService.createWord(word));
     if (response.type === "vocab/createWord/fulfilled") {
-      toast.success("Word created!");
+      toast.success("Success");
       dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
     } else {
       toast.error(response.payload);
@@ -58,7 +58,7 @@ const DeckPage = () => {
 
           <div className="deck-button-options-panel">
             <div
-              className="deck-page-action-button"
+              className="flashcards-button"
               onClick={() => navigate("/vocab/decks/flashcards")}
               title="Flashcards game"
             >
@@ -66,7 +66,7 @@ const DeckPage = () => {
               Flashcards
             </div>
             <div
-              className="deck-page-action-button"
+              className="upload-words-button"
               onClick={() => navigate("/vocab/decks/upload-words")}
               title="Upload words to deck"
             >

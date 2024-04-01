@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { VocabSliceService } from "../../../features/vocabSlice";
 import { FcPlus } from "react-icons/fc";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 const AllDecksPage: React.FC = () => {
   // Hooks
@@ -22,19 +22,12 @@ const AllDecksPage: React.FC = () => {
 
   const closeModal = () => setIsModalOpen(false);
 
-  const filterDecks = (value: string) => {
-    const searchText = value.toLowerCase();
-    setSearchTerm(searchText);
-    const filtered = decks.filter((deck: IWordDeck) =>
-      deck.name.toLowerCase().includes(searchText)
-    );
-    setFilteredDecks(filtered);
-  };
-
   useEffect(() => {
-    dispatch(VocabSliceService.fetchAllDecks());
-    // Reset the current deck when the component unmounts causes a bug
-    //dispatch(VocabSliceService.resetCurrentDeck());
+    const fetchAllDecks = async () => {
+      // toast.info("Fetching all decks...");
+      await dispatch(VocabSliceService.fetchAllDecks());
+    };
+    fetchAllDecks();
   }, [dispatch]);
 
   // Update filteredDecks whenever decks or searchTerm changes
@@ -45,6 +38,15 @@ const AllDecksPage: React.FC = () => {
     setFilteredDecks(filtered);
   }, [decks, searchTerm]);
 
+  const filterDecks = (value: string) => {
+    const searchText = value.toLowerCase();
+    setSearchTerm(searchText);
+    const filtered = decks.filter((deck: IWordDeck) =>
+      deck.name.toLowerCase().includes(searchText)
+    );
+    setFilteredDecks(filtered);
+  };
+
   const NewDeckButton = () => {
     return (
       <span
@@ -52,6 +54,7 @@ const AllDecksPage: React.FC = () => {
         onClick={(event: any) => {
           // Prevent the event from bubbling up the DOM tree and triggering the parent click event, which would close the modal
           event.stopPropagation();
+          // Close the modal
           setIsModalOpen(true);
         }}
       >
@@ -60,12 +63,6 @@ const AllDecksPage: React.FC = () => {
       </span>
     );
   };
-
-  useEffect(() => {
-    if (isDeckLoading) {
-      toast.info("Loading decks...");
-    }
-  }, [isDeckLoading]);
 
   // No decks and no state-changing functionality in progress
   if (decks.length === 0 && !isModalOpen && !isDeckLoading && !isError) {

@@ -449,7 +449,7 @@ a {
   justify-content: space-around;
 }
 
-.deck-page-action-button{
+.upload-words-button, .flashcards-button{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -458,7 +458,8 @@ a {
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.deck-page-action-button:hover{
+
+.upload-words-button:hover, .flashcards-button:hover{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-6px);
     cursor: pointer;
@@ -566,6 +567,7 @@ a {
   perspective: 2000px;
   width: 800px; 
   height: 400px;
+  /* margin: 30px 0px 30px 0px; */
 }
 
 .flashcard {
@@ -574,7 +576,6 @@ a {
   transition: transform 0.6s;
   transform-style: preserve-3d;
   cursor: pointer;
-  
 }
 
 .flashcard.flipped {
@@ -589,8 +590,7 @@ a {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  padding: 3%;
-  
+  /* padding-bottom: 5%; */
 }
 
 .front-word-container{
@@ -620,15 +620,22 @@ a {
   gap: 2%;
   justify-content: center;
   width: 100%;
-  margin-top: 2%;
 }
 
 
+
+.is-fav-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 .favorite-icon {
-  cursor: pointer;
+  /* cursor: pointer;
   text-align: right;
   position: absolute;
-  right: 5%;
+  right: 5%; */
 }
 
 .favorite-icon .heart-filled,
@@ -676,15 +683,6 @@ a {
 .flashcard-shuffle-button.shuffled:hover, .flashcard-shuffle-button:hover {
   transform: scale(1.5);
   opacity: 0.8; 
-}
-
-.keyboard-shortcut-panel{
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 0;;
-
 }
 
 /* ------------------------ UPLOAD WORD LIST PAGE ------------------------  */

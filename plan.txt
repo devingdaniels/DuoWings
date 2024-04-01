@@ -3,6 +3,9 @@ Devin Daniels
 Name of Company
 
 
+https://chat.openai.com/share/1e5f922b-af0c-4b13-bc3d-54fad1dbc36f
+
+
 1.	Executive Summary
 •	Brief Overview of the Business: What your SaaS product is about.
 •	Mission Statement: Your core purpose and what you aim to achieve.

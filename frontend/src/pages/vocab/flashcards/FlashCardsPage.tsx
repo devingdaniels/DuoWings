@@ -72,24 +72,6 @@ const FlashCardsPage = () => {
 
   return (
     <div className="flashcards-page-container">
-      {/* <div className="keyboard-shortcut-panel" title="Keyboard Shortcuts">
-        <span>Keyboard Shortcuts</span>
-        <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-          <li>
-            <kbd>s</kbd> - Shuffle
-          </li>
-          <li>
-            <kbd>Space</kbd> - Flip card
-          </li>
-          <li>
-            <kbd>Right Arrow</kbd> - Next card
-          </li>
-          <li>
-            <kbd>Left Arrow</kbd> - Previous card
-          </li>
-        </ul>
-      </div> */}
-
       {words.length > 0 && currentDeck ? (
         <>
           <FlashCard
@@ -98,7 +80,9 @@ const FlashCardsPage = () => {
             isFlipped={isFlipped}
             setIsFlipped={setIsFlipped}
           />
-          <div>{currentIndex + 1 + "/" + words.length}</div>
+          <div>
+            <strong>{currentIndex + 1 + "/" + words.length}</strong>
+          </div>
           <div className="navigation-container">
             <BiSkipPreviousCircle className="navigation-button" onClick={handlePrev} size={45} />
             <BiSkipNextCircle className="navigation-button" onClick={handleNext} size={45} />

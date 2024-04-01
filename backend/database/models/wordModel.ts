@@ -33,8 +33,8 @@ const WordSchema = new mongoose.Schema({
   },
   creationDate: {
     type: Date,
-    default: new Date(),
-    immutable: false,
+    default: Date.now,
+    immutable: true,
   },
   isIrregular: {
     type: Boolean,

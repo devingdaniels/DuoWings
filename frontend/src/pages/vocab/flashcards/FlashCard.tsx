@@ -36,7 +36,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
 
   const IsFavComponent = () => {
     return (
-      <div onClick={(e) => handleToggleFavorite(word, e)} className="favorite-icon">
+      <div onClick={(e) => handleToggleFavorite(word, e)} className="is-fav-container">
         {word.isFavorite ? (
           <MdFavorite size={30} className="heart-filled" />
         ) : (
@@ -53,17 +53,18 @@ const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
       </div>
       <div className="flashcard-container" onClick={() => setIsFlipped(!isFlipped)}>
         <div className={`flashcard ${isFlipped ? "flipped" : ""}`}>
-          <div>
-            <div className="front">
+          <div className="front">
+            <div>
               <IsFavComponent />
-              <div className="front-word-container">
-                <h2>
-                  <strong>{word.word}</strong>
-                </h2>
-                <br />
-                <i>{word.phoneticSpelling}</i>
-              </div>
             </div>
+            <div className="front-word-container">
+              <h2>
+                <strong>{word.word}</strong>
+              </h2>
+              <br />
+              <i>{word.phoneticSpelling}</i>
+            </div>
+            {/* {word.stats.level} */}
           </div>
           <div className="back">
             <IsFavComponent />

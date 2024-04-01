@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { FcUpload } from "react-icons/fc";
 
 const UploadWordsPage: React.FunctionComponent = () => {
   const [wordList, setWordList] = useState("");
@@ -24,7 +25,14 @@ const UploadWordsPage: React.FunctionComponent = () => {
         }}
       ></textarea>
       <br />
-      <button onClick={handleCreateFlashcards}>Create Words</button>
+      <div
+        onClick={handleCreateFlashcards}
+        className="upload-words-button"
+        title="Upload words to deck"
+      >
+        <FcUpload size={35} />
+        Upload
+      </div>
     </div>
   );
 };

@@ -8217,5 +8217,316 @@
       "__v": 0
     },
     "timestamp": "2024-03-31T00:56:53.572Z"
+  },
+  {
+    "word": {
+      "deckID": "6609e582446b51901b9c6faf",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Decir",
+      "definition": "To say, to tell",
+      "exampleSentence": "Ella dice la verdad.",
+      "wordType": "Verb",
+      "phoneticSpelling": "deh-theer",
+      "creationDate": "2024-03-31T00:58:06.556Z",
+      "isIrregular": true,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "digo",
+          "tu": "dices",
+          "el": "dice",
+          "nosotros": "decimos",
+          "vosotros": "decís",
+          "ellos": "dicen"
+        },
+        "preterite": {
+          "yo": "dije",
+          "tu": "dijiste",
+          "el": "dijo",
+          "nosotros": "dijimos",
+          "vosotros": "dijisteis",
+          "ellos": "dijeron"
+        },
+        "future": {
+          "yo": "diré",
+          "tu": "dirás",
+          "el": "dirá",
+          "nosotros": "diremos",
+          "vosotros": "diréis",
+          "ellos": "dirán"
+        },
+        "imperfect": {
+          "yo": "decía",
+          "tu": "decías",
+          "el": "decía",
+          "nosotros": "decíamos",
+          "vosotros": "decíais",
+          "ellos": "decían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6609e58c446b51901b9c6fb8",
+      "__v": 0
+    },
+    "timestamp": "2024-03-31T22:37:00.928Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Estándar",
+      "definition": "Standard",
+      "exampleSentence": "Este equipo cumple con el estándar de calidad requerido.",
+      "wordType": "Noun",
+      "phoneticSpelling": "es-TAHN-dahr",
+      "creationDate": "2024-03-31T22:37:12.034Z",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6609e9bb5f56e9b8ffab8fa5",
+      "__v": 0
+    },
+    "timestamp": "2024-03-31T22:54:52.570Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Golpear",
+      "definition": "To hit, to strike",
+      "exampleSentence": "Él golpeó la puerta con fuerza.",
+      "wordType": "Verb",
+      "phoneticSpelling": "gol-peh-ar",
+      "creationDate": "2024-03-31T22:54:53.080Z",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "golpeo",
+          "tu": "golpeas",
+          "el": "golpea",
+          "nosotros": "golpeamos",
+          "vosotros": "golpeáis",
+          "ellos": "golpean"
+        },
+        "preterite": {
+          "yo": "golpeé",
+          "tu": "golpeaste",
+          "el": "golpeó",
+          "nosotros": "golpeamos",
+          "vosotros": "golpeasteis",
+          "ellos": "golpearon"
+        },
+        "future": {
+          "yo": "golpearé",
+          "tu": "golpearás",
+          "el": "golpeará",
+          "nosotros": "golpearemos",
+          "vosotros": "golpearéis",
+          "ellos": "golpearán"
+        },
+        "imperfect": {
+          "yo": "golpeaba",
+          "tu": "golpeabas",
+          "el": "golpeaba",
+          "nosotros": "golpeábamos",
+          "vosotros": "golpeabais",
+          "ellos": "golpeaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6609e9d3b4906271f255da7a",
+      "__v": 0
+    },
+    "timestamp": "2024-03-31T22:55:16.401Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Suponer",
+      "definition": "To suppose, to assume",
+      "exampleSentence": "No puedo suponer lo que está pensando.",
+      "wordType": "Verb",
+      "phoneticSpelling": "soo-poh-nehrr",
+      "creationDate": "2024-03-31T22:55:16.810Z",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "supongo",
+          "tu": "supones",
+          "el": "supone",
+          "nosotros": "suponemos",
+          "vosotros": "suponéis",
+          "ellos": "suponen"
+        },
+        "preterite": {
+          "yo": "supuse",
+          "tu": "supusiste",
+          "el": "supuso",
+          "nosotros": "supusimos",
+          "vosotros": "supusisteis",
+          "ellos": "supusieron"
+        },
+        "future": {
+          "yo": "supondré",
+          "tu": "supondrás",
+          "el": "supondrá",
+          "nosotros": "supondremos",
+          "vosotros": "supondréis",
+          "ellos": "supondrán"
+        },
+        "imperfect": {
+          "yo": "suponía",
+          "tu": "suponías",
+          "el": "suponía",
+          "nosotros": "suponíamos",
+          "vosotros": "suponíais",
+          "ellos": "suponían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6609ea059be02c54691cc4ed",
+      "__v": 0
+    },
+    "timestamp": "2024-03-31T22:56:05.956Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Empresario",
+      "definition": "Entrepreneur, businessperson.",
+      "exampleSentence": "El empresario fundó su propia empresa de tecnología.",
+      "wordType": "Noun",
+      "phoneticSpelling": "em-pray-sah-ree-oh",
+      "creationDate": "2024-03-31T22:56:06.481Z",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6609ea443306e332603a0842",
+      "__v": 0
+    },
+    "timestamp": "2024-03-31T22:57:09.253Z"
+  },
+  {
+    "word": {
+      "deckID": "6609fae9e39d3877c9f8168e",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Recaudar",
+      "definition": "To collect, to raise (funds)",
+      "exampleSentence": "El equipo recauda dinero para la caridad.",
+      "wordType": "Verb",
+      "phoneticSpelling": "reh-kow-dahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "recaudo",
+          "tu": "recaudas",
+          "el": "recauda",
+          "nosotros": "recaudamos",
+          "vosotros": "recaudáis",
+          "ellos": "recaudan"
+        },
+        "preterite": {
+          "yo": "recaudé",
+          "tu": "recaudaste",
+          "el": "recaudó",
+          "nosotros": "recaudamos",
+          "vosotros": "recaudasteis",
+          "ellos": "recaudaron"
+        },
+        "future": {
+          "yo": "recaudaré",
+          "tu": "recaudarás",
+          "el": "recaudará",
+          "nosotros": "recaudaremos",
+          "vosotros": "recaudaréis",
+          "ellos": "recaudarán"
+        },
+        "imperfect": {
+          "yo": "recaudaba",
+          "tu": "recaudabas",
+          "el": "recaudaba",
+          "nosotros": "recaudábamos",
+          "vosotros": "recaudabais",
+          "ellos": "recaudaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6609fb04e39d3877c9f81697",
+      "creationDate": "2024-04-01T00:08:36.253Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-01T00:08:36.662Z"
+  },
+  {
+    "word": {
+      "deckID": "6609fae9e39d3877c9f8168e",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Caridad",
+      "definition": "Charity; kindness; compassion.",
+      "exampleSentence": "La caridad es una virtud importante en la vida de las personas.",
+      "wordType": "Noun",
+      "phoneticSpelling": "cah-ree-dahd",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 0,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6609fb1623c39e7516192c42",
+      "creationDate": "2024-04-01T00:08:54.325Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-01T00:08:54.811Z"
   }
 ]
