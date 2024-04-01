@@ -300,7 +300,6 @@ a {
 
 
 .deck-header-level-container {
-  background-color: blue;
   padding: 1%;
 }
 
@@ -386,7 +385,6 @@ a {
   align-items: center;
   width: 100%;
 }
-
 
 .deck-page-deck-header {
   text-align: center;
@@ -562,8 +560,13 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2%;
   width: 100%;
+}
+
+.navigation-container span {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
 }
 
 .navigation-container .navigation-button {

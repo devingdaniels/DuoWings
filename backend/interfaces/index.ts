@@ -10,7 +10,7 @@ interface IConjugation {
 }
 
 interface Stats {
-  difficulty: number;
+  level: number;
   correctCount: number;
   incorrectCount: number;
 }

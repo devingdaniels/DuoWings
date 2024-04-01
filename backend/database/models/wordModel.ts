@@ -47,20 +47,20 @@ const WordSchema = new mongoose.Schema({
   tags: [String],
   stats: {
     level: {
-      min: 0,
-      max: 5,
       type: Number,
-      default: 0,
+      min: 1,
+      max: 5,
+      default: 1,
     },
     correctCount: {
       type: Number,
-      default: 0,
       min: 0,
+      default: 0,
     },
     incorrectCount: {
       type: Number,
-      default: 0,
       min: 0,
+      default: 0,
     },
   },
   // Conjugations for the word are not required, as not all words have conjugations

@@ -86,10 +86,11 @@ const FlashCardsPage = () => {
           </div>
           <br />
           <div className="navigation-container">
-            <div>
+            <span>
               <BiSkipPreviousCircle className="navigation-button" onClick={handlePrev} size={45} />
               <BiSkipNextCircle className="navigation-button" onClick={handleNext} size={45} />
-            </div>
+            </span>
+            <br />
             <FaShuffle
               className={`flashcard-shuffle-button ${isShuffled ? "shuffled" : ""}`}
               size={35}

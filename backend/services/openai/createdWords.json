@@ -8553,5 +8553,64 @@
       "__v": 0
     },
     "timestamp": "2024-04-01T01:42:45.301Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Apestar",
+      "definition": "To stink, to reek",
+      "exampleSentence": "La basura empieza a apestar después de unos días.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-peh-stahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "apesto",
+          "tu": "apestas",
+          "el": "apesta",
+          "nosotros": "apestamos",
+          "vosotros": "apestáis",
+          "ellos": "apestan"
+        },
+        "preterite": {
+          "yo": "apesté",
+          "tu": "apestaste",
+          "el": "apestó",
+          "nosotros": "apestamos",
+          "vosotros": "apestasteis",
+          "ellos": "apestaron"
+        },
+        "future": {
+          "yo": "apestaré",
+          "tu": "apestarás",
+          "el": "apestará",
+          "nosotros": "apestaremos",
+          "vosotros": "apestaréis",
+          "ellos": "apestarán"
+        },
+        "imperfect": {
+          "yo": "apestaba",
+          "tu": "apestabas",
+          "el": "apestaba",
+          "nosotros": "apestábamos",
+          "vosotros": "apestabais",
+          "ellos": "apestaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "660a20331ef15a6169c36d6d",
+      "creationDate": "2024-04-01T02:47:15.156Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-01T02:47:15.705Z"
   }
 ]

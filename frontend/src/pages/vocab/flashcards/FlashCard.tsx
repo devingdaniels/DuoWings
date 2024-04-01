@@ -37,8 +37,9 @@ const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
   const FlashcardHeader = () => {
     return (
       <div onClick={(e) => handleToggleFavorite(word, e)} className="flashcard-header">
-        <div>
-          <h3>{word.stats.level}</h3>
+        <div className="deck-header-item deck-header-level-container">
+          <span>lvl. {word.stats.level}</span>
+          <h3></h3>
         </div>
         <div>
           {word.isFavorite ? (
