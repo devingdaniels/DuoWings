@@ -34,14 +34,19 @@ const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
     }
   };
 
-  const IsFavComponent = () => {
+  const FlashcardHeader = () => {
     return (
-      <div onClick={(e) => handleToggleFavorite(word, e)} className="is-fav-container">
-        {word.isFavorite ? (
-          <MdFavorite size={30} className="heart-filled" />
-        ) : (
-          <MdFavoriteBorder size={30} className="heart-border" />
-        )}
+      <div onClick={(e) => handleToggleFavorite(word, e)} className="flashcard-header">
+        <div>
+          <h3>{word.stats.level}</h3>
+        </div>
+        <div>
+          {word.isFavorite ? (
+            <MdFavorite size={30} className="heart-filled" />
+          ) : (
+            <MdFavoriteBorder size={30} className="heart-border" />
+          )}
+        </div>
       </div>
     );
   };
@@ -54,32 +59,33 @@ const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
       <div className="flashcard-container" onClick={() => setIsFlipped(!isFlipped)}>
         <div className={`flashcard ${isFlipped ? "flipped" : ""}`}>
           <div className="front">
-            <div>
-              <IsFavComponent />
-            </div>
             <div className="front-word-container">
-              <h2>
-                <strong>{word.word}</strong>
-              </h2>
-              <br />
-              <i>{word.phoneticSpelling}</i>
+              <FlashcardHeader />
+              <div className="front-word-and-phonetic">
+                <h2>
+                  <strong>{word.word}</strong>
+                </h2>
+                <br />
+                <i>{word.phoneticSpelling}</i>
+              </div>
             </div>
-            {/* {word.stats.level} */}
           </div>
           <div className="back">
-            <IsFavComponent />
-            <div className="back-content-container">
-              <h2>
-                <strong>{word.word}</strong>
-              </h2>
-              <br />
-              <i>{word.phoneticSpelling}</i>
-              <br />
-              <p>{word.wordType}</p>
-              <br />
-              <p>{word.definition}</p>
-              <br />
-              <p>{word.exampleSentence}</p>
+            <div className="back-word-container">
+              <FlashcardHeader />
+              <div className="back-word-and-details">
+                <h2>
+                  <strong>{word.word}</strong>
+                </h2>
+                <br />
+                <i>{word.phoneticSpelling}</i>
+                <br />
+                <p>{word.wordType}</p>
+                <br />
+                <p>{word.definition}</p>
+                <br />
+                <p>{word.exampleSentence}</p>
+              </div>
             </div>
           </div>
         </div>

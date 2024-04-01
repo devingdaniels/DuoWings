@@ -16,15 +16,6 @@ const FlashCardsPage = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [shuffledWords, setShuffledWords] = useState(words);
 
-  useEffect(() => {
-    if (isShuffled) {
-      const shuffled = [...words].sort(() => 0.5 - Math.random());
-      setShuffledWords(shuffled);
-    } else {
-      setShuffledWords(words);
-    }
-  }, [isShuffled, words]);
-
   const handleNext = () => {
     const newIndex = currentIndex < words.length - 1 ? currentIndex + 1 : 0;
     handleChangeCard(newIndex);
@@ -40,7 +31,6 @@ const FlashCardsPage = () => {
       setIsFlipped(false); // Flip back to the word side
       await delay(200); // Wait for the flip animation to complete
     }
-
     setCurrentIndex(newIndex);
   };
 
@@ -48,6 +38,16 @@ const FlashCardsPage = () => {
     e.stopPropagation();
     setIsShuffled(!isShuffled);
   };
+
+  useEffect(() => {
+    if (isShuffled) {
+      //! Create better shuffle algorithm
+      const shuffled = [...words].sort(() => 0.5 - Math.random());
+      setShuffledWords(shuffled);
+    } else {
+      setShuffledWords(words);
+    }
+  }, [isShuffled, words]);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) =>
@@ -80,20 +80,23 @@ const FlashCardsPage = () => {
             isFlipped={isFlipped}
             setIsFlipped={setIsFlipped}
           />
+          <br />
           <div>
             <strong>{currentIndex + 1 + "/" + words.length}</strong>
           </div>
+          <br />
           <div className="navigation-container">
-            <BiSkipPreviousCircle className="navigation-button" onClick={handlePrev} size={45} />
-            <BiSkipNextCircle className="navigation-button" onClick={handleNext} size={45} />
-          </div>
-          <div>
+            <div>
+              <BiSkipPreviousCircle className="navigation-button" onClick={handlePrev} size={45} />
+              <BiSkipNextCircle className="navigation-button" onClick={handleNext} size={45} />
+            </div>
             <FaShuffle
               className={`flashcard-shuffle-button ${isShuffled ? "shuffled" : ""}`}
               size={35}
               onClick={toggleShuffle}
             />
           </div>
+          <div></div>
         </>
       ) : (
         <div>No words found or deck is not selected.</div>

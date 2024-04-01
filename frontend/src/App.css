@@ -545,8 +545,7 @@ a {
 }
 
 
-/* ------------------------------------ FLASHCARD PAGE ------------------------------------ */
-
+/* ------------------------------------ FLASHCARDS PAGE (FlashCardsPage.tsx) ------------------------------------ */
 
 .flashcards-page-container {
   display: flex;
@@ -555,103 +554,16 @@ a {
   justify-content: center;
   margin: auto;
   user-select: none;
-}
-
-.flashcard-page-header{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.flashcard-container {
-  perspective: 2000px;
-  width: 800px; 
-  height: 400px;
-  /* margin: 30px 0px 30px 0px; */
-}
-
-.flashcard {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  cursor: pointer;
-}
-
-.flashcard.flipped {
-  transform: rotateX(180deg);
-}
-
-.front,
-.back {
-  background-color: #08051f;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  /* padding-bottom: 5%; */
-}
-
-.front-word-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.back {
-  transform: rotateX(180deg);
-}
-
-.back-content-container{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  
 }
 
 .navigation-container {
   display: flex;
-  gap: 2%;
-  justify-content: center;
-  width: 100%;
-}
-
-
-
-.is-fav-container{
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-}
-
-.favorite-icon {
-  /* cursor: pointer;
-  text-align: right;
-  position: absolute;
-  right: 5%; */
-}
-
-.favorite-icon .heart-filled,
-.favorite-icon .heart-border {
-  transition: transform 0.2s, color 0.2s; 
-  color: rgb(255, 255, 255);
-}
-
-.favorite-icon .heart-filled {
-  color: rgb(255, 0, 0);
-}
-
-.favorite-icon:active .heart-filled,
-.favorite-icon:active .heart-border {
-  transform: scale(1.5); 
-  color: rgb(255, 0, 0); 
+  gap: 2%;
+  width: 100%;
 }
 
 .navigation-container .navigation-button {
@@ -669,21 +581,134 @@ a {
   opacity: 0.6;
 }
 
-
 .flashcard-shuffle-button{
   transition: transform 0.2s, color 0.2s; 
+  cursor: pointer;
 }
 
 .flashcard-shuffle-button.shuffled{
   transition: transform 0.2s, color 0.2s; 
   color: rgb(255, 0, 0);
-
 }
+
 
 .flashcard-shuffle-button.shuffled:hover, .flashcard-shuffle-button:hover {
-  transform: scale(1.5);
-  opacity: 0.8; 
+  transform: scale(1.1);
+  opacity: 0.8;
 }
+
+.flashcard-shuffle-button.shuffled:active, .flashcard-shuffle-button:active {
+  transform: scale(0.9);
+  opacity: 0.6;
+}
+
+/* ------------------------------------ FLASHCARD COMPONENT (FlashCard.tsx) ------------------------------------ */
+
+.flashcard-page-container{
+
+}
+
+.flashcard-page-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flashcard-container {
+  perspective: 2000px;
+  width: 700px; 
+  height: 400px;
+  
+}
+
+.flashcard {
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flashcard.flipped {
+  transform: rotateX(180deg); 
+}
+
+.front,
+.back {
+  background-color: #08051f;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  padding: 1%;
+}
+
+.back {
+  transform: rotateX(180deg);
+}
+
+.front-word-container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.front-word-and-phonetic{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.back-word-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.back-word-and-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+}
+
+.flashcard-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1%;
+}
+
+.heart-filled, .heart-border {
+  transition: transform 0.2s, color 0.2s; 
+  color: rgb(255, 255, 255);
+}
+
+.heart-filled {
+  color: rgb(255, 0, 0);
+}
+
+.heart-filled:hover, .heart-border:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.heart-filled:active, .heart-border:active{
+  transform: scale(0.9);
+  opacity: 0.6;
+}
+
 
 /* ------------------------ UPLOAD WORD LIST PAGE ------------------------  */
 .upload-word-list-page{
