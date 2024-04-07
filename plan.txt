@@ -142,6 +142,8 @@ https://www.npmjs.com/package/@nivo/line
 
 https://mui.com/material-ui/react-progress/
 
+https://rize.io/ (landing page)
+
 
 
 ICONS:

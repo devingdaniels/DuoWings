@@ -8612,5 +8612,223 @@
       "__v": 0
     },
     "timestamp": "2024-04-01T02:47:15.705Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Lujuria",
+      "definition": "Lust, sensual desire",
+      "exampleSentence": "La lujuria es considerada uno de los siete pecados capitales.",
+      "wordType": "Noun",
+      "phoneticSpelling": "loo-hoo-ree-ah",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6611ed8a3054cf9c9e2e9cc7",
+      "creationDate": "2024-04-07T00:49:14.596Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-07T00:49:15.066Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Inclinación",
+      "definition": "Inclination, tendency, slope",
+      "exampleSentence": "La inclinación de la montaña hacía difícil el ascenso.",
+      "wordType": "Noun",
+      "phoneticSpelling": "in-klee-nah-see-on",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6611edb7b634b3acf09c296c",
+      "creationDate": "2024-04-07T00:49:59.370Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-07T00:49:59.910Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Espiga",
+      "definition": "Spike, ear (of corn)",
+      "exampleSentence": "En el campo, se puede ver una hermosa espiga de maíz.",
+      "wordType": "Noun",
+      "phoneticSpelling": "ehs-pee-gah",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6611eddbfa25101764fe8aa1",
+      "creationDate": "2024-04-07T00:50:35.643Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-07T00:50:36.097Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Sobrevalorado",
+      "definition": "Overrated",
+      "exampleSentence": "Ese restaurante tan caro está sobrevalorado.",
+      "wordType": "Adjective",
+      "phoneticSpelling": "soh-breh-vah-loh-rah-doh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6611edf97d5ed6d6915e4528",
+      "creationDate": "2024-04-07T00:51:05.271Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-07T00:51:05.715Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Agrandar",
+      "definition": "To enlarge, to expand",
+      "exampleSentence": "Ella quiere agrandar la imagen para ver más detalles.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-grahn-dahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "agrando",
+          "tu": "agrandas",
+          "el": "agranda",
+          "nosotros": "agrandamos",
+          "vosotros": "agrandáis",
+          "ellos": "agrandan"
+        },
+        "preterite": {
+          "yo": "agrandé",
+          "tu": "agrandaste",
+          "el": "agrandó",
+          "nosotros": "agrandamos",
+          "vosotros": "agrandasteis",
+          "ellos": "agrandaron"
+        },
+        "future": {
+          "yo": "agrandaré",
+          "tu": "agrandarás",
+          "el": "agrandará",
+          "nosotros": "agrandaremos",
+          "vosotros": "agrandaréis",
+          "ellos": "agrandarán"
+        },
+        "imperfect": {
+          "yo": "agrandaba",
+          "tu": "agrandabas",
+          "el": "agrandaba",
+          "nosotros": "agrandábamos",
+          "vosotros": "agrandabais",
+          "ellos": "agrandaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6611ee300bdc14687be1d832",
+      "creationDate": "2024-04-07T00:52:00.165Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-07T00:52:00.607Z"
+  },
+  {
+    "word": {
+      "deckID": "661210b2ef727832d7c58e87",
+      "userID": "6603aae4dd830d169a9a8c24",
+      "word": "To have",
+      "definition": "To possess or own something.",
+      "exampleSentence": "Ella tiene un perro muy bonito.",
+      "wordType": "Verb",
+      "phoneticSpelling": "tuh hæv",
+      "isIrregular": true,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "tengo",
+          "tu": "tienes",
+          "el": "tiene",
+          "nosotros": "tenemos",
+          "vosotros": "tenéis",
+          "ellos": "tienen"
+        },
+        "preterite": {
+          "yo": "tuve",
+          "tu": "tuviste",
+          "el": "tuvo",
+          "nosotros": "tuvimos",
+          "vosotros": "tuvisteis",
+          "ellos": "tuvieron"
+        },
+        "future": {
+          "yo": "tendré",
+          "tu": "tendrás",
+          "el": "tendrá",
+          "nosotros": "tendremos",
+          "vosotros": "tendréis",
+          "ellos": "tendrán"
+        },
+        "imperfect": {
+          "yo": "tenía",
+          "tu": "tenías",
+          "el": "tenía",
+          "nosotros": "teníamos",
+          "vosotros": "teníais",
+          "ellos": "tenían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "661210c7ef727832d7c58e8f",
+      "creationDate": "2024-04-07T03:19:35.631Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-07T03:19:36.069Z"
   }
 ]
