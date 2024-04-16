@@ -8830,5 +8830,341 @@
       "__v": 0
     },
     "timestamp": "2024-04-07T03:19:36.069Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Bajarse",
+      "definition": "To get off (of a vehicle or from a higher to a lower position)",
+      "exampleSentence": "El pasajero se baja del autobús en la próxima parada.",
+      "wordType": "Verb",
+      "phoneticSpelling": "bah-hahr-seh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "me bajo",
+          "tu": "te bajas",
+          "el": "se baja",
+          "nosotros": "nos bajamos",
+          "vosotros": "os bajáis",
+          "ellos": "se bajan"
+        },
+        "preterite": {
+          "yo": "me bajé",
+          "tu": "te bajaste",
+          "el": "se bajó",
+          "nosotros": "nos bajamos",
+          "vosotros": "os bajasteis",
+          "ellos": "se bajaron"
+        },
+        "future": {
+          "yo": "me bajaré",
+          "tu": "te bajarás",
+          "el": "se bajará",
+          "nosotros": "nos bajaremos",
+          "vosotros": "os bajaréis",
+          "ellos": "se bajarán"
+        },
+        "imperfect": {
+          "yo": "me bajaba",
+          "tu": "te bajabas",
+          "el": "se bajaba",
+          "nosotros": "nos bajábamos",
+          "vosotros": "os bajabais",
+          "ellos": "se bajaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "661ec69156522ae7dda76d7e",
+      "creationDate": "2024-04-16T18:42:26.004Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-16T18:42:26.473Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Calidad",
+      "definition": "Quality",
+      "exampleSentence": "Este producto tiene una alta calidad.",
+      "wordType": "Noun",
+      "phoneticSpelling": "cah-lee-dahd",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "661ec7040146a04fcabd3b0d",
+      "creationDate": "2024-04-16T18:44:20.874Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-16T18:44:21.306Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Surfear",
+      "definition": "To surf",
+      "exampleSentence": "Me gusta surfear en la playa de California.",
+      "wordType": "Verb",
+      "phoneticSpelling": "sur-feh-ahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "surfeo",
+          "tu": "surfeas",
+          "el": "surfea",
+          "nosotros": "surfreamos",
+          "vosotros": "surfeáis",
+          "ellos": "surfean"
+        },
+        "preterite": {
+          "yo": "surfée",
+          "tu": "surfearon",
+          "el": "surfeó",
+          "nosotros": "surfeamos",
+          "vosotros": "surfeasteis",
+          "ellos": "surfearon"
+        },
+        "future": {
+          "yo": "surfearé",
+          "tu": "surfearás",
+          "el": "surfeará",
+          "nosotros": "surfereamos",
+          "vosotros": "surfearéis",
+          "ellos": "surfearán"
+        },
+        "imperfect": {
+          "yo": "surfearaba",
+          "tu": "surfearabas",
+          "el": "surfearaba",
+          "nosotros": "surfearábamos",
+          "vosotros": "surfearabais",
+          "ellos": "surfearaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "661ec7237fafd67f7ab03ab0",
+      "creationDate": "2024-04-16T18:44:51.307Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-16T18:44:51.727Z"
+  },
+  {
+    "word": {
+      "deckID": "661ed5c582db7946cffcf7a2",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Follar",
+      "definition": "To have sexual intercourse.",
+      "exampleSentence": "Ellos follan cada sábado por la noche.",
+      "wordType": "Verb",
+      "phoneticSpelling": "foh-yar",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "foll-o",
+          "tu": "foll-as",
+          "el": "foll-a",
+          "nosotros": "foll-amos",
+          "vosotros": "foll-áis",
+          "ellos": "foll-an"
+        },
+        "preterite": {
+          "yo": "foll-é",
+          "tu": "foll-aste",
+          "el": "foll-ó",
+          "nosotros": "foll-amos",
+          "vosotros": "foll-asteis",
+          "ellos": "foll-aron"
+        },
+        "future": {
+          "yo": "follar-é",
+          "tu": "follar-ás",
+          "el": "follar-á",
+          "nosotros": "follaremos",
+          "vosotros": "follaréis",
+          "ellos": "follarán"
+        },
+        "imperfect": {
+          "yo": "foll-aba",
+          "tu": "foll-abas",
+          "el": "foll-aba",
+          "nosotros": "foll-ábamos",
+          "vosotros": "foll-abais",
+          "ellos": "foll-aban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "661ed5ee82db7946cffcf7ae",
+      "creationDate": "2024-04-16T19:47:58.380Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-16T19:47:58.812Z"
+  },
+  {
+    "word": {
+      "deckID": "661ed5c582db7946cffcf7a2",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Apple",
+      "definition": "A round fruit with red or green skin and a white flesh. Can be eaten raw, cooked, or used to make juice.",
+      "exampleSentence": "Me encanta comer una manzana roja todos los días.",
+      "wordType": "Noun",
+      "phoneticSpelling": "ˈæpəl",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "661ed638090410d6695c4ec3",
+      "creationDate": "2024-04-16T19:49:12.829Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-16T19:49:13.265Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Contenido",
+      "definition": "Content, substance, or the material contained within something.",
+      "exampleSentence": "El contenido de este libro es muy interesante. (The content of this book is very interesting).",
+      "wordType": "Noun",
+      "phoneticSpelling": "kohn-teh-nee-doh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "661ef0592e08f2ece7d84453",
+      "creationDate": "2024-04-16T21:40:41.649Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-16T21:40:42.415Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Cantidad",
+      "definition": "Quantity, amount",
+      "exampleSentence": "Necesito una gran cantidad de papel para imprimir los documentos.",
+      "wordType": "Noun",
+      "phoneticSpelling": "kan-tee-dahd",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "661ef06e53dbf2b7a31b8a8f",
+      "creationDate": "2024-04-16T21:41:02.104Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-16T21:41:02.898Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Analizar",
+      "definition": "To analyze",
+      "exampleSentence": "Es importante analizar los datos antes de tomar decisiones importantes.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-nah-lee-sahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "analizo",
+          "tu": "analizas",
+          "el": "analiza",
+          "nosotros": "analizamos",
+          "vosotros": "analizáis",
+          "ellos": "analizan"
+        },
+        "preterite": {
+          "yo": "analicé",
+          "tu": "analizaste",
+          "el": "analizó",
+          "nosotros": "analizamos",
+          "vosotros": "analizasteis",
+          "ellos": "analizaron"
+        },
+        "future": {
+          "yo": "analizaré",
+          "tu": "analizarás",
+          "el": "analizará",
+          "nosotros": "analizaremos",
+          "vosotros": "analizaréis",
+          "ellos": "analizarán"
+        },
+        "imperfect": {
+          "yo": "analizaba",
+          "tu": "analizabas",
+          "el": "analizaba",
+          "nosotros": "analizábamos",
+          "vosotros": "analizabais",
+          "ellos": "analizaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "661ef087d03ca90864a828e2",
+      "creationDate": "2024-04-16T21:41:27.837Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-16T21:41:28.524Z"
   }
 ]

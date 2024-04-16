@@ -62,11 +62,13 @@ const SignUpForm = () => {
     if (isSuccess && user) {
       SwalSuccess("Success", `Welcome ${user.fname}!`);
       clearFormData();
-      navigate("/home");
+      navigate("/vocab/decks");
     }
+
     if (isError) {
       toastService.error(message);
     }
+
     return () => {
       // Without the timeout, isLoading is set to false too fast to be seen by user
       setTimeout(() => {

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { BsStack } from "react-icons/bs";
 import { FcBarChart } from "react-icons/fc";
 
-const MenuPanel = () => {
+const MenuPanel: React.FC = () => {
   return (
     <div className="menu-panel-container">
       <div className="menu-item-wrapper">
