@@ -20,11 +20,6 @@ const NavigationBar = () => {
       </div>
       <nav>
         <ul className="home-nav-link-container">
-          {/* <li>
-            <NavLink to="/home" className={() => getNavLinkClass("/home")}>
-              Home
-            </NavLink>
-          </li> */}
           <li>
             <NavLink to="/vocab/decks" className={() => getNavLinkClass("/vocab/")}>
               Vocab
