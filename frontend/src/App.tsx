@@ -14,8 +14,8 @@ import VocabPage from "./pages/vocab/VocabPage";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
+  // Login status
   const user = useAppSelector(selectUser);
-
   return (
     <>
       <Routes>

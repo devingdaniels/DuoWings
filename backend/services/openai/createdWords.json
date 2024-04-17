@@ -9225,5 +9225,30 @@
       "__v": 0
     },
     "timestamp": "2024-04-17T15:36:47.440Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Que te pasa",
+      "definition": "What's wrong with you?",
+      "exampleSentence": "Que te pasa? Why are you so upset?",
+      "wordType": "Expression",
+      "phoneticSpelling": "keh teh pah-sah",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "661ff41876e149ad940fd531",
+      "creationDate": "2024-04-17T16:08:56.010Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-17T16:08:56.795Z"
   }
 ]
