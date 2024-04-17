@@ -22,8 +22,8 @@ const MenuPanel: React.FC<DeckMenuPanelProps> = ({ decks }) => {
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               <div className="menu-panel-item">
-                <BsStack color="purple" size={25} />
-                <h4 className="item-title">Decks</h4>
+                <BsStack color="green" size={25} />
+                <h4 className="item-title">{deck.title}</h4>
               </div>
             </NavLink>
           </div>

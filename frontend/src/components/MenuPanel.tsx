@@ -8,7 +8,7 @@ const MenuPanel: React.FC = () => {
       <div className="menu-item-wrapper">
         <NavLink to="/vocab/decks" className={({ isActive }) => (isActive ? "active" : "")}>
           <div className="menu-panel-item">
-            <BsStack color="purple" size={25} />
+            <BsStack color="green" size={25} />
             <h4 className="item-title">Decks</h4>
           </div>
         </NavLink>

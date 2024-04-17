@@ -9166,5 +9166,64 @@
       "__v": 0
     },
     "timestamp": "2024-04-16T21:41:28.524Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Apoyar",
+      "definition": "To support or to endorse.",
+      "exampleSentence": "Ella siempre me apoya en mis decisiones.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-poh-yahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "apoyo",
+          "tu": "apoyas",
+          "el": "apoya",
+          "nosotros": "apoyamos",
+          "vosotros": "apoyáis",
+          "ellos": "apoyan"
+        },
+        "preterite": {
+          "yo": "apoyé",
+          "tu": "apoyaste",
+          "el": "apoyó",
+          "nosotros": "apoyamos",
+          "vosotros": "apoyasteis",
+          "ellos": "apoyaron"
+        },
+        "future": {
+          "yo": "apoyaré",
+          "tu": "apoyarás",
+          "el": "apoyará",
+          "nosotros": "apoyaremos",
+          "vosotros": "apoyaréis",
+          "ellos": "apoyarán"
+        },
+        "imperfect": {
+          "yo": "apoyaba",
+          "tu": "apoyabas",
+          "el": "apoyaba",
+          "nosotros": "apoyábamos",
+          "vosotros": "apoyabais",
+          "ellos": "apoyaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "661fec8e3ff47b2d3c4d2b85",
+      "creationDate": "2024-04-17T15:36:46.700Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-17T15:36:47.440Z"
   }
 ]
