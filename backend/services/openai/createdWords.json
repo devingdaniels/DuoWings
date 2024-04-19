@@ -9250,5 +9250,357 @@
       "__v": 0
     },
     "timestamp": "2024-04-17T16:08:56.795Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Babilloso",
+      "definition": "Talkative or chatty.",
+      "exampleSentence": "Ella es muy babillosa cuando está con sus amigos.",
+      "wordType": "Adjective",
+      "phoneticSpelling": "bah-bee-yoh-soh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6621cd1dbe34630b93bac68f",
+      "creationDate": "2024-04-19T01:47:09.007Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-19T01:47:09.839Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Descarada",
+      "definition": "Bold, shameless, impudent.",
+      "exampleSentence": "Ella es muy descarada al hablar con tanta confianza.",
+      "wordType": "Adjective",
+      "phoneticSpelling": "des-kah-rah-dah",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6621ce0f76b5a77f9fc66feb",
+      "creationDate": "2024-04-19T01:51:11.079Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-19T01:51:11.819Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Descarado",
+      "definition": "Shameless, brazen, impudent.",
+      "exampleSentence": "El niño descarado no se disculpó por su comportamiento.",
+      "wordType": "Adjective",
+      "phoneticSpelling": "dehs-kah-rah-doh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6621ce225d376841026db2a3",
+      "creationDate": "2024-04-19T01:51:30.276Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-19T01:51:31.056Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "En que",
+      "definition": "In what",
+      "exampleSentence": "¿En qué estás pensando? (What are you thinking about?)",
+      "wordType": "Phrase",
+      "phoneticSpelling": "ehn keh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6621ce97ff4a5edf62cbe010",
+      "creationDate": "2024-04-19T01:53:27.507Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-19T01:53:28.341Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Extender",
+      "definition": "To extend, to spread out, to stretch",
+      "exampleSentence": "Ella extiende la toalla en la playa.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ex-ten-der",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "extiendo",
+          "tu": "extiendes",
+          "el": "extiende",
+          "nosotros": "extendemos",
+          "vosotros": "extendéis",
+          "ellos": "extienden"
+        },
+        "preterite": {
+          "yo": "extendí",
+          "tu": "extendiste",
+          "el": "extendió",
+          "nosotros": "extendimos",
+          "vosotros": "extendisteis",
+          "ellos": "extendieron"
+        },
+        "future": {
+          "yo": "extenderé",
+          "tu": "extenderás",
+          "el": "extenderá",
+          "nosotros": "extenderemos",
+          "vosotros": "extenderéis",
+          "ellos": "extenderán"
+        },
+        "imperfect": {
+          "yo": "extendía",
+          "tu": "extendías",
+          "el": "extendía",
+          "nosotros": "extendíamos",
+          "vosotros": "extendíais",
+          "ellos": "extendían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6621ceed4426ea57c0c2d52c",
+      "creationDate": "2024-04-19T01:54:53.810Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-19T01:54:54.521Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Difundir",
+      "definition": "To spread, to diffuse",
+      "exampleSentence": "La organización busca difundir información sobre el cambio climático.",
+      "wordType": "Verb",
+      "phoneticSpelling": "dee-foon-deer",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "difundo",
+          "tu": "difundes",
+          "el": "difunde",
+          "nosotros": "difundimos",
+          "vosotros": "difundís",
+          "ellos": "difunden"
+        },
+        "preterite": {
+          "yo": "difundí",
+          "tu": "difundiste",
+          "el": "difundió",
+          "nosotros": "difundimos",
+          "vosotros": "difundisteis",
+          "ellos": "difundieron"
+        },
+        "future": {
+          "yo": "difundiré",
+          "tu": "difundirás",
+          "el": "difundirá",
+          "nosotros": "difundiremos",
+          "vosotros": "difundiréis",
+          "ellos": "difundirán"
+        },
+        "imperfect": {
+          "yo": "difundía",
+          "tu": "difundías",
+          "el": "difundía",
+          "nosotros": "difundíamos",
+          "vosotros": "difundíais",
+          "ellos": "difundían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6621cf2428497ddbed6a2bd7",
+      "creationDate": "2024-04-19T01:55:48.261Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-19T01:55:48.981Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Privilegio",
+      "definition": "Privilege, special advantage or right granted to a certain person or group.",
+      "exampleSentence": "Tener el privilegio de estudiar en una universidad prestigiosa es un gran honor.",
+      "wordType": "Noun",
+      "phoneticSpelling": "pree-vi-leh-hee-oh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6621cf869b17f5923942a891",
+      "creationDate": "2024-04-19T01:57:26.520Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-19T01:57:27.370Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Despite",
+      "definition": "In spite of, without being affected by.",
+      "exampleSentence": "Despite the rain, we went for a walk.",
+      "wordType": "Preposition",
+      "phoneticSpelling": "dih-spahyt",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6621cf9f97061a040e5f64cf",
+      "creationDate": "2024-04-19T01:57:51.490Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-19T01:57:52.264Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "A pesar de",
+      "definition": "Despite, in spite of",
+      "exampleSentence": "A pesar de la lluvia, salí a correr.",
+      "wordType": "Prepositional phrase",
+      "phoneticSpelling": "ah peh-sahr deh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6621cfc2caf3454f5af4a2cf",
+      "creationDate": "2024-04-19T01:58:26.966Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-19T01:58:27.693Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Pesar",
+      "definition": "To weigh, to burden, to regret",
+      "exampleSentence": "Me pesa mucho la decisión que tomé.",
+      "wordType": "Verb",
+      "phoneticSpelling": "peh-sahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "peso",
+          "tu": "pesas",
+          "el": "pesa",
+          "nosotros": "pesamos",
+          "vosotros": "pesáis",
+          "ellos": "pesan"
+        },
+        "preterite": {
+          "yo": "pesé",
+          "tu": "pesaste",
+          "el": "pesó",
+          "nosotros": "pesamos",
+          "vosotros": "pesasteis",
+          "ellos": "pesaron"
+        },
+        "future": {
+          "yo": "pesaré",
+          "tu": "pesarás",
+          "el": "pesará",
+          "nosotros": "pesaremos",
+          "vosotros": "pesaréis",
+          "ellos": "pesarán"
+        },
+        "imperfect": {
+          "yo": "pesaba",
+          "tu": "pesabas",
+          "el": "pesaba",
+          "nosotros": "pesábamos",
+          "vosotros": "pesabais",
+          "ellos": "pesaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6621cfe25bf799ce05fed413",
+      "creationDate": "2024-04-19T01:58:58.999Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-19T01:58:59.792Z"
   }
 ]
