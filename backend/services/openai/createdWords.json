@@ -9602,5 +9602,64 @@
       "__v": 0
     },
     "timestamp": "2024-04-19T01:58:59.792Z"
+  },
+  {
+    "word": {
+      "deckID": "6621dd010fd75eb2fb699fee",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Hacer",
+      "definition": "To do, to make",
+      "exampleSentence": "Me gusta hacer ejercicio por la mañana.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-sehr",
+      "isIrregular": true,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "hago",
+          "tu": "haces",
+          "el": "hace",
+          "nosotros": "hacemos",
+          "vosotros": "hacéis",
+          "ellos": "hacen"
+        },
+        "preterite": {
+          "yo": "hice",
+          "tu": "hiciste",
+          "el": "hizo",
+          "nosotros": "hicimos",
+          "vosotros": "hicisteis",
+          "ellos": "hicieron"
+        },
+        "future": {
+          "yo": "haré",
+          "tu": "harás",
+          "el": "hará",
+          "nosotros": "haremos",
+          "vosotros": "haréis",
+          "ellos": "harán"
+        },
+        "imperfect": {
+          "yo": "hacía",
+          "tu": "hacías",
+          "el": "hacía",
+          "nosotros": "hacíamos",
+          "vosotros": "hacíais",
+          "ellos": "hacían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6621dd1c0fd75eb2fb699ff7",
+      "creationDate": "2024-04-19T02:55:24.147Z",
+      "__v": 0
+    },
+    "timestamp": "2024-04-19T02:55:24.913Z"
   }
 ]

@@ -6,8 +6,8 @@
 
 body {
   font-family: 'Courier New', Courier, monospace;
-  background-color: rgb(6, 22, 41);
-  background-color: rgb(0, 0, 0);
+  background-color: #0e536c;
+  background: linear-gradient(145deg, #230451, #012227); /* Gradient background for a cool effect */
   color: whitesmoke;
   font-size: 1.3rem;
 }
@@ -139,7 +139,8 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 1% 5%;
-  background-color: #08051f;
+  background-color: #0e536c;
+  background: linear-gradient(145deg, #03243e, #2a229e); /* Gradient background for a cool effect */
   color: white;
 }
 
@@ -203,7 +204,6 @@ a {
 
 /* ------------------------ MENU PANEL (Decks, Stats ...)  ------------------------  */
 .menu-panel-container {
-
   height: max-content;
   display: flex;
   flex-direction: column;
@@ -211,7 +211,8 @@ a {
   background-color: rgb(10, 36, 57);
   border-radius: 5%;
   padding: 0.5% 2%;
-  max-width: 300px;  /* Adjust this value to set your desired max width */
+  max-width: 300px;
+  margin-right: 1%;
   @media screen and (max-width: 1100px) {
     padding: 1%;
     .item-title {
@@ -395,6 +396,7 @@ a {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100vh;
 }
 
 .deck-page-deck-header {
@@ -403,7 +405,6 @@ a {
 
 
 /* ------------------------ DECK PAGE CREATE NEW WORD FORM AND ACTION BUTTONS ------------------------  */
-
 .create-new-word-container {
   position: relative;
   display: flex;
@@ -467,7 +468,6 @@ a {
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-
 .upload-words-button:hover, .flashcards-button:hover{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-6px);
@@ -475,13 +475,11 @@ a {
 }
 
 /* ------------------------ DECK PAGE WORDS TABLE  ------------------------  */
-
 .word-table-container table {
   text-align: center;
   border-collapse: collapse;
   font-size: 0.75em; 
   font-family: 'Courier New', Courier, monospace;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   margin: 3%;
 }
 
@@ -563,7 +561,6 @@ a {
   justify-content: center;
   margin: auto;
   user-select: none;
-  
 }
 
 .navigation-container {
@@ -617,9 +614,8 @@ a {
 }
 
 /* ------------------------------------ FLASHCARD COMPONENT (FlashCard.tsx) ------------------------------------ */
-
 /* .flashcard-page-container{
-
+  
 } */
 
 .flashcard-page-header{
@@ -635,7 +631,7 @@ a {
   height: 400px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow around the container for depth */
   border-radius: 10px; /* Rounded corners for the container */
-  overflow: hidden;  
+  overflow: hidden;
 }
 
 .flashcard {
@@ -652,7 +648,7 @@ a {
 .front,
 .back {
   background-color: #0e536c;
-  background: linear-gradient(145deg, #0a4250, #117a8b); /* Gradient background for a cool effect */
+  background: linear-gradient(145deg, #131718, #1357af); /* Gradient background for a cool effect */
   color: #fff;
   position: absolute;
   border-radius: 10px; 
@@ -671,7 +667,7 @@ a {
 
 .back {
   transform: rotateX(180deg);
-  background: linear-gradient(145deg, #117a8b, #0a4250);
+  background: linear-gradient(145deg, #131718, #1357af);
 }
 
 .front-word-container{
@@ -707,7 +703,6 @@ a {
   align-items: center;
   height: 100%;
   width: 100%;
-
 }
 
 .flashcard-header{
