@@ -9661,5 +9661,80 @@
       "__v": 0
     },
     "timestamp": "2024-04-19T02:55:24.913Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Agradecido",
+      "definition": "Thankful, grateful",
+      "exampleSentence": "Estoy muy agradecido por tu ayuda. (I am very grateful for your help).",
+      "wordType": "Adjective",
+      "phoneticSpelling": "ah-grah-deh-see-doh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6637bf316d2fb0058dd33d20",
+      "creationDate": "2024-05-05T17:17:37.433Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-05T17:17:38.074Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Antojo",
+      "definition": "Whim, craving, desire",
+      "exampleSentence": "Tengo un antojo de helado esta tarde.",
+      "wordType": "Noun",
+      "phoneticSpelling": "ahn-TOH-hoh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6637bfbbcf27f063a9fdb4fe",
+      "creationDate": "2024-05-05T17:19:55.891Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-05T17:19:56.465Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Narcissita",
+      "definition": "A person who is excessively self-absorbed and vain.",
+      "exampleSentence": "Ella es una verdadera narcissita, siempre hablando de sí misma.",
+      "wordType": "Noun",
+      "phoneticSpelling": "nar-suh-see-tuh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6637d37aaaec7730ba48dbf2",
+      "creationDate": "2024-05-05T18:44:10.966Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-05T18:44:11.537Z"
   }
 ]
