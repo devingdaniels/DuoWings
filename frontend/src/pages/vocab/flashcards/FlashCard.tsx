@@ -39,6 +39,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
       <div onClick={(e) => handleToggleFavorite(word, e)} className="flashcard-header">
         <div className="deck-header-item deck-header-level-container">
           <span>lvl. {word.stats.level}</span>
+          <p>{word.wordType}</p>
           <h3></h3>
         </div>
         <div>
@@ -80,9 +81,6 @@ const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
                 </h2>
                 <br />
                 <i>{word.phoneticSpelling}</i>
-                <br />
-                <p>{word.wordType}</p>
-                <br />
                 <p>{word.definition}</p>
                 <br />
                 <p>{word.exampleSentence}</p>

@@ -95,9 +95,11 @@ const buildWord = async (word: string): Promise<IWord> => {
   try {
     const response = await openAI.chat.completions.create({
       messages: [{ role: "system", content: createPrompt(word) }],
-      model: "gpt-3.5-turbo", //! TODO: This should be an environment variable so premium users can use the Davinci (premium) model
+      model: "gpt-4o", //! TODO: This should be an environment variable so premium users can use the Davinci (premium) model
       response_format: { type: "json_object" },
     });
+
+    if (DEBUGGING) console.log(response);
 
     if (response.choices[0].message.content == null) {
       throw new Error(`${NAMESPACE}: No choices returned`);
