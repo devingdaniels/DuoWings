@@ -40,86 +40,6 @@
     }
   },
   {
-    "word": "Hacer",
-    "definition": "Realizar una acción o actividad",
-    "wordType": "Verbo",
-    "exampleSentence": "Voy a hacer la tarea después de la cena.",
-    "conjugations": {
-      "present": {
-        "yo": "hago",
-        "tu": "haces",
-        "el": "hace",
-        "nosotros": "hacemos",
-        "vosotros": "hacéis",
-        "ellos": "hacen"
-      },
-      "preterite": {
-        "yo": "hice",
-        "tu": "hiciste",
-        "el": "hizo",
-        "nosotros": "hicimos",
-        "vosotros": "hicisteis",
-        "ellos": "hicieron"
-      },
-      "future": {
-        "yo": "haré",
-        "tu": "harás",
-        "el": "hará",
-        "nosotros": "haremos",
-        "vosotros": "haréis",
-        "ellos": "harán"
-      },
-      "imperfect": {
-        "yo": "hacía",
-        "tu": "hacías",
-        "el": "hacía",
-        "nosotros": "hacíamos",
-        "vosotros": "hacíais",
-        "ellos": "hacían"
-      }
-    }
-  },
-  {
-    "word": "Hacer",
-    "definition": "Realizar una acción o actividad",
-    "wordType": "verbo",
-    "exampleSentence": "Voy a hacer la tarea ahora mismo.",
-    "conjugations": {
-      "present": {
-        "yo": "hago",
-        "tu": "haces",
-        "el": "hace",
-        "nosotros": "hacemos",
-        "vosotros": "hacéis",
-        "ellos": "hacen"
-      },
-      "preterite": {
-        "yo": "hice",
-        "tu": "hiciste",
-        "el": "hizo",
-        "nosotros": "hicimos",
-        "vosotros": "hicisteis",
-        "ellos": "hicieron"
-      },
-      "future": {
-        "yo": "haré",
-        "tu": "harás",
-        "el": "hará",
-        "nosotros": "haremos",
-        "vosotros": "haréis",
-        "ellos": "harán"
-      },
-      "imperfect": {
-        "yo": "hacía",
-        "tu": "hacías",
-        "el": "hacía",
-        "nosotros": "hacíamos",
-        "vosotros": "hacíais",
-        "ellos": "hacían"
-      }
-    }
-  },
-  {
     "word": "Limpiar",
     "definition": "Quitar la suciedad o impurezas de algo",
     "wordType": "Verbo",
@@ -10603,5 +10523,64 @@
       "__v": 0
     },
     "timestamp": "2024-05-14T04:51:34.903Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Abordar",
+      "definition": "To board, to address",
+      "exampleSentence": "Los pasajeros deben abordar el avión en 30 minutos.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-bohr-dahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "abordo",
+          "tu": "abordas",
+          "el": "aborda",
+          "nosotros": "abordamos",
+          "vosotros": "abordáis",
+          "ellos": "abordan"
+        },
+        "preterite": {
+          "yo": "abordé",
+          "tu": "abordaste",
+          "el": "abordó",
+          "nosotros": "abordamos",
+          "vosotros": "abordasteis",
+          "ellos": "abordaron"
+        },
+        "future": {
+          "yo": "abordaré",
+          "tu": "abordarás",
+          "el": "abordará",
+          "nosotros": "abordaremos",
+          "vosotros": "abordaréis",
+          "ellos": "abordarán"
+        },
+        "imperfect": {
+          "yo": "abordaba",
+          "tu": "abordabas",
+          "el": "abordaba",
+          "nosotros": "abordábamos",
+          "vosotros": "abordabais",
+          "ellos": "abordaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "664c32a168d64e00f5b0c88c",
+      "creationDate": "2024-05-21T05:35:29.254Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-21T05:35:29.681Z"
   }
 ]

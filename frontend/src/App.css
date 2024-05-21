@@ -7,9 +7,11 @@
 body {
   font-family: 'Courier New', Courier, monospace;
   background-color: #0e536c;
-  background: linear-gradient(145deg, #230451, #012227); /* Gradient background for a cool effect */
+  background: linear-gradient(145deg, #1a0736, #031778); /* Gradient background for a cool effect */
   color: whitesmoke;
   font-size: 1.3rem;
+  min-height: 100vh;
+  margin: 0; /* Ensure no default margin interferes */
 }
 
 * {
@@ -26,7 +28,6 @@ a {
 /* ------------------------ LANDING PAGE ---------------------  */
 .landing-page {
   padding: 1% 2%;
-  height: 100vh;
 }
 
 .landing-page h1 {
@@ -56,6 +57,15 @@ a {
 }
 
 /* ------------------------ LOGIN AND REGISTER PAGE ------------------------ */
+
+.login-page-container{
+
+}
+
+.register-page-container{
+
+}
+
 .auth-site-title {
   padding: 1%;
   cursor: pointer;
@@ -140,7 +150,7 @@ a {
   align-items: center;
   padding: 1% 5%;
   background-color: #0e536c;
-  background: linear-gradient(145deg, #03243e, #2a229e); /* Gradient background for a cool effect */
+  background: linear-gradient(145deg, #03243e, #0f0c3a); /* This ensures that the body is at least as tall as the viewport but can grow taller if needed.*/
   color: white;
 }
 
@@ -243,7 +253,6 @@ a {
 
 .all-decks-page-container {
   width: 100%;
-  height: 100vh;
   
 }
 
@@ -335,7 +344,6 @@ a {
 /* ------------------------ STATS PAGE CONTAINER ------------------------  */
 .stats-page-container {
   width: 100%;
-  height: 100vh;
 }
 
 /* ------------------------ CREATE DECK MODAL (Modal component w/form)------------------------  */
@@ -396,7 +404,6 @@ a {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100vh;
 }
 
 .deck-page-deck-header {

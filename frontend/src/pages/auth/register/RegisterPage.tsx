@@ -6,13 +6,13 @@ import GetUserDemographics from "./GetUserDemographics"; //! Delete this later a
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
   return (
-    <>
+    <div className="register-page-container">
       <h1 className="auth-site-title" onClick={() => navigate("/")}>
         DuoWings
       </h1>
       <RegisterForm />
       <GetUserDemographics />
-    </>
+    </div>
   );
 };
 
