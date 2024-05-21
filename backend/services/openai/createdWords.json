@@ -10607,5 +10607,64 @@
       "__v": 0
     },
     "timestamp": "2024-05-21T05:39:58.641Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Corregir",
+      "definition": "To correct",
+      "exampleSentence": "Debes corregir tus errores antes de entregar el trabajo final.",
+      "wordType": "Verb",
+      "phoneticSpelling": "koh-reh-heer",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "corrijo",
+          "tu": "corriges",
+          "el": "corrige",
+          "nosotros": "corregimos",
+          "vosotros": "corregís",
+          "ellos": "corrigen"
+        },
+        "preterite": {
+          "yo": "corregí",
+          "tu": "corregiste",
+          "el": "corrigió",
+          "nosotros": "corregimos",
+          "vosotros": "corregisteis",
+          "ellos": "corrigieron"
+        },
+        "future": {
+          "yo": "corregiré",
+          "tu": "corregirás",
+          "el": "corregirá",
+          "nosotros": "corregiremos",
+          "vosotros": "corregiréis",
+          "ellos": "corregirán"
+        },
+        "imperfect": {
+          "yo": "corregía",
+          "tu": "corregías",
+          "el": "corregía",
+          "nosotros": "corregíamos",
+          "vosotros": "corregíais",
+          "ellos": "corregían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "664c3460d83fa9eae64034c4",
+      "creationDate": "2024-05-21T05:42:56.415Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-21T05:42:56.818Z"
   }
 ]

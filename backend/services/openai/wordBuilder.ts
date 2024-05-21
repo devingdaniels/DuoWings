@@ -95,7 +95,7 @@ const buildWord = async (word: string): Promise<IWord> => {
   try {
     const response = await openAI.chat.completions.create({
       messages: [{ role: "system", content: createPrompt(word) }],
-      model: "gpt-3.5-turbo-1106", //! TODO: This should be an environment variable so premium users can use the Davinci (premium) model
+      model: "gpt-3.5-turbo", //! TODO: This should be an environment variable so premium users can use the Davinci (premium) model
       response_format: { type: "json_object" },
     });
 
