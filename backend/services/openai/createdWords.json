@@ -10582,5 +10582,30 @@
       "__v": 0
     },
     "timestamp": "2024-05-21T05:35:29.681Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Acre",
+      "definition": "A measure of land area equal to 43,560 square feet or 4,840 square yards.",
+      "exampleSentence": "El rancho tiene cinco acres de tierra.",
+      "wordType": "Noun",
+      "phoneticSpelling": "ey-ker",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "664c33aeba88559997578566",
+      "creationDate": "2024-05-21T05:39:58.170Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-21T05:39:58.641Z"
   }
 ]
