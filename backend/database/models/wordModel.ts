@@ -44,6 +44,11 @@ const WordSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  pastParticiple: {
+    //! update database and wordService.ts to include this (NOT COMPLETE)
+    type: String,
+    required: false,
+  },
   tags: [String],
   stats: {
     level: {

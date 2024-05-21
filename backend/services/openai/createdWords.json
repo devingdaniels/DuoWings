@@ -9736,5 +9736,872 @@
       "__v": 0
     },
     "timestamp": "2024-05-05T18:44:11.537Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Interrumpir",
+      "definition": "To interrupt",
+      "exampleSentence": "No me gusta cuando me interrumpen mientras hablo.",
+      "wordType": "Verb",
+      "phoneticSpelling": "een-teh-roo-mpeer",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "interrumpo",
+          "tu": "interrumpes",
+          "el": "interrumpe",
+          "nosotros": "interrumpimos",
+          "vosotros": "interrumpís",
+          "ellos": "interrumpen"
+        },
+        "preterite": {
+          "yo": "interrumpí",
+          "tu": "interrumpiste",
+          "el": "interrumpió",
+          "nosotros": "interrumpimos",
+          "vosotros": "interrumpisteis",
+          "ellos": "interrumpieron"
+        },
+        "future": {
+          "yo": "interrumpiré",
+          "tu": "interrumpirás",
+          "el": "interrumpirá",
+          "nosotros": "interrumpiremos",
+          "vosotros": "interrumpiréis",
+          "ellos": "interrumpirán"
+        },
+        "imperfect": {
+          "yo": "interrumpía",
+          "tu": "interrumpías",
+          "el": "interrumpía",
+          "nosotros": "interrumpíamos",
+          "vosotros": "interrumpíais",
+          "ellos": "interrumpían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "66412ba7fb9151060f51015a",
+      "creationDate": "2024-05-12T20:50:47.208Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-12T20:50:47.542Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Acariciar",
+      "definition": "To caress; to pet; to stroke affectionately",
+      "exampleSentence": "Ella acaricia a su gato todas las noches antes de dormir.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-cah-ree-syahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "acaricio",
+          "tu": "acaricias",
+          "el": "acaricia",
+          "nosotros": "acariciamos",
+          "vosotros": "acariciáis",
+          "ellos": "acarician"
+        },
+        "preterite": {
+          "yo": "acaricié",
+          "tu": "acariciaste",
+          "el": "acarició",
+          "nosotros": "acariciamos",
+          "vosotros": "acariciasteis",
+          "ellos": "acariciaron"
+        },
+        "future": {
+          "yo": "acariciaré",
+          "tu": "acariciarás",
+          "el": "acariciará",
+          "nosotros": "acariciaremos",
+          "vosotros": "acariciaréis",
+          "ellos": "acariciarán"
+        },
+        "imperfect": {
+          "yo": "acariciaba",
+          "tu": "acariciabas",
+          "el": "acariciaba",
+          "nosotros": "acariciábamos",
+          "vosotros": "acariciabais",
+          "ellos": "acariciaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642eaae67f93d9fed5a84d8",
+      "creationDate": "2024-05-14T04:38:06.610Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:38:06.974Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Acceder",
+      "definition": "To access, to enter",
+      "exampleSentence": "Para acceder a la página web, necesitas ingresar tu nombre de usuario y contraseña.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-theh-dehr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "accedo",
+          "tu": "accedes",
+          "el": "accede",
+          "nosotros": "accedemos",
+          "vosotros": "accedéis",
+          "ellos": "acceden"
+        },
+        "preterite": {
+          "yo": "accedí",
+          "tu": "accediste",
+          "el": "accedió",
+          "nosotros": "accedimos",
+          "vosotros": "accedisteis",
+          "ellos": "accedieron"
+        },
+        "future": {
+          "yo": "accederé",
+          "tu": "accederás",
+          "el": "accederá",
+          "nosotros": "accederemos",
+          "vosotros": "accederéis",
+          "ellos": "accederán"
+        },
+        "imperfect": {
+          "yo": "accedía",
+          "tu": "accedías",
+          "el": "accedía",
+          "nosotros": "accedíamos",
+          "vosotros": "accedíais",
+          "ellos": "accedían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642eac40e0893c24d1513c0",
+      "creationDate": "2024-05-14T04:38:28.658Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:38:29.002Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Acostarse",
+      "definition": "To go to bed",
+      "exampleSentence": "Ella se acuesta temprano todas las noches.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-kohs-tahr-seh",
+      "isIrregular": true,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "me acuesto",
+          "tu": "te acuestas",
+          "el": "se acuesta",
+          "nosotros": "nos acostamos",
+          "vosotros": "os acostáis",
+          "ellos": "se acuestan"
+        },
+        "preterite": {
+          "yo": "me acosté",
+          "tu": "te acostaste",
+          "el": "se acostó",
+          "nosotros": "nos acostamos",
+          "vosotros": "os acostasteis",
+          "ellos": "se acostaron"
+        },
+        "future": {
+          "yo": "me acostaré",
+          "tu": "te acostarás",
+          "el": "se acostará",
+          "nosotros": "nos acostaremos",
+          "vosotros": "os acostaréis",
+          "ellos": "se acostarán"
+        },
+        "imperfect": {
+          "yo": "me acostaba",
+          "tu": "te acostabas",
+          "el": "se acostaba",
+          "nosotros": "nos acostábamos",
+          "vosotros": "os acostabais",
+          "ellos": "se acostaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642ead97af2e101bd9331de",
+      "creationDate": "2024-05-14T04:38:49.206Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:38:49.552Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Afeitarse",
+      "definition": "To shave",
+      "exampleSentence": "Él se afeita todas las mañanas.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-fay-tahr-seh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "me afeito",
+          "tu": "te afeitas",
+          "el": "se afeita",
+          "nosotros": "nos afeitamos",
+          "vosotros": "os afeitáis",
+          "ellos": "se afeitan"
+        },
+        "preterite": {
+          "yo": "me afeité",
+          "tu": "te afeitaste",
+          "el": "se afeitó",
+          "nosotros": "nos afeitamos",
+          "vosotros": "os afeitasteis",
+          "ellos": "se afeitaron"
+        },
+        "future": {
+          "yo": "me afeitaré",
+          "tu": "te afeitarás",
+          "el": "se afeitará",
+          "nosotros": "nos afeitaremos",
+          "vosotros": "os afeitaréis",
+          "ellos": "se afeitarán"
+        },
+        "imperfect": {
+          "yo": "me afeitaba",
+          "tu": "te afeitabas",
+          "el": "se afeitaba",
+          "nosotros": "nos afeitábamos",
+          "vosotros": "os afeitabais",
+          "ellos": "se afeitaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642eb1a8596fb586420c720",
+      "creationDate": "2024-05-14T04:39:54.477Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:39:54.823Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Agarrar",
+      "definition": "To grab, to catch",
+      "exampleSentence": "Él agarró el balón antes de que llegara al suelo.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-gah-rrahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "agarro",
+          "tu": "agarras",
+          "el": "agarra",
+          "nosotros": "agarramos",
+          "vosotros": "agarráis",
+          "ellos": "agarran"
+        },
+        "preterite": {
+          "yo": "agarré",
+          "tu": "agarraste",
+          "el": "agarró",
+          "nosotros": "agarramos",
+          "vosotros": "agarrasteis",
+          "ellos": "agarraron"
+        },
+        "future": {
+          "yo": "agarraré",
+          "tu": "agarrarás",
+          "el": "agarrará",
+          "nosotros": "agarraremos",
+          "vosotros": "agarraréis",
+          "ellos": "agarrarán"
+        },
+        "imperfect": {
+          "yo": "agarraba",
+          "tu": "agarrabas",
+          "el": "agarraba",
+          "nosotros": "agarrábamos",
+          "vosotros": "agarrabais",
+          "ellos": "agarraban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642eb2cbaa0d968265754af",
+      "creationDate": "2024-05-14T04:40:12.557Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:40:12.896Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Alfombra",
+      "definition": "Carpet or rug.",
+      "exampleSentence": "La alfombra de la sala es muy suave.",
+      "wordType": "Noun",
+      "phoneticSpelling": "ahl-fohm-brah",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642ebae8f131f99c5ee7a90",
+      "creationDate": "2024-05-14T04:42:22.523Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:42:22.868Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Alrededor de",
+      "definition": "Around, surrounding",
+      "exampleSentence": "Voy a caminar alrededor de la plaza.",
+      "wordType": "Prepositional phrase",
+      "phoneticSpelling": "ahl-reh-deh-thor deh",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642ebba33e0f24baaac0124",
+      "creationDate": "2024-05-14T04:42:34.586Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:42:34.922Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Amanecer",
+      "definition": "To dawn, to sunrise",
+      "exampleSentence": "Mañana amanece temprano.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-mah-neh-sehr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "amanezco",
+          "tu": "amaneces",
+          "el": "amanece",
+          "nosotros": "amanecemos",
+          "vosotros": "amanecéis",
+          "ellos": "amanecen"
+        },
+        "preterite": {
+          "yo": "amanecí",
+          "tu": "amaneciste",
+          "el": "amaneció",
+          "nosotros": "amanecimos",
+          "vosotros": "amanecisteis",
+          "ellos": "amanecieron"
+        },
+        "future": {
+          "yo": "amaneceré",
+          "tu": "amanecerás",
+          "el": "amanecerá",
+          "nosotros": "amaneceremos",
+          "vosotros": "amaneceréis",
+          "ellos": "amanecerán"
+        },
+        "imperfect": {
+          "yo": "amanecía",
+          "tu": "amanecías",
+          "el": "amanecía",
+          "nosotros": "amanecíamos",
+          "vosotros": "amanecíais",
+          "ellos": "amanecían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642ebc3215a91938a12856b",
+      "creationDate": "2024-05-14T04:42:43.817Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:42:44.152Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Ambas",
+      "definition": "Both (feminine)",
+      "exampleSentence": "Ambas hermanas están estudiando medicina.",
+      "wordType": "Adjective",
+      "phoneticSpelling": "AHM-bahs",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642ebd2aeff3e2d606149f5",
+      "creationDate": "2024-05-14T04:42:58.527Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:42:58.849Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Anadir",
+      "definition": "To add",
+      "exampleSentence": "Debes anadir el azúcar después de mezclar la harina y los huevos.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-nyah-DEER",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "añado",
+          "tu": "añades",
+          "el": "añade",
+          "nosotros": "añadimos",
+          "vosotros": "añadís",
+          "ellos": "añaden"
+        },
+        "preterite": {
+          "yo": "añadí",
+          "tu": "añadiste",
+          "el": "añadió",
+          "nosotros": "añadimos",
+          "vosotros": "añadisteis",
+          "ellos": "añadieron"
+        },
+        "future": {
+          "yo": "añadiré",
+          "tu": "añadirás",
+          "el": "añadirá",
+          "nosotros": "añadiremos",
+          "vosotros": "añadiréis",
+          "ellos": "añadirán"
+        },
+        "imperfect": {
+          "yo": "añadía",
+          "tu": "añadías",
+          "el": "añadía",
+          "nosotros": "añadíamos",
+          "vosotros": "añadíais",
+          "ellos": "añadían"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642ebdd511532042c452ad8",
+      "creationDate": "2024-05-14T04:43:09.329Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:43:09.680Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Andar",
+      "definition": "To walk, to go on foot",
+      "exampleSentence": "Me gusta andar por el parque todas las mañanas.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ahn-dahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "ando",
+          "tu": "andas",
+          "el": "anda",
+          "nosotros": "andamos",
+          "vosotros": "andáis",
+          "ellos": "andan"
+        },
+        "preterite": {
+          "yo": "anduve",
+          "tu": "anduviste",
+          "el": "anduvo",
+          "nosotros": "anduvimos",
+          "vosotros": "anduvisteis",
+          "ellos": "anduvieron"
+        },
+        "future": {
+          "yo": "andaré",
+          "tu": "andarás",
+          "el": "andará",
+          "nosotros": "andaremos",
+          "vosotros": "andaréis",
+          "ellos": "andarán"
+        },
+        "imperfect": {
+          "yo": "andaba",
+          "tu": "andabas",
+          "el": "andaba",
+          "nosotros": "andábamos",
+          "vosotros": "andabais",
+          "ellos": "andaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642ec07fa44bb0c5c005daf",
+      "creationDate": "2024-05-14T04:43:51.888Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:43:52.211Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Apuntar",
+      "definition": "To aim, to point, to jot down",
+      "exampleSentence": "Ella apunta con el lápiz hacia el cielo. (She points the pencil towards the sky).",
+      "wordType": "Verb",
+      "phoneticSpelling": "ah-poon-tahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "apunto",
+          "tu": "apuntas",
+          "el": "apunta",
+          "nosotros": "apuntamos",
+          "vosotros": "apuntáis",
+          "ellos": "apuntan"
+        },
+        "preterite": {
+          "yo": "apunté",
+          "tu": "apuntaste",
+          "el": "apuntó",
+          "nosotros": "apuntamos",
+          "vosotros": "apuntasteis",
+          "ellos": "apuntaron"
+        },
+        "future": {
+          "yo": "apuntaré",
+          "tu": "apuntarás",
+          "el": "apuntará",
+          "nosotros": "apuntaremos",
+          "vosotros": "apuntaréis",
+          "ellos": "apuntarán"
+        },
+        "imperfect": {
+          "yo": "apuntaba",
+          "tu": "apuntabas",
+          "el": "apuntaba",
+          "nosotros": "apuntábamos",
+          "vosotros": "apuntabais",
+          "ellos": "apuntaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642ec64773baed13c9fbb47",
+      "creationDate": "2024-05-14T04:45:24.977Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:45:25.373Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Brindar",
+      "definition": "To offer, to provide",
+      "exampleSentence": "El restaurante brinda una variedad de platos deliciosos. (The restaurant offers a variety of delicious dishes).",
+      "wordType": "Verb",
+      "phoneticSpelling": "breen-dahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "brindo",
+          "tu": "brindas",
+          "el": "brinda",
+          "nosotros": "brindamos",
+          "vosotros": "brindáis",
+          "ellos": "brindan"
+        },
+        "preterite": {
+          "yo": "brindé",
+          "tu": "brindaste",
+          "el": "brindó",
+          "nosotros": "brindamos",
+          "vosotros": "brindasteis",
+          "ellos": "brindaron"
+        },
+        "future": {
+          "yo": "brindaré",
+          "tu": "brindarás",
+          "el": "brindará",
+          "nosotros": "brindaremos",
+          "vosotros": "brindaréis",
+          "ellos": "brindarán"
+        },
+        "imperfect": {
+          "yo": "brindaba",
+          "tu": "brindabas",
+          "el": "brindaba",
+          "nosotros": "brindábamos",
+          "vosotros": "brindabais",
+          "ellos": "brindaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642ec8f77d3ff75eddca354",
+      "creationDate": "2024-05-14T04:46:07.912Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:46:08.257Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Cajón",
+      "definition": "A box-shaped percussion instrument originating from Peru.",
+      "exampleSentence": "El músico tocó el cajón durante la presentación.",
+      "wordType": "Noun",
+      "phoneticSpelling": "kah-hon",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642ecb191fef4d283bcd036",
+      "creationDate": "2024-05-14T04:46:41.329Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:46:41.645Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Cazar",
+      "definition": "To hunt, to catch (animals)",
+      "exampleSentence": "Él caza ciervos en el bosque.",
+      "wordType": "Verb",
+      "phoneticSpelling": "ka-thahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "cazo",
+          "tu": "cazas",
+          "el": "caza",
+          "nosotros": "cazamos",
+          "vosotros": "cazáis",
+          "ellos": "cazan"
+        },
+        "preterite": {
+          "yo": "cazé",
+          "tu": "cazaste",
+          "el": "cazó",
+          "nosotros": "cazamos",
+          "vosotros": "cazasteis",
+          "ellos": "cazaron"
+        },
+        "future": {
+          "yo": "cazaré",
+          "tu": "cazarás",
+          "el": "cazará",
+          "nosotros": "cazaremos",
+          "vosotros": "cazaréis",
+          "ellos": "cazarán"
+        },
+        "imperfect": {
+          "yo": "cazaba",
+          "tu": "cazabas",
+          "el": "cazaba",
+          "nosotros": "cazábamos",
+          "vosotros": "cazabais",
+          "ellos": "cazaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642ecd7ebbf127de3d5ff83",
+      "creationDate": "2024-05-14T04:47:19.229Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:47:19.567Z"
+  },
+  {
+    "word": {
+      "deckID": "66082dd891e4eedb27d2689b",
+      "userID": "6596feaa054b37685f9ba4a8",
+      "word": "Lidiar",
+      "definition": "To deal with, to cope with, to handle",
+      "exampleSentence": "Ella tiene que lidiar con muchos problemas en su trabajo diario.",
+      "wordType": "Verb",
+      "phoneticSpelling": "lee-dee-ahr",
+      "isIrregular": false,
+      "isFavorite": false,
+      "tags": [],
+      "stats": {
+        "level": 1,
+        "correctCount": 0,
+        "incorrectCount": 0
+      },
+      "conjugations": {
+        "present": {
+          "yo": "lidio",
+          "tu": "lidias",
+          "el": "lidia",
+          "nosotros": "lidiemos",
+          "vosotros": "lidiáis",
+          "ellos": "lidian"
+        },
+        "preterite": {
+          "yo": "lidié",
+          "tu": "lidiaste",
+          "el": "lidió",
+          "nosotros": "lidiemos",
+          "vosotros": "lidiasteis",
+          "ellos": "lidiaron"
+        },
+        "future": {
+          "yo": "lidiaré",
+          "tu": "lidias",
+          "el": "lidiará",
+          "nosotros": "lidiaremos",
+          "vosotros": "lidiaréis",
+          "ellos": "lidiarán"
+        },
+        "imperfect": {
+          "yo": "lidiaba",
+          "tu": "lidiabas",
+          "el": "lidiaba",
+          "nosotros": "lidiábamos",
+          "vosotros": "lidiabais",
+          "ellos": "lidiaban"
+        }
+      },
+      "synonyms": [],
+      "antonyms": [],
+      "_id": "6642edd62dd9f621ec372a8c",
+      "creationDate": "2024-05-14T04:51:34.564Z",
+      "__v": 0
+    },
+    "timestamp": "2024-05-14T04:51:34.903Z"
   }
 ]
