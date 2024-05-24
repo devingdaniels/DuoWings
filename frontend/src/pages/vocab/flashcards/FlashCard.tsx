@@ -26,7 +26,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
     const response = await dispatch(VocabSliceService.toggleIsFavoriteOnWord(word._id));
 
     if (response.type === "vocab/toggleIsFavoriteOnWord/fulfilled") {
-      toastService.success("❤️'d");
+      console.log("Successfully toggled favorite status");
       dispatch(VocabSliceService.resetDeckStatusFlagsToDefault());
     } else {
       toastService.error(response.payload);
@@ -80,7 +80,6 @@ const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
                   <strong>{word.word}</strong>
                 </h2>
                 <br />
-                <i>{word.phoneticSpelling}</i>
                 <p>{word.definition}</p>
                 <br />
                 <p>{word.exampleSentence}</p>

@@ -695,7 +695,6 @@ a {
 .back-word-container{
   display: flex;
   flex-direction: column;
-  text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -708,16 +707,15 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   height: 100%;
   width: 100%;
 }
 
 .flashcard-header{
   display: flex;
-  align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0 1%;
 }
 
 .heart-filled, .heart-border {
