@@ -1,4 +1,5 @@
 .DS_Store
 .env
 
+# Ignore the createdWords.json file which gets updated by the OpenAI API
 backend/services/openai/createdWords.json

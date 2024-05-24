@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Syne+Mono&display=swap");
 
 *{
-  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Roboto Mono', monospace; */
+  /* font-family: 'Inconsolata', monospace; */
+  font-family: 'JetBrains Mono', monospace;
+
 }
 
 body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto Mono', monospace;
   background-color: #0e536c;
   background: linear-gradient(145deg, #1a0736, #2c085f); /* Gradient background for a cool effect */
   color: whitesmoke;

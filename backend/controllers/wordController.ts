@@ -8,6 +8,7 @@ import { WordModel } from "../database/models/wordModel";
 import { IWord } from "../interfaces";
 
 const NAMESPACE = "wordController.ts";
+const DEBUGGING = process.env.DEBUGGING === "true";
 
 /*
  * ********************************************************************************************************************
@@ -30,12 +31,10 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
     // Check if the word already exists in the database
     const isWordInDB = await WordModel.findOne({ word: word });
 
-    if (!isWordInDB) {
-      // Use the openAI API and user word to add definition, example sentence
-      createdWord = await openAIService.buildWord(word);
-    } else {
-      // If the word already exists in the database, then we don't need to call the openAI API
-      // This will save us time and resources
+    console.log("isWordInDB", isWordInDB);
+
+    if (isWordInDB) {
+      //! We should do this dynamically with a for loop and then delete the properties that are not needed (lkke userID, deckID, etc.)
       createdWord = {
         conjugations: isWordInDB.conjugations,
         definition: isWordInDB.definition,
@@ -44,6 +43,10 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
         wordType: isWordInDB.wordType,
         isIrregular: isWordInDB.isIrregular,
       };
+      if (DEBUGGING) console.log("Word already exists in the database. Skipping openAI API call.");
+    } else {
+      // Use the openAI API and user word to add definition, example sentence
+      createdWord = await openAIService.buildWord(word);
     }
 
     // Check if the deck exists
@@ -68,6 +71,8 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
       conjugations: createdWord.conjugations,
       isFavorite: false,
     }).save();
+
+    console.log("newWord", newWord);
 
     // Add the word to the deck's words array
     deckFromDB.words.push(newWord);
