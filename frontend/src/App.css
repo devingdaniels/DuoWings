@@ -7,6 +7,11 @@
 
 }
 
+html{
+  background: linear-gradient(145deg, #1a0736, #2c085f); /* Gradient background for a cool effect */
+
+}
+
 body {
   font-family: 'Roboto Mono', monospace;
   background-color: #0e536c;
@@ -153,7 +158,7 @@ a {
   align-items: center;
   padding: 1% 5%;
   background-color: #0e536c;
-  background: linear-gradient(145deg, #03243e, #0f0c3a); /* This ensures that the body is at least as tall as the viewport but can grow taller if needed.*/
+  background: linear-gradient(145deg, #05050e, #100f1c); /* This ensures that the body is at least as tall as the viewport but can grow taller if needed.*/
   color: white;
 }
 
