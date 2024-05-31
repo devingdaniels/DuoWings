@@ -59,7 +59,7 @@ const AllDecksPage: React.FC = () => {
         }}
       >
         <FcPlus size={35} />
-        Create Deck
+        New Deck
       </span>
     );
   };

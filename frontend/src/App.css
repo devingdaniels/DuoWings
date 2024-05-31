@@ -423,6 +423,7 @@ a {
 .create-new-word-container {
   position: relative;
   display: flex;
+  
 }
 
 .deck-page-loading-create-word-form-container{
@@ -430,14 +431,14 @@ a {
   justify-content: center;
   align-items: center; 
   height: 50px;
-  margin: 3%;
+  margin: 1% 0 0 0;
 }
 
 .create-new-word-input {
   background: #08051f;
   display: block;
   height: 40px;
-  width: 250px;
+  width: 350px;
   font-size: inherit;
   border: none ;
   padding: 25px; 
@@ -446,7 +447,8 @@ a {
 }
 
 .create-new-word-input:focus{
-  width: 350px;
+  width: 400px;
+  cursor: text;
 }
 
 .create-word-loading-spinner-container{
@@ -469,9 +471,9 @@ a {
 
 .deck-button-options-panel{
   display: flex;
-  width: 35%;
-  padding: 1%;
+  width: 20%;
   justify-content: space-around;
+  margin: 1% 0 0 0;
 }
 
 .upload-words-button, .flashcards-button{
@@ -495,7 +497,7 @@ a {
   border-collapse: collapse;
   font-size: 0.75em; 
   font-family: 'Courier New', Courier, monospace;
-  margin: 3%;
+  margin: 1% 0 0 0;
 }
 
 .word-table-container input {

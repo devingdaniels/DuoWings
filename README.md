@@ -9,29 +9,22 @@ Welcome to LinguaLeap, the innovative language learning platform that leaps beyo
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
--
+- 
 
 ## Introduction
 
-[Provide a brief, compelling introduction to the app, its purpose, and what makes it unique.]
 
 ## Features
 
-- Personalized Learning Paths
-- Interactive Onboarding Experience
-- Gamification and Reward System
-- Community-driven Learning
-- Multifaceted Language Practice (Listening, Speaking, Reading, Writing)
-- AI-Powered Voice Recognition
-- Accessibility and Inclusive Design
+- Flashcard system utilizing spaced repition and stastitical tracking
+- Fully customizable AI-generated vocabuary words, phrases and vocab decks
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (v.XX or above)
-- npm (v.XX or above)
-- MongoDB (v.XX or above)
+- Node.js (v18.17 or above)
+- npm (v9.8 or above)
 
 ### Installation
 
@@ -40,6 +33,8 @@ git clone https://github.com/your-username/LinguaLeap.git
 cd LinguaLeap
 cd backend
 npm install
+npm
 cd frontent
 npm start
+
 ```

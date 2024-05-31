@@ -1,8 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
+
 // Reducers
 import userAuthReducer from "../features/userAuthSlice";
 import vocabReducer from "../features/vocabSlice";
+
 // Redux Persist
 import {
   persistStore,

@@ -44,7 +44,7 @@ const CreateWordForm: React.FC<CreateWordForm> = ({ handleCreateNewWord, deckID 
         type="text"
         value={formData.word}
         required
-        placeholder="New word..."
+        placeholder="Enter a new word"
         onChange={(e) =>
           setFormData({
             ...formData,

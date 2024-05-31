@@ -51,12 +51,16 @@ https://chat.openai.com/share/1e5f922b-af0c-4b13-bc3d-54fad1dbc36f
 
 
 POSSIBLE NAMES:
+
 LinguaLeap
 LexiLeap
 LogosLaunch
 LingoLeap
 LingoLaunch
 LexiLingoLab
+LinguaLabs
+LogosLab
+
 
 
 

@@ -7,6 +7,7 @@ const Axios = axios.create({});
 // This will send cookies with every request
 Axios.defaults.withCredentials = true;
 
+//! Task: Add an interceptor and implement mechanism to handle expired tokens
 Axios.interceptors.response.use(
   (response) => {
     return response;
