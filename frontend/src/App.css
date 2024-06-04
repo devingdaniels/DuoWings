@@ -577,7 +577,7 @@ a {
   align-items: center;
   justify-content: center;
   margin: auto;
-  user-select: none;
+  /* user-select: none; */
 }
 
 .navigation-container {
