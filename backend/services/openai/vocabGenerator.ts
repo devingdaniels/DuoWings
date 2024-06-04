@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
 dotenv.config();
 import { IWord } from "../../interfaces";
-import OpenAI from "openai";
-
 import logging from "../../config/logging";
+import OpenAI from "openai";
+import textToSpeech from "@google-cloud/text-to-speech";
 
 const NAMESPACE = "openai/wordBuilder.ts";
 const DEBUGGING = true;
@@ -11,7 +11,6 @@ const DEBUGGING = true;
 function createPrompt(word: string) {
   if (DEBUGGING) logging.info(NAMESPACE, word);
 
-  // Create a prompt for the user to fill in the word object
   const prompt = `Construct a detailed JSON object for the Spanish word "${word}". Ensure the definition is concise and in English. If "${word}" is a verb, include its conjugations in the present, preterite, future, and imperfect tenses. For non-verbs, the conjugations attribute should be an empty object {}. Use complete sentences for examples, starting with a capital letter and ending with a period. Follow the example format provided very closely.
 
 Example Format:
@@ -81,6 +80,8 @@ For the given word "${word}", fill in the following:
       : "{}"
   }
 }`;
+
+  listVoices();
   return prompt;
 }
 
@@ -113,3 +114,16 @@ const buildWord = async (word: string): Promise<IWord> => {
 };
 
 export { buildWord };
+
+async function listVoices(languageCode: string = "en-US") {
+  const textToSpeech = require("@google-cloud/text-to-speech");
+
+  const client = new textToSpeech.TextToSpeechClient();
+
+  const [result] = await client.listVoices({ languageCode });
+  const voices = result.voices;
+
+  voices.forEach((voice: any) => {
+    console.log(`${voice.name} (${voice.ssmlGender}): ${voice.languageCodes}`);
+  });
+}
