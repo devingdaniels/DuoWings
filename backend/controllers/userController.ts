@@ -4,6 +4,7 @@ import { UserModel as User } from "../database/models/userModel";
 import { signJWT } from "../middleware/auth";
 import mongoose from "mongoose";
 import config from "../config/config";
+import logging from "../config/logging";
 
 const USER_COOKIE_NAME = config.server.userauthcookie;
 
@@ -83,8 +84,6 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
   const isEmail = identifier.includes("@");
   const query = isEmail ? { email: identifier } : { username: identifier };
 
-  console.log(query);
-
   try {
     const existingUser = await User.findOne(query).exec();
     if (!existingUser) {
@@ -105,8 +104,9 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     res.cookie(USER_COOKIE_NAME, token, { httpOnly: true });
 
     res.status(201).json(existingUser);
-  } catch (error) {
+  } catch (error: any) {
     // Pass error to error handler middleware
+    logging.error("loginUser", error);
     res.status(500);
     next(error);
   }

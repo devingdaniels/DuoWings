@@ -9,8 +9,6 @@ const NAMESPACE = "openai/wordBuilder.ts";
 const DEBUGGING = true;
 
 function createPrompt(word: string) {
-  if (DEBUGGING) logging.info(NAMESPACE, word);
-
   const prompt = `Construct a detailed JSON object for the Spanish word "${word}". Ensure the definition is concise and in English. If "${word}" is a verb, include its conjugations in the present, preterite, future, and imperfect tenses. For non-verbs, the conjugations attribute should be an empty object {}. Use complete sentences for examples, starting with a capital letter and ending with a period. Follow the example format provided very closely.
 
 Example Format:
@@ -81,7 +79,7 @@ For the given word "${word}", fill in the following:
   }
 }`;
 
-  listVoices();
+  // listVoices();
   return prompt;
 }
 
@@ -91,6 +89,7 @@ For the given word "${word}", fill in the following:
  * @param user - The user object //!TODO: Create a TypeScript interface for the user object: onboarding learning context, etc
  * @returns A word object as a JS object
  */
+
 const buildWord = async (word: string): Promise<IWord> => {
   const openAI = new OpenAI();
   try {
