@@ -1,4 +1,4 @@
-# LinguaLeap
+# DuoWings
 
 Welcome to LinguaLeap, the innovative language learning platform that leaps beyond the boundaries of traditional language education. Engage with our dynamic community, dive into the immersive learning experiences, and leap into fluency with the languages of your choice.
 
@@ -12,7 +12,6 @@ Welcome to LinguaLeap, the innovative language learning platform that leaps beyo
 - 
 
 ## Introduction
-
 
 ## Features
 
