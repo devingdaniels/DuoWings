@@ -1,7 +1,5 @@
 # DuoWings
 
-Welcome to LinguaLeap, the innovative language learning platform that leaps beyond the boundaries of traditional language education. Engage with our dynamic community, dive into the immersive learning experiences, and leap into fluency with the languages of your choice.
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -26,14 +24,3 @@ Welcome to LinguaLeap, the innovative language learning platform that leaps beyo
 - npm (v9.8 or above)
 
 ### Installation
-
-```bash
-git clone https://github.com/your-username/LinguaLeap.git
-cd LinguaLeap
-cd backend
-npm install
-npm
-cd frontent
-npm start
-
-```

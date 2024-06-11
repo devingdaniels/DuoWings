@@ -21,12 +21,12 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
   const { word, deckID } = req.body;
   const user = req.user; // User is added to the request object by the auth middleware if the token is valid (backend/middleware/auth.ts)
 
+  let createdWord;
+
   try {
     // If the word already exists, then we don't need to call the openAI API
     // We can just copy copy the conjugations, definition, example sentence, and word type from the existing word
     // This is useful for when a user adds a word to a deck that already exists in the database
-
-    let createdWord;
 
     // Check if the word already exists in the database
     const isWordInDB = await WordModel.findOne({ word: word });
@@ -34,6 +34,7 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
     console.log("isWordInDB", isWordInDB);
 
     if (isWordInDB) {
+      if (DEBUGGING) console.log("Word already exists in the database. Skipping openAI API call.");
       //! We should do this dynamically with a for loop and then delete the properties that are not needed (lkke userID, deckID, etc.)
       createdWord = {
         conjugations: isWordInDB.conjugations,
@@ -43,7 +44,6 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
         wordType: isWordInDB.wordType,
         isIrregular: isWordInDB.isIrregular,
       };
-      if (DEBUGGING) console.log("Word already exists in the database. Skipping openAI API call.");
     } else {
       // Use the openAI API and user word to add definition, example sentence
       createdWord = await openAIService.buildWord(word);
