@@ -5,10 +5,10 @@ dotenv.config();
 const NAMESPACE = "MongoDB Config";
 
 const MONGO_OPTIONS = {
-  useUnifiedTopology: true, // For deprecation warnings
-  useNewUrlParser: true, // For deprecation warnings
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
   socketTimeoutMS: 30000, // Close sockets after 30 seconds of inactivity
-  autoIndex: false, // Don't build indexes
+  autoIndex: false, //! Don't build indexes?
   retryWrites: true, // Retry writes if connection is lost
 };
 

@@ -10,8 +10,8 @@ const USER_COOKIE_NAME = config.server.userauthcookie;
 
 const signJWT = async (_id: string): Promise<string> => {
   const timeSinceEpoch = new Date().getTime();
-  const expirationTime = timeSinceEpoch + Number(config.server.token.expireTime) * 100000;
-  const expirationTimeInSeconds = Math.floor(expirationTime / 1000);
+  const expirationTime = timeSinceEpoch + Number(config.server.token.expireTime) * 100000; // Convert to milliseconds
+  const expirationTimeInSeconds = Math.floor(expirationTime / 1000); // Convert to seconds
 
   logging.info(NAMESPACE, `Attempting to sign token for user with ID: ${_id}`);
 
@@ -38,7 +38,7 @@ const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
   logging.info(NAMESPACE, `Verifying JWT`);
   try {
     // Get token from cookie
-    const token = req.cookies[USER_COOKIE_NAME];
+    const token = req.cookies[config.server.userauthcookie];
 
     if (!token) {
       return res.status(401).json({ error: "No token provided" });

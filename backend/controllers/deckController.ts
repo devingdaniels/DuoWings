@@ -2,9 +2,7 @@ import { DeckModel } from "../database/models/deckModel";
 import { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 
-const NAMESPACE = "DeckController";
-
-// https://chat.openai.com/share/b7c085f3-a91d-495c-a881-b94d2ad177b9
+const NAMESPACE = "backend/controllers/deckController.ts";
 
 const createDeck = async (req: Request, res: Response): Promise<void> => {
   const { name, description } = req.body;

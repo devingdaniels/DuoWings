@@ -7,7 +7,7 @@ import { openAIService } from "../services/openai/openaiService";
 import { WordModel } from "../database/models/wordModel";
 import { IWord } from "../interfaces";
 
-const NAMESPACE = "wordController.ts";
+const NAMESPACE = "controllers/wordController.ts";
 const DEBUGGING = process.env.DEBUGGING === "true";
 
 /*
@@ -127,7 +127,7 @@ const deleteWordFromDeckByID = async (req: Request, res: Response, next: NextFun
       { words: id },
       { $pull: { words: id } }, // MongoDB operation to remove the word from the deck's words array
       { new: true } // Return the updated deck
-    ).populate("words");
+    ).populate("words"); // Populate the words field to get the updated words array
 
     // Ensure the deck was found and updated
     if (!deck) {
@@ -135,7 +135,7 @@ const deleteWordFromDeckByID = async (req: Request, res: Response, next: NextFun
       return res.status(404).json({ error: "Failed to update deck" });
     }
 
-    return res.status(200).json({ message: "Word delete from deck.", deck });
+    return res.status(200).json({ message: "success", deck });
   } catch (error) {
     logging.error(NAMESPACE, "Error deleting word from deck:", error);
     next(error);
@@ -185,7 +185,7 @@ const updateWordInDeckByID = async (req: Request, res: Response, next: NextFunct
     // Update the deck with the updated word
     const deck = await DeckModel.findById(word.deckID).populate("words");
 
-    return res.status(201).json({ message: "Update successful", deck });
+    return res.status(201).json({ message: "success", deck });
   } catch (error) {
     logging.error(NAMESPACE, "Error updating word:", error);
     next(error);
@@ -231,7 +231,7 @@ const toggleFavorite = async (req: Request, res: Response, next: NextFunction) =
     // Update the deck with the updated word
     const deck = await DeckModel.findById(word.deckID).populate("words");
 
-    return res.status(201).json({ message: "Update successful", deck });
+    return res.status(201).json({ message: "success", deck });
   } catch (error) {
     logging.error(NAMESPACE, "Error updating word:", error);
     next(error);

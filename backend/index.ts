@@ -8,9 +8,11 @@ import express from "express";
 import http from "http";
 
 // Local file imports
-import connectMongDB from "./database/configDB";
-import logging from "./config/logging";
+
 import errorHandler from "./middleware/errorHandler";
+import connectMongDB from "./database/configDB";
+connectMongDB();
+import logging from "./config/logging";
 
 // Routes
 import deckRoutes from "./routes/deckRoutes";
@@ -23,8 +25,6 @@ const PORT = process.env.SERVER_PORT || 8000;
 const config = dotenv.config();
 const app = express();
 const server = http.createServer(app);
-
-connectMongDB();
 
 app.use(
   cors({
