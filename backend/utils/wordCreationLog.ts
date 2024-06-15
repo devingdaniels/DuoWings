@@ -2,7 +2,7 @@ const fs = require("fs").promises;
 const path = require("path");
 
 interface NewWord {
-  word: Object;
+  word: object;
   timestamp: string;
 }
 

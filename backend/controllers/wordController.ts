@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 import { NextFunction, Request, Response } from "express";
 import { openAIService } from "../services/openai/openaiService";
 import { WordModel } from "../database/models/wordModel";
-import { IWord } from "../interfaces";
 
 const NAMESPACE = "controllers/wordController.ts";
 const DEBUGGING = process.env.DEBUGGING === "true";
@@ -15,6 +14,9 @@ const DEBUGGING = process.env.DEBUGGING === "true";
  * Purpose: This function is used to create a new word and add it to its associated deck
  * Input: word, deckID
  * Output: 201 status code and the updated deck with the new word
+ * If the word already exists, then we don't need to call the openAI API
+ * We can just copy copy the conjugations, definition, example sentence, and word type from the existing word
+ * This is useful for when a user adds a word to a deck that already exists in the database
  * ********************************************************************************************************************
  */
 const createWord = async (req: Request, res: Response, next: NextFunction) => {
@@ -24,18 +26,14 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
   let createdWord;
 
   try {
-    // If the word already exists, then we don't need to call the openAI API
-    // We can just copy copy the conjugations, definition, example sentence, and word type from the existing word
-    // This is useful for when a user adds a word to a deck that already exists in the database
-
     // Check if the word already exists in the database
     const isWordInDB = await WordModel.findOne({ word: word });
 
-    console.log("isWordInDB", isWordInDB);
-
-    if (isWordInDB) {
+    if (!isWordInDB) {
+      // Use the openAI API and user word to add definition, example sentence
+      createdWord = await openAIService.buildWord(word);
+    } else {
       if (DEBUGGING) console.log("Word already exists in the database. Skipping openAI API call.");
-      //! We should do this dynamically with a for loop and then delete the properties that are not needed (lkke userID, deckID, etc.)
       createdWord = {
         conjugations: isWordInDB.conjugations,
         definition: isWordInDB.definition,
@@ -44,9 +42,6 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
         wordType: isWordInDB.wordType,
         isIrregular: isWordInDB.isIrregular,
       };
-    } else {
-      // Use the openAI API and user word to add definition, example sentence
-      createdWord = await openAIService.buildWord(word);
     }
 
     // Check if the deck exists
@@ -72,14 +67,12 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
       isFavorite: false,
     }).save();
 
-    console.log("newWord", newWord);
-
     // Add the word to the deck's words array
     deckFromDB.words.push(newWord);
     // Update the deck in the database
     await deckFromDB.save();
 
-    // Log the word to a file
+    // Log the word to a file (don't await this function to avoid slowing down the response time)
     writeWordToFile({
       word: newWord,
       timestamp: new Date().toISOString(),

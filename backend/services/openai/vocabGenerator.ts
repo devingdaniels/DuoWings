@@ -17,15 +17,43 @@ Example Format:
   "definition": "To do, to make",
   "wordType": "Verb",
   "exampleSentence": "Yo hago mi tarea todos los días.",
-  "phoneticSpelling": "deh-rrah-mahr",
+  "phoneticSpelling": "ah-ser",
   "isIrregular": true,
+  "synonyms": ["realizar", "obrar"],
+  "antonyms": ["deshacer", "desmontar"],
   "conjugations": {
     "present": {
       "yo": "hago",
       "tu": "haces",
-      ...
+      "el": "hace",
+      "nosotros": "hacemos",
+      "vosotros": "hacéis",
+      "ellos": "hacen"
     },
-    ...
+    "preterite": {
+      "yo": "hice",
+      "tu": "hiciste",
+      "el": "hizo",
+      "nosotros": "hicimos",
+      "vosotros": "hicisteis",
+      "ellos": "hicieron"
+    },
+    "future": {
+      "yo": "haré",
+      "tu": "harás",
+      "el": "hará",
+      "nosotros": "haremos",
+      "vosotros": "haréis",
+      "ellos": "harán"
+    },
+    "imperfect": {
+      "yo": "hacía",
+      "tu": "hacías",
+      "el": "hacía",
+      "nosotros": "hacíamos",
+      "vosotros": "hacíais",
+      "ellos": "hacían"
+    }
   }
 }
 
@@ -37,44 +65,44 @@ For the given word "${word}", fill in the following:
   "exampleSentence": "[Enter an example sentence using '${word}' in Spanish]",
   "phoneticSpelling": "[Provide the phonetic spelling using English phonetic cues]",
   "isIrregular": [true/false],
+  "synonyms": ["[Provide 2-3 synonyms in Spanish]"],
+  "antonyms": ["[Provide 2-3 antonyms in Spanish]"],
   "conjugations": ${
-    '"wordType" === "Verb"'
+    "wordType === Verb"
       ? `{
-        conjugations: {
-          present: {
-              yo: [conjugation for 'yo'],
-              tu: [conjugation for 'tu'],
-              el: [conjugation for 'el'],
-              nosotros: [conjugation for 'nosotros'],
-              vosotros: [conjugation for 'vosotros'],
-              ellos: [conjugation for 'ellos'],
-          },
-          preterite: {
-              yo: [conjugation for 'yo in preterite'],
-              tu: [conjugation for 'tu in preterite'],
-              el: [conjugation for 'el in preterite'],
-              nosotros: [conjugation for 'nosotros in preterite'],
-              vosotros: [conjugation for 'vosotros in preterite'],
-              ellos: [conjugation for 'ellos in preterite'],
-          },
-          future: {
-              yo: [conjugation for 'yo in future],
-              tu: [conjugation for 'tu in future],
-              el: [conjugation for 'el in future],
-              nosotros: [conjugation for 'nosotros in future],
-              vosotros: [conjugation for 'vosotros in future],
-              ellos: [conjugation for 'ellos in future],
-          },
-          imperfect: {
-              yo: [conjugation for 'yo in imperfect],
-              tu: [conjugation for 'tu in imperfect],
-              el: [conjugation for 'el in imperfect],
-              nosotros: [conjugation for 'nosotros in imperfect],
-              vosotros: [conjugation for 'vosotros in imperfect],
-              ellos: [conjugation for 'ellos in imperfect],
-          },
-      },
-    }`
+    "present": {
+      "yo": "[conjugation for 'yo']",
+      "tu": "[conjugation for 'tu']",
+      "el": "[conjugation for 'el']",
+      "nosotros": "[conjugation for 'nosotros']",
+      "vosotros": "[conjugation for 'vosotros']",
+      "ellos": "[conjugation for 'ellos']"
+    },
+    "preterite": {
+      "yo": "[conjugation for 'yo' in preterite]",
+      "tu": "[conjugation for 'tu' in preterite]",
+      "el": "[conjugation for 'el' in preterite]",
+      "nosotros": "[conjugation for 'nosotros' in preterite]",
+      "vosotros": "[conjugation for 'vosotros' in preterite]",
+      "ellos": "[conjugation for 'ellos' in preterite]"
+    },
+    "future": {
+      "yo": "[conjugation for 'yo' in future]",
+      "tu": "[conjugation for 'tu' in future]",
+      "el": "[conjugation for 'el' in future]",
+      "nosotros": "[conjugation for 'nosotros' in future]",
+      "vosotros": "[conjugation for 'vosotros' in future]",
+      "ellos": "[conjugation for 'ellos' in future]"
+    },
+    "imperfect": {
+      "yo": "[conjugation for 'yo' in imperfect]",
+      "tu": "[conjugation for 'tu' in imperfect]",
+      "el": "[conjugation for 'el' in imperfect]",
+      "nosotros": "[conjugation for 'nosotros' in imperfect]",
+      "vosotros": "[conjugation for 'vosotros' in imperfect]",
+      "ellos": "[conjugation for 'ellos' in imperfect]"
+    }
+  }`
       : "{}"
   }
 }`;

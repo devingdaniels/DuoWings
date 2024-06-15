@@ -49,7 +49,7 @@ const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
     const decoded: JwtPayload = jwt.verify(token, config.server.token.secret) as JwtPayload;
 
     // Decode the token to get unique user id
-    const user = await UserModel.findById(decoded.id).select("-password");
+    const user = await UserModel.findById(decoded.id).select("-password"); //
 
     if (!user) {
       return res.status(401).json({ error: "Invalid user" });
