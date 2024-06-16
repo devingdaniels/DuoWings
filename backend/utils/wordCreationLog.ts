@@ -1,17 +1,10 @@
 const fs = require("fs").promises;
 const path = require("path");
+import { IWord } from "../interfaces";
 
-interface NewWord {
-  word: object;
-  timestamp: string;
-}
-
-export async function writeWordToFile(obj: NewWord) {
+export async function writeWordToFile(word: IWord) {
   let res;
-  await writeWordToFileHelper({
-    word: obj.word,
-    timestamp: obj.timestamp,
-  })
+  await writeWordToFileHelper(word)
     .then((result) => {
       if (result === 1) res = 1;
       else res = 0;
@@ -23,7 +16,9 @@ export async function writeWordToFile(obj: NewWord) {
   return res;
 }
 
-async function writeWordToFileHelper(newWord: NewWord) {
+async function writeWordToFileHelper(newWord: IWord) {
+  // Add a date to the word object
+
   try {
     // Dirname: /Users/dev/Desktop/DevMacPro/coding/duoWings/backend/dist/utils
     const targetDir = path.join(__dirname, "..", "..", "services", "openai"); // Users/dev/Desktop/DevMacPro/coding/duoWings/backend/services/openai

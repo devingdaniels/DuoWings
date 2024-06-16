@@ -7,7 +7,7 @@ import { openAIService } from "../services/openai/openaiService";
 import { WordModel } from "../database/models/wordModel";
 
 const NAMESPACE = "controllers/wordController.ts";
-const DEBUGGING = process.env.DEBUGGING === "true";
+const DEBUGGING = process.env.DEBUGGING;
 
 /*
  * ********************************************************************************************************************
@@ -19,9 +19,10 @@ const DEBUGGING = process.env.DEBUGGING === "true";
  * This is useful for when a user adds a word to a deck that already exists in the database
  * ********************************************************************************************************************
  */
+
 const createWord = async (req: Request, res: Response, next: NextFunction) => {
   const { word, deckID } = req.body;
-  const user = req.user; // User is added to the request object by the auth middleware if the token is valid (backend/middleware/auth.ts)
+  const user = req.user; // user is added to the request object by the auth middleware if the token is valid (backend/middleware/auth.ts)
 
   let createdWord;
 
@@ -33,7 +34,7 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
       // Use the openAI API and user word to add definition, example sentence
       createdWord = await openAIService.buildWord(word);
     } else {
-      if (DEBUGGING) console.log("Word already exists in the database. Skipping openAI API call.");
+      if (DEBUGGING) console.log("Word already exists, skipping openAI API call.");
       createdWord = {
         conjugations: isWordInDB.conjugations,
         definition: isWordInDB.definition,
@@ -73,10 +74,7 @@ const createWord = async (req: Request, res: Response, next: NextFunction) => {
     await deckFromDB.save();
 
     // Log the word to a file (don't await this function to avoid slowing down the response time)
-    writeWordToFile({
-      word: newWord,
-      timestamp: new Date().toISOString(),
-    });
+    writeWordToFile(newWord);
 
     // Return the updated deck with the new word
     return res.status(201).json({
