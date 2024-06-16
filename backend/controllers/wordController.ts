@@ -118,7 +118,7 @@ const deleteWordFromDeckByID = async (req: Request, res: Response, next: NextFun
       { words: id },
       { $pull: { words: id } }, // MongoDB operation to remove the word from the deck's words array
       { new: true } // Return the updated deck
-    ).populate("words"); // Populate the words field to get the updated words array
+    ).populate("words"); // Populate the reference to the words in the deck
 
     // Ensure the deck was found and updated
     if (!deck) {
@@ -146,7 +146,6 @@ const updateWordInDeckByID = async (req: Request, res: Response, next: NextFunct
   const { id } = req.params;
 
   try {
-    // Find the word
     const wordFromDB = await WordModel.findById(id);
 
     if (!wordFromDB) {

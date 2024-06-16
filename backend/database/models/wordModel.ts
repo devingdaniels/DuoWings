@@ -103,7 +103,6 @@ const WordSchema = new mongoose.Schema({
       ellos: String,
     },
   },
-  //! Not yet on the frontend or backend interfaces or in the database or populated by the openAI API
   synonyms: [String],
   antonyms: [String],
 });

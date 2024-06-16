@@ -17,8 +17,6 @@ export async function writeWordToFile(word: IWord) {
 }
 
 async function writeWordToFileHelper(newWord: IWord) {
-  // Add a date to the word object
-
   try {
     // Dirname: /Users/dev/Desktop/DevMacPro/coding/duoWings/backend/dist/utils
     const targetDir = path.join(__dirname, "..", "..", "services", "openai"); // Users/dev/Desktop/DevMacPro/coding/duoWings/backend/services/openai
@@ -47,5 +45,6 @@ async function writeWordToFileHelper(newWord: IWord) {
     return 1;
   } catch (error) {
     console.error("Error appending to file:", error);
+    return;
   }
 }

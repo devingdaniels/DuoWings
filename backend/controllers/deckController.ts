@@ -56,7 +56,6 @@ const fetchAllDecks = async (req: Request, res: Response): Promise<void> => {
 };
 
 /* -------------------------------------------------------------------------------------------------- */
-
 const fetchDeckByID = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const deck = await DeckModel.findOne({ userID: req.user._id, _id: req.params });
