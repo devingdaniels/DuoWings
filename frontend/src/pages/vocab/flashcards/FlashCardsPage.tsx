@@ -6,7 +6,7 @@ import { BiSkipPreviousCircle } from "react-icons/bi";
 import { FaShuffle } from "react-icons/fa6";
 import { delay } from "../../../utils/UtilityFunctions";
 
-const FlashCardsPage = () => {
+const FlashCardsPage: React.FC = () => {
   const { currentDeck } = useAppSelector((state) => state.vocab);
   const words = useMemo(() => {
     return currentDeck?.words || [];
@@ -41,7 +41,7 @@ const FlashCardsPage = () => {
 
   useEffect(() => {
     if (isShuffled) {
-      //! Create better shuffle algorithm
+      //! Create better shuffle algorithm?
       const shuffled = [...words].sort(() => 0.5 - Math.random());
       setShuffledWords(shuffled);
     } else {
@@ -97,7 +97,6 @@ const FlashCardsPage = () => {
               onClick={toggleShuffle}
             />
           </div>
-          <div></div>
         </>
       ) : (
         <div>No words found or deck is not selected.</div>

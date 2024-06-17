@@ -18,7 +18,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ ...props }) => {
   const { deck, word, isFlipped, setIsFlipped } = props;
   // Redux
   const dispatch = useAppDispatch();
-
+  // Methods
   const handleToggleFavorite = async (word: IWord, e: React.MouseEvent) => {
     // Prevent the click event from bubbling up to the parent div
     e.stopPropagation();
