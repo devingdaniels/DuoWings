@@ -6,7 +6,35 @@ import OpenAI from "openai";
 import textToSpeech from "@google-cloud/text-to-speech";
 
 const NAMESPACE = "openai/wordBuilder.ts";
-const DEBUGGING = true;
+const DEBUGGING = process.env.DEBUGGING;
+
+/**
+ * Builds a word object using the OpenAI API
+ * @param word - string to build the object
+ * @param user - The user object with context  //!TODO: Create a TypeScript interface for the user object: onboarding learning context, etc
+ * @returns A word object as a JS object
+ */
+const buildWord = async (word: string): Promise<IWord> => {
+  const openAI = new OpenAI();
+  try {
+    const response = await openAI.chat.completions.create({
+      messages: [{ role: "system", content: createPrompt(word) }],
+      model: "gpt-4o", //! TODO: This should be an environment variable so premium users can use the Davinci (premium) model
+      response_format: { type: "json_object" },
+    });
+
+    if (DEBUGGING) console.log(response);
+
+    if (response.choices[0].message.content == null) {
+      throw new Error(`${NAMESPACE}: No choices returned`);
+    }
+    // Deserialize the JSON object and return it
+    return JSON.parse(response.choices[0].message.content);
+  } catch (error) {
+    console.error(NAMESPACE, error);
+    throw new Error(`${NAMESPACE}: ${error}`);
+  }
+};
 
 function createPrompt(word: string) {
   const prompt = `Construct a detailed JSON object for the Spanish word "${word}". Ensure the definition is concise and in English. If "${word}" is a verb, include its conjugations in the present, preterite, future, and imperfect tenses. For non-verbs, the conjugations attribute should be an empty object {}. Use complete sentences for examples, starting with a capital letter and ending with a period. Follow the example format provided very closely.
@@ -111,46 +139,20 @@ For the given word "${word}", fill in the following:
   return prompt;
 }
 
-/**
- * Builds a word object using the OpenAI API
- * @param word - The word as a string to build the object
- * @param user - The user object //!TODO: Create a TypeScript interface for the user object: onboarding learning context, etc
- * @returns A word object as a JS object
- */
-
-const buildWord = async (word: string): Promise<IWord> => {
-  const openAI = new OpenAI();
-  try {
-    const response = await openAI.chat.completions.create({
-      messages: [{ role: "system", content: createPrompt(word) }],
-      model: "gpt-4o", //! TODO: This should be an environment variable so premium users can use the Davinci (premium) model
-      response_format: { type: "json_object" },
-    });
-
-    if (DEBUGGING) console.log(response);
-
-    if (response.choices[0].message.content == null) {
-      throw new Error(`${NAMESPACE}: No choices returned`);
-    }
-    // Deserialize the JSON object and return it
-    return JSON.parse(response.choices[0].message.content);
-  } catch (error) {
-    console.error(NAMESPACE, error);
-    throw new Error(`${NAMESPACE}: ${error}`);
-  }
-};
-
 export { buildWord };
 
-async function listVoices(languageCode: string = "en-US") {
-  const textToSpeech = require("@google-cloud/text-to-speech");
+// async function listVoices(languageCode: string = "en-US") {
+//   const client = new textToSpeech.TextToSpeechClient();
 
-  const client = new textToSpeech.TextToSpeechClient();
+//   const [result] = await client.listVoices({ languageCode });
+//   const voices = result.voices;
 
-  const [result] = await client.listVoices({ languageCode });
-  const voices = result.voices;
+//   if (voices == null) {
+//     console.log("No voices found!");
+//     return;
+//   }
 
-  voices.forEach((voice: any) => {
-    console.log(`${voice.name} (${voice.ssmlGender}): ${voice.languageCodes}`);
-  });
-}
+//   voices.forEach((voice: any) => {
+//     console.log(`${voice.name} (${voice.ssmlGender}): ${voice.languageCodes}`);
+//   });
+// }
