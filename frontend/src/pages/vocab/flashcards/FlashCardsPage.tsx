@@ -54,19 +54,18 @@ const FlashCardsPage: React.FC = () => {
     const flipSpace = (e: KeyboardEvent) => (e.code === "Space" ? setIsFlipped(!isFlipped) : null);
     const handleRightArrow = (e: KeyboardEvent) => (e.code === "ArrowRight" ? handleNext() : null);
     const leftArrow = (e: KeyboardEvent) => (e.code === "ArrowLeft" ? handlePrev() : null);
-    const toggleShuffle = (e: KeyboardEvent) =>
-      e.code === "KeyS" ? setIsShuffled(!isShuffled) : null;
+    const togShuf = (e: KeyboardEvent) => (e.code === "KeyS" ? setIsShuffled(!isShuffled) : null);
 
     document.addEventListener("keydown", flipSpace);
     document.addEventListener("keydown", handleRightArrow);
     document.addEventListener("keydown", leftArrow);
-    document.addEventListener("keydown", toggleShuffle);
+    document.addEventListener("keydown", togShuf);
 
     return () => {
       document.removeEventListener("keydown", flipSpace);
       document.removeEventListener("keydown", handleRightArrow);
       document.removeEventListener("keydown", leftArrow);
-      document.removeEventListener("keydown", toggleShuffle);
+      document.removeEventListener("keydown", togShuf);
     };
   });
 
